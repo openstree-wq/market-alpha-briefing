@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Alpha Briefing | LUPE - 2026.07.29 (v2)</title>
+<style>
+  :root{
+    --lupe-red:#C1001B;
+    --lupe-dark:#1A1A1A;
+    --lupe-mid:#4A4A4A;
+    --lupe-warn:#B5750A;
+    --lupe-green:#1A7A3C;
+    --bg:#F7F7F5;
+    --line:#E4E1DC;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Noto Sans KR','Malgun Gothic',-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--lupe-dark);
+    font-size:16px;
+    line-height:1.75;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px 70px;}
+
+  /* HEADER */
+  header{background:var(--lupe-dark);color:#fff;padding:26px 22px;}
+  header .inner{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px;}
+  header h1{font-size:24px;font-weight:800;letter-spacing:-0.3px;}
+  header .sub{font-size:14px;color:#cfcfcf;margin-top:6px;}
+  header .rerun{display:inline-block;margin-top:10px;background:var(--lupe-red);color:#fff;font-size:12px;font-weight:700;padding:3px 9px;border-radius:3px;}
+  .lupe-mark{text-align:right;font-size:14px;color:#ddd;font-weight:700;border-left:2px solid var(--lupe-red);padding-left:14px;}
+  .lupe-mark .top{font-size:16px;color:#fff;font-weight:800;}
+
+  /* BLUF */
+  .bluf{background:var(--lupe-red);color:#fff;padding:18px 22px;}
+  .bluf .inner{max-width:1040px;margin:0 auto;}
+  .bluf .label{font-size:12px;font-weight:800;letter-spacing:2px;opacity:.85;display:block;margin-bottom:8px;}
+  .bluf p{font-size:16px;font-weight:600;}
+
+  section{margin-top:42px;}
+  h2.h2{
+    font-size:14px;font-weight:800;letter-spacing:.5px;color:var(--lupe-dark);
+    border-bottom:2px solid var(--lupe-red);padding-bottom:10px;margin-bottom:18px;
+    display:flex;align-items:center;gap:8px;text-transform:uppercase;
+  }
+  h2.h2 .num{background:var(--lupe-red);color:#fff;width:22px;height:22px;border-radius:50%;
+    font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;text-transform:none;}
+
+  h3.h3{font-size:14px;font-weight:700;color:var(--lupe-mid);margin:16px 0 8px;}
+
+  /* INDEX CARDS */
+  .idx-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:720px){.idx-cards{grid-template-columns:1fr;}}
+  .idx-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:16px 18px;}
+  .idx-card .name{font-size:14px;color:var(--lupe-mid);font-weight:700;margin-bottom:6px;}
+  .idx-card .val{font-size:28px;font-weight:800;color:var(--lupe-dark);}
+  .idx-card .chg{font-size:14px;font-weight:700;margin-top:4px;}
+  .up{color:var(--lupe-green);} .down{color:var(--lupe-red);}
+  .idx-card .why{font-size:14px;color:var(--lupe-mid);margin-top:10px;border-top:1px dashed var(--line);padding-top:8px;}
+
+  /* MACRO CARDS */
+  .macro-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:720px){.macro-cards{grid-template-columns:1fr;}}
+  .macro-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:16px 18px;}
+  .macro-card .name{font-size:14px;color:var(--lupe-mid);font-weight:700;margin-bottom:6px;}
+  .macro-card .val{font-size:24px;font-weight:800;color:var(--lupe-dark);}
+  .macro-card .chg{font-size:14px;font-weight:700;margin-top:4px;}
+  .flag{display:inline-block;font-size:12px;font-weight:800;padding:2px 7px;border-radius:3px;margin-left:6px;vertical-align:middle;}
+  .flag-ok{background:#e8f5ec;color:var(--lupe-green);}
+  .flag-warn{background:#fdf2e2;color:var(--lupe-warn);}
+
+  /* NEWS */
+  .news-item{background:#fff;border:1px solid var(--line);border-left:4px solid var(--lupe-red);border-radius:0 8px 8px 0;padding:16px 18px;margin-bottom:14px;}
+  .news-item .headline{font-size:16px;font-weight:700;color:var(--lupe-dark);margin-bottom:6px;}
+  .news-item .body{font-size:14px;color:var(--lupe-mid);}
+  .news-item .src{font-size:12px;color:#999;margin-top:8px;}
+
+  /* CATALYST TABLE */
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+  thead th{background:var(--lupe-dark);color:#fff;font-size:12px;font-weight:700;text-align:left;padding:10px 12px;letter-spacing:.3px;}
+  tbody td{font-size:14px;padding:11px 12px;border-top:1px solid var(--line);color:var(--lupe-dark);}
+  tbody tr:nth-child(even){background:#FAFAF8;}
+  .tag{display:inline-block;font-size:12px;font-weight:800;padding:2px 8px;border-radius:10px;background:var(--lupe-red);color:#fff;}
+  .tag-sub{background:#EFEFEF;color:var(--lupe-mid);}
+
+  /* STRATEGY */
+  .strategy-box{background:var(--lupe-dark);color:#fff;border-radius:10px;padding:26px 26px;}
+  .strategy-box .label{font-size:12px;letter-spacing:2px;color:#ccc;font-weight:800;margin-bottom:10px;}
+  .strategy-box h3{font-size:30px;font-weight:800;color:#fff;}
+  .strategy-box h3 .accent{color:#FF4D5E;}
+  .strategy-box p{font-size:15px;color:#dcdcdc;margin-top:12px;}
+
+  /* SOURCES */
+  .sources{margin-top:36px;border-top:1px solid var(--line);padding-top:16px;}
+  .sources h4{font-size:12px;font-weight:800;color:var(--lupe-mid);letter-spacing:1px;margin-bottom:8px;text-transform:uppercase;}
+  .sources ul{list-style:none;font-size:12px;color:#888;line-height:1.9;}
+  .sources a{color:var(--lupe-mid);text-decoration:none;border-bottom:1px dotted #ccc;}
+
+  footer{margin-top:50px;padding-top:16px;border-top:2px solid var(--lupe-dark);font-size:12px;color:#999;display:flex;justify-content:space-between;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <div>
+      <h1>Market Alpha Briefing</h1>
+      <div class="sub">2026년 7월 29일(수) · Wall Street Portfolio Strategist Daily Note</div>
+      <span class="rerun">RE-RUN · v2 (당일 2차 실행본, v1 08:06 UTC 생성분 보완)</span>
+    </div>
+    <div class="lupe-mark"><div class="top">LUPE</div>Investment Desk</div>
+  </div>
+</header>
+
+<div class="bluf">
+  <div class="inner">
+    <span class="label">BLUF · EXECUTIVE SUMMARY</span>
+    <p>Dow는 실적 호조와 유가 하락에 힘입어 사상 최고치(+1.03%)로 마감했으나 반도체 급락이 Nasdaq을 짓눌렀고(-0.22%), 오늘 오후(한국시간 새벽) 예정된 FOMC 결정과 중동發 유가 쇼크가 겹치며 시장은 관망세다. Fear &amp; Greed는 여전히 &#39;Fear&#39; 구간(37)에 머물러 있어, 결정 이전까지는 <b>Defensive Value</b> 접근이 합리적이다.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- 1. Overnight Market Delta -->
+  <section>
+    <h2 class="h2"><span class="num">1</span>Overnight Market Delta</h2>
+    <div class="idx-cards">
+      <div class="idx-card">
+        <div class="name">S&amp;P 500</div>
+        <div class="val">7,428.78</div>
+        <div class="chg up">▲ +0.21%</div>
+      </div>
+      <div class="idx-card">
+        <div class="name">Nasdaq Composite</div>
+        <div class="val">24,876.91</div>
+        <div class="chg down">▼ -0.22%</div>
+      </div>
+      <div class="idx-card">
+        <div class="name">Dow Jones (Record Close)</div>
+        <div class="val">52,747.32</div>
+        <div class="chg up">▲ +537.24 (+1.03%)</div>
+      </div>
+    </div>
+    <div class="idx-card" style="margin-top:14px;">
+      <div class="why">
+        <b>Dow 강세 요인</b>: Boeing·PayPal·Coca-Cola 등 어닝 서프라이즈(코카콜라는 2009년 이후 최대 상승폭), 국제유가 하락, 반도체株 이탈 자금의 로테이션 유입.<br>
+        <b>Nasdaq 약세 요인</b>: 아시아 증시發 반도체 매도세 전이 — SMH(반도체 ETF) 4거래일 연속 하락(-3%대), Micron·AMD 등 -8% 급락. FOMC 결과 대기하며 위험자산 전반 관망 심리 형성.
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Macro Pulse -->
+  <section>
+    <h2 class="h2"><span class="num">2</span>Macro Pulse</h2>
+    <div class="macro-cards">
+      <div class="macro-card">
+        <div class="name">10Y Treasury Yield <span class="flag flag-ok">2소스 확인</span></div>
+        <div class="val">4.62%</div>
+        <div class="chg down">3거래일 연속 하락, 약 1주일來 최저</div>
+      </div>
+      <div class="macro-card">
+        <div class="name">Dollar Index (DXY) <span class="flag flag-warn">⚠️ 단일소스</span></div>
+        <div class="val">≈101.4</div>
+        <div class="chg">장중 101.38~101.60 구간 (소스 간 0.2pt 이내 편차)</div>
+      </div>
+      <div class="macro-card">
+        <div class="name">Fear &amp; Greed Index <span class="flag flag-warn">⚠️ 단일소스</span></div>
+        <div class="val">37</div>
+        <div class="chg down">Fear 구간 지속 (전일 대비 소폭 둔화)</div>
+      </div>
+    </div>
+    <div class="idx-card" style="margin-top:14px;">
+      <div class="why">참고: 대체 산정방식(feargreedmeter.com)은 동일 시점 45(Neutral)를 제시해 CNN 공식 지수(37·Fear)와 괴리가 있음. 방법론 차이로 판단, 원 소스 CNN 기준값을 채택.</div>
+    </div>
+  </section>
+
+  <!-- 3. Critical News -->
+  <section>
+    <h2 class="h2"><span class="num">3</span>Critical News — Top 3</h2>
+
+    <div class="news-item">
+      <div class="headline">① 중동發 Iran-US 군사적 충돌, 유가 급등</div>
+      <div class="body">미군이 이란의 &quot;기습 공격 시도&quot;를 격퇴했다고 발표하며 WTI 유가가 배럴당 $83선까지 약 5% 급등. 호르무즈 해협 통항 및 에너지 공급 리스크가 재부각되며 안전자산 선호 심리 강화.</div>
+      <div class="src">출처: Bloomberg — Stock Market Today Live Updates (2026.07.28)</div>
+    </div>
+
+    <div class="news-item">
+      <div class="headline">② Trump, 60개국 대상 신규 관세 발효 (Section 301)</div>
+      <div class="body">대법원의 IEEPA 관세 위헌 판결 이후, 행정부는 Section 301(강제노동 연루 혐의)을 근거로 중국·캐나다·멕시코·영국·인도·호주 등 60개국에 10~12.5% 신규 관세 부과. 글로벌 교역 마찰 재점화.</div>
+      <div class="src">출처: Time, US News &amp; World Report (2026.07.24)</div>
+    </div>
+
+    <div class="news-item">
+      <div class="headline">③ 신임 Fed 의장 Kevin Warsh, 두 번째 정책 결정 앞둬</div>
+      <div class="body">Powell 퇴임 후 취임한 Warsh 의장의 2번째 FOMC 결정이 오늘(현지시간) 발표. 이번 회의는 SEP(경제전망요약·dot plot) 미포함 회의로, 성명서 문구와 기자회견 톤이 시장 방향성의 핵심 변수.</div>
+      <div class="src">출처: CME Group, Federal Reserve H.15 (2026.07.28)</div>
+    </div>
+  </section>
+
+  <!-- 4. Today's Catalyst -->
+  <section>
+    <h2 class="h2"><span class="num">4</span>Today&#39;s Catalyst — Checklist (Next 24h)</h2>
+    <table>
+      <thead>
+        <tr><th>시간 (ET / KST)</th><th>이벤트</th><th>구분</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>10:00 AM ET / 23:00 KST</td>
+          <td>Corporate Bond Market Distress Index (CMDI) 발표</td>
+          <td><span class="tag tag-sub">Data</span></td>
+        </tr>
+        <tr>
+          <td>2:00 PM ET / 익일 03:00 KST</td>
+          <td><b>FOMC 정책금리 결정 성명서 발표</b></td>
+          <td><span class="tag">FOMC</span></td>
+        </tr>
+        <tr>
+          <td>2:30 PM ET / 익일 03:30 KST</td>
+          <td><b>Fed 의장 Kevin Warsh 기자회견</b> (SEP·dot plot 없음)</td>
+          <td><span class="tag">FOMC</span></td>
+        </tr>
+        <tr>
+          <td>[참고] 8:30 AM ET(7/30) / 21:30 KST(7/30)</td>
+          <td>2분기 GDP 속보치 (24h 창 직후, 다음 세션 핵심 변수로 병기)</td>
+          <td><span class="tag tag-sub">Data</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 5. Strategic Takeaway -->
+  <section>
+    <h2 class="h2"><span class="num">5</span>Strategic Takeaway</h2>
+    <div class="strategy-box">
+      <div class="label">TODAY&#39;S STANCE</div>
+      <h3>오늘은 <span class="accent">Defensive Value</span> 우위</h3>
+      <p>Fear &amp; Greed의 &#39;Fear&#39; 구간 고착, 중동 지정학 리스크發 유가 쇼크, 신임 Fed 의장의 첫 무(無)dot-plot 회의라는 불확실성이 겹쳐 FOMC 결과 확인 전까지는 방어적 포지셔닝이 우위다. 단, Warsh 기자회견에서 완화적(dovish) 톤이 확인될 경우, 반도체 낙폭과대 구간 중심의 Aggressive Growth 전환 타이밍을 즉시 포착할 것을 권고한다.</p>
+    </div>
+  </section>
+
+  <div class="sources">
+    <h4>Data &amp; Source Verification</h4>
+    <ul>
+      <li>지수 종가 출처: Yahoo Finance / Bloomberg / TheStreet / CNBC — Stock Market Today, 2026.07.28 마감 기준</li>
+      <li>10Y Yield 출처: Federal Reserve H.15 Selected Interest Rates, FRED(DGS10) 교차확인 (4.62~4.64% 구간)</li>
+      <li>DXY 출처: 실시간 스냅샷 교차 검증 실패로 단일소스 표기(⚠️) — 확정 수치 아님, 별도 확인 권장</li>
+      <li>Fear &amp; Greed 출처: CNN Business Fear &amp; Greed Index (benzinga.com 인용 보도), 2026.07.28 — 단일소스(⚠️)</li>
+      <li>뉴스 ①: <a href="https://www.bloomberg.com/news/articles/2026-07-28/stock-market-today-dow-s-p-live-updates" target="_blank">Stock Market Today: Dow, S&amp;P Live Updates — Bloomberg</a></li>
+      <li>뉴스 ②: <a href="https://time.com/article/2026/07/24/trump-tariffs-forced-labor-explainer/" target="_blank">Trump&#39;s New Tariffs on Over 80 Countries, Explained — TIME</a></li>
+      <li>뉴스 ③: <a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm" target="_blank">FOMC Meeting Calendars — Federal Reserve</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <div>© 2026 LUPE Investment Desk. Internal Use Only.</div>
+    <div>Page 1 / 1</div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Alpha Briefing | LUPE — 2026.07.30 (v2, 신규 규격 테스트)</title>
+<style>
+  :root{
+    --lupe-red:#C1001B;
+    --lupe-dark:#1A1A1A;
+    --lupe-mid:#4A4A4A;
+    --lupe-warn:#E87722;
+    --lupe-green:#1A7A3C;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:0; background:#fff; color:var(--lupe-dark);
+    font-family:'Noto Sans KR','Malgun Gothic',sans-serif;
+    font-size:16px; line-height:1.75;
+  }
+  .wrap{max-width:980px; margin:0 auto; padding:0 20px 60px;}
+  header.top{
+    background:var(--lupe-dark); color:#fff;
+    padding:28px 20px; margin-bottom:0;
+  }
+  header.top .inner{
+    max-width:980px; margin:0 auto; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;
+  }
+  header.top h1{margin:0 0 8px; font-size:24px; letter-spacing:-0.5px;}
+  header.top .meta{font-size:13px; color:#c9c9c9; line-height:1.8;}
+  header.top .meta b{color:#fff;}
+  .logo-block{
+    text-align:right; border:1px solid #444; padding:10px 16px; border-radius:4px; min-width:180px;
+  }
+  .logo-block .l1{font-weight:700; font-size:15px; color:#fff; letter-spacing:1px;}
+  .logo-block .l2{font-size:11px; color:var(--lupe-red); font-weight:700; letter-spacing:1px; margin-top:2px;}
+  .test-tag{
+    display:inline-block; background:var(--lupe-warn); color:#fff; font-size:11px; font-weight:700;
+    padding:3px 10px; border-radius:3px; margin-bottom:8px;
+  }
+
+  .bluf{
+    background:var(--lupe-red); color:#fff; padding:18px 24px; font-size:15px; font-weight:600;
+    margin:0 0 30px;
+  }
+  .bluf .tag{font-size:11px; font-weight:700; letter-spacing:2px; opacity:.85; display:block; margin-bottom:6px;}
+
+  section{margin-bottom:42px;}
+  .sec-title{
+    display:flex; align-items:center; gap:10px; margin-bottom:18px;
+    border-bottom:2px solid var(--lupe-red); padding-bottom:8px;
+  }
+  .sec-badge{
+    background:var(--lupe-red); color:#fff; font-size:12px; font-weight:700;
+    width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .sec-title h2{margin:0; font-size:14px; font-weight:700; letter-spacing:.3px;}
+  .sec-sub{font-size:12px; color:var(--lupe-mid); font-weight:400; margin-left:4px;}
+
+  .card-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .card{
+    flex:1 1 260px; border:1px solid #e5e5e5; border-radius:6px; padding:16px 18px; background:#fafafa;
+    position:relative;
+  }
+  .card h3{margin:0 0 6px; font-size:13px; color:var(--lupe-mid); font-weight:700; letter-spacing:.5px;}
+  .card .val{font-size:28px; font-weight:700; margin:2px 0;}
+  .card.macro .val{font-size:24px;}
+  .card .chg{font-size:14px; font-weight:700;}
+  .chg.down{color:var(--lupe-red);}
+  .chg.up{color:var(--lupe-green);}
+  .card .asof{font-size:12px; color:#999; margin-top:8px;}
+  .badge-warn{
+    display:inline-block; font-size:10px; background:var(--lupe-warn); color:#fff; padding:2px 6px; border-radius:3px;
+    margin-left:6px; font-weight:700;
+  }
+  .badge-single{
+    display:inline-block; font-size:10px; background:#999; color:#fff; padding:2px 6px; border-radius:3px;
+    margin-left:6px; font-weight:700;
+  }
+
+  .explain-box{
+    margin-top:18px; background:#fff5f5; border-left:4px solid var(--lupe-red); padding:14px 18px; font-size:14px; color:#333;
+  }
+  .oil-box{
+    margin-top:16px; background:#fff8f0; border-left:4px solid var(--lupe-warn); padding:14px 18px; font-size:14px;
+  }
+  .oil-box h4{margin:0 0 6px; font-size:13px; color:var(--lupe-warn);}
+  .tool-note{
+    margin-top:10px; font-size:12px; color:#999; background:#f5f5f5; padding:8px 12px; border-radius:4px;
+  }
+
+  .fg-gauge{margin-top:10px;}
+  .fg-track{
+    position:relative; height:10px; border-radius:5px;
+    background:linear-gradient(90deg,#C1001B 0%, var(--lupe-warn) 30%, #E8C400 50%, #8FC93A 70%, var(--lupe-green) 100%);
+  }
+  .fg-marker{
+    position:absolute; top:-5px; width:3px; height:20px; background:var(--lupe-dark);
+  }
+  .fg-labels{display:flex; justify-content:space-between; font-size:11px; color:#999; margin-top:4px;}
+
+  .news-item{
+    border:1px solid #e5e5e5; border-radius:6px; padding:16px 18px; margin-bottom:12px;
+  }
+  .news-item .head{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:6px;}
+  .news-item h4{margin:0; font-size:16px;}
+  .impact{font-size:11px; font-weight:700; padding:3px 10px; border-radius:12px; color:#fff; white-space:nowrap;}
+  .impact.high{background:var(--lupe-red);}
+  .impact.medium{background:var(--lupe-warn);}
+  .news-item p{margin:0; font-size:14px; color:#333;}
+
+  table{width:100%; border-collapse:collapse; font-size:14px;}
+  th, td{border:1px solid #e5e5e5; padding:10px 8px; text-align:left; vertical-align:top;}
+  th{background:var(--lupe-dark); color:#fff; font-size:12px;}
+  tr.today{background:#fff0f0;}
+  tr.today td:first-child{border-left:3px solid var(--lupe-red);}
+  .imp-badge{font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; color:#fff; display:inline-block;}
+  .imp-badge.high{background:var(--lupe-red);}
+  .imp-badge.medium{background:var(--lupe-warn);}
+  .h24-badge{
+    display:inline-block; font-size:10px; font-weight:700; background:var(--lupe-dark); color:#fff;
+    padding:2px 7px; border-radius:10px; margin-left:4px;
+  }
+  .tz-box{
+    margin-top:12px; font-size:12px; background:#f2f2f2; padding:10px 14px; border-radius:4px; color:var(--lupe-mid);
+  }
+
+  .verdict-box{
+    border:1px solid #e5e5e5; border-radius:6px; padding:22px 24px; background:#fafafa;
+  }
+  .verdict-box .verdict{font-size:30px; font-weight:700; margin-bottom:6px; line-height:1.3;}
+  .verdict-box .gv-line{font-size:15px; font-weight:700; color:var(--lupe-red); margin-bottom:12px;}
+  .verdict-box .reason{font-size:15px; color:#333; margin-bottom:16px;}
+  .signals{display:flex; gap:10px; margin-bottom:14px;}
+  .chip{padding:8px 18px; border-radius:20px; font-size:13px; font-weight:700; border:2px solid #ddd; color:#999;}
+  .chip.active-bear{background:var(--lupe-red); color:#fff; border-color:var(--lupe-red);}
+  .chip.active-bull{background:var(--lupe-green); color:#fff; border-color:var(--lupe-green);}
+  .chip.active-neutral{background:var(--lupe-warn); color:#fff; border-color:var(--lupe-warn);}
+  .disclaimer{font-size:11px; color:#999; margin-top:6px;}
+
+  .sources{font-size:12px; color:var(--lupe-mid);}
+  .sources .summary3{background:#f5f5f5; padding:12px 16px; border-radius:4px; margin-bottom:14px; font-size:12px;}
+  .sources .summary3 div{margin-bottom:4px;}
+  .sources ul{margin:0; padding-left:18px;}
+  .sources li{margin-bottom:6px;}
+  .ok{color:var(--lupe-green); font-weight:700;}
+  .warn{color:var(--lupe-warn); font-weight:700;}
+
+  footer{
+    border-top:1px solid #e5e5e5; margin-top:40px; padding-top:16px; font-size:11px; color:#999; text-align:center;
+  }
+  @media (max-width:640px){
+    header.top .inner{flex-direction:column;}
+    .logo-block{text-align:left;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="inner">
+    <div>
+      <div class="test-tag">⚙ TEST RUN — 신규 SKILL 규격(v2) 검증용</div>
+      <h1>월스트리트 포트폴리오 모닝 브리핑</h1>
+      <div class="meta">
+        발행일: <b>2026-07-30(목)</b> · 기준 종가일: <b>2026-07-29(수)</b><br>
+        Market Alpha Briefing · Helios 전용
+      </div>
+    </div>
+    <div class="logo-block">
+      <div class="l1">LUPE</div>
+      <div class="l2">HELIOS MOMENTUM</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="bluf">
+    <span class="tag">BLUF · EXECUTIVE SUMMARY</span>
+    매파적(그러나 동결) 연준, 이란-미국 군사 긴장 격화에 따른 브렌트유 급등, 반도체 셀오프발 나스닥100 조정 진입이 동시에 겹치며 3대 지수가 일제히 1.5~2.2% 급락했다. 국채금리 상승·달러 약세가 혼재된 가운데, 오늘(목) 발표되는 근원 PCE와 2분기 GDP가 24시간 내 최대 변동성 트리거다.
+  </div>
+
+  <!-- Section 01 -->
+  <section>
+    <div class="sec-title">
+      <div class="sec-badge">01</div>
+      <h2>Overnight Market Delta <span class="sec-sub">기준: 2026-07-29(수) 정규장 마감</span></h2>
+    </div>
+    <div class="card-row">
+      <div class="card">
+        <h3>S&amp;P 500</h3>
+        <div class="val">7,316.15</div>
+        <div class="chg down">▼ 113.00 (-1.52%)</div>
+        <div class="asof">기준일 2026-07-29 종가</div>
+      </div>
+      <div class="card">
+        <h3>NASDAQ COMPOSITE</h3>
+        <div class="val">24,442.94</div>
+        <div class="chg down">▼ 434.00 (-1.74%)</div>
+        <div class="asof">기준일 2026-07-29 종가 · 6월 고점 대비 -11%(나스닥100 조정권)</div>
+      </div>
+      <div class="card">
+        <h3>DOW JONES</h3>
+        <div class="val">51,594.14</div>
+        <div class="chg down">▼ 1,153.18 (-2.19%)</div>
+        <div class="asof">기준일 2026-07-29 종가 · 2025년 4월 이후 최대 낙폭</div>
+      </div>
+    </div>
+    <div class="explain-box">
+      <b>지수 성과 요인 —</b> FOMC가 기준금리를 동결했지만 위원 3인이 인상을 주장하며 반대표를 던진 것이 확인되자, 채권시장은 연준이 인플레 파이팅에서 뒤처지고 있다는 신호로 해석해 국채금리가 급등했다. 동시에 이란의 미군 기습공격 시도에 대한 트럼프 대통령의 강경 보복 예고로 중동 리스크가 재점화되며 유가가 급등, 위험자산 전반이 압박받았다. 여기에 중국 메모리업체 CXMT의 대형 IPO를 계기로 반도체 기술격차 축소 우려가 커지며 마이크론·AMD(-8%), 인텔(-6%), 델(-8%) 등이 급락, 나스닥100이 6월 고점 대비 10%를 넘는 조정 국면에 진입했다. 산업재(-3.42%)·기술주(-2.36%) 낙폭이 두드러졌고, 에너지·경기방어주는 상대적으로 선방했다.
+    </div>
+  </section>
+
+  <!-- Section 02 -->
+  <section>
+    <div class="sec-title">
+      <div class="sec-badge">02</div>
+      <h2>Macro Pulse</h2>
+    </div>
+    <div class="card-row">
+      <div class="card macro">
+        <h3>10Y TREASURY YIELD <span class="badge-single">⚠️ 정정됨</span></h3>
+        <div class="val">4.671%</div>
+        <div class="chg down">▲ +7bp (Fed 결정 직후 급등)</div>
+        <div class="asof">[정정] 최초 게시치 "4.63%/+0.02%p"는 Fed 공식 H.15 통계상 07/21 수치를 검색엔진이 07/29로 오인 표기한 값. CNBC "30-year Treasury yield hits highest level since 2007" 기사 기준 07/29 종가 4.671%로 정정(30Y는 5.201%, 장중 5.244%로 2007년 이후 최고).</div>
+      </div>
+      <div class="card macro">
+        <h3>DOLLAR INDEX (DXY) <span class="badge-single">⚠️ 정정됨</span></h3>
+        <div class="val">101.07</div>
+        <div class="chg up" style="color:var(--lupe-green);">▼ -0.3% (Fed 결정 직후 하락)</div>
+        <div class="asof">[정정] 최초 게시치 "101.30/-0.12%"는 Fed 결정 발표 이전(장중 대기 국면) 스냅샷이었음. InvestingLive FX wrap 및 Bloomberg Dollar Spot Index(-0.3%, 방향·낙폭 정합) 기준 07/29 종가 101.07로 정정.</div>
+      </div>
+      <div class="card macro">
+        <h3>CNN FEAR &amp; GREED INDEX <span class="badge-single">⚠️ 단일소스</span></h3>
+        <div class="val">32 <span style="font-size:13px; color:var(--lupe-red); font-weight:700;">FEAR</span></div>
+        <div class="chg down">▼ -6pt (전일 38 → 32)</div>
+        <div class="fg-gauge">
+          <div class="fg-track"><div class="fg-marker" style="left:32%;"></div></div>
+          <div class="fg-labels"><span>0 극단적 공포</span><span>50</span><span>100 극단적 탐욕</span></div>
+        </div>
+        <div class="asof">feargreedmeter.com 실시간값(07/29 마감 반영) 채택. CNN 공식 API(production.dataviz.cnn.io)는 최신 갱신치가 07/28(38.49)까지만 존재해 07/29 값 직접 대조 불가 — 단, 전일값(38)이 CNN 07/28 공식치와 정합해 신뢰도 보강.</div>
+      </div>
+    </div>
+    <div class="oil-box">
+      <h4>⚠️ BRENT CRUDE 특이 동향 — 대표값 채택(소스 우선순위 적용)</h4>
+      브렌트유가 이란의 미군 기습공격 시도와 트럼프 대통령의 "강력 보복" 발언 직후 급등, $90 선을 재돌파했다. <b>대표값: $90.74(+7.9%, CNBC)</b> — 1차 보도매체 기준 채택. <b>참고값: $89.61(+6.6%, TheStreet/Yahoo)</b>, 소스 간 괴리 0.5% 이상으로 대표값·참고값을 함께 병기한다.
+    </div>
+    <div class="tool-note">
+      ℹ️ 데이터 우선순위 프로토콜 적용 결과: FRED·Investing.com·Macrotrends 원문 페이지에 직접 접근을 시도했으나 각각 (1) 관측치 지연(FRED 최신값 07/23), (2) 실시간 위젯 캐시가 다른 기준일 데이터를 반환, (3) URL이 다른 페이지로 리다이렉트되는 이슈로 당일 종가를 확보하지 못했다. 해당 3개 지표는 WebSearch 교차확인 값으로 대체했다.
+    </div>
+  </section>
+
+  <!-- Section 03 -->
+  <section>
+    <div class="sec-title">
+      <div class="sec-badge">03</div>
+      <h2>Critical News Top 3</h2>
+    </div>
+    <div class="news-item">
+      <div class="head"><h4>① 연준, 금리 동결하되 위원 3인 인상 반대표 — 매파적 신호로 해석</h4><span class="impact high">HIGH</span></div>
+      <p>FOMC는 기준금리를 동결했지만 3명의 위원이 인상을 주장하며 반대표를 던진 사실이 알려지자, 채권시장은 연준의 인플레 대응이 늦어지고 있다는 신호로 받아들였다. 국채금리가 급등하며 밸류에이션 부담이 커진 성장주 중심으로 매도세가 확산됐다.</p>
+    </div>
+    <div class="news-item">
+      <div class="head"><h4>② 미-이란 군사 긴장 급격히 고조 — 브렌트유 $90선 재돌파</h4><span class="impact high">HIGH</span></div>
+      <p>미군이 이란의 기습공격 시도를 요격했다고 밝힌 가운데 트럼프 대통령이 강력한 보복을 예고했다. 이라크 내 이란 지원 민병대가 사우디 동부 석유시설에 이틀 연속 드론 공격을 가하며 공급 차질 우려가 유가를 끌어올렸다.</p>
+    </div>
+    <div class="news-item">
+      <div class="head"><h4>③ 中 CXMT 메모리 IPO發 기술추격 우려 — 나스닥100 조정 진입</h4><span class="impact high">HIGH</span></div>
+      <p>중국 메모리 반도체업체 CXMT의 대형 IPO가 흥행하며 중국의 첨단 메모리 생산 경쟁력에 대한 재평가가 촉발됐다. 마이크론·AMD가 각 8%, 인텔이 6%, 델이 8% 급락했고, 나스닥100은 6월 고점 대비 10% 넘게 밀리며 공식 조정 국면에 진입했다.</p>
+    </div>
+  </section>
+
+  <!-- Section 04 -->
+  <section>
+    <div class="sec-title">
+      <div class="sec-badge">04</div>
+      <h2>Today's Catalyst <span class="sec-sub">향후 경제지표 체크리스트 (ET 기준 시간순 정렬, ⏱24H=24시간 이내)</span></h2>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>날짜(ET)</th><th>시간(ET)</th><th>한국시간(KST)</th><th>이벤트</th><th>중요도</th><th>예상 영향</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="today">
+          <td>07/30(목) ★오늘</td><td>08:30</td><td>07/30(목) 21:30</td>
+          <td>근원 PCE물가지수(6월), 개인소득·지출, 2분기 GDP 속보치, 신규실업수당청구 <span class="h24-badge">⏱24H</span></td>
+          <td><span class="imp-badge high">HIGH</span></td>
+          <td>연준 다음 행보의 핵심 가늠자. 컨센서스(근원PCE MoM +0.1%) 상회 시 금리 재상승·주식 추가 압박 가능</td>
+        </tr>
+        <tr>
+          <td>07/31(금)</td><td>08:30</td><td>07/31(금) 21:30</td>
+          <td>고용비용지수(2분기, ECI)</td>
+          <td><span class="imp-badge medium">MEDIUM</span></td>
+          <td>임금발 인플레이션 압력 점검 지표. 서프라이즈 시 국채금리 변동성 확대</td>
+        </tr>
+        <tr>
+          <td>07/31(금)</td><td>10:00</td><td>07/31(금) 23:00</td>
+          <td>미시간대 소비자심리지수 확정치(7월)</td>
+          <td><span class="imp-badge medium">MEDIUM</span></td>
+          <td>소비심리·기대인플레이션 동시 체크. 예비치 대비 하향 조정 여부 주목</td>
+        </tr>
+        <tr>
+          <td>08/03(월)</td><td>10:00</td><td>08/03(월) 23:00</td>
+          <td>ISM 제조업 PMI(7월)</td>
+          <td><span class="imp-badge high">HIGH</span></td>
+          <td>50 기준선 상하 여부가 관전 포인트. 관세·재고 사이클 영향 지속 여부 확인</td>
+        </tr>
+        <tr>
+          <td>08/05(수)</td><td>10:00</td><td>08/05(수) 23:00</td>
+          <td>ISM 서비스업 PMI(7월)</td>
+          <td><span class="imp-badge high">HIGH</span></td>
+          <td>서비스업 경기 모멘텀 및 물가지불지수(가격 서브인덱스) 확인 — 서비스 인플레 재점화 여부</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tz-box">
+      ⏰ <b>시간대 안내</b> — ET→KST 환산: 서머타임(EDT, 3월 둘째 일요일~11월 첫째 일요일)에는 <b>ET+13시간</b>, 표준시(EST, 그 외 기간)에는 <b>ET+14시간</b> 적용(현재는 EDT 시즌). 자정을 넘기는 경우 날짜가 다음날로 표기됩니다. <b>⏱24H</b> 배지는 브리핑 발행 시점 기준 24시간 이내 이벤트를 의미합니다.
+    </div>
+  </section>
+
+  <!-- Section 05 -->
+  <section>
+    <div class="sec-title">
+      <div class="sec-badge">05</div>
+      <h2>Strategic Takeaway</h2>
+    </div>
+    <div class="verdict-box">
+      <div class="verdict">단기 리스크오프 국면 진입</div>
+      <div class="gv-line">오늘 환경은 "Defensive Value"에 가깝다 — 매파적 연준·중동 지정학 리스크·반도체 조정이 동시에 시장을 압박한다.</div>
+      <div class="reason">
+        연준의 인상 소수의견(3표)은 역설적으로 인플레 재점화 우려를 자극해 국채금리를 밀어올렸고, 이는 고밸류에이션 성장주에 직접적 부담으로 작용했다. 브렌트유의 $90선 재돌파는 이란-미국 긴장이 실제 공급 차질로 번질 가능성을 시사하며 인플레이션 압력을 재차 자극하는 요인이다. 동시에 나스닥100의 조정장 진입은 AI 밸류에이션에 대한 재평가 압력이 구조적으로 남아있음을 보여준다. Fear&amp;Greed 지수가 32(공포) 구간까지 낮아진 가운데(전일 38), 오늘 발표될 근원 PCE·GDP가 24시간 내 단기 방향성의 분기점이 될 전망이다.
+      </div>
+      <div class="signals">
+        <div class="chip active-bear">BEAR</div>
+        <div class="chip">NEUTRAL</div>
+        <div class="chip">BULL</div>
+      </div>
+      <div class="disclaimer">본 브리핑은 정보 제공 목적이며 투자 자문이 아닙니다.</div>
+    </div>
+  </section>
+
+  <!-- Sources -->
+  <section>
+    <div class="sec-title">
+      <div class="sec-badge">S</div>
+      <h2>Sources</h2>
+    </div>
+    <div class="sources">
+      <div class="summary3">
+        <div><b>지수 종가 출처:</b> Yahoo Finance, TheStreet, TV News Check(포인트 확인)</div>
+        <div><b>매크로 지표 출처:</b> Trading Economics 계열 검색 교차확인, Bloomberg(DXY 방향성), Benzinga·MacroMicro(F&amp;G), CNBC(Brent)</div>
+        <div><b>뉴스 출처:</b> The Motley Fool "Stock Market Today, July 29", CNBC "Oil prices today: Brent above $90", NBC News "Nasdaq-100 correction"</div>
+      </div>
+      <ul>
+        <li><span class="ok">✅ 교차확인</span> 지수 종가/등락률 — <a href="https://finance.yahoo.com/markets/live/stock-market-today-wednesday-july-29-dow-sp-500-nasdaq-082009165.html" target="_blank">Yahoo Finance</a>, <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-29-2026stock-market-today-july-29-2026" target="_blank">TheStreet</a>, <a href="https://tvnewscheck.com/business/article/dow-drops-1153-nasdaq-sinks-434-sp-500-falls-113/" target="_blank">TV News Check</a></li>
+        <li><span class="ok">✅ 교차확인</span> Fed 결정·시장 반응 — <a href="https://www.fool.com/coverage/stock-market-today/2026/07/29/stock-market-today-july-29-stocks-slide-on-hawkish-fed-and-increased-middle-east-tensions/" target="_blank">The Motley Fool</a>, <a href="https://www.cnbc.com/2026/07/28/stock-market-today-live-updates.html" target="_blank">CNBC</a></li>
+        <li><span class="warn">⚠️ 정정됨</span> 10Y 국채금리 4.671%(+7bp) — <a href="https://www.cnbc.com/2026/07/29/treasury-yields-fed-interest-rates.html" target="_blank">CNBC "30-year Treasury yield hits highest since 2007"</a> · Fed 공식 <a href="https://www.federalreserve.gov/releases/h15/" target="_blank">H.15</a> 직접조회로 최초치(4.63%)가 07/21 수치의 오인임을 확인 후 정정</li>
+        <li><span class="warn">⚠️ 정정됨</span> DXY 101.07(-0.3%) — <a href="https://investinglive.com/news/investinglive-americas-fx-news-wrap-29-jul-fed-stands-pat-markets-lose-ground-subtitle/" target="_blank">InvestingLive FX Wrap</a>, <a href="https://www.bloomberg.com/news/articles/2026-07-29/dollar-drops-to-lowest-in-nearly-a-week-as-fed-holds-steady" target="_blank">Bloomberg</a>(-0.3% 정합) · 최초치(101.30)는 Fed 결정 발표 전 스냅샷이었음을 확인 후 정정</li>
+        <li><span class="warn">⚠️ 단일소스(정정됨)</span> Fear&amp;Greed Index 32 — <a href="https://feargreedmeter.com/" target="_blank">feargreedmeter.com</a>(실시간, 07/29 마감 반영) · CNN 공식 API(<a href="https://production.dataviz.cnn.io/index/fearandgreed/graphdata" target="_blank">dataviz.cnn.io</a>) 직접조회 결과 최신치가 07/28(38.49)까지만 존재해 07/29 갱신 지연 확인. 초안에서 사용한 "37"은 Benzinga/MacroMicro 검색 스니펫이 07/28(화) 수치(38)를 07/29로 오인 표기한 것으로 판단, 정정함.</li>
+        <li><span class="warn">⚠️ 소스 간 괴리, 우선순위 소스 채택</span> Brent Crude 대표값 $90.74 — <a href="https://www.cnbc.com/2026/07/29/oil-prices-today-brent-wti-iran-us-hormuz.html" target="_blank">CNBC</a> / 참고값 $89.61 — <a href="https://finance.yahoo.com/markets/stocks/articles/stock-market-today-july-29-212135780.html" target="_blank">Yahoo/TheStreet</a></li>
+        <li><span class="ok">✅ 교차확인</span> 반도체 셀오프/나스닥100 조정 — <a href="https://www.nbcnews.com/business/markets/nasdaq-100-correction-tech-stocks-rcna589630" target="_blank">NBC News</a>, <a href="https://www.bloomberg.com/news/articles/2026-07-28/nasdaq-100-heads-for-correction-as-ai-worries-rattle-investors" target="_blank">Bloomberg</a></li>
+        <li><span class="ok">✅ 교차확인</span> 경제 캘린더 — <a href="https://www.investech.com/wp-content/uploads/2026/07/Economic-Release-Calendar-2026-July.pdf" target="_blank">Investech Economic Calendar</a>, <a href="https://www.ismworld.org/supply-management-news-and-reports/reports/rob-report-calendar/" target="_blank">ISM World</a>, <a href="https://www.fxstreet.com/economic-calendar/event/6c5853c1-a409-4722-bdea-17ad5d8a193f" target="_blank">FXStreet</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy (v2 — 테스트 실행)<br>
+    생성일시: 2026-07-30 07:35 KST · 기준 종가일: 2026-07-29 · Page 1/1
+  </footer>
+
+</div>
+</body>
+</html>

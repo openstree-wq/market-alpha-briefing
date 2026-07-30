@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Market Alpha Briefing | LUPE — 2026.07.28</title>
+  <style>
+    :root {
+      --lupe-red: #C1001B;
+      --lupe-dark: #1A1A1A;
+      --lupe-mid: #4A4A4A;
+      --lupe-light: #F5F5F5;
+      --lupe-border: #E0E0E0;
+      --lupe-warn: #E87722;
+      --lupe-green: #1A7A3C;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+      background: #FAFAFA;
+      color: var(--lupe-dark);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* HEADER */
+    .doc-header {
+      background: var(--lupe-dark);
+      color: #fff;
+      padding: 20px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid var(--lupe-red);
+    }
+    .doc-header .brand { font-size: 13px; letter-spacing: 2px; opacity: 0.6; text-transform: uppercase; }
+    .doc-header .title { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+    .doc-header .date { font-size: 12px; opacity: 0.55; margin-top: 4px; }
+    .doc-header .logo-block { text-align: right; }
+    .doc-header .logo-block .lupe { font-size: 28px; font-weight: 900; color: var(--lupe-red); letter-spacing: 2px; }
+
+    /* BLUF BANNER */
+    .bluf {
+      background: var(--lupe-red);
+      color: #fff;
+      padding: 14px 32px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .bluf span { opacity: 0.75; font-weight: 400; margin-right: 8px; }
+
+    /* MAIN CONTENT */
+    .content { max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; }
+
+    /* SECTION */
+    h2.section-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--lupe-red);
+      border-bottom: 2px solid var(--lupe-red);
+      padding-bottom: 6px;
+      margin: 36px 0 16px;
+    }
+    h2.section-title .num {
+      background: var(--lupe-red);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-size: 11px;
+    }
+
+    /* INDEX CARDS */
+    .index-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+    .index-card {
+      background: #fff;
+      border: 1px solid var(--lupe-border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      position: relative;
+    }
+    .index-card .name { font-size: 11px; color: var(--lupe-mid); text-transform: uppercase; letter-spacing: 1px; }
+    .index-card .val { font-size: 26px; font-weight: 800; margin: 4px 0 2px; color: var(--lupe-dark); }
+    .index-card .chg { font-size: 13px; font-weight: 600; }
+    .index-card .chg.up { color: var(--lupe-green); }
+    .index-card .chg.dn { color: var(--lupe-red); }
+    .index-card .sub { font-size: 11px; color: #999; margin-top: 4px; }
+    .index-card .accent { border-top: 3px solid var(--lupe-red); }
+
+    /* MACRO ROW */
+    .macro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .macro-card {
+      background: #fff;
+      border: 1px solid var(--lupe-border);
+      border-radius: 8px;
+      padding: 14px 18px;
+    }
+    .macro-card .label { font-size: 11px; color: var(--lupe-mid); letter-spacing: 1px; text-transform: uppercase; }
+    .macro-card .figure { font-size: 22px; font-weight: 800; margin: 4px 0 2px; }
+    .macro-card .chg { font-size: 12px; font-weight: 600; }
+    .macro-card .source-tag { font-size: 10px; color: #aaa; margin-top: 6px; }
+    .macro-card .warn-tag {
+      display: inline-block;
+      font-size: 9px;
+      background: #FFF3CD;
+      color: #856404;
+      border: 1px solid #FFE69C;
+      border-radius: 3px;
+      padding: 1px 5px;
+      margin-left: 4px;
+    }
+
+    /* FEAR GAUGE */
+    .fear-bar-wrap { margin-top: 8px; }
+    .fear-bar {
+      height: 8px;
+      border-radius: 4px;
+      background: linear-gradient(to right, var(--lupe-red), #E87722, #F4C430, #66BB6A, #1A7A3C);
+      position: relative;
+    }
+    .fear-marker {
+      position: absolute;
+      top: -4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--lupe-dark);
+      border: 2px solid #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+      /* 37/100 = 37% */
+      left: calc(37% - 8px);
+    }
+    .fear-labels { display: flex; justify-content: space-between; font-size: 9px; color: #aaa; margin-top: 4px; }
+
+    /* NEWS */
+    .news-item {
+      background: #fff;
+      border: 1px solid var(--lupe-border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
+      border-left: 4px solid var(--lupe-red);
+    }
+    .news-item .news-rank { font-size: 10px; color: var(--lupe-red); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+    .news-item .news-title { font-size: 15px; font-weight: 700; margin: 4px 0 6px; }
+    .news-item .news-body { font-size: 13px; color: var(--lupe-mid); line-height: 1.6; }
+    .news-item .news-impact {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+    .news-item .impact-high { background: #FFE9EC; color: var(--lupe-red); }
+    .news-item .impact-med { background: #FFF3CD; color: #856404; }
+
+    /* CATALYST TABLE */
+    .catalyst-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .catalyst-table th {
+      background: var(--lupe-dark);
+      color: #fff;
+      padding: 8px 12px;
+      text-align: left;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .catalyst-table td { padding: 10px 12px; border-bottom: 1px solid var(--lupe-border); vertical-align: top; }
+    .catalyst-table tr:nth-child(even) td { background: var(--lupe-light); }
+    .catalyst-table tr.today td { background: #FFF0F2; }
+    .catalyst-table .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-right: 4px;
+    }
+    .badge-high { background: var(--lupe-red); color: #fff; }
+    .badge-med { background: #E87722; color: #fff; }
+    .badge-low { background: #888; color: #fff; }
+    .badge-fomc { background: #1A1A6E; color: #fff; }
+    .tag-today { font-size: 10px; font-weight: 700; color: var(--lupe-red); }
+
+    /* STRATEGIC TAKEAWAY */
+    .takeaway-box {
+      background: var(--lupe-dark);
+      color: #fff;
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-top: 8px;
+    }
+    .takeaway-box .verdict {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: var(--lupe-red);
+      margin-bottom: 10px;
+    }
+    .takeaway-box .rationale { font-size: 14px; line-height: 1.8; opacity: 0.9; }
+    .takeaway-box .signal-row { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+    .signal-chip {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .sig-bear { background: rgba(193,0,27,0.4); color: #FFAAAA; }
+    .sig-neutral { background: rgba(255,255,255,0.1); color: #ccc; }
+    .sig-bull { background: rgba(26,122,60,0.4); color: #AAFFBB; }
+
+    /* SOURCES */
+    .sources-section { margin-top: 40px; padding: 16px 20px; background: #fff; border: 1px solid var(--lupe-border); border-radius: 8px; font-size: 11px; color: var(--lupe-mid); }
+    .sources-section h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 10px; }
+    .sources-section ul { list-style: none; }
+    .sources-section li { padding: 3px 0; border-bottom: 1px solid var(--lupe-light); }
+    .sources-section a { color: var(--lupe-red); text-decoration: none; }
+
+    /* FOOTER */
+    .doc-footer {
+      background: var(--lupe-dark);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 14px 32px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .doc-footer .page { color: rgba(255,255,255,0.25); }
+
+    /* DATA NOTE */
+    .data-note {
+      font-size: 11px;
+      color: #999;
+      margin-top: 8px;
+      padding: 6px 10px;
+      background: #FFFDF0;
+      border-left: 3px solid #FFD700;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      .index-grid, .macro-grid { grid-template-columns: 1fr 1fr; }
+      .doc-header { flex-direction: column; gap: 8px; align-items: flex-start; }
+      .doc-footer { flex-direction: column; gap: 4px; }
+      .content { padding: 20px 16px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="doc-header">
+  <div>
+    <div class="brand">Market Alpha Briefing | LUPE</div>
+    <div class="title">월스트리트 포트폴리오 모닝 브리핑</div>
+    <div class="date">2026년 7월 28일 (화) · 기준: 7월 27일 종가</div>
+  </div>
+  <div class="logo-block">
+    <div class="lupe">LUPE</div>
+    <div style="font-size:10px;opacity:0.4;margin-top:2px;">HELIOS MOMENTUM</div>
+  </div>
+</div>
+
+<!-- BLUF -->
+<div class="bluf">
+  <span>BLUF</span>
+  이란-미국 공습 중단으로 유가 급락(-8.7%)하며 단기 에너지 리스크는 후퇴했으나, NVDA 주도 칩 섹터 급락·FOMC 금리 인상 경계(9월 82%)·Fear Zone 지속으로 오늘 환경은 <strong>"Defensive Value"</strong> 유지가 우선이다.
+</div>
+
+<div class="content">
+
+  <!-- SECTION 1: OVERNIGHT MARKET DELTA -->
+  <h2 class="section-title"><span class="num">01</span>Overnight Market Delta</h2>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="name">S&amp;P 500</div>
+      <div class="val">7,413.18</div>
+      <div class="chg up">▲ +0.02% (+1.20pt)</div>
+      <div class="sub">7월 27일 (월) 종가</div>
+    </div>
+    <div class="index-card">
+      <div class="name">Nasdaq Composite</div>
+      <div class="val">24,932.08</div>
+      <div class="chg dn">▼ −0.18% (−44.91pt)</div>
+      <div class="sub">7월 27일 (월) 종가</div>
+    </div>
+    <div class="index-card">
+      <div class="name">Dow Jones Industrial</div>
+      <div class="val">52,210.08</div>
+      <div class="chg up">▲ +0.51% (+262.83pt)</div>
+      <div class="sub">7월 27일 (월) 종가</div>
+    </div>
+  </div>
+  <div class="data-note">✅ 교차 확인 완료 — Yahoo Finance Historical Data + Motley Fool Stock Market Today (2개 소스)</div>
+
+  <div style="margin-top:16px;background:#fff;border:1px solid var(--lupe-border);border-radius:8px;padding:16px 18px;font-size:13px;color:var(--lupe-mid);line-height:1.8;">
+    <strong style="color:var(--lupe-dark);">📊 지수 성과 요인 분석</strong><br>
+    시장이 혼조세로 마감한 주된 이유는 두 가지 상반된 힘이 충돌했기 때문이다. <strong>Nvidia(-4~5%)</strong>를 중심으로 한 칩 섹터 전반의 급락이 Nasdaq에 하방 압력을 가한 반면, <strong>Brent 유가 -8.7% 급락</strong>(이란-미 공습 중단)으로 에너지 비용 부담이 완화되면서 제조·소비 관련 Dow 종목들이 강세를 보였다. 에너지 리스크 프리미엄 해소와 기술 섹터 리스크 상승이 동시에 진행된 '분리 장세'다.
+  </div>
+
+  <!-- SECTION 2: MACRO PULSE -->
+  <h2 class="section-title"><span class="num">02</span>Macro Pulse</h2>
+  <div class="macro-grid">
+    <div class="macro-card">
+      <div class="label">10Y Treasury Yield</div>
+      <div class="figure" style="color:var(--lupe-warn);">4.64%</div>
+      <div class="chg" style="color:var(--lupe-green);">▼ −0.04%p (전 세션 대비)</div>
+      <div class="source-tag">출처: TradingEconomics <span class="warn-tag">⚠️ 단일소스</span></div>
+      <div style="font-size:11px;color:#999;margin-top:6px;">유가 급락 → 안전자산 채권 수요 유입으로 금리 소폭 하락. 직전 세션(7.24) 고점 4.68% 수준에서 후퇴.</div>
+    </div>
+    <div class="macro-card">
+      <div class="label">Dollar Index (DXY)</div>
+      <div class="figure" style="color:var(--lupe-dark);">101.18</div>
+      <div class="chg" style="color:var(--lupe-green);">▼ −0.28% (전 세션 대비)</div>
+      <div class="source-tag">출처: TradingEconomics / StreetStats <span class="warn-tag">⚠️ 단일소스</span></div>
+      <div style="font-size:11px;color:#999;margin-top:6px;">이란 리스크 완화로 안전자산 달러 수요 일부 후퇴. 101.5 월중 고점 대비 약달러 전환 중.</div>
+    </div>
+    <div class="macro-card">
+      <div class="label">Fear &amp; Greed Index</div>
+      <div class="figure" style="color:var(--lupe-red);">37–40</div>
+      <div class="chg" style="color:var(--lupe-red);">● FEAR 구간</div>
+      <div class="source-tag">출처: Benzinga + MacroMicro ✅</div>
+      <div class="fear-bar-wrap" style="margin-top:10px;">
+        <div class="fear-bar"><div class="fear-marker"></div></div>
+        <div class="fear-labels"><span>극단적 공포 (0)</span><span>중립 (50)</span><span>극단적 탐욕 (100)</span></div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:12px;background:#fff;border:1px solid var(--lupe-border);border-radius:8px;padding:14px 18px;font-size:13px;">
+    <strong>📌 Brent Crude 특이 동향:</strong>
+    <span style="color:var(--lupe-red);font-weight:700;"> $88.36/bbl (−8.7%)</span> — 이란-미국 공습 중단 직후 장중 $87.60까지 급락. 직전 주 최고 <strong>$102</strong> 대비 약 14% 하락. 에너지 War Premium이 급속 해소됨. ✅ 복수 소스 확인 (CNBC, Bloomberg, NBC News)
+  </div>
+
+  <!-- SECTION 3: CRITICAL NEWS -->
+  <h2 class="section-title"><span class="num">03</span>Critical News — Top 3</h2>
+
+  <div class="news-item">
+    <div class="news-rank">🔴 News #1 — 에너지 / 지정학</div>
+    <div class="news-title">이란-미국 군사 공습 상호 중단 — 외교 협상 공간 마련</div>
+    <div class="news-body">
+      13일 연속 야간 공습 끝에 미국과 이란이 주말(7/26) 공습을 중단했다. Bloomberg에 따르면 미국이 외교적 공간 마련을 위해 이란 군사 자산에 대한 타격을 일시 보류했으며, 이란도 Hormuz 해협 공격을 멈췄다. 이에 Brent 유가가 하루 만에 8.7% 급락($88.36/bbl)했고, Dow 및 채권 시장은 안도 랠리를 보였다. 단, 분쟁이 언제든 재점화될 수 있으며 올해 누적 유가 상승폭은 여전히 +50%를 상회한다.
+    </div>
+    <span class="news-impact impact-high">⚡ Market Impact: HIGH — 에너지 전 섹터, 항공·운송, 채권 금리</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-rank">🔴 News #2 — AI / 반도체</div>
+    <div class="news-title">NVDA −4~5% 급락 — OpenAI $250B 순환금융(Circular Financing) 의혹 + CDS 사상 최대 급등</div>
+    <div class="news-body">
+      Nvidia가 OpenAI의 $250B 규모 데이터센터 임대 프로젝트에 자금을 보증하는 'Circular Financing' 구조가 보도되면서 신용 리스크가 급부상했다. NVDA 5년 CDS(Credit Default Swap) 스프레드가 하루 만에 사상 최대 폭으로 상승했고, 이에 따라 Apple이 NVDA를 제치고 시가총액 1위를 탈환했다. AMD −5%, Micron −2%, SK Hynix −6% 동반 하락. Sandisk(SSD) −11%(메모리 수요 약세)까지 겹치며 반도체 섹터 전반이 패닉 매도에 직면했다.
+    </div>
+    <span class="news-impact impact-high">⚡ Market Impact: HIGH — NVDA, AMD, MU, 반도체 ETF (SOXX/SMH)</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-rank">🟠 News #3 — 미-중 기술 패권</div>
+    <div class="news-title">중국, 핵심 반도체 장비 양산 돌입 — ASML 급락, 미-중 칩 전쟁 새 국면</div>
+    <div class="news-body">
+      The Information 보도에 따르면 중국 국영기업이 기존 미국·네덜란드 수출규제를 우회한 핵심 리소그래피 장비의 자체 양산을 시작했다. 이 소식에 ASML 주가가 급락했으며, 중국의 AI 반도체 자립 가속화 우려가 재확산됐다. Xi Jinping은 7월 17일 세계 AI 콘퍼런스에서 오픈소스 AI 중심 글로벌 연대를 촉구하며 미국 주도 AI 패권에 대한 공세적 행보를 이어가고 있다. Huawei·Cambricon 중심의 중국 내수 AI 칩 수요가 빠르게 확대 중.
+    </div>
+    <span class="news-impact impact-med">⚡ Market Impact: MEDIUM — ASML, 미국 Fab 장비주, 장기 NVDA 수요 전망</span>
+  </div>
+
+  <!-- SECTION 4: TODAY'S CATALYST -->
+  <h2 class="section-title"><span class="num">04</span>Today's Catalyst — 경제 지표 & 이벤트 체크리스트</h2>
+
+  <table class="catalyst-table">
+    <thead>
+      <tr>
+        <th>날짜 / 시간 (ET)</th>
+        <th>이벤트</th>
+        <th>중요도</th>
+        <th>예상 시장 영향</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="today">
+        <td><span class="tag-today">▶ 오늘</span><br>7월 28일 (화)<br>10:00 AM</td>
+        <td><strong>Consumer Confidence</strong><br>Conference Board 소비자 신뢰지수</td>
+        <td><span class="badge badge-med">MED</span></td>
+        <td>예상치 하회 시 경기침체 우려 재점화 → 리스크오프</td>
+      </tr>
+      <tr class="today">
+        <td>7월 28일 (화)<br>10:00 AM</td>
+        <td><strong>Richmond Fed Manufacturing Index</strong><br>제조업 경기 지수</td>
+        <td><span class="badge badge-low">LOW</span></td>
+        <td>공급망 현황 판단 참고 지표</td>
+      </tr>
+      <tr class="today">
+        <td>7월 28일 (화)<br>All Day</td>
+        <td><strong>FOMC Meeting — Day 1</strong><br>연방공개시장위원회 1일차 (7/28~29)</td>
+        <td><span class="badge badge-fomc">FOMC</span></td>
+        <td>시장 대기 모드. 방향성 결정은 내일 발표.</td>
+      </tr>
+      <tr>
+        <td>7월 29일 (수)<br>2:00 PM</td>
+        <td><strong>FOMC Rate Decision + Statement</strong><br>금리 결정 발표 (Kevin Warsh 의장)</td>
+        <td><span class="badge badge-high">HIGH ★</span></td>
+        <td>동결 확률 65.3% (CME FedWatch). 9월 인상 확률 82%. Warsh 발언 톤이 핵심 변수.</td>
+      </tr>
+      <tr>
+        <td>7월 29일 (수)<br>2:30 PM</td>
+        <td><strong>Fed Chair Warsh Press Conference</strong></td>
+        <td><span class="badge badge-high">HIGH ★</span></td>
+        <td>"Forward guidance 최소화" 원칙. 발언 해석 불확실성 → 변동성 확대 가능.</td>
+      </tr>
+      <tr>
+        <td>7월 30일 (목)<br>8:30 AM</td>
+        <td><strong>GDP 1차 발표</strong> (Q2 2026)<br>+ Personal Income &amp; PCE Deflator</td>
+        <td><span class="badge badge-high">HIGH ★</span></td>
+        <td>성장률·인플레이션 동시 발표. 스태그플레이션 우려 확인 분수령.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="data-note" style="margin-top:10px;">
+    📌 다음 CPI 발표: 8월 12일 (수) 예정. 오늘 CPI 발표는 없음.<br>
+    📌 Fed 금리 현 수준: <strong>3.50~3.75%</strong> (5회 연속 동결). Kevin Warsh: "가격이 너무 높다(Prices Are Too High)" — 시장은 9월 인상을 82% 확률로 반영 중.
+  </div>
+
+  <!-- SECTION 5: STRATEGIC TAKEAWAY -->
+  <h2 class="section-title"><span class="num">05</span>Strategic Takeaway</h2>
+
+  <div class="takeaway-box">
+    <div class="verdict">⚔️ Defensive Value</div>
+    <div class="rationale">
+      이란-미 긴장 완화는 단기 호재지만 시장 구조는 여전히 <strong>공격적 성장(Aggressive Growth)에 불리</strong>하다. FOMC 금리 인상 경계(9월 82%), Circular Financing 노출된 NVDA 중심 반도체 섹터의 신용 리스크 부상, Fear Index 37~40(지속적 공포권), 5년간 인플레이션 목표 미달성이라는 거시 구조가 겹쳐 있다. 금리 민감도 낮은 가치주·에너지 배당주·방어적 소비재 중심의 포트폴리오가 현 국면에 유효하다. Brent $87~92 박스권 내에서 유가 재상승 시나리오(이란 협상 결렬)에도 대비할 것.
+    </div>
+    <div class="signal-row">
+      <span class="signal-chip sig-bear">NVDA 신용리스크 ↑</span>
+      <span class="signal-chip sig-bear">FOMC 9월 인상 82%</span>
+      <span class="signal-chip sig-bear">Fear Zone 37~40</span>
+      <span class="signal-chip sig-neutral">이란 긴장 일시 완화</span>
+      <span class="signal-chip sig-neutral">DXY 101 약달러 전환</span>
+      <span class="signal-chip sig-bull">유가 급락 → 비용 완화</span>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources-section" style="margin-top:32px;">
+    <h3>📎 데이터 출처 (Data Sources)</h3>
+    <ul>
+      <li><strong>지수 종가 (교차 확인 ✅):</strong> <a href="https://finance.yahoo.com/quote/%5EGSPC/history/" target="_blank">Yahoo Finance Historical Data</a> + <a href="https://www.fool.com/coverage/stock-market-today/2026/07/27/stock-market-today-july-27-dow-rises-on-oil-retreat-and-sandisk-plunges-11-on-memory-weakness/" target="_blank">Motley Fool — Stock Market Today July 27</a></li>
+      <li><strong>10Y Treasury Yield ⚠️ 단일소스:</strong> <a href="https://tradingeconomics.com/united-states/government-bond-yield" target="_blank">TradingEconomics — US 10Y Government Bond Yield</a> (FRED 직접 수치 미확인)</li>
+      <li><strong>DXY ⚠️ 단일소스:</strong> <a href="https://tradingeconomics.com/dxy:cur" target="_blank">TradingEconomics DXY</a> (복수 소스 수치 일치 확인 중)</li>
+      <li><strong>Fear &amp; Greed Index (교차 확인 ✅):</strong> <a href="https://www.benzinga.com/markets/market-summary/26/07/60569657/dow-dips-over-300-points-as-oil-prices-rise-greed-index-remains-in-fear-zone" target="_blank">Benzinga</a> + <a href="https://en.macromicro.me/series/22748/cnn-fear-and-greed" target="_blank">MacroMicro — CNN Fear &amp; Greed</a></li>
+      <li><strong>Brent Crude (교차 확인 ✅):</strong> <a href="https://www.cnbc.com/2026/07/27/oil-price-wti-brent-slide-as-iran-reportedly-may-halt-attacks.html" target="_blank">CNBC</a> + <a href="https://www.bloomberg.com/news/articles/2026-07-26/oil-tumbles-as-us-and-iran-pause-military-strikes-markets-wrap" target="_blank">Bloomberg</a> + <a href="https://www.nbcnews.com/world/iran/oil-prices-slide-us-iran-pause-strikes-trump-diplomacy-hormuz-red-sea-rcna589383" target="_blank">NBC News</a></li>
+      <li><strong>FOMC / Fed:</strong> <a href="https://finance.yahoo.com/economy/policy/articles/circle-calendars-july-29-jpmorgan-120140255.html" target="_blank">Yahoo Finance — JPMorgan FOMC Preview</a> + <a href="https://www.chase.com/personal/investments/learning-and-insights/article/kevin-warsh-prices-are-too-high-what-to-expect-july-2026-federal-reserve-meeting" target="_blank">Chase — Warsh July 2026</a></li>
+      <li><strong>NVDA / 반도체 뉴스:</strong> <a href="https://finance.yahoo.com/markets/article/nvidia-drops-nearly-5-leading-chip-stocks-lower-amid-renewed-worries-of-circular-financing-193309793.html" target="_blank">Yahoo Finance — NVDA Circular Financing</a> + <a href="https://www.tipranks.com/news/nvidia-stock-nvda-is-down-over-4-today-july-27-what-happened" target="_blank">TipRanks — NVDA July 27</a></li>
+      <li><strong>중국 AI / 반도체:</strong> <a href="https://www.cnbc.com/2026/07/17/us-china-ai-feud-asml-tightrope-sales-geopolitics.html" target="_blank">CNBC — US-China AI Feud &amp; ASML</a> + <a href="https://www.aljazeera.com/news/2026/7/17/chinas-xi-jinping-launches-new-ai-alliance-what-is-it" target="_blank">Al Jazeera — Xi AI Alliance</a></li>
+      <li><strong>경제 캘린더:</strong> <a href="https://www.kiplinger.com/investing/economy/this-weeks-economic-calendar" target="_blank">Kiplinger — July 27-31 Economic Calendar</a></li>
+    </ul>
+    <div style="margin-top:10px;padding-top:8px;border-top:1px solid #eee;font-size:10px;color:#bbb;">
+      ⚠️ 단일소스 표기 항목(10Y Yield, DXY)은 브리핑 참고용으로 활용하되, 투자 결정 전 FRED(fred.stlouisfed.org) 및 Investing.com에서 직접 확인을 권장합니다.
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <span>© 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy</span>
+  <span class="page">생성일: 2026.07.28 · 기준: 2026.07.27 종가 · Page 1 / 1</span>
+</div>
+
+</body>
+</html>

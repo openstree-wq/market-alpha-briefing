@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Alpha Briefing | LUPE - 2026.07.29</title>
+<style>
+  :root{
+    --lupe-red:#C1001B;
+    --lupe-dark:#1A1A1A;
+    --lupe-mid:#4A4A4A;
+    --lupe-warn:#E87722;
+    --lupe-green:#1A7A3C;
+    --bg:#F7F7F7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Noto Sans KR','Malgun Gothic',sans-serif;
+    background:var(--bg);
+    color:var(--lupe-dark);
+    line-height:1.6;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px 60px;}
+  header{
+    background:var(--lupe-dark);
+    color:#fff;
+    padding:28px 20px;
+  }
+  header .inner{
+    max-width:1080px;margin:0 auto;
+    display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;
+  }
+  header h1{font-size:26px;font-weight:700;letter-spacing:-0.5px;}
+  header .date-line{color:#ccc;font-size:14px;margin-top:8px;}
+  header .base-date{
+    display:inline-block;margin-top:10px;
+    background:var(--lupe-red);color:#fff;font-size:13px;font-weight:700;
+    padding:4px 10px;border-radius:3px;
+  }
+  .logo-block{
+    text-align:right;font-size:13px;color:#ddd;font-weight:600;letter-spacing:1px;
+    border-left:2px solid var(--lupe-red);padding-left:14px;
+  }
+  .logo-block .l1{font-size:17px;color:#fff;font-weight:800;}
+  .bluf{
+    background:var(--lupe-red);color:#fff;
+    padding:18px 20px;font-size:16px;font-weight:600;
+    margin-top:0;
+  }
+  .bluf .inner{max-width:1080px;margin:0 auto;}
+  .bluf .label{font-size:12px;font-weight:800;letter-spacing:2px;opacity:0.85;display:block;margin-bottom:6px;}
+  section{margin-top:44px;}
+  .sec-title{
+    display:flex;align-items:center;gap:10px;margin-bottom:18px;
+    border-bottom:3px solid var(--lupe-red);padding-bottom:8px;
+  }
+  .sec-badge{
+    background:var(--lupe-red);color:#fff;font-weight:800;font-size:13px;
+    width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .sec-title h2{font-size:19px;font-weight:800;color:var(--lupe-dark);}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media(max-width:760px){.cards{grid-template-columns:1fr;}}
+  .card{
+    background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:18px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.04);
+  }
+  .card .idx-name{font-size:13px;color:var(--lupe-mid);font-weight:700;margin-bottom:6px;}
+  .card .idx-val{font-size:26px;font-weight:800;color:var(--lupe-dark);}
+  .card .idx-chg{font-size:14px;font-weight:700;margin-top:4px;}
+  .up{color:var(--lupe-green);}
+  .down{color:var(--lupe-red);}
+  .card .idx-date{font-size:11px;color:#999;margin-top:8px;}
+  .note-box{
+    background:#fff;border-left:4px solid var(--lupe-warn);
+    padding:14px 18px;margin-top:16px;font-size:14px;color:var(--lupe-mid);border-radius:0 6px 6px 0;
+  }
+  .badge-ok{background:#e8f5ec;color:var(--lupe-green);font-size:11px;font-weight:800;padding:2px 7px;border-radius:3px;margin-left:6px;}
+  .badge-warn{background:#fff2e5;color:var(--lupe-warn);font-size:11px;font-weight:800;padding:2px 7px;border-radius:3px;margin-left:6px;}
+  .gauge-wrap{margin-top:10px;}
+  .gauge-bar{width:100%;height:10px;border-radius:6px;background:linear-gradient(90deg,#C1001B 0%,#E87722 25%,#F2C744 50%,#8CC152 75%,#1A7A3C 100%);position:relative;}
+  .gauge-marker{position:absolute;top:-5px;width:3px;height:20px;background:var(--lupe-dark);}
+  .gauge-label{display:flex;justify-content:space-between;font-size:10px;color:#999;margin-top:4px;}
+  .news-item{background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:18px 20px;margin-bottom:12px;}
+  .news-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;}
+  .news-head h3{font-size:15px;font-weight:800;color:var(--lupe-dark);}
+  .impact-high{background:var(--lupe-red);color:#fff;font-size:11px;font-weight:800;padding:3px 9px;border-radius:3px;white-space:nowrap;}
+  .impact-med{background:var(--lupe-warn);color:#fff;font-size:11px;font-weight:800;padding:3px 9px;border-radius:3px;white-space:nowrap;}
+  .news-item p{font-size:13.5px;color:var(--lupe-mid);margin-top:8px;}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.04);}
+  th{background:var(--lupe-dark);color:#fff;font-size:12.5px;text-align:left;padding:11px 14px;}
+  td{font-size:13.5px;padding:11px 14px;border-bottom:1px solid #eee;}
+  tr.today-row{background:#fdecec;}
+  tr.today-row td{font-weight:700;}
+  .imp-high{color:var(--lupe-red);font-weight:800;}
+  .imp-med{color:var(--lupe-warn);font-weight:800;}
+  .imp-low{color:var(--lupe-mid);font-weight:600;}
+  .takeaway-box{background:#fff;border:2px solid var(--lupe-dark);border-radius:8px;padding:24px;}
+  .takeaway-box .verdict{font-size:18px;font-weight:800;color:var(--lupe-dark);margin-bottom:10px;}
+  .takeaway-box p{font-size:14px;color:var(--lupe-mid);margin-bottom:16px;}
+  .signal-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .chip{padding:7px 16px;border-radius:20px;font-size:13px;font-weight:800;}
+  .chip.active-bear{background:var(--lupe-red);color:#fff;}
+  .chip.inactive{background:#eee;color:#999;}
+  .chip.active-neutral{background:var(--lupe-warn);color:#fff;}
+  .chip.active-bull{background:var(--lupe-green);color:#fff;}
+  .disclaimer{font-size:11px;color:#aaa;margin-top:16px;border-top:1px solid #eee;padding-top:10px;}
+  .sources{font-size:12.5px;color:var(--lupe-mid);}
+  .sources ul{list-style:none;}
+  .sources li{padding:6px 0;border-bottom:1px solid #eee;}
+  .sources a{color:var(--lupe-red);text-decoration:none;}
+  footer{
+    margin-top:50px;background:var(--lupe-dark);color:#999;
+    text-align:center;padding:20px;font-size:12px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <div>
+      <h1>월스트리트 포트폴리오 모닝 브리핑</h1>
+      <div class="date-line">2026년 7월 29일 (수) · Market Alpha Briefing</div>
+      <div class="base-date">기준 종가일: 2026-07-28 (화, 미국 정규장)</div>
+    </div>
+    <div class="logo-block">
+      <div class="l1">LUPE</div>
+      <div>HELIOS MOMENTUM</div>
+    </div>
+  </div>
+</header>
+
+<div class="bluf">
+  <div class="inner">
+    <span class="label">BLUF — EXECUTIVE SUMMARY</span>
+    반도체 매도세(Micron·AMD -8%)와 AI 순환금융 우려(엔비디아-OpenAI $250B 백스톱)가 나스닥을 끌어내렸지만, 국제유가 급락과 코카콜라·보잉 등 실적 호조가 다우·S&P를 견인하며 지수는 혼조 마감했다. 오늘 오후 2시(ET) FOMC 금리 결정이 최대 변수다.
+  </div>
+</div>
+
+<div class="wrap">
+
+<section>
+  <div class="sec-title"><span class="sec-badge">01</span><h2>Overnight Market Delta</h2></div>
+  <div class="cards">
+    <div class="card">
+      <div class="idx-name">S&amp;P 500</div>
+      <div class="idx-val">7,428.78</div>
+      <div class="idx-chg up">▲ +15.60 (+0.21%)</div>
+      <div class="idx-date">2026-07-28 종가</div>
+    </div>
+    <div class="card">
+      <div class="idx-name">NASDAQ COMPOSITE</div>
+      <div class="idx-val">24,876.91</div>
+      <div class="idx-chg down">▼ -55.17 (-0.22%)</div>
+      <div class="idx-date">2026-07-28 종가</div>
+    </div>
+    <div class="card">
+      <div class="idx-name">DOW JONES INDUSTRIAL</div>
+      <div class="idx-val">52,747.32</div>
+      <div class="idx-chg up">▲ +537.24 (+1.03%)</div>
+      <div class="idx-date">2026-07-28 종가</div>
+    </div>
+  </div>
+  <div class="note-box">
+    <strong>지수 성과 요인:</strong> 나스닥은 엔비디아의 OpenAI 대상 $250B 자금 백스톱 검토 소식에 AI 순환금융 우려가 재점화되며 반도체(SMH -3%대, Micron·AMD -8%)가 급락, 4거래일 연속 조정을 받았다. 반면 다우와 S&amp;P는 미-이란 정전 이후 유가 하락과 코카콜라(+5%, 실적 호조·가이던스 상향), 보잉(+8%대 셔윈-윌리엄스 실적 호조 견인) 등 개별 실적 서프라이즈에 힘입어 상승했다. 애플·마이크로소프트·아마존·메타 등 빅테크 실적 발표를 앞두고 순환매(로테이션) 흐름이 뚜렷했다.
+    <span class="badge-ok">✅ 교차확인 2건(Yahoo Finance·Google 검색 집계 및 수치 검산 정합)</span>
+  </div>
+</section>
+
+<section>
+  <div class="sec-title"><span class="sec-badge">02</span><h2>Macro Pulse</h2></div>
+  <div class="cards">
+    <div class="card">
+      <div class="idx-name">10Y TREASURY YIELD</div>
+      <div class="idx-val">4.62~4.64%</div>
+      <div class="idx-chg">FOMC 대기 중 보합권</div>
+      <div class="idx-date">2026-07-28 기준 <span class="badge-warn">⚠️ 단일소스 범위값</span></div>
+    </div>
+    <div class="card">
+      <div class="idx-name">DOLLAR INDEX (DXY)</div>
+      <div class="idx-val">101.52</div>
+      <div class="idx-chg down">▼ -0.01% (보합)</div>
+      <div class="idx-date">2026-07-28 · 1개월 최고권 근접</div>
+    </div>
+    <div class="card">
+      <div class="idx-name">CNN FEAR &amp; GREED</div>
+      <div class="idx-val">37 <span style="font-size:14px;font-weight:700;color:var(--lupe-warn);">FEAR</span></div>
+      <div class="gauge-wrap">
+        <div class="gauge-bar"><div class="gauge-marker" style="left:37%;"></div></div>
+        <div class="gauge-label"><span>Extreme Fear</span><span>Neutral</span><span>Extreme Greed</span></div>
+      </div>
+      <div class="idx-date">2026-07-28 <span class="badge-warn">⚠️ 단일소스</span></div>
+    </div>
+  </div>
+  <div class="note-box">
+    <strong>Brent Crude 특이 동향:</strong> 브렌트유는 미-이란 군사충돌 일시 중단 및 외교 협상 재개 소식에 -2.14% 급락하며 배럴당 $86.47 부근까지 후퇴, 지정학적 리스크 프리미엄이 일부 해소됐다. 다만 호르무즈 해협·홍해 항로 리스크는 완전히 해소되지 않아 협상 결렬 시 재반등 가능성이 상존한다.
+    <span class="badge-warn">⚠️ 단일소스(TheStreet, 07-28 오전 기준가)</span>
+  </div>
+</section>
+
+<section>
+  <div class="sec-title"><span class="sec-badge">03</span><h2>Critical News Top 3</h2></div>
+  <div class="news-item">
+    <div class="news-head"><h3>엔비디아, OpenAI 대상 $250B 자금 백스톱 검토 — AI 순환금융 우려 재점화</h3><span class="impact-high">HIGH</span></div>
+    <p>엔비디아가 OpenAI에 최대 2,500억 달러 규모의 자금 지원을 검토 중이라는 보도로 양사 간 상호 얽힘이 심화, 'AI 서클 파이낸싱' 우려가 재부각됐다. 중국의 AI 기술 격차 축소 우려까지 겹치며 반도체주가 4거래일 연속 조정, Micron·AMD가 각각 8% 이상 급락했다.</p>
+  </div>
+  <div class="news-item">
+    <div class="news-head"><h3>연준 FOMC 이틀간 회의 돌입 — 오늘 오후 2시(ET) 금리 결정</h3><span class="impact-high">HIGH</span></div>
+    <p>제롬 파월 후임 케빈 워시 의장 체제에서 처음 맞는 주요 결정 중 하나로, 시장은 3.50~3.75% 동결을 우세하게 전망하나 인상 가능성도 완전히 배제되지 않은 상태. 워시 의장이 포워드 가이던스를 사실상 중단해 성명서 문구 하나하나가 변동성 촉매가 될 전망이다.</p>
+  </div>
+  <div class="news-item">
+    <div class="news-head"><h3>미-이란 군사 충돌 일시 중단, 유가 급락</h3><span class="impact-med">MEDIUM</span></div>
+    <p>트럼프 대통령이 이란과의 외교적 대화 가능성을 시사하며 WTI -1.80%, 브렌트 -2.14% 하락. 지정학적 리스크 프리미엄이 완화되며 인플레이션 우려를 일부 상쇄했으나, 호르무즈 해협 리스크는 여전히 잠재 변수로 남아있다.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-title"><span class="sec-badge">04</span><h2>Today's Catalyst</h2></div>
+  <table>
+    <thead>
+      <tr><th>날짜(ET)</th><th>시간(ET)</th><th>한국시간(KST)</th><th>이벤트</th><th>중요도</th><th>예상 영향</th></tr>
+    </thead>
+    <tbody>
+      <tr class="today-row">
+        <td>07/29(수)</td><td>10:00</td><td>07/29(수) 23:00</td><td>JOLTS 구인·이직 보고서(6월)</td><td class="imp-med">MEDIUM</td><td>노동시장 냉각 확인 시 완화 기대 강화</td>
+      </tr>
+      <tr class="today-row">
+        <td>07/29(수)</td><td>14:00</td><td>07/30(목) 03:00</td><td>FOMC 금리 결정 + 성명서</td><td class="imp-high">HIGH</td><td>동결 유력, 문구 변화 시 변동성 급등 가능</td>
+      </tr>
+      <tr>
+        <td>07/30(목)</td><td>08:30</td><td>07/30(목) 21:30</td><td>GDP 1차 발표 · PCE 물가지수 · 신규실업수당청구</td><td class="imp-high">HIGH</td><td>연준의 선호 인플레 지표, 성장 속도 확인</td>
+      </tr>
+      <tr>
+        <td>07/31(금)</td><td>08:30</td><td>07/31(금) 21:30</td><td>고용비용지수(ECI)</td><td class="imp-med">MEDIUM</td><td>임금발 인플레 압력 점검</td>
+      </tr>
+      <tr>
+        <td>07/31(금)</td><td>10:00</td><td>07/31(금) 23:00</td><td>미시간대 소비자심리(확정치)</td><td class="imp-low">LOW</td><td>소비 심리 재확인</td>
+      </tr>
+      <tr>
+        <td>08/01(토)</td><td>08:30</td><td>08/01(토) 21:30</td><td>7월 고용보고서(Employment Situation)</td><td class="imp-high">HIGH</td><td>비농업고용·실업률, 9월 금리 경로 핵심 변수</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box" style="margin-top:12px;">
+    <strong>시간대 안내:</strong> ET(미국 동부시간, EDT=UTC-4) 기준 원자료에 한국시간(KST=UTC+9, ET+13시간)을 병행 표기했습니다. FOMC 결정은 미국 현지 07/29 오후이나, 한국시간으로는 07/30 새벽 3시입니다.
+  </div>
+</section>
+
+<section>
+  <div class="sec-title"><span class="sec-badge">05</span><h2>Strategic Takeaway</h2></div>
+  <div class="takeaway-box">
+    <div class="verdict">Verdict: 단기 변동성 확대 국면 — FOMC 통과 전까지 리스크 관리 우선</div>
+    <p>지수 서프라이스는 실적 로테이션(가치주·헬스케어·소비재 강세, 반도체 약세)이 주도하고 있어 지수 헤드라인만으로 시장 건전성을 판단하기 어렵다. Fear&amp;Greed 37(공포 구간)과 낮은 VIX(약 18)의 괴리는 FOMC·빅테크 실적(애플·MS·아마존·메타)이라는 이중 촉매를 앞두고 포지셔닝이 아직 방어적임을 시사한다. 반도체 자금순환 우려가 추가로 번질 경우 나스닥 중심의 하방 압력이 이어질 수 있어, 신규 매수보다는 실적·FOMC 확인 후 대응이 합리적이다.</p>
+    <div class="signal-row">
+      <span class="chip active-neutral">NEUTRAL — 단기 중립, 이벤트 대기</span>
+      <span class="chip inactive">BEAR</span>
+      <span class="chip inactive">BULL</span>
+    </div>
+    <div class="disclaimer">본 브리핑은 정보 제공 목적이며 투자 자문이 아닙니다.</div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-title"><span class="sec-badge">S</span><h2>Sources</h2></div>
+  <div class="sources">
+    <ul>
+      <li>지수 종가(S&amp;P500/Nasdaq/Dow) — Google 검색 집계(CNBC·Bloomberg 인용), 수치 검산(등락률↔포인트) 2회 정합 확인 <span class="badge-ok">✅ 교차확인</span></li>
+      <li>10Y Treasury Yield — Investing.com / TradingEconomics 집계 <span class="badge-warn">⚠️ 단일소스(범위값 4.62~4.64%)</span></li>
+      <li>Dollar Index(DXY) — TradingEconomics <span class="badge-warn">⚠️ 단일소스</span></li>
+      <li>CNN Fear &amp; Greed Index — Benzinga 인용(CNN 원자료 기반) <span class="badge-warn">⚠️ 단일소스</span></li>
+      <li>Brent Crude — <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-28-2026" target="_blank">TheStreet (07/28)</a> <span class="badge-warn">⚠️ 단일소스</span></li>
+      <li>주요 뉴스 — <a href="https://finance.yahoo.com/markets/live/stock-market-today-tuesday-july-28-dow-sp-500-nasdaq-chip-stocks-082832371.html" target="_blank">Yahoo Finance</a>, <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-28-2026" target="_blank">TheStreet</a> <span class="badge-ok">✅ 교차확인</span></li>
+      <li>경제 캘린더 — <a href="https://www.federalreserve.gov/newsevents/2026-july.htm" target="_blank">Federal Reserve</a>, <a href="https://www.kiplinger.com/investing/economy/this-weeks-economic-calendar" target="_blank">Kiplinger</a> <span class="badge-ok">✅ 교차확인</span></li>
+    </ul>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  © 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy<br>
+  생성일시: 2026-07-29 · 기준일: 2026-07-28 · Page 1/1
+</footer>
+
+</body>
+</html>
