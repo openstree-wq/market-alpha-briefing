@@ -36,25 +36,32 @@ function Format-DateKorean($d) {
 }
 
 $archiveItemsHtml = ""
-foreach ($d in $dates) {
-    $versions = $byDate[$d] | Sort-Object Ver -Descending
-    $top = $versions[0]
-    $dateLabel = Format-DateKorean $d
-    $extraVersions = $versions | Select-Object -Skip 1
-    $subLinksHtml = ""
-    if ($extraVersions.Count -gt 0) {
-        $links = $extraVersions | ForEach-Object { "<a href=`"$($_.Name)`">v$($_.Ver)</a>" }
-        $subLinksHtml = "<span class=`"old-versions`">이전 버전: $([string]::Join(' · ', $links))</span>"
-    }
-    $archiveItemsHtml += @"
-      <li class="archive-item">
-        <a class="archive-link" href="$($top.Name)">
-          <span class="archive-date">$dateLabel</span>
-          <span class="archive-arrow">→</span>
-        </a>
-        $subLinksHtml
-      </li>
+$monthGroups = $dates | Group-Object { $_.Substring(0,6) }
+foreach ($mg in $monthGroups) {
+    $groupYear = $mg.Name.Substring(0,4)
+    $groupMonth = [int]$mg.Name.Substring(4,2)
+    $archiveItemsHtml += "      <h3 class=`"month-header`">${groupYear}년 ${groupMonth}월</h3>`n      <ul class=`"archive-list`">`n"
+    foreach ($d in $mg.Group) {
+        $versions = $byDate[$d] | Sort-Object Ver -Descending
+        $top = $versions[0]
+        $dayLabel = "$([int]$d.Substring(6,2))일"
+        $extraVersions = $versions | Select-Object -Skip 1
+        $subLinksHtml = ""
+        if ($extraVersions.Count -gt 0) {
+            $links = $extraVersions | ForEach-Object { "<a href=`"$($_.Name)`">v$($_.Ver)</a>" }
+            $subLinksHtml = "<span class=`"old-versions`">이전 버전: $([string]::Join(' · ', $links))</span>"
+        }
+        $archiveItemsHtml += @"
+        <li class="archive-item">
+          <a class="archive-link" href="$($top.Name)">
+            <span class="archive-date">$dayLabel</span>
+            <span class="archive-arrow">→</span>
+          </a>
+          $subLinksHtml
+        </li>
 "@
+    }
+    $archiveItemsHtml += "      </ul>`n"
 }
 
 $generatedAt = Get-Date -Format "yyyy-MM-dd HH:mm"
@@ -99,6 +106,10 @@ $html = @"
     font-size:14px; color:var(--lupe-mid); border-bottom:2px solid var(--lupe-red);
     padding-bottom:8px; margin:0 0 12px;
   }
+  h3.month-header{
+    font-size:13px; color:var(--lupe-mid); margin:20px 0 4px;
+  }
+  h3.month-header:first-of-type{ margin-top:0; }
   ul.archive-list{ list-style:none; margin:0; padding:0; }
   li.archive-item{ border-bottom:1px solid #eee; padding:12px 0; }
   a.archive-link{
@@ -124,9 +135,7 @@ $html = @"
   </a>
 
   <h2 class="section-title">지난 브리핑</h2>
-  <ul class="archive-list">
 $archiveItemsHtml
-  </ul>
 
   <footer>Generated $generatedAt · © $(Get-Date -Format yyyy) LUPE</footer>
 </main>
