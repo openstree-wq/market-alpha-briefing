@@ -1,4 +1,4 @@
-# Market Alpha Briefing - index.html 자동 생성 스크립트
+﻿# Market Alpha Briefing - index.html 자동 생성 스크립트
 # 리포지토리 루트에 있는 YYYYMMDD_MarketAlphaBriefing_vN.html 파일들을 스캔해
 # 날짜별 아카이브 index.html을 생성한다.
 
