@@ -13,14 +13,16 @@ function Log($msg) {
 }
 
 try {
+    $briefingPattern = '\d{8}_MarketAlphaBriefing_v\d+\.html'
+    $briefingChanges = git status --porcelain | Where-Object { $_ -match $briefingPattern }
+    if (-not $briefingChanges) {
+        Log "브리핑 파일 변경 없음. push 생략."
+        exit 0
+    }
+
     & (Join-Path $PSScriptRoot "build-index.ps1")
 
     git add "*.html" "robots.txt"
-    $changes = git status --porcelain
-    if ([string]::IsNullOrWhiteSpace($changes)) {
-        Log "변경 사항 없음. push 생략."
-        exit 0
-    }
 
     $dateStr = Get-Date -Format "yyyy-MM-dd"
     git commit -m "Update briefing archive $dateStr"
