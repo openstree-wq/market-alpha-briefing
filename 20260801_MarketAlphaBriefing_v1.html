@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Market Alpha Briefing | LUPE</title>
+<style>
+:root{
+  --lupe-red:#C1001B;
+  --lupe-dark:#1A1A1A;
+  --lupe-mid:#4A4A4A;
+  --lupe-warn:#E87722;
+  --lupe-green:#1A7A3C;
+  --card-bg:#FFFFFF;
+  --page-bg:#F5F5F5;
+  --border:#E2E2E2;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--page-bg);
+  font-family:'Noto Sans KR','Apple SD Gothic Neo',sans-serif;
+  color:var(--lupe-dark);
+  font-size:16px;
+  line-height:1.75;
+}
+.wrap{max-width:880px;margin:0 auto;background:#fff;}
+header.top{
+  background:var(--lupe-dark);
+  color:#fff;
+  padding:28px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:12px;
+}
+header.top .title-block h1{
+  font-size:24px;
+  margin:0 0 6px 0;
+  font-weight:700;
+}
+header.top .title-block .date-line{
+  font-size:13px;
+  color:#CFCFCF;
+}
+header.top .date-line .base-date{
+  color:#FF6B7E;
+  font-weight:700;
+}
+header.top .logo-block{
+  text-align:right;
+  border-left:2px solid var(--lupe-red);
+  padding-left:14px;
+  font-size:12px;
+  line-height:1.4;
+}
+header.top .logo-block .l1{
+  font-size:16px;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:0.5px;
+}
+header.top .logo-block .l2{
+  color:var(--lupe-red);
+  font-weight:700;
+  letter-spacing:1px;
+}
+.bluf{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:18px 32px;
+  font-size:16px;
+  font-weight:500;
+  line-height:1.6;
+}
+.bluf b{font-weight:700;}
+section{padding:28px 32px;border-bottom:1px solid var(--border);}
+.sec-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:0 0 18px 0;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:0.5px;
+  color:var(--lupe-dark);
+  border-bottom:2px solid var(--lupe-red);
+  padding-bottom:10px;
+}
+.sec-title .badge{
+  background:var(--lupe-red);
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  border-radius:4px;
+  padding:3px 8px;
+}
+.cards{display:flex;gap:14px;flex-wrap:wrap;}
+.card{
+  flex:1 1 30%;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:16px;
+  background:#FAFAFA;
+}
+.card .label{font-size:12px;color:var(--lupe-mid);font-weight:700;margin-bottom:6px;}
+.card .value{font-size:28px;font-weight:700;color:var(--lupe-dark);}
+.card.macro .value{font-size:24px;}
+.card .delta{font-size:14px;font-weight:700;margin-top:4px;}
+.up{color:var(--lupe-green);}
+.down{color:var(--lupe-red);}
+.card .meta{font-size:12px;color:var(--lupe-mid);margin-top:8px;}
+.badge-tag{
+  display:inline-block;
+  font-size:11px;
+  font-weight:700;
+  padding:2px 6px;
+  border-radius:4px;
+  margin-left:4px;
+}
+.badge-single{background:#FFF3E0;color:var(--lupe-warn);}
+.badge-gap{background:#FDE8EA;color:var(--lupe-red);}
+.badge-cross{background:#E8F5EA;color:var(--lupe-green);}
+.reason-box{
+  margin-top:16px;
+  padding:14px 16px;
+  background:#F7F7F7;
+  border-left:4px solid var(--lupe-red);
+  font-size:14px;
+  color:var(--lupe-mid);
+  line-height:1.7;
+}
+.gauge{
+  width:100%;
+  height:10px;
+  border-radius:5px;
+  background:linear-gradient(90deg,#C1001B 0%,#E87722 35%,#F0C808 55%,#8FCB6B 75%,#1A7A3C 100%);
+  position:relative;
+  margin-top:10px;
+}
+.gauge .marker{
+  position:absolute;
+  top:-4px;
+  width:3px;
+  height:18px;
+  background:var(--lupe-dark);
+  border-radius:2px;
+}
+.gauge-label{display:flex;justify-content:space-between;font-size:11px;color:var(--lupe-mid);margin-top:4px;}
+.oil-box{
+  margin-top:14px;
+  padding:14px 16px;
+  border:1px dashed var(--lupe-warn);
+  border-radius:8px;
+  background:#FFFBF3;
+  font-size:14px;
+}
+.oil-box .label{font-size:12px;color:var(--lupe-warn);font-weight:700;}
+.news-card{
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:16px;
+  margin-bottom:14px;
+  background:#FAFAFA;
+}
+.news-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:8px;
+}
+.news-head h3{font-size:16px;margin:0;}
+.impact{
+  font-size:11px;
+  font-weight:700;
+  padding:3px 9px;
+  border-radius:12px;
+  white-space:nowrap;
+}
+.impact.high{background:var(--lupe-red);color:#fff;}
+.impact.medium{background:var(--lupe-warn);color:#fff;}
+.news-card p{font-size:14px;color:var(--lupe-mid);margin:0;}
+.news-card .bg-note{font-size:12px;color:#8A8A8A;margin-top:8px;}
+table.catalyst{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+table.catalyst thead th{
+  font-size:12px;
+  text-align:left;
+  background:var(--lupe-dark);
+  color:#fff;
+  padding:10px 8px;
+}
+table.catalyst tbody td{
+  padding:10px 8px;
+  border-bottom:1px solid var(--border);
+  vertical-align:top;
+}
+table.catalyst tbody tr.today{border-left:4px solid var(--lupe-red);}
+.imp-badge{
+  font-size:11px;
+  font-weight:700;
+  padding:2px 7px;
+  border-radius:4px;
+}
+.imp-high{background:var(--lupe-red);color:#fff;}
+.imp-medium{background:var(--lupe-warn);color:#fff;}
+.imp-low{background:#DDD;color:var(--lupe-dark);}
+.h24{
+  font-size:10px;
+  font-weight:700;
+  background:var(--lupe-dark);
+  color:#fff;
+  border-radius:10px;
+  padding:2px 6px;
+  margin-left:4px;
+}
+.tz-box{
+  margin-top:14px;
+  padding:12px 16px;
+  background:#F7F7F7;
+  border-radius:8px;
+  font-size:12px;
+  color:var(--lupe-mid);
+}
+.takeaway-verdict{
+  font-size:30px;
+  font-weight:700;
+  color:var(--lupe-red);
+  margin:0 0 10px 0;
+  line-height:1.35;
+}
+.takeaway-body{font-size:15px;color:var(--lupe-mid);line-height:1.75;margin-bottom:18px;}
+.signals{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+.chip{
+  padding:8px 16px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:700;
+  border:2px solid var(--border);
+  color:var(--lupe-mid);
+  background:#fff;
+}
+.chip.active.bear{border-color:var(--lupe-red);color:var(--lupe-red);background:#FDE8EA;}
+.chip.active.neutral{border-color:var(--lupe-warn);color:var(--lupe-warn);background:#FFF3E0;}
+.chip.active.bull{border-color:var(--lupe-green);color:var(--lupe-green);background:#E8F5EA;}
+.disclaimer{font-size:11px;color:#9A9A9A;margin-top:10px;}
+.sources{font-size:12px;color:var(--lupe-mid);}
+.sources .summary-line{margin-bottom:4px;}
+.sources ul{margin:10px 0 0 0;padding-left:18px;}
+.sources li{margin-bottom:5px;}
+footer{
+  padding:20px 32px;
+  background:var(--lupe-dark);
+  color:#B5B5B5;
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+@media (max-width:640px){
+  header.top{padding:16px 18px;}
+  header.top .title-block h1{font-size:18px;}
+  header.top .logo-block{font-size:10px;padding-left:10px;}
+  header.top .logo-block .l1{font-size:13px;}
+  .bluf{padding:14px 18px;font-size:14px;}
+  section{padding:20px 18px;}
+  .card{flex:1 1 100%;}
+  .card .value{font-size:24px;}
+  .card.macro .value{font-size:21px;}
+  .news-head h3{font-size:15px;}
+  table.catalyst thead{display:none;}
+  table.catalyst, table.catalyst tbody, table.catalyst tr, table.catalyst td{display:block;width:100%;}
+  table.catalyst tr{
+    border:1px solid var(--border);
+    border-radius:8px;
+    margin-bottom:12px;
+    padding:8px 10px;
+  }
+  table.catalyst tr.today{border-left:4px solid var(--lupe-red);}
+  table.catalyst td{
+    border-bottom:none;
+    padding:6px 2px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+  }
+  table.catalyst td::before{
+    content:attr(data-label);
+    font-weight:700;
+    color:var(--lupe-mid);
+    font-size:12px;
+    flex:0 0 auto;
+  }
+  table.catalyst td[data-full="1"]{display:block;}
+  table.catalyst td[data-full="1"]::before{display:block;margin-bottom:4px;}
+  footer{padding:16px 18px;font-size:11px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="title-block">
+    <h1>월스트리트 포트폴리오 모닝 브리핑</h1>
+    <div class="date-line">2026년 8월 1일(토) 발행 · <span class="base-date">기준 종가일: 2026-07-31(금)</span></div>
+  </div>
+  <div class="logo-block">
+    <div class="l1">LUPE</div>
+    <div class="l2">HELIOS MOMENTUM</div>
+  </div>
+</header>
+
+<div class="bluf">
+  <b>BLUF —</b> Amazon의 AWS 서프라이즈(+37% 성장)가 나스닥·S&amp;P를 사상 최고권으로 밀어올렸으나, 국채금리는 Fed 매파 발언 여파로 10년물 4.75%까지 재상승(30년물은 2007년 이후 최고치)했다. AI 자본지출 랠리와 금리 리스크가 팽팽히 대치하는 국면으로, <b>단기적으로는 Aggressive Growth 우위, 금리 변동성은 지속 관찰 대상.</b>
+</div>
+
+<section>
+  <h2 class="sec-title"><span class="badge">01</span> Overnight Market Delta</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="label">S&amp;P 500</div>
+      <div class="value">7,489.72</div>
+      <div class="delta up">▲ +52.09 (+0.70%)</div>
+      <div class="meta">기준일: 2026-07-31 정규장 마감</div>
+    </div>
+    <div class="card">
+      <div class="label">NASDAQ COMPOSITE</div>
+      <div class="value">25,373.85</div>
+      <div class="delta up">▲ +251.68 (+1.00%)</div>
+      <div class="meta">기준일: 2026-07-31 정규장 마감</div>
+    </div>
+    <div class="card">
+      <div class="label">DOW JONES</div>
+      <div class="value">52,485.03</div>
+      <div class="delta up">▲ +276.97 (+0.53%)</div>
+      <div class="meta">기준일: 2026-07-31 정규장 마감 · 4개월 연속 월간 상승</div>
+    </div>
+  </div>
+  <div class="reason-box">
+    <b>등락 사유:</b> Amazon이 2분기 실적에서 AWS 매출 성장률 37%(컨센서스 31% 상회)를 발표하며 주가가 장중 11~13% 급등, AI 클라우드 수익화 서사를 입증하며 나스닥 랠리를 견인했다. 반면 Apple은 서비스·중국 매출 부진으로 실적 발표 후 약 7% 급락하며 다우·S&amp;P 상단을 제한했다. 여기에 전일(7/29) FOMC에서 3인 위원(Hammack, Kashkari, Logan)이 금리 인상을 주장하며 이례적으로 분열된 이후에도 "Fed가 매파적으로 돌아설 수 있다"는 우려가 완화되며 저가 매수세가 유입, 지수 전반이 상승 마감했다.
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title"><span class="badge">02</span> Macro Pulse</h2>
+  <div class="cards">
+    <div class="card macro">
+      <div class="label">10Y TREASURY YIELD</div>
+      <div class="value">4.75%<span class="badge-tag badge-gap">⚠️ 소스간 괴리</span></div>
+      <div class="delta down">▲ +7bp (전일 4.68%)</div>
+      <div class="meta">대표값 4.75%(Advisor Perspectives, 장마감 확정) / 참고값 4.71%(CNBC, 장중 시점) · FRED/H.15는 7/30까지만 공식 발행되어 발행 지연 있음</div>
+    </div>
+    <div class="card macro">
+      <div class="label">DOLLAR INDEX (DXY)</div>
+      <div class="value">100.19<span class="badge-tag badge-single">⚠️ 단일소스</span></div>
+      <div class="delta up">▲ +0.33% (24h)</div>
+      <div class="meta">출처: Investing.com / Trading Economics 교차 종합</div>
+    </div>
+    <div class="card macro">
+      <div class="label">CNN FEAR &amp; GREED</div>
+      <div class="value">42 <span style="font-size:14px;font-weight:400;">(Fear)</span></div>
+      <div class="delta up">▲ +3.5pt (전일 38.9)</div>
+      <div class="gauge"><div class="marker" style="left:42%;"></div></div>
+      <div class="gauge-label"><span>Extreme Fear</span><span>Neutral</span><span>Extreme Greed</span></div>
+      <div class="meta">출처: CNN 공식 API (fear_and_greed, timestamp 2026-07-31 23:59 UTC)</div>
+    </div>
+  </div>
+  <div class="oil-box">
+    <span class="label">BRENT CRUDE 특이 동향</span><span class="badge-tag badge-single">⚠️ 단일소스</span><br>
+    배럴당 약 $87.8 마감, 전일 대비 +1.1%. 이란-미국 간 군사적 긴장이 지속되며 호르무즈 해협 리스크 프리미엄이 유가를 지지하고 있으나, "분쟁 해소 시 유입될 대기 공급 물량"에 대한 시장의 학습효과로 상승폭은 제한적. 장중 한때 $89대까지 반등했다가 되밀린 변동성 장세.
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title"><span class="badge">03</span> Critical News Top 3</h2>
+
+  <div class="news-card">
+    <div class="news-head">
+      <h3>Amazon, AWS 서프라이즈로 AI 자본지출 서사 입증 — 빅테크 실적 시즌 반전의 핵으로</h3>
+      <span class="impact high">HIGH</span>
+    </div>
+    <p>Amazon 2분기 AWS 매출이 전년비 37% 성장(컨센서스 31%)하며 2021년 이후 최고 성장률을 기록, 주가가 당일 정규장에서 급등했다. Andy Jassy CEO는 연간 설비투자를 2,200억 달러까지 확대하겠다고 밝혔고, Wedbush는 목표주가를 $293→$310로 상향했다. Microsoft에 이어 Amazon까지 AI 투자 회수(ROIC) 가시성을 증명하며, 전일까지 제기됐던 "AI 버블·과잉 투자" 우려를 상당 부분 되돌렸다.</p>
+  </div>
+
+  <div class="news-card">
+    <div class="news-head">
+      <h3>10년물 국채금리 4.75%, 30년물은 2007년來 최고치 — Fed 매파 발언 후폭풍 지속</h3>
+      <span class="impact high">HIGH</span>
+    </div>
+    <p>7/31 정규장에서 국채금리가 유가 상승을 뒤따라 재차 상승, 10년물이 4.75%까지 오르며 30년물은 2007년 이후 최고 수준인 5.25% 부근까지 치솟았다. Fed 당국자들이 이날 "인플레이션 억제를 위해 지금 금리 인상 행동이 필요하다"고 잇달아 발언한 영향이다.</p>
+    <p class="bg-note">배경: 전일(7/29) FOMC에서는 금리를 3.50~3.75%로 동결했으나 Hammack·Kashkari·Logan 3인 위원이 25bp 인상을 주장하며 이례적으로 분열, 이 여진이 금리 시장에 계속 반영되고 있다.</p>
+  </div>
+
+  <div class="news-card">
+    <div class="news-head">
+      <h3>Apple, 세계 최대 시총 자리 흔들 — 중국·서비스 매출 실망에 급락</h3>
+      <span class="impact medium">MEDIUM</span>
+    </div>
+    <p>Apple은 대부분의 주요 지표에서 컨센서스를 상회했지만, 중국 매출과 서비스 부문이 기대에 못 미치며 실적 발표 후 주가가 약 7% 급락했다. $5조 밸류에이션을 회복하며 세계 최대 시총 기업 타이틀을 되찾았던 직후였던 만큼, "고평가 부담에 실적이 못 미쳤다"는 실망 매물이 출회됐다.</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title"><span class="badge">04</span> Today's Catalyst (향후 3~5거래일)</h2>
+  <table class="catalyst">
+    <thead>
+      <tr><th>날짜(ET)</th><th>시간(ET)</th><th>한국시간(KST)</th><th>이벤트</th><th>중요도</th><th>예상 영향</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="날짜(ET)">08/03(월)</td>
+        <td data-label="시간(ET)">10:00 AM ET</td>
+        <td data-label="한국시간(KST)">08/03(월) 23:00 KST</td>
+        <td data-label="이벤트">ISM 제조업 PMI (7월)</td>
+        <td data-label="중요도"><span class="imp-badge imp-medium">MEDIUM</span></td>
+        <td data-label="예상 영향" data-full="1">제조업 경기 국면 확인. 예상 하회 시 경기둔화·금리인하 기대 재부각 가능</td>
+      </tr>
+      <tr>
+        <td data-label="날짜(ET)">08/05(수)</td>
+        <td data-label="시간(ET)">8:15 AM ET</td>
+        <td data-label="한국시간(KST)">08/05(수) 21:15 KST</td>
+        <td data-label="이벤트">ADP 민간고용보고서</td>
+        <td data-label="중요도"><span class="imp-badge imp-medium">MEDIUM</span></td>
+        <td data-label="예상 영향" data-full="1">금요일 비농업고용(NFP) 선행지표. 서프라이즈 시 금리·달러 변동성 확대</td>
+      </tr>
+      <tr>
+        <td data-label="날짜(ET)">08/05(수)</td>
+        <td data-label="시간(ET)">10:00 AM ET</td>
+        <td data-label="한국시간(KST)">08/05(수) 23:00 KST</td>
+        <td data-label="이벤트">ISM 서비스업 PMI (7월)</td>
+        <td data-label="중요도"><span class="imp-badge imp-medium">MEDIUM</span></td>
+        <td data-label="예상 영향" data-full="1">서비스업 비중이 큰 미국 경제 특성상 예상 하회 시 성장 둔화 우려 확대</td>
+      </tr>
+      <tr>
+        <td data-label="날짜(ET)">08/07(금)</td>
+        <td data-label="시간(ET)">8:30 AM ET</td>
+        <td data-label="한국시간(KST)">08/07(금) 21:30 KST</td>
+        <td data-label="이벤트">7월 비농업고용지표(Nonfarm Payrolls)</td>
+        <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+        <td data-label="예상 영향" data-full="1">컨센서스 약 +8.7만 명, 실업률 4.2% 예상. 서프라이즈 시 9월 Fed 정책 경로(인상 vs 동결) 재산정 트리거</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="tz-box">
+    <b>시간대 안내:</b> 한국은 미국 동부와 시차 13시간(EDT, 3월 둘째 일요일~11월 첫째 일요일 적용 중) 차이. 현재는 서머타임(EDT) 기간이므로 ET+13시간 = KST. 11월 이후 표준시(EST) 전환 시 ET+14시간으로 변경된다. 상기 캘린더 중 24시간 이내 이벤트는 없어 ⏱24H 배지가 부여된 항목이 없다.
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title"><span class="badge">05</span> Strategic Takeaway</h2>
+  <div class="takeaway-verdict">"Aggressive Growth" 우위 — 단, 금리 변동성 헤지 병행</div>
+  <div class="takeaway-body">
+    Amazon·Microsoft가 잇달아 AI 자본지출의 ROIC 가시성을 증명하며 나스닥이 사상 최고권에 재진입, 성장주 주도 랠리의 펀더멘털 근거가 강화됐다. 다만 10년물 4.75%·30년물 2007년來 최고치라는 금리 환경은 밸류에이션 부담을 키우는 요인이다. Fear&amp;Greed가 42(Fear)로 아직 과열권이 아니라는 점은 추가 상승 여력을 시사하나, 8/7 고용지표 서프라이즈가 이 균형을 단기간에 무너뜨릴 수 있다.
+  </div>
+  <div class="signals">
+    <span class="chip">Bear</span>
+    <span class="chip">Neutral</span>
+    <span class="chip active bull">Bull</span>
+  </div>
+  <div class="disclaimer">본 브리핑은 정보 제공 목적이며 투자 자문이 아닙니다.</div>
+</section>
+
+<section class="sources">
+  <div class="summary-line"><b>지수 종가 출처:</b> CNBC / The Washington Post / Yahoo Finance (교차확인)</div>
+  <div class="summary-line"><b>매크로 지표 출처:</b> CNN Fear&amp;Greed 공식 API / Advisor Perspectives(ETF Trends) / Investing.com·Trading Economics</div>
+  <div class="summary-line"><b>뉴스 출처:</b> [Amazon Stock Surges as AWS Growth Shows AI Spending Is Paying Off](https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-31-2026) / [Fed officials who voted to hike rates say action is needed now against inflation](https://www.cnbc.com/2026/07/31/fed-officials-who-voted-to-hike-rates-say-action-is-needed-now-against-inflation.html) / [S&amp;P 500 closes higher Friday as Amazon surges](https://www.cnbc.com/2026/07/30/stock-market-today-live-updates.html)</div>
+  <ul>
+    <li>✅ S&amp;P500 7,489.72 (+0.70%/+52.09p): CNBC, WashingtonPost, Yahoo Finance, TVNewsCheck 교차확인 — 등락률·등락폭 정합성 검산 완료</li>
+    <li>✅ Nasdaq 25,373.85 (+1.00%/+251.68p): 상동 교차확인 — 정합성 검산 완료</li>
+    <li>✅ Dow 52,485.03 (+0.53%/+276.97p): 상동 교차확인 — 정합성 검산 완료</li>
+    <li>⚠️ 10Y Treasury 4.75%: Advisor Perspectives(장마감 확정치, 대표값) vs CNBC 언급 4.71%(장중 시점, 참고값) — 소스 간 괴리 0.85%, 우선순위 상위 소스(장마감 확정 스냅샷) 채택. FRED/H.15는 7/30(4.68%)까지만 공식 발행되어 1영업일 지연 확인됨</li>
+    <li>⚠️ DXY 100.19 (+0.33%): 단일소스(Investing.com/Trading Economics 검색 종합, 원문 페이지 직접 대조 미완료)</li>
+    <li>✅ CNN Fear&amp;Greed 42.46(Fear), 전일 38.91: CNN 공식 API(production.dataviz.cnn.io) 원문 직접 조회 — 1차 소스 확보</li>
+    <li>⚠️ Brent Crude $87.8(+1.1%): 단일소스, 장중 한때 $89대 프리마켓 수치와 차이 있어 마감가 기준으로 채택</li>
+  </ul>
+</section>
+
+<footer>
+  <div>© 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy</div>
+  <div>생성일시: 2026-08-01 15:53 KST · 기준일: 2026-07-31 · Page 1/1</div>
+</footer>
+
+</div>
+</body>
+</html>
