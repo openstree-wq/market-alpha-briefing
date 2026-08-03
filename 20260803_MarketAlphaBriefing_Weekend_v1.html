@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>위켄드 마켓 브리핑 | LUPE — 2026.08.03</title>
+<style>
+  :root{
+    --lupe-red:#C1001B;
+    --lupe-dark:#1A1A1A;
+    --lupe-mid:#4A4A4A;
+    --lupe-warn:#E87722;
+    --lupe-green:#1A7A3C;
+    --bg:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:0; background:#F4F4F4;
+    font-family:'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+    font-size:16px; line-height:1.75; color:var(--lupe-dark);
+  }
+  .wrap{max-width:720px; margin:0 auto; background:var(--bg);}
+  header.top{
+    background:var(--lupe-dark); color:#fff; padding:28px 32px;
+    display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;
+  }
+  header.top h1{font-size:24px; margin:0 0 8px 0; font-weight:700;}
+  header.top .sub{font-size:13px; color:#CFCFCF; line-height:1.6;}
+  header.top .logo{
+    text-align:right; font-size:12px; color:#CFCFCF; white-space:nowrap;
+  }
+  header.top .logo .l1{font-weight:700; color:#fff; font-size:14px;}
+  .bluf{
+    background:var(--lupe-red); color:#fff; padding:18px 32px; font-size:15px; font-weight:500;
+  }
+  .bluf b{font-weight:700;}
+  section{padding:28px 32px; border-bottom:1px solid #EAEAEA;}
+  .sec-title{
+    font-size:14px; font-weight:700; color:var(--lupe-dark); margin:0 0 16px 0;
+    display:flex; align-items:center; gap:10px;
+  }
+  .sec-badge{
+    background:var(--lupe-red); color:#fff; font-size:11px; font-weight:700;
+    padding:3px 8px; border-radius:3px; letter-spacing:0.5px;
+  }
+  .sec-title::after{content:""; flex:1; height:2px; background:var(--lupe-red);}
+  .friday-line{
+    font-size:17px; font-weight:700; color:var(--lupe-dark); background:#F8F8F8;
+    border-left:4px solid var(--lupe-red); padding:14px 16px; border-radius:4px; line-height:1.6;
+  }
+  .friday-note{font-size:13px; color:var(--lupe-mid); margin-top:10px;}
+  .news-card{
+    border:1px solid #E5E5E5; border-radius:6px; padding:16px; margin-bottom:12px; background:#FAFAFA;
+  }
+  .news-head{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px; margin-bottom:6px;}
+  .news-title{font-size:16px; font-weight:700; color:var(--lupe-dark);}
+  .badge{
+    font-size:11px; font-weight:700; padding:3px 9px; border-radius:12px; white-space:nowrap; color:#fff;
+  }
+  .badge.high{background:var(--lupe-red);}
+  .badge.medium{background:var(--lupe-warn);}
+  .badge.low{background:var(--lupe-mid);}
+  .news-desc{font-size:14px; color:var(--lupe-mid); line-height:1.7;}
+  table.catalyst{width:100%; border-collapse:collapse; font-size:14px;}
+  table.catalyst thead th{
+    background:var(--lupe-dark); color:#fff; font-size:12px; text-align:left; padding:10px 8px; font-weight:600;
+  }
+  table.catalyst tbody td{padding:10px 8px; border-bottom:1px solid #EAEAEA; vertical-align:top;}
+  table.catalyst tbody tr.today{background:#FFF3F0; border-left:3px solid var(--lupe-red);}
+  .chip-badge{font-size:11px; font-weight:700; padding:2px 8px; border-radius:10px; color:#fff; display:inline-block;}
+  .chip-badge.h{background:var(--lupe-red);}
+  .chip-badge.m{background:var(--lupe-warn);}
+  .chip-badge.l{background:var(--lupe-mid);}
+  .h24{background:var(--lupe-dark); color:#fff; font-size:10px; font-weight:700; padding:2px 6px; border-radius:3px; margin-left:4px;}
+  .tz-note{
+    margin-top:16px; background:#F8F8F8; border:1px solid #E5E5E5; border-radius:6px; padding:12px 14px;
+    font-size:12px; color:var(--lupe-mid); line-height:1.7;
+  }
+  .verdict-box{
+    background:var(--lupe-dark); color:#fff; border-radius:8px; padding:22px; margin-bottom:16px;
+  }
+  .verdict-box .label{font-size:12px; color:#CFCFCF; letter-spacing:1px; margin-bottom:6px;}
+  .verdict-box .title{font-size:30px; font-weight:700; margin-bottom:10px; color:#fff;}
+  .verdict-box .title .accent{color:#FF6B7A;}
+  .verdict-box .body{font-size:15px; color:#E8E8E8; line-height:1.8;}
+  .chips{display:flex; gap:10px; flex-wrap:wrap; margin:16px 0;}
+  .chip{
+    flex:1; min-width:100px; text-align:center; padding:14px 10px; border-radius:8px; font-weight:700; font-size:14px;
+    border:2px solid #E5E5E5; color:var(--lupe-mid); background:#fff;
+  }
+  .chip.active{border-color:var(--lupe-red); color:var(--lupe-red); background:#FFF3F0;}
+  .disclaimer{font-size:11px; color:#999; margin-top:10px;}
+  .sources{font-size:12px; color:var(--lupe-mid); line-height:2;}
+  .sources .summary-line{font-weight:700; color:var(--lupe-dark); margin-bottom:6px;}
+  .sources ul{margin:8px 0 0 0; padding-left:18px;}
+  .sources li{margin-bottom:4px;}
+  .verify{color:var(--lupe-green); font-weight:700;}
+  .single{color:var(--lupe-warn); font-weight:700;}
+  footer{padding:20px 32px; font-size:12px; color:#999; text-align:center; background:#F8F8F8;}
+
+  @media (max-width:640px){
+    header.top{padding:18px 16px;}
+    header.top h1{font-size:18px;}
+    header.top .logo{text-align:left; font-size:11px;}
+    .bluf{padding:14px 16px; font-size:14px;}
+    section{padding:20px 16px;}
+    .friday-line{font-size:15px;}
+    table.catalyst thead{display:none;}
+    table.catalyst, table.catalyst tbody, table.catalyst tr, table.catalyst td{display:block; width:100%;}
+    table.catalyst tr{
+      border:1px solid #E5E5E5; border-radius:6px; margin-bottom:10px; padding:8px 10px; background:#FAFAFA;
+    }
+    table.catalyst tr.today{border-left:4px solid var(--lupe-red);}
+    table.catalyst td{border-bottom:none; padding:6px 0;}
+    table.catalyst td::before{
+      content:attr(data-label); display:block; font-size:11px; font-weight:700; color:var(--lupe-red); margin-bottom:2px;
+    }
+    td[data-full="1"]{padding-top:8px; border-top:1px dashed #E5E5E5; margin-top:4px;}
+    .verdict-box .title{font-size:22px;}
+    .chips{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <h1>위켄드 마켓 브리핑 | LUPE</h1>
+      <div class="sub">
+        2026년 8월 3일(월) 발행<br>
+        최근 정규장 마감: 2026-07-31(금) — 상세 지수·매크로 데이터는 2026-08-01(토)자 브리핑 참고
+      </div>
+    </div>
+    <div class="logo">
+      <div class="l1">LUPE</div>
+      <div>HELIOS MOMENTUM</div>
+    </div>
+  </header>
+
+  <div class="bluf">
+    <b>BLUF —</b> 트럼프, 8/1(토) 이란 추가 공습 전격 보류(걸프 동맹국 중재) 소식에 지정학 리스크가 완화되며 아시아 증시가 월요일 상승 출발. 다만 8/3(월) 호르무즈 해협 협상 개시·8/7(금) 고용보고서까지는 확정된 방향성 없이 <b style="color:#FFD6DB;">데이터·이벤트 대기 국면</b>이며, 이번 주는 PLTR·AMD를 포함한 <b>실적 슈퍼위크</b>가 겹쳐 변동성 확대 가능성에 유의.
+  </div>
+
+  <section>
+    <div class="sec-title"><span class="sec-badge">W1</span>Friday Close Snapshot</div>
+    <div class="friday-line">
+      S&amp;P500 7,489.72(+0.70%) · Nasdaq 25,373.85(+1.00%) · Dow 52,485.03(+0.53%)
+    </div>
+    <div class="friday-note">
+      7월 마지막 거래일, Amazon 실적 서프라이즈(주가 +15% 이상 급등)가 Nasdaq 상승을 견인. 지수 상세 등락 사유·10Y Treasury·DXY·Fear&amp;Greed·Brent 등 매크로 카드는 2026-08-01(토)자 정식 브리핑 참고.
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title"><span class="sec-badge">W2</span>Weekend Major News</div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">트럼프, 이란 추가 공습 전격 보류 — 걸프 동맹국 중재로 임시 데탕트</div>
+        <span class="badge high">HIGH</span>
+      </div>
+      <div class="news-desc">
+        트럼프 대통령이 8/1(토) 예정됐던 이란 대상 신규 군사작전을 보류한다고 발표. 사우디·UAE·카타르·이란의 요청에 따른 조치로, 호르무즈 해협 재개항을 둘러싼 이란·오만 간 협상이 8/3(월)부터 시작될 예정. 트럼프는 "언제든 재개할 준비가 돼 있다"고 여지를 남겨 리스크가 완전 해소된 것은 아님.
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">Brent 원유 하락, 호르무즈 리스크 완화 기대에 월요일 반응 주목</div>
+        <span class="badge medium">MEDIUM</span>
+      </div>
+      <div class="news-desc">
+        7/31(금) Brent는 전일 대비 0.68% 하락한 $88.46/bbl 마감. 지정학 리스크 완화 기조가 이어질 경우 유가 추가 하락 및 인플레이션 압력 완화로 이어질 수 있어 월요일 개장 흐름을 확인할 필요.
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">아시아 증시, 월요일 리스크온 출발 — Sensex·Nifty 급등</div>
+        <span class="badge medium">MEDIUM</span>
+      </div>
+      <div class="news-desc">
+        인도 Sensex가 개장 직후 700포인트 이상 급등(78,883선), Nifty도 24,500 돌파. 유가 하락과 지정학 리스크 완화, 외국인 자금 유입이 겹친 결과로, 미국 증시 개장 전 위험자산 선호 심리를 가늠할 선행 지표로 참고할 만함.
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">비트코인 6.3만~6.5만 달러권 등락 — 8월 계절적 약세 구간 진입</div>
+        <span class="badge low">LOW</span>
+      </div>
+      <div class="news-desc">
+        BTC는 20일 이평선($64,288) 부근인 $63,000~$64,800대에서 등락. 8월은 역사적으로 비트코인의 월별 성과가 가장 저조한 달(중간값 -7%)로, 10월 고점($126,000) 대비 이미 반토막난 상태에서 계절성 리스크가 겹쳐 있음.
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">이번 주 '실적 슈퍼위크' 개막 — PLTR·AMD·DIS·MCD·UBER 등 대거 발표</div>
+        <span class="badge high">HIGH</span>
+      </div>
+      <div class="news-desc">
+        8/3(월)~8/7(금) 한 주간 S&amp;P 500 다수 기업이 실적을 발표. 특히 Helios 포트폴리오 관심 종목인 Palantir(PLTR, 8/3 장마감 후)와 AMD(8/4 장마감 후)가 AI 밸류체인 방향성을 가늠할 핵심 이벤트. Caterpillar, McDonald's, Disney, Uber, Shopify 등도 소비·산업 경기 체감도를 보여줄 예정.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title"><span class="sec-badge">W3</span>This Week's Catalyst</div>
+    <table class="catalyst">
+      <thead>
+        <tr><th>날짜(ET)</th><th>시간(ET)</th><th>한국시간(KST)</th><th>이벤트</th><th>중요도</th><th>예상 영향</th></tr>
+      </thead>
+      <tbody>
+        <tr class="today">
+          <td data-label="날짜(ET)">08/03(월)</td>
+          <td data-label="시간(ET)">17:00 PM</td>
+          <td data-label="한국시간(KST)">08/04(화) 06:00 <span class="h24">⏱24H</span></td>
+          <td data-label="이벤트">Palantir(PLTR) Q2 실적 발표 + 컨퍼런스콜</td>
+          <td data-label="중요도"><span class="chip-badge h">HIGH</span></td>
+          <td data-full="1" data-label="예상 영향">8연속 어닝비트 이력, AI 소프트웨어 수요 가이던스가 관건. 주가 밸류에이션 부담 속 옵션시장은 ±12% 변동성을 프라이싱.</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/04(화)</td>
+          <td data-label="시간(ET)">08:30 AM</td>
+          <td data-label="한국시간(KST)">08/04(화) 21:30</td>
+          <td data-label="이벤트">무역수지(Trade Balance, 6월)</td>
+          <td data-label="중요도"><span class="chip-badge m">MEDIUM</span></td>
+          <td data-full="1" data-label="예상 영향">관세 정책 영향 반영 여부 확인. 서프라이즈 시 달러·금리 단기 변동 가능.</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/04(화)</td>
+          <td data-label="시간(ET)">10:00 AM</td>
+          <td data-label="한국시간(KST)">08/04(화) 23:00</td>
+          <td data-label="이벤트">공장 수주(Factory Orders, 6월)</td>
+          <td data-label="중요도"><span class="chip-badge l">LOW</span></td>
+          <td data-full="1" data-label="예상 영향">제조업 수요 후행 지표, 시장 영향은 제한적.</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/04(화)</td>
+          <td data-label="시간(ET)">17:00 PM</td>
+          <td data-label="한국시간(KST)">08/05(수) 06:00</td>
+          <td data-label="이벤트">AMD Q2 실적 발표 + 컨퍼런스콜</td>
+          <td data-label="중요도"><span class="chip-badge h">HIGH</span></td>
+          <td data-full="1" data-label="예상 영향">AI 반도체 수요·데이터센터 가이던스가 NVDA 밸류체인 전반 센티먼트에 영향.</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/05(수)</td>
+          <td data-label="시간(ET)">08:15 AM</td>
+          <td data-label="한국시간(KST)">08/05(수) 21:15</td>
+          <td data-label="이벤트">ADP 민간고용보고서(7월)</td>
+          <td data-label="중요도"><span class="chip-badge m">MEDIUM</span></td>
+          <td data-full="1" data-label="예상 영향">금요일 NFP의 선행 신호로 시장이 민감하게 반응.</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/05(수)</td>
+          <td data-label="시간(ET)">10:00 AM</td>
+          <td data-label="한국시간(KST)">08/05(수) 23:00</td>
+          <td data-label="이벤트">ISM 서비스업 PMI(7월)</td>
+          <td data-label="중요도"><span class="chip-badge m">MEDIUM</span></td>
+          <td data-full="1" data-label="예상 영향">서비스 경기 확장·위축 분기점(50) 여부가 금리 인하 기대에 영향.</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/06(목)</td>
+          <td data-label="시간(ET)">08:30 AM</td>
+          <td data-label="한국시간(KST)">08/06(목) 21:30</td>
+          <td data-label="이벤트">신규 실업수당 청구건수</td>
+          <td data-label="중요도"><span class="chip-badge l">LOW</span></td>
+          <td data-full="1" data-label="예상 영향">주간 변동성, NFP 직전 노동시장 온도 체크.</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/07(금)</td>
+          <td data-label="시간(ET)">08:30 AM</td>
+          <td data-label="한국시간(KST)">08/07(금) 21:30</td>
+          <td data-label="이벤트">7월 비농업고용지표(NFP) &amp; 실업률</td>
+          <td data-label="중요도"><span class="chip-badge h">HIGH</span></td>
+          <td data-full="1" data-label="예상 영향">이번 주 최대 변곡점. 9월 FOMC(9/16) 금리 인하 확률에 직결, 서프라이즈 시 지수 전반 변동성 확대.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tz-note">
+      <b>시간대 안내:</b> 미국은 현재 서머타임(EDT, 3월 둘째 일요일~11월 첫째 일요일) 적용 중으로 KST=ET+13시간 기준 환산. 자정을 넘는 이벤트는 날짜가 다음날로 표기됨(예: PLTR 실적 08/03 17:00 ET → 08/04(화) 06:00 KST). ⏱24H 배지는 브리핑 생성 시점(2026-08-03 17:56 KST) 기준 24시간 이내 이벤트.
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title"><span class="sec-badge">W4</span>Weekly Strategy Pulse</div>
+    <div class="verdict-box">
+      <div class="label">THIS WEEK'S VERDICT</div>
+      <div class="title">데이터 대기 국면 — <span class="accent">Neutral</span> 우위, 상방 촉매 다수</div>
+      <div class="body">
+        지정학 리스크 완화(이란 공습 보류)와 유가 하락은 명백한 상방 촉매지만, 협상 결렬 시 되돌림 가능성이 남아 있고 확정된 사실이 아님. 여기에 PLTR·AMD 실적과 금요일 NFP까지 굵직한 이벤트가 연속 배치돼 있어, "이번 주"를 관통하는 방향성은 이벤트 결과에 좌우되는 <b>데이터 디펜던트 구간</b>으로 판단. AI 밸류체인(PLTR/AMD/NVDA 트랙)에 대한 베팅은 실적 결과 확인 후 대응하는 편이 리스크 대비 합리적.
+      </div>
+    </div>
+    <div class="chips">
+      <div class="chip">Bear</div>
+      <div class="chip active">Neutral</div>
+      <div class="chip">Bull</div>
+    </div>
+    <div class="disclaimer">본 브리핑은 정보 제공 목적이며 투자 자문이 아닙니다.</div>
+  </section>
+
+  <section>
+    <div class="sec-title"><span class="sec-badge">SRC</span>Sources</div>
+    <div class="sources">
+      <div class="summary-line">지수 종가 출처: Washington Post / CNBC (2026-07-31 마감 기준)</div>
+      <div class="summary-line">매크로(오일) 출처: Forbes Advisor / Investing.com Brent</div>
+      <div class="summary-line">뉴스 출처: CNN, Semafor, Al Jazeera, Washington Post, ABC News 등 교차 확인</div>
+      <ul>
+        <li><span class="verify">✅</span> S&amp;P500/Nasdaq/Dow 7/31 종가 — <a href="https://www.washingtonpost.com/business/2026/07/31/wall-street-stocks-dow-nasdaq/ee08da40-8d1d-11f1-8912-d71e69d679d7_story.html">Washington Post</a>, <a href="https://www.cnbc.com/2026/07/30/stock-market-today-live-updates.html">CNBC</a> 교차확인</li>
+        <li><span class="verify">✅</span> 트럼프 이란 공습 보류 — <a href="https://www.semafor.com/article/08/02/2026/trump-calls-off-iran-strikes">Semafor</a>, <a href="https://www.aljazeera.com/news/2026/8/2/trump-cancels-iran-strike-says-deal-perimeters-reached">Al Jazeera</a>, <a href="https://www.washingtonpost.com/politics/2026/08/02/trump-iran-strait-hormuz-israel-gaza-mideast/7d2da2ea-8e28-11f1-8912-d71e69d679d7_story.html">Washington Post</a> 교차확인</li>
+        <li><span class="single">⚠️ 단일소스</span> Brent 7/31 종가($88.46) — <a href="https://www.forbes.com/advisor/investing/oil-prices-today/">Forbes Advisor</a></li>
+        <li><span class="single">⚠️ 단일소스</span> 비트코인 가격대($63,000~$64,800) — <a href="https://247wallst.com/investing/cryptocurrency/2026/08/02/bitcoin-price-prediction-what-price-will-btc-hit-in-august/">24/7 Wall St.</a></li>
+        <li><span class="verify">✅</span> PLTR 실적 일정(8/3 장마감 후) — <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/262068882-palantir-pltr-earnings-preview-august-3-2026-options-swing-triangle-tradingkey">TradingKey</a>, <a href="https://eciks.org/13762-11692-palantir-earnings-date-august-3">eciks.org</a></li>
+        <li><span class="verify">✅</span> AMD 실적 일정(8/4 장마감 후) — <a href="https://www.stocktitan.net/news/AMD/amd-to-report-fiscal-second-quarter-2026-financial-uxy30dtkyyhk.html">StockTitan</a></li>
+        <li><span class="verify">✅</span> 경제 캘린더(무역수지·공장수주·ADP·ISM 서비스업·NFP) — BLS 스케줄, ADP/FRED, ISM 공식 발행주기 기반 교차확인</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy<br>
+    생성일시: 2026-08-03 17:56 KST · 기준일: 2026-07-31(금) 정규장 마감 · Weekend Edition
+  </footer>
+
+</div>
+</body>
+</html>
