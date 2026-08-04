@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Market Alpha Briefing | LUPE — 2026.08.04</title>
+<style>
+  :root{
+    --lupe-red:#C1001B;
+    --lupe-dark:#1A1A1A;
+    --lupe-mid:#4A4A4A;
+    --lupe-warn:#E87722;
+    --lupe-green:#1A7A3C;
+    --border:#E5E5E5;
+    --bg-soft:#FAFAFA;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Noto Sans KR","Malgun Gothic",sans-serif;
+    background:#FFFFFF;
+    color:var(--lupe-dark);
+    font-size:16px;
+    line-height:1.75;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:0 0 40px;}
+
+  /* Header */
+  header{
+    background:var(--lupe-dark);
+    color:#fff;
+    padding:28px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  header .title-block h1{
+    margin:0 0 6px;
+    font-size:24px;
+    letter-spacing:-0.3px;
+  }
+  header .title-block .sub{
+    font-size:13px;
+    color:#CFCFCF;
+  }
+  header .title-block .sub b{color:#fff;}
+  header .logo-block{
+    text-align:right;
+    font-size:12px;
+    color:#CFCFCF;
+    line-height:1.5;
+    white-space:nowrap;
+  }
+  header .logo-block .l1{
+    font-weight:700;
+    font-size:15px;
+    color:#fff;
+    letter-spacing:1px;
+  }
+
+  /* BLUF */
+  .bluf{
+    background:var(--lupe-red);
+    color:#fff;
+    padding:18px 32px;
+    font-size:15px;
+    font-weight:500;
+    line-height:1.7;
+  }
+  .bluf b{font-weight:700;}
+
+  section{padding:32px 32px 8px;}
+  .sec-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:0 0 18px;
+  }
+  .sec-badge{
+    background:var(--lupe-red);
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    padding:3px 9px;
+    border-radius:3px;
+    letter-spacing:0.5px;
+  }
+  .sec-title h2{
+    font-size:14px;
+    margin:0;
+    padding-bottom:6px;
+    border-bottom:2px solid var(--lupe-red);
+    flex:1;
+    font-weight:700;
+    letter-spacing:0.2px;
+  }
+
+  /* Cards row */
+  .cards{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px;}
+  .card{
+    flex:1 1 30%;
+    min-width:150px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:16px;
+    background:var(--bg-soft);
+  }
+  .card .name{font-size:13px;color:var(--lupe-mid);font-weight:700;margin-bottom:6px;}
+  .card .val{font-size:28px;font-weight:800;color:var(--lupe-dark);}
+  .card .macroval{font-size:24px;font-weight:800;color:var(--lupe-dark);}
+  .card .chg{font-size:14px;font-weight:700;margin-top:4px;}
+  .up{color:var(--lupe-green);}
+  .down{color:var(--lupe-red);}
+  .card .meta{font-size:12px;color:var(--lupe-mid);margin-top:6px;}
+  .badge-record{
+    display:inline-block;
+    background:var(--lupe-red);
+    color:#fff;
+    font-size:11px;
+    font-weight:700;
+    padding:1px 6px;
+    border-radius:3px;
+    margin-left:6px;
+    vertical-align:middle;
+  }
+
+  /* Portfolio Pulse chips */
+  .portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:10px;
+    margin-bottom:8px;
+  }
+  .pchip{
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:10px 6px;
+    text-align:center;
+    background:var(--bg-soft);
+  }
+  .pchip .tk{font-size:14px;font-weight:800;color:var(--lupe-dark);}
+  .pchip .pct{font-size:16px;font-weight:800;margin-top:4px;}
+  .pchip .px{font-size:11px;color:var(--lupe-mid);margin-top:2px;}
+  .pchip .tag{font-size:10px;color:var(--lupe-mid);margin-top:4px;line-height:1.4;}
+  .pchip.notable-up{border:2px solid var(--lupe-green);}
+  .pchip.notable-down{border:2px solid var(--lupe-red);}
+  .pchip.pending{background:#EFEFEF;border-color:#D8D8D8;}
+  .pchip.pending .tk{color:#999;}
+  .pchip.pending .pct{color:#AAA;font-size:12px;}
+  .news-ref{
+    display:inline-block;
+    background:var(--lupe-dark);
+    color:#fff;
+    font-size:9px;
+    font-weight:700;
+    padding:1px 5px;
+    border-radius:3px;
+    margin-top:4px;
+  }
+  .portfolio-note{
+    font-size:12px;
+    color:var(--lupe-mid);
+    margin-top:4px;
+  }
+
+  .narrative{
+    font-size:14px;
+    color:var(--lupe-mid);
+    line-height:1.8;
+    background:var(--bg-soft);
+    border-left:3px solid var(--lupe-red);
+    padding:14px 16px;
+    border-radius:0 6px 6px 0;
+    margin-bottom:8px;
+  }
+  .narrative b{color:var(--lupe-dark);}
+
+  /* Fear Greed gauge */
+  .gauge-bar{
+    position:relative;
+    height:10px;
+    border-radius:5px;
+    margin-top:10px;
+    background:linear-gradient(90deg,#C1001B 0%,#E87722 30%,#E8C122 50%,#8FC12A 70%,#1A7A3C 100%);
+  }
+  .gauge-pointer{
+    position:absolute;
+    top:-5px;
+    width:2px;
+    height:20px;
+    background:var(--lupe-dark);
+  }
+  .gauge-labels{
+    display:flex;
+    justify-content:space-between;
+    font-size:10px;
+    color:var(--lupe-mid);
+    margin-top:4px;
+  }
+
+  .oil-box{
+    border:1px dashed var(--lupe-warn);
+    background:#FFF8F0;
+    border-radius:8px;
+    padding:14px 16px;
+    font-size:14px;
+    color:var(--lupe-mid);
+  }
+  .oil-box b{color:var(--lupe-dark);}
+
+  /* News cards */
+  .news-card{
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:16px;
+    margin-bottom:12px;
+  }
+  .news-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .news-head h3{
+    font-size:16px;
+    margin:0;
+    flex:1;
+    min-width:180px;
+  }
+  .impact{
+    font-size:11px;
+    font-weight:700;
+    padding:3px 8px;
+    border-radius:12px;
+    white-space:nowrap;
+    color:#fff;
+  }
+  .impact.HIGH{background:var(--lupe-red);}
+  .impact.MEDIUM{background:var(--lupe-warn);}
+  .impact.LOW{background:var(--lupe-mid);}
+  .badge-holding{
+    display:inline-block;
+    background:var(--lupe-dark);
+    color:#fff;
+    font-size:10px;
+    font-weight:700;
+    padding:2px 6px;
+    border-radius:3px;
+  }
+  .news-card p{
+    font-size:14px;
+    color:var(--lupe-mid);
+    margin:8px 0 0;
+    line-height:1.8;
+  }
+
+  /* Catalyst table */
+  table.catalyst{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+  }
+  table.catalyst thead th{
+    background:var(--lupe-dark);
+    color:#fff;
+    font-size:12px;
+    padding:10px 8px;
+    text-align:left;
+    font-weight:700;
+  }
+  table.catalyst tbody td{
+    padding:10px 8px;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+  }
+  table.catalyst tbody tr.today{
+    border-left:4px solid var(--lupe-red);
+    background:#FFF5F6;
+  }
+  .imp-chip{
+    display:inline-block;
+    font-size:11px;
+    font-weight:700;
+    padding:2px 7px;
+    border-radius:10px;
+    color:#fff;
+  }
+  .imp-chip.HIGH{background:var(--lupe-red);}
+  .imp-chip.MEDIUM{background:var(--lupe-warn);}
+  .imp-chip.LOW{background:var(--lupe-mid);}
+  .badge-24h{
+    display:inline-block;
+    background:var(--lupe-dark);
+    color:#fff;
+    font-size:10px;
+    font-weight:700;
+    padding:2px 6px;
+    border-radius:3px;
+    margin-left:5px;
+  }
+  .tz-box{
+    margin-top:14px;
+    font-size:12px;
+    color:var(--lupe-mid);
+    background:var(--bg-soft);
+    border-radius:6px;
+    padding:12px 14px;
+    line-height:1.7;
+  }
+
+  /* Strategic takeaway */
+  .verdict-box{
+    border:2px solid var(--lupe-red);
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:16px;
+  }
+  .verdict-title{
+    font-size:30px;
+    font-weight:800;
+    color:var(--lupe-red);
+    margin:0 0 10px;
+  }
+  .verdict-body{
+    font-size:15px;
+    color:var(--lupe-mid);
+    line-height:1.85;
+  }
+  .signal-chips{
+    display:flex;
+    gap:10px;
+    margin:18px 0 10px;
+    flex-wrap:wrap;
+  }
+  .chip{
+    flex:1;
+    text-align:center;
+    padding:10px 8px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:700;
+    border:1.5px solid var(--border);
+    color:var(--lupe-mid);
+    background:#fff;
+  }
+  .chip.active{
+    background:var(--lupe-red);
+    border-color:var(--lupe-red);
+    color:#fff;
+  }
+  .disclaimer{
+    font-size:11px;
+    color:#999;
+    margin-top:10px;
+  }
+
+  /* Sources */
+  .src-summary{
+    font-size:12px;
+    color:var(--lupe-mid);
+    line-height:2;
+    background:var(--bg-soft);
+    border-radius:8px;
+    padding:14px 16px;
+    margin-bottom:12px;
+  }
+  .src-list{
+    font-size:12px;
+    color:var(--lupe-mid);
+    line-height:2;
+    padding-left:18px;
+  }
+  .src-list a{color:var(--lupe-mid);}
+  .tag-ok{color:var(--lupe-green);font-weight:700;}
+  .tag-warn{color:var(--lupe-warn);font-weight:700;}
+
+  footer{
+    text-align:center;
+    font-size:12px;
+    color:#999;
+    padding:24px 20px 10px;
+    border-top:1px solid var(--border);
+    margin-top:20px;
+  }
+
+  /* ===== Mobile ===== */
+  @media (max-width:640px){
+    header{padding:16px 16px;}
+    header .title-block h1{font-size:18px;}
+    header .logo-block{font-size:11px;}
+    header .logo-block .l1{font-size:13px;}
+    .bluf{padding:14px 16px;font-size:14px;}
+    section{padding:22px 16px 4px;}
+    .cards{flex-direction:column;}
+    .card{flex:1 1 100%;}
+    .card .val{font-size:24px;}
+    .card .macroval{font-size:21px;}
+    .portfolio-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+    .verdict-title{font-size:24px;}
+    .signal-chips{flex-direction:row;}
+
+    table.catalyst thead{display:none;}
+    table.catalyst, table.catalyst tbody, table.catalyst tr, table.catalyst td{
+      display:block;
+      width:100%;
+    }
+    table.catalyst tr{
+      border:1px solid var(--border);
+      border-radius:8px;
+      margin-bottom:10px;
+      padding:8px 12px;
+    }
+    table.catalyst tr.today{border-left:4px solid var(--lupe-red);}
+    table.catalyst td{
+      border-bottom:none;
+      padding:6px 0;
+      display:flex;
+      gap:8px;
+    }
+    table.catalyst td::before{
+      content:attr(data-label);
+      font-weight:700;
+      color:var(--lupe-dark);
+      min-width:88px;
+      flex-shrink:0;
+      font-size:12px;
+    }
+    table.catalyst td[data-full="1"]{
+      flex-direction:column;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="title-block">
+      <h1>월스트리트 포트폴리오 모닝 브리핑</h1>
+      <div class="sub">2026년 8월 4일(화) · 기준 종가일: <b>2026-08-03(월)</b></div>
+    </div>
+    <div class="logo-block">
+      <div class="l1">LUPE</div>
+      <div>HELIOS MOMENTUM</div>
+    </div>
+  </header>
+
+  <div class="bluf">
+    <b>BLUF —</b> 이란-美 외교 재개 기대감 속 반도체 섹터 전반이 급반등(필라델피아 반도체지수 +5.2%)하며 다우존스가 사상 최고치(53,178.41)로 마감, 3대 지수 동반 급등했다. Helios 워치리스트도 이 흐름에 강하게 동조해 AAOI·MU·INTC·AMD가 두 자릿수 안팎 상승했고, 장 마감 후 팔란티어 실적 서프라이즈까지 겹치며 화요일 개장 심리는 강세 우위다.
+  </div>
+
+  <!-- 00 Portfolio Pulse -->
+  <section>
+    <div class="sec-title">
+      <span class="sec-badge">00</span>
+      <h2>PORTFOLIO PULSE — HELIOS WATCHLIST</h2>
+    </div>
+    <div class="portfolio-grid">
+      <div class="pchip notable-up">
+        <div class="tk">AAOI</div>
+        <div class="pct up">▲ +16.8%</div>
+        <div class="px">$110.13</div>
+        <div class="tag">⚠️소스간괴리(참고 +15.3%)</div>
+      </div>
+      <div class="pchip notable-up">
+        <div class="tk">MU</div>
+        <div class="pct up">▲ +12.0%</div>
+        <div class="px">$829.50</div>
+        <div class="tag">반도체 섹터 랠리</div>
+      </div>
+      <div class="pchip notable-up">
+        <div class="tk">INTC</div>
+        <div class="pct up">▲ +8.6%</div>
+        <div class="px">$91.00</div>
+        <div class="tag">반도체 섹터 랠리</div>
+      </div>
+      <div class="pchip notable-up">
+        <div class="tk">AMD</div>
+        <div class="pct up">▲ +8.1%</div>
+        <div class="px">$484.64</div>
+        <div class="tag">반도체 섹터 랠리</div>
+      </div>
+      <div class="pchip notable-up">
+        <div class="tk">TSM</div>
+        <div class="pct up">▲ +5.55%</div>
+        <div class="px">$406.11</div>
+        <div class="tag">가격 인상 검토 호재</div>
+      </div>
+      <div class="pchip">
+        <div class="tk">MRVL</div>
+        <div class="pct up">▲ +3.3%</div>
+        <div class="px">$193.78</div>
+      </div>
+      <div class="pchip">
+        <div class="tk">NVDA</div>
+        <div class="pct up">▲ +3.1%</div>
+        <div class="px">$206.97</div>
+        <div class="tag">장중 낙폭 반납</div>
+      </div>
+      <div class="pchip pending">
+        <div class="tk">GOOGL</div>
+        <div class="pct">데이터 확인중</div>
+      </div>
+      <div class="pchip pending">
+        <div class="tk">CRWV</div>
+        <div class="pct">데이터 확인중</div>
+      </div>
+      <div class="pchip pending">
+        <div class="tk">CRDO</div>
+        <div class="pct">데이터 확인중</div>
+      </div>
+      <div class="pchip pending">
+        <div class="tk">WDC</div>
+        <div class="pct">데이터 확인중</div>
+      </div>
+      <div class="pchip pending">
+        <div class="tk">VRT</div>
+        <div class="pct">데이터 확인중</div>
+      </div>
+      <div class="pchip pending">
+        <div class="tk">COHR</div>
+        <div class="pct">데이터 확인중</div>
+      </div>
+      <div class="pchip pending">
+        <div class="tk">BE</div>
+        <div class="pct">데이터 확인중</div>
+      </div>
+    </div>
+    <div class="portfolio-note">⚠️ 데이터 검증 불완전 — GOOGL·CRWV·CRDO·WDC·VRT·COHR·BE 7종목은 검색 결과가 날짜·수치 면에서 신뢰할 수 있는 수준으로 확정되지 않아 이번 판에서는 보류 처리했습니다(다음 정규 실행에서 재조사). 나머지 7종목(AAOI·MU·INTC·AMD·TSM·MRVL·NVDA)은 확인된 수치입니다.</div>
+  </section>
+
+  <!-- 01 Overnight Market Delta -->
+  <section>
+    <div class="sec-title">
+      <span class="sec-badge">01</span>
+      <h2>OVERNIGHT MARKET DELTA</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="name">S&amp;P 500</div>
+        <div class="val">7,600.50</div>
+        <div class="chg up">▲ +110.78 (+1.48%)</div>
+        <div class="meta">2026-08-03(월) 정규장 마감</div>
+      </div>
+      <div class="card">
+        <div class="name">NASDAQ COMPOSITE</div>
+        <div class="val">25,913.90</div>
+        <div class="chg up">▲ +540.05 (+2.13%)</div>
+        <div class="meta">2026-08-03(월) 정규장 마감</div>
+      </div>
+      <div class="card">
+        <div class="name">DOW JONES</div>
+        <div class="val">53,178.41<span class="badge-record">사상 최고치</span></div>
+        <div class="chg up">▲ +693.38 (+1.32%)</div>
+        <div class="meta">2026-08-03(월) 정규장 마감</div>
+      </div>
+    </div>
+    <div class="narrative">
+      <b>등락 사유 —</b> 트럼프 대통령이 일요일 이란에 대한 "대규모" 공습 계획을 철회하고 월요일 오후부터 협상을 재개한다고 밝히면서 호르무즈 해협 리스크가 완화, 위험자산 선호 심리가 살아났다. 여기에 아마존(시가총액 3조달러 돌파, +4%대), 메타(+6%), 알파벳·마이크로소프트(각 +5%)로 대표되는 빅테크 랠리가 지수를 견인했다. 특히 지난주 급락했던 반도체 섹터가 이날 강하게 반등했다 — 필라델피아 반도체지수(SOX) +5.2%, TSMC +5.55%(2027년 파운드리 가격 인상 검토 소식), 마이크론 +12%, 인텔 +8.6%, AMD +8.1%로 지난주 낙폭을 상당 부분 되돌렸다. 이날 발표된 7월 ISM 제조업 PMI가 전월 대비 2.3%p 상승한 55.6%(확장국면)를 기록한 점도 심리 개선에 일조했다. 다우는 이 여세로 사상 최고치를 새로 썼다.
+    </div>
+  </section>
+
+  <!-- 02 Macro Pulse -->
+  <section>
+    <div class="sec-title">
+      <span class="sec-badge">02</span>
+      <h2>MACRO PULSE</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="name">10Y TREASURY YIELD</div>
+        <div class="macroval">4.69%</div>
+        <div class="chg down">▼ -5.9bp (24h)</div>
+        <div class="meta">이란 데탕트發 인플레 압력 완화 + 금요일 고용지표 대기 매수. Alpha Vantage 공식 API 대조 결과 최신 발행치는 2026-07-31 4.75%(1영업일 지연) — 뉴스 사후확정치 4.69%를 대표값으로 채택</div>
+      </div>
+      <div class="card">
+        <div class="name">DOLLAR INDEX (DXY)</div>
+        <div class="macroval">99.62</div>
+        <div class="chg down">▼ -0.30% (24h)</div>
+        <div class="meta">위험자산 선호에 안전자산 달러 약세 &nbsp;⚠️단일추정치 근접(참고값 99.72)</div>
+      </div>
+      <div class="card">
+        <div class="name">CNN FEAR &amp; GREED</div>
+        <div class="macroval">42 <span style="font-size:14px;color:var(--lupe-mid);">(Fear)</span></div>
+        <div class="gauge-bar"><div class="gauge-pointer" style="left:42%;"></div></div>
+        <div class="gauge-labels"><span>Extreme Fear</span><span>Neutral</span><span>Extreme Greed</span></div>
+        <div class="meta" style="margin-top:8px;">공식치 기준일 2026-07-31(금), 3거래일 지연 발행 — 월요일 랠리는 아직 미반영</div>
+      </div>
+    </div>
+    <div class="oil-box">
+      <b>Brent Crude 특이 동향 —</b> 이란 공습 철회 및 협상 재개 소식에 브렌트유가 배럴당 <b>83.82달러</b>로 전일 대비 <b>-4.68%</b> 급락(⚠️ 소스 간 괴리: 대표값 83.82 TradingEconomics / 참고값 82.92 Forbes Advisor -5.69%). WTI도 6.21% 급락해 79.41달러를 기록, 지정학 리스크 프리미엄이 큰 폭으로 빠졌다.
+    </div>
+  </section>
+
+  <!-- 03 Critical News Top 3 -->
+  <section>
+    <div class="sec-title">
+      <span class="sec-badge">03</span>
+      <h2>CRITICAL NEWS TOP 3</h2>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <h3>다우, 이란 데탕트 기대 속 사상 최고치 마감</h3>
+        <span class="impact HIGH">HIGH</span>
+      </div>
+      <p>트럼프 대통령이 이란 공습을 철회하고 월요일 오후 협상 재개를 발표하며 호르무즈 해협 리스크가 완화. 사우디 등 걸프 동맹국의 외교 압박이 배경으로 지목됐다. 3대 지수 동반 급등 속 다우가 53,178.41로 사상 최고치를 경신했다.</p>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <h3>반도체 섹터 일제 반등…MU +12%, INTC +8.6%, AMD +8.1%</h3>
+        <span class="impact HIGH">HIGH <span class="badge-holding">📌 보유종목</span></span>
+      </div>
+      <p>지난주 1조달러 넘게 시가총액이 증발했던 반도체 섹터가 월요일 강하게 반등했다. TSMC가 2027년부터 파운드리 가격을 최대 10% 인상하는 방안을 검토 중이라는 보도와 앞선 TSMC의 분기 실적 서프라이즈·연간 가이던스 상향이 투자심리를 되살렸다. 필라델피아 반도체지수(SOX)는 +5.2%. Helios 워치리스트 중 MU·TSM·INTC·AMD·NVDA·MRVL이 모두 이 흐름에 동참했다.</p>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <h3>팔란티어, 8분기 연속 실적 서프라이즈…시간외 +10%</h3>
+        <span class="impact HIGH">HIGH</span>
+      </div>
+      <p>월요일 장 마감 후 발표된 2분기 실적에서 EPS 0.41달러(예상 0.35달러), 매출 19.4억달러(예상 18억달러)로 어닝서프라이즈를 기록. 미국 상업부문 매출이 전년比 149% 급증했고, 연간 매출 가이던스를 76.5억~76.6억달러에서 81.6억달러로 상향했다. 팔란티어는 Helios 워치리스트 종목은 아니나, AI 밸류체인 심리 지표로서 참고할 만하다.</p>
+    </div>
+  </section>
+
+  <!-- 04 Today's Catalyst -->
+  <section>
+    <div class="sec-title">
+      <span class="sec-badge">04</span>
+      <h2>TODAY'S CATALYST</h2>
+    </div>
+    <table class="catalyst">
+      <thead>
+        <tr>
+          <th>날짜(ET)</th><th>시간(ET)</th><th>한국시간(KST)</th><th>이벤트</th><th>중요도</th><th>예상 영향</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="today">
+          <td data-label="날짜(ET)">08/04(화)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30 KST<span class="badge-24h">⏱24H</span></td>
+          <td data-label="이벤트">무역수지 (6월)</td>
+          <td data-label="중요도"><span class="imp-chip MEDIUM">MEDIUM</span></td>
+          <td data-label="예상 영향" data-full="1">무역적자 확대 시 GDP 하방 압력 우려, 시장 영향은 제한적</td>
+        </tr>
+        <tr class="today">
+          <td data-label="날짜(ET)">08/04(화)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00 KST<span class="badge-24h">⏱24H</span></td>
+          <td data-label="이벤트"><b>JOLTS 구인·이직보고서 (6월)</b></td>
+          <td data-label="중요도"><span class="imp-chip HIGH">HIGH</span></td>
+          <td data-label="예상 영향" data-full="1">5월 2년 최고치 기록 후 둔화 예상. 노동시장 냉각 신호 시 국채금리 추가 하락 가능</td>
+        </tr>
+        <tr class="today">
+          <td data-label="날짜(ET)">08/04(화)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00 KST<span class="badge-24h">⏱24H</span></td>
+          <td data-label="이벤트">공장수주 (6월)</td>
+          <td data-label="중요도"><span class="imp-chip LOW">LOW</span></td>
+          <td data-label="예상 영향" data-full="1">제조업 수요 보조지표, 시장 영향 미미</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/05(수)</td>
+          <td data-label="시간(ET)">08:15 AM ET</td>
+          <td data-label="한국시간(KST)">21:15 KST</td>
+          <td data-label="이벤트"><b>ADP 민간고용보고서 (7월)</b></td>
+          <td data-label="중요도"><span class="imp-chip HIGH">HIGH</span></td>
+          <td data-label="예상 영향" data-full="1">금요일 NFP 선행지표 성격. 6월 고용 쇼크(5.7만명) 이후 반등 여부 주목</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/05(수)</td>
+          <td data-label="시간(ET)">09:45 AM ET</td>
+          <td data-label="한국시간(KST)">22:45 KST</td>
+          <td data-label="이벤트">S&amp;P Global 서비스업 PMI 확정치 (7월)</td>
+          <td data-label="중요도"><span class="imp-chip MEDIUM">MEDIUM</span></td>
+          <td data-label="예상 영향" data-full="1">서비스업 경기 확인, 예비치 대비 수정폭 주목</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/05(수)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00 KST</td>
+          <td data-label="이벤트">ISM 서비스업 PMI (7월)</td>
+          <td data-label="중요도"><span class="imp-chip MEDIUM">MEDIUM</span></td>
+          <td data-label="예상 영향" data-full="1">서비스업 확장 지속 여부, 물가 하위지수(Prices Paid) 특히 주목</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/06(목)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30 KST</td>
+          <td data-label="이벤트">주간 신규실업수당청구건수</td>
+          <td data-label="중요도"><span class="imp-chip MEDIUM">MEDIUM</span></td>
+          <td data-label="예상 영향" data-full="1">노동시장 실시간 온도계, 금요일 NFP 전초 신호</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/06(목)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30 KST</td>
+          <td data-label="이벤트">생산성 및 단위노동비용 (2분기)</td>
+          <td data-label="중요도"><span class="imp-chip LOW">LOW</span></td>
+          <td data-label="예상 영향" data-full="1">인플레이션 압력 보조지표</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/06(목)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00 KST</td>
+          <td data-label="이벤트">도매재고 (6월)</td>
+          <td data-label="중요도"><span class="imp-chip LOW">LOW</span></td>
+          <td data-label="예상 영향" data-full="1">재고 사이클 참고지표, 시장 영향 미미</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/06(목)</td>
+          <td data-label="시간(ET)">05:30 PM ET</td>
+          <td data-label="한국시간(KST)">08/07(금) 06:30 KST</td>
+          <td data-label="이벤트">무살렘 세인트루이스 연은총재 연설</td>
+          <td data-label="중요도"><span class="imp-chip LOW">LOW</span></td>
+          <td data-label="예상 영향" data-full="1">FOMC 매파/비둘기파 톤 점검, 9/16 금리결정 힌트 탐색</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/07(금)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30 KST</td>
+          <td data-label="이벤트"><b>7월 비농업고용지표(NFP)</b></td>
+          <td data-label="중요도"><span class="imp-chip HIGH">HIGH</span></td>
+          <td data-label="예상 영향" data-full="1">이번 주 최대 변수. 바클레이즈 컨센서스 +10만명, 실업률 4.2% 유지 전망. 6월 쇼크(5.7만명) 이후 반등 여부가 금리·증시 방향성 좌우</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/07(금)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00 KST</td>
+          <td data-label="이벤트">바킨 리치먼드 연은총재 연설</td>
+          <td data-label="중요도"><span class="imp-chip LOW">LOW</span></td>
+          <td data-label="예상 영향" data-full="1">NFP 발표 직후 코멘트, Fed 스탠스 재확인</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tz-box">
+      <b>시간대 안내 —</b> 현재 미국은 서머타임(EDT, UTC-4) 적용 기간으로 KST = ET + 13시간입니다. (서머타임 종료 후에는 KST = ET + 14시간으로 전환) 위 표는 모두 ET 기준 날짜·시간 오름차순으로 정렬되어 있으며, 자정을 넘어가는 이벤트는 KST 날짜를 별도 표기했습니다.
+    </div>
+  </section>
+
+  <!-- 05 Strategic Takeaway -->
+  <section>
+    <div class="sec-title">
+      <span class="sec-badge">05</span>
+      <h2>STRATEGIC TAKEAWAY</h2>
+    </div>
+    <div class="verdict-box">
+      <div class="verdict-title">Aggressive Growth 근접</div>
+      <div class="verdict-body">
+        지정학 리스크 완화(이란-美 협상 재개), 반도체 섹터 급반등(SOX +5.2%, Helios 워치리스트 7종목 동반 상승), 국채금리·유가 동반 하락이 동시에 정렬되며 전형적인 리스크온 환경이 조성됐다. S&amp;P500 기준 어닝시즌 상회율이 85%에 육박해 펀더멘털도 랠리를 뒷받침한다. 다만 CNN Fear&amp;Greed 공식치가 발행 지연으로 여전히 42(Fear) 구간에 머물러 있어 심리지표는 랠리를 온전히 반영하지 못하고 있고, 워치리스트 중 GOOGL·CRDO·WDC·VRT·COHR·BE·CRWV 7종목은 이번 판에서 데이터 미확정 상태다 — 다음 정규 브리핑에서 재확인이 필요하다. 금요일 NFP 발표 전까지 변동성 확대 가능성도 열어둬야 한다.
+      </div>
+    </div>
+    <div class="signal-chips">
+      <div class="chip">Bear</div>
+      <div class="chip">Neutral</div>
+      <div class="chip active">Bull</div>
+    </div>
+    <div class="disclaimer">본 브리핑은 정보 제공 목적이며 투자 자문이 아닙니다.</div>
+  </section>
+
+  <!-- Sources -->
+  <section>
+    <div class="sec-title">
+      <span class="sec-badge">SRC</span>
+      <h2>SOURCES</h2>
+    </div>
+    <div class="src-summary">
+      지수 종가 출처: CNBC(via UPI) / Schaeffer's Investment Research — 교차확인 완료<br>
+      매크로 지표 출처: Alpha Vantage(공식 API, MARKET_STATUS·TREASURY_YIELD) / MarketScreener·CNBC(10Y 사후확정치) / TradingEconomics(DXY·Brent) / CNN Fear&amp;Greed 공식 API·feargreedmeter.com(F&amp;G)<br>
+      뉴스·워치리스트 출처: Yahoo Finance, Benzinga, GuruFocus, TradingKey, FX Leaders, Kiplinger(경제캘린더)
+    </div>
+    <ul class="src-list">
+      <li><span class="tag-ok">✅ 교차확인</span> S&amp;P500 / Nasdaq / Dow 종가 — <a href="https://www.cnbc.com/2026/08/02/stock-market-today-live-updates.html">CNBC</a>, <a href="https://www.upi.com/Top_News/US/2026/08/03/dow-jones-record/4331785790693/">UPI</a>, <a href="https://www.schaeffersresearch.com/content/ezines/2026/08/03/dow-kicks-off-august-with-record-high-as-tech-claws-back">Schaeffer's</a> (등락률·등락폭 검산 완료)</li>
+      <li><span class="tag-ok">✅ 신설: Alpha Vantage 공식 API</span> 미국 정규장 개장 상태 "closed" 확인(MARKET_STATUS) — 오늘 지수·종목 데이터가 정규장 마감치임을 재확인</li>
+      <li><span class="tag-ok">✅ 교차확인</span> 10Y 국채금리 4.69%(-5.9bp, 대표값, 뉴스 사후확정) — <a href="https://www.marketscreener.com/news/us-10-year-treasury-yield-drops-5-9-basis-points-to-4-69-2-year-rate-slides-4-3-basis-points-to-4-ce7f50d9d98bf62d">MarketScreener</a>, <a href="https://www.cnbc.com/2026/08/03/us-treasury-yields-investors-bonds-war.html">CNBC</a> · Alpha Vantage TREASURY_YIELD 공식치는 2026-07-31 4.75%로 1영업일 지연 확인됨(참고값)</li>
+      <li><span class="tag-warn">⚠️ 근사치</span> DXY 99.62(-0.30%) — TradingEconomics 계열 검색 결과 기준, 참고값 99.72(-0.19%)와 괴리 0.5% 미만</li>
+      <li><span class="tag-ok">✅ 교차확인</span> CNN Fear&amp;Greed 42(Fear) — <a href="https://production.dataviz.cnn.io/index/fearandgreed/graphdata">CNN 공식 API</a>, <a href="https://feargreedmeter.com">feargreedmeter.com</a> (단, 공식치 기준일 2026-07-31로 3거래일 지연 — 본문에 명시)</li>
+      <li><span class="tag-warn">⚠️ 소스 간 괴리</span> Brent 83.82(-4.68%, 대표값) / 82.92(-5.69%, 참고값) — <a href="https://tradingeconomics.com/commodity/brent-crude-oil">TradingEconomics</a>, <a href="https://www.forbes.com/advisor/investing/oil-prices-today/">Forbes Advisor</a></li>
+      <li><span class="tag-ok">✅ 확인</span> 반도체 섹터 랠리(MU/TSM/INTC/AMD) — <a href="https://finance.yahoo.com/markets/stocks/articles/mu-skhy-nvda-amd-intc-085017500.html">Yahoo Finance</a>, TradingKey 검색결과 교차확인</li>
+      <li><span class="tag-ok">✅ 확인</span> MRVL +3.3% $193.78 — <a href="https://www.gurufocus.com/news/8999621/a-look-at-marvell-technology-inc-mrvl-after-33-gain-gf-value-11312-vs-price-19378">GuruFocus</a></li>
+      <li><span class="tag-ok">✅ 확인</span> NVDA +3.1% $206.97 — <a href="https://finance.yahoo.com/markets/stocks/articles/nvidia-stock-reverses-early-loss-183444121.html">Yahoo Finance</a></li>
+      <li><span class="tag-warn">⚠️ 소스 간 괴리</span> AAOI +16.8%(대표값, 24/7 Wall St. 원문) / +15.3%(참고값, 별도 카드 요약) — <a href="https://247wallst.com/cards/applied-optoelectronics-aaoi-price-swing-01kz43epev7tte80n8y06myazy">24/7 Wall St.</a></li>
+      <li><span class="tag-warn">⚠️ 데이터 미확정</span> GOOGL·CRWV·CRDO·WDC·VRT·COHR·BE — 검색결과 날짜 불일치(전주 실적발표 반응과 혼재) 또는 원문 미확보로 이번 판 보류, 원문 미접근·검색결과 교차확인 실패</li>
+      <li><span class="tag-ok">✅ 확인</span> 팔란티어 2분기 실적 및 시간외 반응 — <a href="https://www.fxleaders.com/news/2026/08/03/palantir-technologies-q2-earnings-send-pltr-stock-above-140-as-revenue-growth-accelerates/">FX Leaders</a></li>
+      <li><span class="tag-ok">✅ 확인</span> 이번 주 경제 캘린더 — <a href="https://www.kiplinger.com/investing/economy/this-weeks-economic-calendar">Kiplinger</a></li>
+      <li><span class="tag-ok">✅ 확인</span> 이란-美 외교 재개·유가 하락 배경 — <a href="https://www.thestreet.com/stock-market-today/stock-market-today-aug-3-2026-dow-futures-climb-as-oil-slides-on-renewed-iran-talks">TheStreet</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    © 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy<br>
+    생성일시: 2026-08-04 08:50 KST (v2, 사용자 요청 테스트 실행) · 기준일: 2026-08-03(월) 정규장 마감 · Page 1/1
+  </footer>
+
+</div>
+</body>
+</html>
