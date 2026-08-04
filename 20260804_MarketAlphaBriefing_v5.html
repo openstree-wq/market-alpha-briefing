@@ -97,6 +97,33 @@
     letter-spacing:0.2px;
   }
 
+  /* Momentum Discovery link card */
+  .md-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+    background:var(--lupe-dark);
+    border-radius:10px;
+    padding:20px 22px;
+    border:1px solid var(--lupe-red);
+  }
+  .md-card .md-text{color:#fff;}
+  .md-card .md-title{font-size:16px;font-weight:800;margin-bottom:4px;}
+  .md-card .md-sub{font-size:13px;color:#CFCFCF;}
+  .md-card .md-btn{
+    display:inline-block;
+    background:var(--lupe-red);
+    color:#fff;
+    font-size:14px;
+    font-weight:700;
+    padding:10px 18px;
+    border-radius:24px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+
   /* Cards row */
   .cards{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px;}
   .card{
@@ -124,45 +151,6 @@
     border-radius:3px;
     margin-left:6px;
     vertical-align:middle;
-  }
-
-  /* Portfolio Pulse chips */
-  .portfolio-grid{
-    display:grid;
-    grid-template-columns:repeat(7,1fr);
-    gap:10px;
-    margin-bottom:8px;
-  }
-  .pchip{
-    border:1px solid var(--border);
-    border-radius:8px;
-    padding:10px 6px;
-    text-align:center;
-    background:var(--bg-soft);
-  }
-  .pchip .tk{font-size:14px;font-weight:800;color:var(--lupe-dark);}
-  .pchip .pct{font-size:16px;font-weight:800;margin-top:4px;}
-  .pchip .px{font-size:11px;color:var(--lupe-mid);margin-top:2px;}
-  .pchip .tag{font-size:10px;color:var(--lupe-mid);margin-top:4px;line-height:1.4;}
-  .pchip.notable-up{border:2px solid var(--lupe-green);}
-  .pchip.notable-down{border:2px solid var(--lupe-red);}
-  .pchip.pending{background:#EFEFEF;border-color:#D8D8D8;}
-  .pchip.pending .tk{color:#999;}
-  .pchip.pending .pct{color:#AAA;font-size:12px;}
-  .news-ref{
-    display:inline-block;
-    background:var(--lupe-dark);
-    color:#fff;
-    font-size:9px;
-    font-weight:700;
-    padding:1px 5px;
-    border-radius:3px;
-    margin-top:4px;
-  }
-  .portfolio-note{
-    font-size:12px;
-    color:var(--lupe-mid);
-    margin-top:4px;
   }
 
   .narrative{
@@ -241,15 +229,6 @@
   .impact.HIGH{background:var(--lupe-red);}
   .impact.MEDIUM{background:var(--lupe-warn);}
   .impact.LOW{background:var(--lupe-mid);}
-  .badge-holding{
-    display:inline-block;
-    background:var(--lupe-dark);
-    color:#fff;
-    font-size:10px;
-    font-weight:700;
-    padding:2px 6px;
-    border-radius:3px;
-  }
   .news-card p{
     font-size:14px;
     color:var(--lupe-mid);
@@ -394,11 +373,12 @@
     header .logo-block .l1{font-size:13px;}
     .bluf{padding:14px 16px;font-size:14px;}
     section{padding:22px 16px 4px;}
+    .md-card{flex-direction:column;align-items:flex-start;text-align:left;}
+    .md-card .md-btn{width:100%;text-align:center;}
     .cards{flex-direction:column;}
     .card{flex:1 1 100%;}
     .card .val{font-size:24px;}
     .card .macroval{font-size:21px;}
-    .portfolio-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
     .verdict-title{font-size:24px;}
     .signal-chips{flex-direction:row;}
 
@@ -449,87 +429,22 @@
   </header>
 
   <div class="bluf">
-    <b>BLUF —</b> 이란-美 외교 재개 기대감 속 반도체 섹터 전반이 급반등(필라델피아 반도체지수 +5.2%)하며 다우존스가 사상 최고치(53,178.41)로 마감, 3대 지수 동반 급등했다. Helios 워치리스트도 이 흐름에 강하게 동조해 AAOI·MU·INTC·AMD가 두 자릿수 안팎 상승했고, 장 마감 후 팔란티어 실적 서프라이즈까지 겹치며 화요일 개장 심리는 강세 우위다.
+    <b>BLUF —</b> 이란-美 외교 재개 기대감과 빅테크 실적 모멘텀이 겹치며 다우존스가 사상 최고치(53,178.41)로 마감, 3대 지수 동반 급등했다. 장 마감 후 팔란티어가 8분기 연속 실적 서프라이즈로 시간외 +10% 급등하며 화요일 개장 심리에 추가 상승 압력을 더하고 있다.
   </div>
 
-  <!-- 00 Portfolio Pulse -->
+  <!-- 00 Momentum Discovery -->
   <section>
     <div class="sec-title">
       <span class="sec-badge">00</span>
-      <h2>PORTFOLIO PULSE — HELIOS WATCHLIST</h2>
+      <h2>MOMENTUM DISCOVERY</h2>
     </div>
-    <div class="portfolio-grid">
-      <div class="pchip notable-up">
-        <div class="tk">AAOI</div>
-        <div class="pct up">▲ +16.8%</div>
-        <div class="px">$110.13</div>
-        <div class="tag">⚠️소스간괴리(참고 +15.3%)</div>
+    <div class="md-card">
+      <div class="md-text">
+        <div class="md-title">Helios 개인 모멘텀 워치리스트 대시보드</div>
+        <div class="md-sub">종목별 실시간 트래킹은 아래 대시보드에서 직접 확인하세요.</div>
       </div>
-      <div class="pchip notable-up">
-        <div class="tk">MU</div>
-        <div class="pct up">▲ +12.0%</div>
-        <div class="px">$829.50</div>
-        <div class="tag">반도체 섹터 랠리</div>
-      </div>
-      <div class="pchip notable-up">
-        <div class="tk">INTC</div>
-        <div class="pct up">▲ +8.6%</div>
-        <div class="px">$91.00</div>
-        <div class="tag">반도체 섹터 랠리</div>
-      </div>
-      <div class="pchip notable-up">
-        <div class="tk">AMD</div>
-        <div class="pct up">▲ +8.1%</div>
-        <div class="px">$484.64</div>
-        <div class="tag">반도체 섹터 랠리</div>
-      </div>
-      <div class="pchip notable-up">
-        <div class="tk">TSM</div>
-        <div class="pct up">▲ +5.55%</div>
-        <div class="px">$406.11</div>
-        <div class="tag">가격 인상 검토 호재</div>
-      </div>
-      <div class="pchip">
-        <div class="tk">MRVL</div>
-        <div class="pct up">▲ +3.3%</div>
-        <div class="px">$193.78</div>
-      </div>
-      <div class="pchip">
-        <div class="tk">NVDA</div>
-        <div class="pct up">▲ +3.1%</div>
-        <div class="px">$206.97</div>
-        <div class="tag">장중 낙폭 반납</div>
-      </div>
-      <div class="pchip pending">
-        <div class="tk">GOOGL</div>
-        <div class="pct">데이터 확인중</div>
-      </div>
-      <div class="pchip pending">
-        <div class="tk">CRWV</div>
-        <div class="pct">데이터 확인중</div>
-      </div>
-      <div class="pchip pending">
-        <div class="tk">CRDO</div>
-        <div class="pct">데이터 확인중</div>
-      </div>
-      <div class="pchip pending">
-        <div class="tk">WDC</div>
-        <div class="pct">데이터 확인중</div>
-      </div>
-      <div class="pchip pending">
-        <div class="tk">VRT</div>
-        <div class="pct">데이터 확인중</div>
-      </div>
-      <div class="pchip pending">
-        <div class="tk">COHR</div>
-        <div class="pct">데이터 확인중</div>
-      </div>
-      <div class="pchip pending">
-        <div class="tk">BE</div>
-        <div class="pct">데이터 확인중</div>
-      </div>
+      <a class="md-btn" href="https://momentum-discovery.pages.dev/" target="_blank" rel="noopener">대시보드 열기 →</a>
     </div>
-    <div class="portfolio-note">⚠️ 데이터 검증 불완전 — GOOGL·CRWV·CRDO·WDC·VRT·COHR·BE 7종목은 검색 결과가 날짜·수치 면에서 신뢰할 수 있는 수준으로 확정되지 않아 이번 판에서는 보류 처리했습니다(다음 정규 실행에서 재조사). 나머지 7종목(AAOI·MU·INTC·AMD·TSM·MRVL·NVDA)은 확인된 수치입니다.</div>
   </section>
 
   <!-- 01 Overnight Market Delta -->
@@ -559,7 +474,7 @@
       </div>
     </div>
     <div class="narrative">
-      <b>등락 사유 —</b> 트럼프 대통령이 일요일 이란에 대한 "대규모" 공습 계획을 철회하고 월요일 오후부터 협상을 재개한다고 밝히면서 호르무즈 해협 리스크가 완화, 위험자산 선호 심리가 살아났다. 여기에 아마존(시가총액 3조달러 돌파, +4%대), 메타(+6%), 알파벳·마이크로소프트(각 +5%)로 대표되는 빅테크 랠리가 지수를 견인했다. 특히 지난주 급락했던 반도체 섹터가 이날 강하게 반등했다 — 필라델피아 반도체지수(SOX) +5.2%, TSMC +5.55%(2027년 파운드리 가격 인상 검토 소식), 마이크론 +12%, 인텔 +8.6%, AMD +8.1%로 지난주 낙폭을 상당 부분 되돌렸다. 이날 발표된 7월 ISM 제조업 PMI가 전월 대비 2.3%p 상승한 55.6%(확장국면)를 기록한 점도 심리 개선에 일조했다. 다우는 이 여세로 사상 최고치를 새로 썼다.
+      <b>등락 사유 —</b> 트럼프 대통령이 일요일 이란에 대한 "대규모" 공습 계획을 철회하고 월요일 오후부터 협상을 재개한다고 밝히면서 호르무즈 해협 리스크가 완화, 위험자산 선호 심리가 살아났다. 여기에 아마존(시가총액 3조달러 돌파, +4%대), 메타(+6%), 엔비디아(+3%), 알파벳·마이크로소프트(각 +5%)로 대표되는 빅테크 랭리가 지수를 견인했다. 이날 발표된 7월 ISM 제조업 PMI가 전월 대비 2.3%p 상승한 55.6%(확장국면)를 기록한 점도 심리 개선에 일조했다. 다우는 이 여세로 사상 최고치를 새로 썼다.
     </div>
   </section>
 
@@ -574,7 +489,7 @@
         <div class="name">10Y TREASURY YIELD</div>
         <div class="macroval">4.69%</div>
         <div class="chg down">▼ -5.9bp (24h)</div>
-        <div class="meta">이란 데탕트發 인플레 압력 완화 + 금요일 고용지표 대기 매수. Alpha Vantage 공식 API 대조 결과 최신 발행치는 2026-07-31 4.75%(1영업일 지연) — 뉴스 사후확정치 4.69%를 대표값으로 채택</div>
+        <div class="meta">이란 데탕트發 인플레 압력 완화 + 금요일 고용지표 대기 매수</div>
       </div>
       <div class="card">
         <div class="name">DOLLAR INDEX (DXY)</div>
@@ -612,18 +527,18 @@
 
     <div class="news-card">
       <div class="news-head">
-        <h3>반도체 섹터 일제 반등…MU +12%, INTC +8.6%, AMD +8.1%</h3>
-        <span class="impact HIGH">HIGH <span class="badge-holding">📌 보유종목</span></span>
+        <h3>팔란티어, 8분기 연속 실적 서프라이즈…시간외 +10%</h3>
+        <span class="impact HIGH">HIGH</span>
       </div>
-      <p>지난주 1조달러 넘게 시가총액이 증발했던 반도체 섹터가 월요일 강하게 반등했다. TSMC가 2027년부터 파운드리 가격을 최대 10% 인상하는 방안을 검토 중이라는 보도와 앞선 TSMC의 분기 실적 서프라이즈·연간 가이던스 상향이 투자심리를 되살렸다. 필라델피아 반도체지수(SOX)는 +5.2%. Helios 워치리스트 중 MU·TSM·INTC·AMD·NVDA·MRVL이 모두 이 흐름에 동참했다.</p>
+      <p>월요일 장 마감 후 발표된 2분기 실적에서 EPS 0.41달러(예상 0.35달러), 매출 19.4억달러(예상 18억달러)로 어닝서프라이즈를 기록. 미국 상업부문 매출이 전년比 149% 급증했고, 연간 매출 가이던스를 76.5억~76.6억달러에서 81.6억달러로 상향했다. 다만 최근 4개 분기 연속 실적 발표 후 주가가 하락했던 전례가 있어 화요일 정규장 반응이 관건.</p>
     </div>
 
     <div class="news-card">
       <div class="news-head">
-        <h3>팔란티어, 8분기 연속 실적 서프라이즈…시간외 +10%</h3>
-        <span class="impact HIGH">HIGH</span>
+        <h3>7월 ISM 제조업 PMI 55.6%…확장국면 진입</h3>
+        <span class="impact MEDIUM">MEDIUM</span>
       </div>
-      <p>월요일 장 마감 후 발표된 2분기 실적에서 EPS 0.41달러(예상 0.35달러), 매출 19.4억달러(예상 18억달러)로 어닝서프라이즈를 기록. 미국 상업부문 매출이 전년比 149% 급증했고, 연간 매출 가이던스를 76.5억~76.6억달러에서 81.6억달러로 상향했다. 팔란티어는 Helios 워치리스트 종목은 아니나, AI 밸류체인 심리 지표로서 참고할 만하다.</p>
+      <p>7월 ISM 제조업 구매관리자지수가 전월 대비 2.3%p 상승한 55.6%를 기록하며 확장 국면(50 이상)에 진입했다. 제조업 경기 회복 신호로 해석되며 월요일 증시 상승분위기에 추가 근거를 제공했다. 이번 주는 화요일 JOLTS를 시작으로 금요일 7월 비농업고용지표까지 노동시장 데이터가 집중돼 있어 후속 확인이 필요하다.</p>
     </div>
   </section>
 
@@ -752,7 +667,7 @@
     <div class="verdict-box">
       <div class="verdict-title">Aggressive Growth 근접</div>
       <div class="verdict-body">
-        지정학 리스크 완화(이란-美 협상 재개), 반도체 섹터 급반등(SOX +5.2%, Helios 워치리스트 7종목 동반 상승), 국채금리·유가 동반 하락이 동시에 정렬되며 전형적인 리스크온 환경이 조성됐다. S&amp;P500 기준 어닝시즌 상회율이 85%에 육박해 펀더멘털도 랠리를 뒷받침한다. 다만 CNN Fear&amp;Greed 공식치가 발행 지연으로 여전히 42(Fear) 구간에 머물러 있어 심리지표는 랠리를 온전히 반영하지 못하고 있고, 워치리스트 중 GOOGL·CRDO·WDC·VRT·COHR·BE·CRWV 7종목은 이번 판에서 데이터 미확정 상태다 — 다음 정규 브리핑에서 재확인이 필요하다. 금요일 NFP 발표 전까지 변동성 확대 가능성도 열어둬야 한다.
+        지정학 리스크 완화(이란-美 협상 재개), 빅테크 실적 모멘텀(팔란티어 시간외 +10%, 아마존 시총 3조달러), 국채금리·유가 동반 하락이 동시에 정렬되며 전형적인 리스크온 환경이 조성됐다. S&amp;P500 기준 어닝시즌 상회율이 85%에 육박해 펀더멘털도 랠리를 뒷받침한다. 다만 CNN Fear&amp;Greed 공식치가 발행 지연으로 여전히 42(Fear) 구간에 머물러 있어 심리지표는 랠리를 온전히 반영하지 못하고 있으며, 금요일 NFP 발표 전까지 변동성 확대 가능성을 열어둘 필요가 있다.
       </div>
     </div>
     <div class="signal-chips">
@@ -771,21 +686,15 @@
     </div>
     <div class="src-summary">
       지수 종가 출처: CNBC(via UPI) / Schaeffer's Investment Research — 교차확인 완료<br>
-      매크로 지표 출처: Alpha Vantage(공식 API, MARKET_STATUS·TREASURY_YIELD) / MarketScreener·CNBC(10Y 사후확정치) / TradingEconomics(DXY·Brent) / CNN Fear&amp;Greed 공식 API·feargreedmeter.com(F&amp;G)<br>
-      뉴스·워치리스트 출처: Yahoo Finance, Benzinga, GuruFocus, TradingKey, FX Leaders, Kiplinger(경제캘린더)
+      매크로 지표 출처: MarketScreener·CNBC(10Y) / TradingEconomics(DXY·Brent) / CNN Fear&amp;Greed 공식 API·feargreedmeter.com(F&amp;G)<br>
+      뉴스 출처: Yahoo Finance, TheStreet, FX Leaders, Kiplinger(경제캘린더)
     </div>
     <ul class="src-list">
       <li><span class="tag-ok">✅ 교차확인</span> S&amp;P500 / Nasdaq / Dow 종가 — <a href="https://www.cnbc.com/2026/08/02/stock-market-today-live-updates.html">CNBC</a>, <a href="https://www.upi.com/Top_News/US/2026/08/03/dow-jones-record/4331785790693/">UPI</a>, <a href="https://www.schaeffersresearch.com/content/ezines/2026/08/03/dow-kicks-off-august-with-record-high-as-tech-claws-back">Schaeffer's</a> (등락률·등락폭 검산 완료)</li>
-      <li><span class="tag-ok">✅ 신설: Alpha Vantage 공식 API</span> 미국 정규장 개장 상태 "closed" 확인(MARKET_STATUS) — 오늘 지수·종목 데이터가 정규장 마감치임을 재확인</li>
-      <li><span class="tag-ok">✅ 교차확인</span> 10Y 국채금리 4.69%(-5.9bp, 대표값, 뉴스 사후확정) — <a href="https://www.marketscreener.com/news/us-10-year-treasury-yield-drops-5-9-basis-points-to-4-69-2-year-rate-slides-4-3-basis-points-to-4-ce7f50d9d98bf62d">MarketScreener</a>, <a href="https://www.cnbc.com/2026/08/03/us-treasury-yields-investors-bonds-war.html">CNBC</a> · Alpha Vantage TREASURY_YIELD 공식치는 2026-07-31 4.75%로 1영업일 지연 확인됨(참고값)</li>
+      <li><span class="tag-ok">✅ 교차확인</span> 10Y 국채금리 4.69%(-5.9bp) — <a href="https://www.marketscreener.com/news/us-10-year-treasury-yield-drops-5-9-basis-points-to-4-69-2-year-rate-slides-4-3-basis-points-to-4-ce7f50d9d98bf62d">MarketScreener</a>, <a href="https://www.cnbc.com/2026/08/03/us-treasury-yields-investors-bonds-war.html">CNBC</a></li>
       <li><span class="tag-warn">⚠️ 근사치</span> DXY 99.62(-0.30%) — TradingEconomics 계열 검색 결과 기준, 참고값 99.72(-0.19%)와 괴리 0.5% 미만</li>
       <li><span class="tag-ok">✅ 교차확인</span> CNN Fear&amp;Greed 42(Fear) — <a href="https://production.dataviz.cnn.io/index/fearandgreed/graphdata">CNN 공식 API</a>, <a href="https://feargreedmeter.com">feargreedmeter.com</a> (단, 공식치 기준일 2026-07-31로 3거래일 지연 — 본문에 명시)</li>
       <li><span class="tag-warn">⚠️ 소스 간 괴리</span> Brent 83.82(-4.68%, 대표값) / 82.92(-5.69%, 참고값) — <a href="https://tradingeconomics.com/commodity/brent-crude-oil">TradingEconomics</a>, <a href="https://www.forbes.com/advisor/investing/oil-prices-today/">Forbes Advisor</a></li>
-      <li><span class="tag-ok">✅ 확인</span> 반도체 섹터 랠리(MU/TSM/INTC/AMD) — <a href="https://finance.yahoo.com/markets/stocks/articles/mu-skhy-nvda-amd-intc-085017500.html">Yahoo Finance</a>, TradingKey 검색결과 교차확인</li>
-      <li><span class="tag-ok">✅ 확인</span> MRVL +3.3% $193.78 — <a href="https://www.gurufocus.com/news/8999621/a-look-at-marvell-technology-inc-mrvl-after-33-gain-gf-value-11312-vs-price-19378">GuruFocus</a></li>
-      <li><span class="tag-ok">✅ 확인</span> NVDA +3.1% $206.97 — <a href="https://finance.yahoo.com/markets/stocks/articles/nvidia-stock-reverses-early-loss-183444121.html">Yahoo Finance</a></li>
-      <li><span class="tag-warn">⚠️ 소스 간 괴리</span> AAOI +16.8%(대표값, 24/7 Wall St. 원문) / +15.3%(참고값, 별도 카드 요약) — <a href="https://247wallst.com/cards/applied-optoelectronics-aaoi-price-swing-01kz43epev7tte80n8y06myazy">24/7 Wall St.</a></li>
-      <li><span class="tag-warn">⚠️ 데이터 미확정</span> GOOGL·CRWV·CRDO·WDC·VRT·COHR·BE — 검색결과 날짜 불일치(전주 실적발표 반응과 혼재) 또는 원문 미확보로 이번 판 보류, 원문 미접근·검색결과 교차확인 실패</li>
       <li><span class="tag-ok">✅ 확인</span> 팔란티어 2분기 실적 및 시간외 반응 — <a href="https://www.fxleaders.com/news/2026/08/03/palantir-technologies-q2-earnings-send-pltr-stock-above-140-as-revenue-growth-accelerates/">FX Leaders</a></li>
       <li><span class="tag-ok">✅ 확인</span> 이번 주 경제 캘린더 — <a href="https://www.kiplinger.com/investing/economy/this-weeks-economic-calendar">Kiplinger</a></li>
       <li><span class="tag-ok">✅ 확인</span> 이란-美 외교 재개·유가 하락 배경 — <a href="https://www.thestreet.com/stock-market-today/stock-market-today-aug-3-2026-dow-futures-climb-as-oil-slides-on-renewed-iran-talks">TheStreet</a></li>
@@ -794,7 +703,7 @@
 
   <footer>
     © 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy<br>
-    생성일시: 2026-08-04 08:50 KST (v2, 사용자 요청 테스트 실행) · 기준일: 2026-08-03(월) 정규장 마감 · Page 1/1
+    생성일시: 2026-08-04 09:14 KST (v5 — v1 콘텐츠 기준 + Momentum Discovery 링크 추가) · 기준일: 2026-08-03(월) 정규장 마감 · Page 1/1
   </footer>
 
 </div>
