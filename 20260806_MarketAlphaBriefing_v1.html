@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Market Alpha Briefing | LUPE — 2026.08.06</title>
+<style>
+  :root{
+    --lupe-red:#C1001B;
+    --lupe-dark:#1A1A1A;
+    --lupe-mid:#4A4A4A;
+    --lupe-warn:#E87722;
+    --lupe-green:#1A7A3C;
+    --border:#E5E5E5;
+    --bg-soft:#FAFAFA;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Noto Sans KR","Malgun Gothic",sans-serif;
+    background:#FFFFFF;
+    color:var(--lupe-dark);
+    font-size:16px;
+    line-height:1.75;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:0 0 40px;}
+
+  .backlink{display:block;font-size:12px;color:var(--lupe-mid);padding:10px 32px 0;}
+  .backlink a{color:var(--lupe-mid);text-decoration:none;}
+  .backlink a:hover{color:var(--lupe-red);}
+
+  header{
+    background:var(--lupe-dark);
+    color:#fff;
+    padding:28px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  header .title-block h1{margin:0 0 6px;font-size:24px;letter-spacing:-0.3px;}
+  header .title-block .sub{font-size:13px;color:#CFCFCF;}
+  header .title-block .sub b{color:#fff;}
+  header .logo-block{text-align:right;font-size:12px;color:#CFCFCF;line-height:1.5;white-space:nowrap;}
+  header .logo-block .l1{font-weight:700;font-size:15px;color:#fff;letter-spacing:1px;}
+
+  .bluf{background:var(--lupe-red);color:#fff;padding:18px 32px;font-size:15px;font-weight:500;line-height:1.7;}
+  .bluf b{font-weight:700;}
+
+  section{padding:32px 32px 8px;}
+  .sec-title{display:flex;align-items:center;gap:10px;margin:0 0 18px;}
+  .sec-badge{background:var(--lupe-red);color:#fff;font-size:12px;font-weight:700;padding:3px 9px;border-radius:3px;letter-spacing:0.5px;}
+  .sec-title h2{font-size:14px;margin:0;padding-bottom:6px;border-bottom:2px solid var(--lupe-red);flex:1;font-weight:700;letter-spacing:0.2px;}
+
+  .md-card{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--lupe-dark);border-radius:10px;padding:20px 22px;border:1px solid var(--lupe-red);}
+  .md-card .md-text{color:#fff;}
+  .md-card .md-title{font-size:16px;font-weight:800;margin-bottom:4px;}
+  .md-card .md-sub{font-size:13px;color:#CFCFCF;}
+  .md-card .md-btn{display:inline-block;background:var(--lupe-red);color:#fff;font-size:14px;font-weight:700;padding:10px 18px;border-radius:24px;text-decoration:none;white-space:nowrap;}
+
+  .cards{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px;}
+  .card{flex:1 1 30%;min-width:150px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-soft);}
+  .card .name{font-size:13px;color:var(--lupe-mid);font-weight:700;margin-bottom:6px;}
+  .card .val{font-size:28px;font-weight:800;color:var(--lupe-dark);}
+  .card .macroval{font-size:24px;font-weight:800;color:var(--lupe-dark);}
+  .card .chg{font-size:14px;font-weight:700;margin-top:4px;}
+  .up{color:var(--lupe-green);}
+  .down{color:var(--lupe-red);}
+  .card .meta{font-size:12px;color:var(--lupe-mid);margin-top:6px;}
+  .badge-record{display:inline-block;background:var(--lupe-red);color:#fff;font-size:11px;font-weight:700;padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:middle;}
+
+  .narrative{font-size:14px;color:var(--lupe-mid);line-height:1.8;background:var(--bg-soft);border-left:3px solid var(--lupe-red);padding:14px 16px;border-radius:0 6px 6px 0;margin-bottom:8px;}
+  .narrative b{color:var(--lupe-dark);}
+
+  .gauge-bar{position:relative;height:10px;border-radius:5px;margin-top:10px;background:linear-gradient(90deg,#C1001B 0%,#E87722 30%,#E8C122 50%,#8FC12A 70%,#1A7A3C 100%);}
+  .gauge-pointer{position:absolute;top:-5px;width:2px;height:20px;background:var(--lupe-dark);}
+  .gauge-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--lupe-mid);margin-top:4px;}
+
+  .oil-box{border:1px dashed var(--lupe-warn);background:#FFF8F0;border-radius:8px;padding:14px 16px;font-size:14px;color:var(--lupe-mid);}
+  .oil-box b{color:var(--lupe-dark);}
+
+  .news-card{border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:12px;}
+  .news-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+  .news-head h3{font-size:16px;margin:0;flex:1;min-width:180px;}
+  .impact{font-size:11px;font-weight:700;padding:3px 8px;border-radius:12px;white-space:nowrap;color:#fff;}
+  .impact.HIGH{background:var(--lupe-red);}
+  .impact.MEDIUM{background:var(--lupe-warn);}
+  .impact.LOW{background:var(--lupe-mid);}
+  .news-card p{font-size:14px;color:var(--lupe-mid);margin:8px 0 0;line-height:1.8;}
+
+  table.catalyst{width:100%;border-collapse:collapse;font-size:14px;}
+  table.catalyst thead th{background:var(--lupe-dark);color:#fff;font-size:12px;padding:10px 8px;text-align:left;font-weight:700;}
+  table.catalyst tbody td{padding:10px 8px;border-bottom:1px solid var(--border);vertical-align:top;}
+  table.catalyst tbody tr.today{border-left:4px solid var(--lupe-red);background:#FFF5F6;}
+  .imp-chip{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:10px;color:#fff;}
+  .imp-chip.HIGH{background:var(--lupe-red);}
+  .imp-chip.MEDIUM{background:var(--lupe-warn);}
+  .imp-chip.LOW{background:var(--lupe-mid);}
+  .badge-24h{display:inline-block;background:var(--lupe-dark);color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;margin-left:5px;}
+  .tz-box{margin-top:14px;font-size:12px;color:var(--lupe-mid);background:var(--bg-soft);border-radius:6px;padding:12px 14px;line-height:1.7;}
+
+  .verdict-box{border:2px solid var(--lupe-red);border-radius:10px;padding:20px;margin-bottom:16px;}
+  .verdict-title{font-size:30px;font-weight:800;color:var(--lupe-red);margin:0 0 10px;}
+  .verdict-body{font-size:15px;color:var(--lupe-mid);line-height:1.85;}
+  .signal-chips{display:flex;gap:10px;margin:18px 0 10px;flex-wrap:wrap;}
+  .chip{flex:1;text-align:center;padding:10px 8px;border-radius:20px;font-size:13px;font-weight:700;border:1.5px solid var(--border);color:var(--lupe-mid);background:#fff;}
+  .chip.active{background:var(--lupe-red);border-color:var(--lupe-red);color:#fff;}
+  .disclaimer{font-size:11px;color:#999;margin-top:10px;}
+
+  .src-summary{font-size:12px;color:var(--lupe-mid);line-height:2;background:var(--bg-soft);border-radius:8px;padding:14px 16px;margin-bottom:12px;}
+  .src-list{font-size:12px;color:var(--lupe-mid);line-height:2;padding-left:18px;}
+  .src-list a{color:var(--lupe-mid);}
+  .tag-ok{color:var(--lupe-green);font-weight:700;}
+  .tag-warn{color:var(--lupe-warn);font-weight:700;}
+
+  footer{text-align:center;font-size:12px;color:#999;padding:24px 20px 10px;border-top:1px solid var(--border);margin-top:20px;}
+
+  @media (max-width:640px){
+    header{padding:16px 16px;}
+    header .title-block h1{font-size:18px;}
+    header .logo-block{font-size:11px;}
+    header .logo-block .l1{font-size:13px;}
+    .bluf{padding:14px 16px;font-size:14px;}
+    section{padding:22px 16px 4px;}
+    .md-card{flex-direction:column;align-items:flex-start;text-align:left;}
+    .md-card .md-btn{width:100%;text-align:center;}
+    .cards{flex-direction:column;}
+    .card{flex:1 1 100%;}
+    .card .val{font-size:24px;}
+    .card .macroval{font-size:21px;}
+    .verdict-title{font-size:24px;}
+    .signal-chips{flex-direction:row;}
+
+    table.catalyst thead{display:none;}
+    table.catalyst, table.catalyst tbody, table.catalyst tr, table.catalyst td{display:block;width:100%;}
+    table.catalyst tr{border:1px solid var(--border);border-radius:8px;margin-bottom:10px;padding:8px 12px;}
+    table.catalyst tr.today{border-left:4px solid var(--lupe-red);}
+    table.catalyst td{border-bottom:none;padding:6px 0;display:flex;gap:8px;}
+    table.catalyst td::before{content:attr(data-label);font-weight:700;color:var(--lupe-dark);min-width:88px;flex-shrink:0;font-size:12px;}
+    table.catalyst td[data-full="1"]{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="backlink"><a href="index.html">← 목록으로</a></div>
+
+  <header>
+    <div class="title-block">
+      <h1>월스트리트 포트폴리오 모닝 브리핑</h1>
+      <div class="sub">2026년 8월 6일(목) · 기준 종가일: <b>2026-08-05(수)</b></div>
+    </div>
+    <div class="logo-block">
+      <div class="l1">LUPE</div>
+      <div>HELIOS MOMENTUM</div>
+    </div>
+  </header>
+
+  <div class="bluf">
+    <b>BLUF —</b> 다우는 호르무즈 재개방 기대와 유가 3거래일 연속 하락에 힘입어 사상 최고치(54,349.12, +0.49%)를 새로 썼지만, S&amp;P500(-0.17%)·나스닥(-0.83%)은 SpaceX·AMD의 실적 호조에도 AI 자본지출 부담 우려로 4일 랠리를 반납했다. Fear&amp;Greed는 59(Greed)로 위험선호가 유지되나, AI 밸류에이션에 대한 시장의 선별력이 커지는 모습이다.
+  </div>
+
+  <!-- 00 Momentum Discovery -->
+  <section>
+    <div class="sec-title">
+      <span class="sec-badge">00</span>
+      <h2>MOMENTUM DISCOVERY</h2>
+    </div>
+    <div class="md-card">
+      <div class="md-text">
+        <div class="md-title">Helios 개인 모멘텀 워치리스트 대시보드</div>
+        <div class="md-sub">종목별 실시간 트래킹은 아래 대시보드에서 직접 확인하세요.</div>
+      </div>
+      <a class="md-btn" href="https://momentum-discovery.pages.dev/" target="_blank" rel="noopener">대시보드 열기 →</a>
+    </div>
+  </section>
+
+  <!-- 01 Overnight Market Delta -->
+  <section>
+    <div class="sec-title">
+      <span class="sec-badge">01</span>
+      <h2>OVERNIGHT MARKET DELTA</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="name">S&amp;P 500</div>
+        <div class="val">7,723.55</div>
+        <div class="chg down">▼ -12.97 (-0.17%)</div>
+        <div class="meta">2026-08-05(수) 정규장 마감 · 전일 사상 최고치에서 소폭 반락</div>
+      </div>
+      <div class="card">
+        <div class="name">NASDAQ COMPOSITE</div>
+        <div class="val">26,363.44</div>
+        <div class="chg down">▼ -221.55 (-0.83%)</div>
+        <div class="meta">2026-08-05(수) 정규장 마감 · 4거래일 연속 상승 마감</div>
+      </div>
+      <div class="card">
+        <div class="name">DOW JONES</div>
+        <div class="val">54,349.12<span class="badge-record">사상 최고치</span></div>
+        <div class="chg up">▲ +263.24 (+0.49%)</div>
+        <div class="meta">2026-08-05(수) 정규장 마감 · 2거래일 연속 신고가</div>
+      </div>
+    </div>
+    <div class="narrative">
+      <b>등락 사유 —</b> 트럼프 대통령이 "호르무즈 해협이 매우 곧 재개방될 것"이라 언급하고 미·이란·오만 간 통행료 없는 60일 잠정 합의 가능성이 부각되며 유가가 3거래일 연속 하락, 다우는 인플레이션 우려 완화 속 사상 최고치를 재차 경신했다. 반면 S&amp;P500·나스닥은 상장 후 첫 실적을 발표한 SpaceX(AI 설비투자 부담으로 -8%~13%)와 AMD(견조한 실적·가이던스에도 "탁월함 부족" 평가로 -7%)의 급락 여파로 4거래일 연속 상승세를 멈췄다. 알파벳(-4.3%)·우버(-6.0%)도 동반 약세를 보인 반면, 엔비디아(+3~5%)는 AI 반도체 수요 기대로 강세를 유지하며 종목별 차별화가 심화됐다.
+    </div>
+  </section>
+
+  <!-- 02 Macro Pulse -->
+  <section>
+    <div class="sec-title">
+      <span class="sec-badge">02</span>
+      <h2>MACRO PULSE</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="name">10Y TREASURY YIELD</div>
+        <div class="macroval">4.62%</div>
+        <div class="chg down">▼ -1bp (24h)</div>
+        <div class="meta">전일(08/04) 4.63% → 보합권 유지, 호르무즈 협상 진전에 안전자산 수요 완만히 축소</div>
+      </div>
+      <div class="card">
+        <div class="name">DOLLAR INDEX (DXY)</div>
+        <div class="macroval">99.84</div>
+        <div class="chg down">▼ -0.02% (24h)</div>
+        <div class="meta">100선 하회 보합권 &nbsp;⚠️단일소스</div>
+      </div>
+      <div class="card">
+        <div class="name">CNN FEAR &amp; GREED</div>
+        <div class="macroval">59 <span style="font-size:14px;color:var(--lupe-mid);">(Greed)</span></div>
+        <div class="gauge-bar"><div class="gauge-pointer" style="left:59%;"></div></div>
+        <div class="gauge-labels"><span>Extreme Fear</span><span>Neutral</span><span>Extreme Greed</span></div>
+        <div class="meta" style="margin-top:8px;">▲ +1pt (24h) · 대표값 59 / 참고범위 58~60 &nbsp;⚠️ 소스간 괴리(CNN 공식 API 원문 접근 실패, 3개 소스 교차확인)</div>
+      </div>
+    </div>
+    <div class="oil-box">
+      <b>Brent Crude 특이 동향 —</b> Brent는 배럴당 약 <b>79.2달러</b>로 마감해 전일(81.77달러) 대비 <b>약 -3.1%</b> 하락, 3거래일 연속 약세를 이어갔다. 미·이란 호르무즈 재개방 협상 기대가 주요 하락 요인이나, 장중 예멘 후티 반군의 사우디 유조선(얀부 인근) 공격 소식에 일시 반등하기도 했다 — 지정학 리스크가 완전히 해소되지 않았음을 시사한다. 같은 맥락에서 금(4,323달러, +4.1%)·은(61.8달러, +2.6%) 등 안전자산은 동반 강세를 보였다.
+    </div>
+  </section>
+
+  <!-- 03 Critical News Top 3 -->
+  <section>
+    <div class="sec-title">
+      <span class="sec-badge">03</span>
+      <h2>CRITICAL NEWS TOP 3</h2>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <h3>트럼프 "호르무즈 해협 재개방 임박" — 유가 3일 연속 하락</h3>
+        <span class="impact HIGH">HIGH</span>
+      </div>
+      <p>트럼프 대통령이 호르무즈 해협이 "매우 곧" 재개방될 것이라 언급했으며, 미국·이란·오만이 통행료 없는 60일 잠정 협정에 근접했다는 보도가 나왔다. Brent·WTI 모두 3거래일 연속 하락했고, 국채금리 상승 압력이 완화되며 9월 금리인하 기대가 유지됐다. 다만 이란 국영매체는 "재개방과는 무관하다"고 선을 그어 협상 리스크가 여전하다.</p>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <h3>SpaceX·AMD 실적 호조에도 급락 — AI 자본지출 피로감 재부상</h3>
+        <span class="impact HIGH">HIGH</span>
+      </div>
+      <p>상장 후 첫 분기 실적을 발표한 SpaceX는 예상치를 웃돌았음에도 막대한 AI 설비투자 부담이 부각되며 8~13% 급락(IPO 공모가 135달러 밑으로 재하락). AMD도 견조한 실적·가이던스를 냈지만 "탁월한 결과가 아닌 우수한 결과"라는 평가 속 7% 밀렸다. 알파벳(-4.3%)도 동반 약세, AI 투자 수익성에 대한 투자자들의 눈높이가 높아지고 있음을 시사한다.</p>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <h3>후티 반군, 사우디 유조선 공격 — 홍해 공급 리스크 재점화</h3>
+        <span class="impact MEDIUM">MEDIUM</span>
+      </div>
+      <p>예멘 후티 반군이 사우디 주요 수출 거점 얀부 인근에서 사우디 유조선을 미사일로 공격했다고 밝혔다. 호르무즈 재개방 기대로 완화되던 중동 리스크 프리미엄이 완전히 해소되지 않았음을 보여주는 사례로, 인도 국적 선박 피격 소식과 겹치며 금·은 등 안전자산 수요를 자극했다. 미군은 이번 분쟁 과정에서 요격체계 재고의 약 80%를 소진한 것으로 전해졌다.</p>
+    </div>
+  </section>
+
+  <!-- 04 Today's Catalyst -->
+  <section>
+    <div class="sec-title">
+      <span class="sec-badge">04</span>
+      <h2>TODAY'S CATALYST</h2>
+    </div>
+    <table class="catalyst">
+      <thead>
+        <tr>
+          <th>날짜(ET)</th><th>시간(ET)</th><th>한국시간(KST)</th><th>이벤트</th><th>중요도</th><th>예상 영향</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="today">
+          <td data-label="날짜(ET)">08/06(목)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30 KST<span class="badge-24h">⏱24H</span></td>
+          <td data-label="이벤트">주간 신규실업수당청구건수</td>
+          <td data-label="중요도"><span class="imp-chip MEDIUM">MEDIUM</span></td>
+          <td data-label="예상 영향" data-full="1">금요일 NFP를 앞둔 노동시장 예열 지표. 예상 범위 상단 이탈 시 9월 인하 기대 강화</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/07(금)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30 KST</td>
+          <td data-label="이벤트"><b>7월 비농업고용지표 (NFP)</b></td>
+          <td data-label="중요도"><span class="imp-chip HIGH">HIGH</span></td>
+          <td data-label="예상 영향" data-full="1">이번 주 최대 변수. 컨센서스 신규고용 +10만~13만명, 실업률 4.2~4.3%. 서프라이즈 시 9월 FOMC 금리 전망 재조정 촉발 가능</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/07(금)</td>
+          <td data-label="시간(ET)">03:00 PM ET</td>
+          <td data-label="한국시간(KST)">08/08(토) 04:00 KST</td>
+          <td data-label="이벤트">Fed G.19 소비자 신용(Consumer Credit)</td>
+          <td data-label="중요도"><span class="imp-chip LOW">LOW</span></td>
+          <td data-label="예상 영향" data-full="1">가계 지출 여력·신용카드 연체 추이 점검, 소비주 센티먼트에 간접 영향</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/08(토)</td>
+          <td data-label="시간(ET)">12:45 PM ET</td>
+          <td data-label="한국시간(KST)">08/09(일) 01:45 KST</td>
+          <td data-label="이벤트">Fed 부의장 Bowman 화상 대담 (CEO Summit)</td>
+          <td data-label="중요도"><span class="imp-chip MEDIUM">MEDIUM</span></td>
+          <td data-label="예상 영향" data-full="1">휴장일 발언이나 감독·통화정책 톤 변화 시 다음 거래일 개장 전 반영 가능</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tz-box">
+      <b>시간대 안내 —</b> 현재 미국은 서머타임(EDT, UTC-4) 적용 기간으로 KST = ET + 13시간입니다. (서머타임 종료 후에는 KST = ET + 14시간으로 전환) 위 표는 모두 ET 기준 날짜·시간 오름차순으로 정렬되어 있으며, 브리핑 생성 시점(08/06 오전 KST) 기준 24시간 이내 이벤트에는 ⏱24H 배지를 표시했습니다.
+    </div>
+  </section>
+
+  <!-- 05 Strategic Takeaway -->
+  <section>
+    <div class="sec-title">
+      <span class="sec-badge">05</span>
+      <h2>STRATEGIC TAKEAWAY</h2>
+    </div>
+    <div class="verdict-box">
+      <div class="verdict-title">Aggressive Growth 우위, 단 선별적 접근</div>
+      <div class="verdict-body">
+        다우 사상 최고치·VIX 15.57(-5.6%)·Fear&amp;Greed 59(Greed) 조합은 여전히 위험자산 선호(리스크온) 국면을 가리킨다. 다만 SpaceX·AMD·알파벳 등 AI 관련 대형주가 견조한 실적에도 급락한 점은 시장이 "AI 성장 스토리"에서 "AI 수익성 증명"으로 평가 기준을 옮기고 있음을 뜻한다. 호르무즈 협상이라는 외생 변수가 유가·금리 경로를 지배하고 있어, 지정학 리스크 재점화(후티 공격 등) 시 변동성 급확대 가능성에 유의해야 한다. 8/7 NFP까지 고용지표 발표가 집중돼 있어 데이터發 변동성도 열어둘 필요가 있다.
+      </div>
+    </div>
+    <div class="signal-chips">
+      <div class="chip">Bear</div>
+      <div class="chip">Neutral</div>
+      <div class="chip active">Bull</div>
+    </div>
+    <div class="disclaimer">본 브리핑은 정보 제공 목적이며 투자 자문이 아닙니다.</div>
+  </section>
+
+  <!-- Sources -->
+  <section>
+    <div class="sec-title">
+      <span class="sec-badge">SRC</span>
+      <h2>SOURCES</h2>
+    </div>
+    <div class="src-summary">
+      지수 종가 출처: Yahoo Finance Live Blog / CNBC / TheStreet — 2개 이상 소스 교차확인 완료<br>
+      매크로 지표 출처: TradingEconomics(DXY·Brent) / Investrade Market Review(10Y) / feargreedmeter·feargreedtracker·MacroMicro(Fear&amp;Greed, CNN 공식 API 접근 실패로 대체)<br>
+      뉴스 출처: Yahoo Finance, TheStreet, Benzinga, Reuters
+    </div>
+    <ul class="src-list">
+      <li><span class="tag-ok">✅ 교차확인</span> S&amp;P500 / Nasdaq / Dow 종가 — <a href="https://finance.yahoo.com/markets/live/stock-market-today-wednesday-august-5-dow-sp-500-nasdaq-oil-hormuz-093653327.html">Yahoo Finance Live Blog</a>, CNBC·TheStreet 교차확인. 등락폭/이전종가=등락률 검산 통과</li>
+      <li><span class="tag-warn">⚠️ 단일소스</span> 10Y Treasury 4.62%(-1bp) — <a href="https://investrade.com/mid-morning-look-august-05-2026/">Investrade Market Review</a>. FRED/H.15 발행 지연으로 대체</li>
+      <li><span class="tag-warn">⚠️ 단일소스</span> DXY 99.84(-0.02%) — <a href="https://tradingeconomics.com/dxy:cur">TradingEconomics DXY</a></li>
+      <li><span class="tag-warn">⚠️ 소스간 괴리</span> CNN Fear&amp;Greed 대표값 59 / 참고범위 58~60 — <a href="https://feargreedmeter.com/fear-and-greed-index">feargreedmeter.com</a>, <a href="https://en.macromicro.me/charts/50108/cnn-fear-and-greed">MacroMicro</a>. CNN 공식 API·웹페이지 직접 접근 실패로 대체</li>
+      <li><span class="tag-ok">✅ 확인</span> Brent 79.2달러(-3.1%, 24h) — <a href="https://tradingeconomics.com/commodity/brent-crude-oil">TradingEconomics Brent Crude</a>, Reuters</li>
+      <li><span class="tag-ok">✅ 확인</span> 호르무즈 재개방 협상·Trump 발언, 후티 반군 사우디 유조선 공격 — <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-aug-5-2026">TheStreet</a>, Reuters</li>
+      <li><span class="tag-ok">✅ 확인</span> 경제 캘린더(NFP, 신규실업수당, Fed 일정) — <a href="https://www.federalreserve.gov/newsevents/2026-august.htm">Federal Reserve Board 공식 캘린더</a>, <a href="https://www.financecalendar.com/event/us-employment-situation-non-farm-payrolls-august-2026/">Finance Calendar(BLS 발표일)</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    © 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy<br>
+    생성일시: 2026-08-06 07:45 KST · 기준일: 2026-08-05(수) 정규장 마감 · Page 1/1
+  </footer>
+
+</div>
+</body>
+</html>
