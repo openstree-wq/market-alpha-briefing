@@ -1,5 +1,9 @@
 ﻿# 매일 아침 실행: 새 브리핑 파일을 감지해 index.html을 재생성하고 GitHub에 push한다.
-# Windows 작업 스케줄러에 등록해서 사용한다.
+# 하루에 한 번 오늘자 브리핑 발행이 완료되면 금일 추가 감지를 생략한다.
+
+param(
+    [switch]$Force
+)
 
 $ErrorActionPreference = "Stop"
 $repoRoot = Split-Path -Parent $PSScriptRoot
@@ -10,6 +14,17 @@ function Log($msg) {
     $line = "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') $msg"
     Write-Host $line
     Add-Content -Path $logFile -Value $line
+}
+
+$todayStr = Get-Date -Format "yyyyMMdd"
+$lastPublishedFile = Join-Path $repoRoot "scripts\.last_published_date"
+
+if (-not $Force -and (Test-Path $lastPublishedFile)) {
+    $lastDate = (Get-Content $lastPublishedFile -Raw).Trim()
+    if ($lastDate -eq $todayStr) {
+        Log "오늘자($todayStr) 브리핑이 이미 발행되었습니다. 금일 추가 감지를 생략합니다."
+        exit 0
+    }
 }
 
 try {
@@ -28,7 +43,8 @@ try {
     git commit -m "Update briefing archive $dateStr"
     git push origin main
 
-    Log "push 완료 ($dateStr)"
+    Set-Content -Path $lastPublishedFile -Value $todayStr -Encoding ASCII
+    Log "push 완료 ($dateStr) - 금일 브리핑 발행 완료 기록됨."
 }
 catch {
     Log "오류 발생: $($_.Exception.Message)"
