@@ -33,10 +33,14 @@ foreach ($f in $files) {
     }
 }
 
-$dates = $byDate.Keys | Sort-Object -Descending
-$latestDate = $dates[0]
+$allDates = $byDate.Keys | Sort-Object -Descending
+$latestDate = $allDates[0]
 $latestVer = ($byDate[$latestDate] | Sort-Object -Property @{Expression={$_.Ver}; Descending=$true}, @{Expression={$_.Tag}; Descending=$true})[0]
 $latestFile = $latestVer.Name
+
+# 아카이브 목록은 최근 7일치만 표시 (과거 자료는 거의 조회하지 않으므로 목록에서만 숨김, 파일은 보존)
+$cutoff = (Get-Date).AddDays(-6).ToString("yyyyMMdd")
+$dates = $allDates | Where-Object { $_ -ge $cutoff }
 
 function Format-DateKorean($d) {
     $y = $d.Substring(0,4); $m = $d.Substring(4,2); $day = $d.Substring(6,2)
@@ -155,4 +159,4 @@ $archiveItemsHtml
 Set-Content -Path (Join-Path $repoRoot "index.html") -Value $html -Encoding UTF8
 "User-agent: *`nDisallow: /" | Set-Content -Path (Join-Path $repoRoot "robots.txt") -Encoding ASCII
 
-Write-Host "index.html 생성 완료 (최신: $latestDateLabel, 총 $($dates.Count)일치)"
+Write-Host "index.html 생성 완료 (최신: $latestDateLabel, 목록 표시 $($dates.Count)일치 / 전체 보관 $($allDates.Count)일치)"
