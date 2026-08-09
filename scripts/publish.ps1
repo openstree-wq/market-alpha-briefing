@@ -1,4 +1,4 @@
-# 매일 아침 실행: 새 브리핑 파일을 감지해 index.html을 재생성하고 GitHub에 push한다.
+﻿# 매일 아침 실행: 새 브리핑 파일을 감지해 index.html을 재생성하고 GitHub에 push한다.
 # Windows 작업 스케줄러에 등록해서 사용한다.
 
 $ErrorActionPreference = "Stop"
@@ -13,7 +13,7 @@ function Log($msg) {
 }
 
 try {
-    $briefingPattern = '\d{8}_MarketAlphaBriefing_v\d+\.html'
+    $briefingPattern = '\d{8}_MarketAlphaBriefing_(.*_)?v\d+\.html'
     $briefingChanges = git status --porcelain | Where-Object { $_ -match $briefingPattern }
     if (-not $briefingChanges) {
         Log "브리핑 파일 변경 없음. push 생략."

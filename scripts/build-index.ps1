@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 $repoRoot = Split-Path -Parent $PSScriptRoot
 Set-Location $repoRoot
 
-$pattern = '^(?<date>\d{8})_MarketAlphaBriefing_v(?<ver>\d+)\.html$'
+$pattern = '^(?<date>\d{8})_MarketAlphaBriefing_(?:(?<tag>[^_]+)_)?v(?<ver>\d+)\.html$'
 $files = Get-ChildItem -Path $repoRoot -Filter "*.html" | Where-Object { $_.Name -match $pattern -and $_.Name -ne "index.html" }
 
 if ($files.Count -eq 0) {
@@ -20,14 +20,22 @@ foreach ($f in $files) {
     if ($f.Name -match $pattern) {
         $d = $Matches['date']
         $v = [int]$Matches['ver']
+        $tag = ""
+        if ($Matches.ContainsKey('tag') -and $Matches['tag']) {
+            $tag = $Matches['tag']
+        }
+        $verLabel = "v$v"
+        if ($tag -ne "") {
+            $verLabel = "$tag v$v"
+        }
         if (-not $byDate.ContainsKey($d)) { $byDate[$d] = @() }
-        $byDate[$d] += [PSCustomObject]@{ Ver = $v; Name = $f.Name }
+        $byDate[$d] += [PSCustomObject]@{ Ver = $v; Tag = $tag; VerLabel = $verLabel; Name = $f.Name }
     }
 }
 
 $dates = $byDate.Keys | Sort-Object -Descending
 $latestDate = $dates[0]
-$latestVer = ($byDate[$latestDate] | Sort-Object Ver -Descending)[0]
+$latestVer = ($byDate[$latestDate] | Sort-Object -Property @{Expression={$_.Ver}; Descending=$true}, @{Expression={$_.Tag}; Descending=$true})[0]
 $latestFile = $latestVer.Name
 
 function Format-DateKorean($d) {
@@ -42,24 +50,25 @@ foreach ($mg in $monthGroups) {
     $groupMonth = [int]$mg.Name.Substring(4,2)
     $archiveItemsHtml += "      <h3 class=`"month-header`">${groupYear}년 ${groupMonth}월</h3>`n      <ul class=`"archive-list`">`n"
     foreach ($d in $mg.Group) {
-        $versions = $byDate[$d] | Sort-Object Ver -Descending
+        $versions = $byDate[$d] | Sort-Object -Property @{Expression={$_.Ver}; Descending=$true}, @{Expression={$_.Tag}; Descending=$true}
         $top = $versions[0]
         $dayLabel = "$([int]$d.Substring(6,2))일"
         $extraVersions = $versions | Select-Object -Skip 1
         $subLinksHtml = ""
         if ($extraVersions.Count -gt 0) {
-            $links = $extraVersions | ForEach-Object { "<a href=`"$($_.Name)`">v$($_.Ver)</a>" }
-            $subLinksHtml = "<span class=`"old-versions`">이전 버전: $([string]::Join(' · ', $links))</span>"
+            $linkList = @()
+            foreach ($ev in $extraVersions) {
+                $linkList += "<a href=`"$($ev.Name)`">$($ev.VerLabel)</a>"
+            }
+            $subLinksHtml = "<span class=`"old-versions`">이전 버전: " + ($linkList -join ' · ') + "</span>"
         }
-        $archiveItemsHtml += @"
-        <li class="archive-item">
-          <a class="archive-link" href="$($top.Name)">
-            <span class="archive-date">$dayLabel</span>
-            <span class="archive-arrow">→</span>
-          </a>
-          $subLinksHtml
-        </li>
-"@
+        $archiveItemsHtml += "        <li class=`"archive-item`">`n"
+        $archiveItemsHtml += "          <a class=`"archive-link`" href=`"$($top.Name)`">`n"
+        $archiveItemsHtml += "            <span class=`"archive-date`">$dayLabel</span>`n"
+        $archiveItemsHtml += "            <span class=`"archive-arrow`">→</span>`n"
+        $archiveItemsHtml += "          </a>`n"
+        $archiveItemsHtml += "          $subLinksHtml`n"
+        $archiveItemsHtml += "        </li>`n"
     }
     $archiveItemsHtml += "      </ul>`n"
 }
