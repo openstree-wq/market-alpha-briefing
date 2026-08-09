@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>위켄드 마켓 브리핑 | LUPE — 2026.08.09</title>
+<style>
+:root{
+  --lupe-red:#C1001B;
+  --lupe-dark:#1A1A1A;
+  --lupe-mid:#4A4A4A;
+  --lupe-warn:#E87722;
+  --lupe-green:#1A7A3C;
+  --lupe-bg:#FFFFFF;
+  --lupe-card-bg:#F7F7F7;
+  --lupe-border:#E4E4E4;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--lupe-bg);
+  font-family:'Noto Sans KR','Malgun Gothic',sans-serif;
+  font-size:16px; line-height:1.75; color:var(--lupe-dark);
+}
+.wrap{max-width:840px;margin:0 auto;}
+
+/* Header */
+.header{
+  background:var(--lupe-dark); color:#fff; padding:28px 32px;
+  display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;
+}
+.back-link{display:inline-block;font-size:12px;color:#CFCFCF;text-decoration:none;margin-bottom:8px;}
+.header h1{font-size:24px;margin:0 0 6px 0;font-weight:700;}
+.header .meta{font-size:13px;color:#CFCFCF;line-height:1.6;}
+.header .meta strong{color:#fff;}
+.logo-block{text-align:right;font-size:12px;color:#CFCFCF;line-height:1.5;white-space:nowrap;}
+.logo-block .lupe{color:var(--lupe-red);font-weight:800;font-size:15px;letter-spacing:1px;}
+.logo-block .helios{font-weight:600;color:#fff;}
+
+/* BLUF banner */
+.bluf{background:var(--lupe-red);color:#fff;padding:18px 32px;font-size:15px;font-weight:600;line-height:1.7;}
+.bluf .tag{display:inline-block;background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;margin-right:8px;letter-spacing:1px;}
+
+.section{padding:28px 32px;border-bottom:1px solid var(--lupe-border);}
+.section-title{
+  font-size:14px;font-weight:700;color:var(--lupe-dark);text-transform:uppercase;letter-spacing:0.5px;
+  border-bottom:3px solid var(--lupe-red);padding-bottom:8px;margin:0 0 18px 0;display:flex;align-items:center;gap:8px;
+}
+.badge-num{background:var(--lupe-dark);color:#fff;font-size:11px;padding:3px 8px;border-radius:3px;font-weight:700;}
+
+/* Momentum link card */
+.momentum-card{
+  background:var(--lupe-dark);border-left:4px solid var(--lupe-red);border-radius:6px;padding:18px 20px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.momentum-card .desc{color:#EDEDED;font-size:14px;flex:1 1 auto;}
+.momentum-card .btn{background:var(--lupe-red);color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:700;font-size:13px;white-space:nowrap;}
+
+/* Friday close line */
+.friday-line{
+  font-size:20px;font-weight:800;color:var(--lupe-dark);background:var(--lupe-card-bg);
+  border-left:4px solid var(--lupe-red);padding:16px 18px;border-radius:6px;line-height:1.6;
+}
+.friday-note{font-size:13px;color:var(--lupe-mid);margin-top:12px;line-height:1.7;}
+
+/* News cards */
+.news-card{border:1px solid var(--lupe-border);border-radius:8px;padding:16px 18px;margin-bottom:12px;}
+.news-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+.news-title{font-size:16px;font-weight:700;color:var(--lupe-dark);flex:1 1 auto;}
+.impact{font-size:11px;font-weight:800;padding:3px 9px;border-radius:4px;white-space:nowrap;}
+.impact-high{background:var(--lupe-red);color:#fff;}
+.impact-medium{background:var(--lupe-warn);color:#fff;}
+.impact-low{background:#B9B9B9;color:#fff;}
+.news-desc{font-size:14px;color:var(--lupe-mid);margin-top:8px;}
+
+/* Catalyst table */
+table{width:100%;border-collapse:collapse;font-size:14px;}
+thead th{background:var(--lupe-dark);color:#fff;font-size:12px;text-align:left;padding:10px 10px;}
+tbody td{padding:10px;border-bottom:1px solid var(--lupe-border);vertical-align:top;}
+tbody tr.today{background:#FFF3F0;border-left:4px solid var(--lupe-red);}
+.imp-badge{font-size:11px;font-weight:800;padding:2px 7px;border-radius:4px;color:#fff;white-space:nowrap;}
+.imp-high{background:var(--lupe-red);}
+.imp-med{background:var(--lupe-warn);}
+.imp-low{background:#B9B9B9;}
+.h24{display:inline-block;background:var(--lupe-dark);color:#fff;font-size:10px;font-weight:800;padding:2px 6px;border-radius:3px;margin-left:6px;}
+.tz-box{margin-top:14px;background:var(--lupe-card-bg);border:1px solid var(--lupe-border);border-radius:6px;padding:12px 14px;font-size:12px;color:var(--lupe-mid);}
+
+/* Strategic takeaway */
+.verdict-box{background:var(--lupe-dark);color:#fff;border-radius:8px;padding:22px 24px;}
+.verdict-title{font-size:30px;font-weight:800;margin:0 0 10px 0;}
+.verdict-title .accent{color:#FF6B6B;}
+.verdict-body{font-size:15px;line-height:1.8;color:#E4E4E4;}
+.chips{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+.chip{padding:8px 16px;border-radius:20px;font-size:13px;font-weight:700;border:2px solid #555;color:#999;}
+.chip.active{border-color:var(--lupe-red);background:var(--lupe-red);color:#fff;}
+.disclaimer{font-size:11px;color:var(--lupe-mid);margin-top:16px;}
+
+/* Sources */
+.sources{font-size:12px;color:var(--lupe-mid);line-height:1.9;}
+.sources .summary-line{margin-bottom:4px;}
+.sources ul{margin:10px 0 0 0;padding-left:18px;}
+.check{color:var(--lupe-green);font-weight:700;}
+.warn{color:var(--lupe-warn);font-weight:700;}
+
+/* Footer */
+.footer{background:var(--lupe-dark);color:#999;padding:20px 32px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+
+/* Mobile */
+@media (max-width:640px){
+  .header{padding:18px 16px;}
+  .header h1{font-size:18px;}
+  .section{padding:20px 16px;}
+  .bluf{padding:16px 16px;font-size:14px;}
+  .friday-line{font-size:17px;}
+  .momentum-card{flex-direction:column;align-items:stretch;text-align:left;}
+  .momentum-card .btn{text-align:center;}
+  .news-head{flex-wrap:wrap;}
+  table thead{display:none;}
+  table, tbody, tr, td{display:block;width:100%;}
+  tbody tr{border:1px solid var(--lupe-border);border-radius:8px;margin-bottom:10px;padding:8px 12px;}
+  tbody tr.today{border-left:4px solid var(--lupe-red);}
+  tbody td{border-bottom:none;padding:6px 0;}
+  tbody td::before{content:attr(data-label);display:block;font-size:11px;font-weight:700;color:var(--lupe-red);margin-bottom:2px;}
+  .verdict-title{font-size:22px;}
+  .footer{padding:16px;flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <a class="back-link" href="index.html">← 목록</a>
+      <h1>위켄드 마켓 브리핑 | LUPE</h1>
+      <div class="meta">
+        발행일: 2026-08-09(일) · <strong>최근 정규장 마감: 2026-08-07(금)</strong><br>
+        상세 지수·매크로 데이터는 2026-08-08(토)자 정식 브리핑 참고 · 미국 정규장 상태: 폐장(주말)
+      </div>
+    </div>
+    <div class="logo-block">
+      <div class="lupe">LUPE</div>
+      <div class="helios">HELIOS MOMENTUM</div>
+    </div>
+  </div>
+
+  <!-- BLUF -->
+  <div class="bluf">
+    <span class="tag">BLUF</span>7월 고용쇼크發 비둘기 리프라이싱이 주말 크립토 강세로 이어지는 가운데, 호르무즈 해협은 이란-오만 "합의 임박"에도 이란 측이 대미 양보를 재차 요구하며 지정학 리스크가 완전히 해소되지 않았다. 이번 주는 FOMC 없이 8/12(수) CPI 하나가 랠리의 지속 여부를 가를 최대 변곡점이다.
+  </div>
+
+  <!-- Section W0: Momentum Discovery -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W0</span>Momentum Discovery</div>
+    <div class="momentum-card">
+      <div class="desc">Helios의 실시간 모멘텀 워치리스트 대시보드</div>
+      <a class="btn" href="https://momentum-discovery.pages.dev/" target="_blank" rel="noopener">대시보드 열기 →</a>
+    </div>
+  </div>
+
+  <!-- Section W1: Friday Close Snapshot -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W1</span>Friday Close Snapshot</div>
+    <div class="friday-line">
+      S&amp;P500 7,757.64(+0.62%, 사상 최고 종가) · Nasdaq 26,690.62(+1.30%) · Dow 54,036.93(+0.28%)
+    </div>
+    <div class="friday-note">
+      7월 비농업고용 -23,000명 쇼크(5·6월도 합산 103,000명 하향조정)로 9월 Fed 금리인상 확률이 발표 직전 58%에서 42%로 급락, "고용 냉각=긴축 종료"로 해석되며 S&amp;P·나스닥이 나란히 사상 최고치로 마감했다(주간 기준 S&amp;P +3.6%, 나스닥 +5.2%, 4월 이후 최대 주간 상승률). 지수별 등락 사유 상세, 10Y Treasury·DXY·Fear&amp;Greed·Brent 등 매크로 카드는 2026-08-08(토)자 정식 브리핑 참고.
+    </div>
+  </div>
+
+  <!-- Section W2: Weekend Major News -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W2</span>Weekend Major News</div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">호르무즈 해협 협상 "합의 임박"에도 이란, 토요일 대미 양보 재요구 — 리스크 완전 해소는 아직</div>
+        <span class="impact impact-high">HIGH</span>
+      </div>
+      <div class="news-desc">이란 외무장관 아락치는 오만과의 호르무즈 해협 관리 협상이 "매우 근접"했다고 밝혔으나, 완전 재개항은 미국이 6월 합의된 양해각서 위반에 대해 보상하는 등 "추가 조건" 충족이 전제라고 못박았다. 이란 최고국가안보회의 사무총장 졸가드르는 토요일(8/8) "미국이 행동을 교정할 때까지 해협은 완전히 재개항되지 않을 것"이라고 언급, 오만은 협상을 "긍정적·건설적"으로 평가했다. 유가·리스크 프리미엄에 영향을 줄 수 있는 미해결 변수로 이번 주 초반 흐름을 주시할 필요가 있다.</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">9월 Fed 인상 우려 소멸 지속 — 잭슨홀(8/27~29) 워시 의장 기조연설이 다음 정책 이벤트</div>
+        <span class="impact impact-high">HIGH</span>
+      </div>
+      <div class="news-desc">금요일 고용쇼크 이후 금리선물 시장은 9월 금리인상 확률을 43.9%(발표 전 57%)로, 동결 확률을 60.4%(발표 전 43.2%)로 재산정했다. 다음 FOMC 정례회의는 9/16으로 이번 주에는 없으며, 케빈 워시 Fed 의장이 8/27~29 잭슨홀 심포지엄에서 내놓을 정책 신호가 다음 핵심 이벤트다. 8/12(수) CPI가 이 비둘기 논리의 지속 여부를 시험하는 단기 변곡점.</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">비트코인 6.5만 달러·이더리움 1,900달러대 — 주말 24시간 거래서 위험선호 유지</div>
+        <span class="impact impact-medium">MEDIUM</span>
+      </div>
+      <div class="news-desc">BTC는 금요일 고용쇼크 이후 비둘기 리프라이싱에 동반 상승해 $65,000선 안착(장중 한때 $65,143), ETH는 $1,914선에서 거래됐다. 크립토는 24시간 거래되는 특성상 주말 동안 주식시장의 위험선호 심리를 선행 반영하는 지표로 참고할 만하며, 현재까지 뚜렷한 되돌림 없이 강세 기조를 유지 중이다.</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">항공·우주 섹터 주간 강세 지속 — Boeing 737 MAX-7 인증 후폭풍, SpaceX 주간 +19%</div>
+        <span class="impact impact-low">LOW</span>
+      </div>
+      <div class="news-desc">지난주 초(8/3) FAA가 Boeing 737 MAX-7에 대한 형식증명을 발급한 여파로 Boeing 주가가 주간 기준 약 7% 상승, 4월 이후 최고 주간 성과를 기록했다(2027년 초 인도 개시 전망). SpaceX는 실적 서프라이즈와 투자의견 상향이 겹치며 금요일 하루 12%, 주간으로는 19% 가까이 급등해 항공·우주 섹터 전반의 모멘텀이 이번 주로 이월될 가능성이 있다.</div>
+    </div>
+
+  </div>
+
+  <!-- Section W3: This Week's Catalyst -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W3</span>This Week's Catalyst</div>
+    <table>
+      <thead>
+        <tr><th>날짜(ET)</th><th>시간(ET)</th><th>한국시간(KST)</th><th>이벤트</th><th>중요도</th><th>예상 영향</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="날짜(ET)">08/12(수)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">08/12(수) 21:30</td>
+          <td data-label="이벤트">CPI (7월 소비자물가지수)</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">이번 주 최대 변곡점. 고용쇼크發 금리인하 기대와 인플레 재점화 우려가 정면 충돌하는 지표</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/13(목)</td>
+          <td data-label="시간(ET)">06:00 AM ET</td>
+          <td data-label="한국시간(KST)">08/13(목) 19:00</td>
+          <td data-label="이벤트">NFIB 중소기업 낙관지수</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">고용 둔화가 중소기업 체감경기에 반영됐는지 확인하는 선행 지표</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/13(목)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">08/13(목) 21:30</td>
+          <td data-label="이벤트">PPI (7월 생산자물가지수)</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">파이프라인 인플레 압력 확인, CPI 다음 날 발표로 인플레 내러티브 재확인 성격</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/14(금)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">08/14(금) 21:30</td>
+          <td data-label="이벤트">소매판매(Retail Sales, 7월)</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">고용 쇼크 이후 소비 모멘텀이 유지되는지 확인 — 부진 시 경기침체 우려로 확산 가능</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/14(금)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">08/14(금) 23:00</td>
+          <td data-label="이벤트">미시간대 소비자심리지수(예비치)</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">소비심리 및 기대 인플레이션 확인, 소매판매와 함께 소비 체력 재점검</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tz-box">
+      <strong>시간대 안내:</strong> 현재 미국은 서머타임(EDT) 적용 기간으로 KST = ET + 13시간이다(서머타임: 3월 둘째 일요일 ~ 11월 첫째 일요일, 그 외 EST 기간은 KST = ET + 14시간). 월·화요일(8/10~11)에는 예정된 주요 지표 발표가 없어 8/12(수) CPI부터 표기했다. 이번 주 FOMC 정례회의는 없으며, 다음 회의는 9/16이다.
+    </div>
+  </div>
+
+  <!-- Section W4: Weekly Strategy Pulse -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W4</span>Weekly Strategy Pulse</div>
+    <div class="verdict-box">
+      <div class="verdict-title">이번 주 환경: <span class="accent">Aggressive Growth</span> 우위, CPI가 스윙 팩터</div>
+      <div class="verdict-body">
+        7월 고용쇼크가 "Fed 긴축 종료" 신호로 재해석되며 사상 최고치 랠리·크립토 동반 강세로 이어진 흐름은 주말 동안 되돌림 없이 유지되고 있다. FOMC가 없는 한 주라 통화정책 변수는 잭슨홀(8/27~29)까지 잠복하지만, 8/12(수) CPI가 "고용 냉각에도 인플레는 안정적"이라는 현재의 시장 내러티브를 검증하는 첫 시험대다. 호르무즈 협상은 진전되고 있으나 이란의 대미 양보 요구가 남아 있어 유가발 인플레 서프라이즈 리스크는 완전히 배제할 수 없다. CPI가 예상 범위 내로 나오면 Growth 자산의 추가 상승 여력이 있으나, 서프라이즈 상회 시 밸류에이션 부담이 이미 누적된 상태라 되돌림 폭이 커질 수 있다.
+      </div>
+      <div class="chips">
+        <div class="chip">Bear</div>
+        <div class="chip">Neutral</div>
+        <div class="chip active">Bull</div>
+      </div>
+      <div class="disclaimer">본 브리핑은 정보 제공 목적이며 투자 자문이 아닙니다.</div>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">SRC</span>Sources</div>
+    <div class="sources">
+      <div class="summary-line">지수 종가 출처: Yahoo Finance / TheStreet (2026-08-07 마감, 08-08자 정식 브리핑에서 교차확인 완료)</div>
+      <div class="summary-line">국채금리 출처: Alpha Vantage TREASURY_YIELD(공식 API, 최신 발행치 08-06 기준 4.69% — 08-07 종가는 발행 지연으로 CNBC 사후확정 문구 대체) / 크립토·지정학 뉴스: CNN, CNBC, Yahoo Finance</div>
+      <div class="summary-line">경제 캘린더 출처: Trading Economics, FXStreet, BLS 공식 발표 일정 교차확인</div>
+      <ul>
+        <li><span class="check">✅</span> S&amp;P500/Nasdaq/Dow 8/7 종가·등락률 — Yahoo Finance, TheStreet, Washington Post 교차확인(08-08자 브리핑에서 검증 완료)</li>
+        <li><span class="check">✅</span> 9월 Fed 인상 확률(43.9%, 발표 전 57%) — <a href="https://www.cnbc.com/2026/08/07/odds-the-fed-hikes-in-september-tumble-following-big-july-jobs-miss.html">CNBC</a>, <a href="https://www.investing.com/news/economy-news/us-rate-futures-cut-chances-of-september-rate-hike-after-jobs-data-4846500">Investing.com(Reuters)</a> 교차확인</li>
+        <li><span class="check">✅</span> 호르무즈 해협 협상 현황(8/8 기준) — <a href="https://www.cnn.com/2026/08/08/world/live-news/iran-war-trump">CNN</a>, <a href="https://www.axios.com/2026/08/05/us-iran-strait-of-hormuz-deal-nears">Axios</a> 교차확인</li>
+        <li><span class="warn">⚠️ 단일소스</span> BTC($65,143 / 8/7 09:02 ET 기준) · ETH($1,914) — <a href="https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-friday-august-7-2026-crypto-prices-moving-higher-following-july-jobs-report-131451960.html">Yahoo Finance</a>, 09일 실시간 갱신치는 미확보</li>
+        <li><span class="check">✅</span> Boeing 737 MAX-7 FAA 인증(8/3) — <a href="https://www.faa.gov/newsroom/faa-statement-certification-boeing-737-max-7">FAA 공식 발표</a>, <a href="https://www.usnews.com/news/top-news/articles/2026-08-03/federal-aviation-administration-certifies-boeing-737-max-7">US News</a> 교차확인</li>
+        <li><span class="check">✅</span> 다음 주 경제 캘린더(CPI 8/12, PPI·NFIB 8/13, 소매판매·미시간 소비자심리 8/14) — <a href="https://tradingeconomics.com/united-states/calendar">Trading Economics</a>, <a href="https://www.fxstreet.com/analysis/forecasting-the-coming-week-us-cpi-and-feds-easing-should-rule-the-sentiment-202408091644">FXStreet</a> 교차확인</li>
+        <li><span class="check">✅</span> 잭슨홀 심포지엄 일정(8/27~29), 다음 FOMC(9/16) — Federal Reserve 공식 캘린더 기준</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>© 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy</div>
+    <div>생성일시: 2026-08-09 KST · 최근 정규장 마감: 2026-08-07(금) · Weekend Edition · v1</div>
+  </div>
+
+</div>
+</body>
+</html>
