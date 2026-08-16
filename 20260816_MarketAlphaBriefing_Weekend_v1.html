@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>위켄드 마켓 브리핑 | LUPE — 2026.08.16</title>
+<style>
+:root{
+  --lupe-red:#C1001B;
+  --lupe-dark:#1A1A1A;
+  --lupe-mid:#4A4A4A;
+  --lupe-warn:#E87722;
+  --lupe-green:#1A7A3C;
+  --lupe-bg:#FFFFFF;
+  --lupe-card-bg:#F7F7F7;
+  --lupe-border:#E4E4E4;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  padding:0;
+  background:var(--lupe-bg);
+  font-family:'Noto Sans KR','Malgun Gothic',sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  color:var(--lupe-dark);
+}
+.wrap{max-width:840px;margin:0 auto;}
+
+/* Header */
+.header{
+  background:var(--lupe-dark);
+  color:#fff;
+  padding:28px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.back-link{display:inline-block;font-size:12px;color:#CFCFCF;text-decoration:none;margin-bottom:8px;}
+.header h1{font-size:24px;margin:0 0 6px 0;font-weight:700;}
+.header .meta{font-size:13px;color:#CFCFCF;line-height:1.6;}
+.header .meta strong{color:#fff;}
+.logo-block{
+  text-align:right;
+  font-size:12px;
+  color:#CFCFCF;
+  line-height:1.5;
+  white-space:nowrap;
+}
+.logo-block .lupe{color:var(--lupe-red);font-weight:800;font-size:15px;letter-spacing:1px;}
+.logo-block .helios{font-weight:600;color:#fff;}
+
+/* BLUF banner */
+.bluf{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:18px 32px;
+  font-size:15px;
+  font-weight:600;
+  line-height:1.7;
+}
+.bluf .tag{
+  display:inline-block;
+  background:rgba(255,255,255,0.2);
+  padding:2px 8px;
+  border-radius:4px;
+  font-size:11px;
+  font-weight:700;
+  margin-right:8px;
+  letter-spacing:1px;
+}
+
+.section{padding:28px 32px;border-bottom:1px solid var(--lupe-border);}
+.section-title{
+  font-size:14px;
+  font-weight:700;
+  color:var(--lupe-dark);
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  border-bottom:3px solid var(--lupe-red);
+  padding-bottom:8px;
+  margin:0 0 18px 0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.badge-num{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:3px;
+  font-weight:700;
+}
+
+/* Momentum link card */
+.momentum-card{
+  background:var(--lupe-dark);
+  border-left:4px solid var(--lupe-red);
+  border-radius:6px;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.momentum-card .desc{color:#EDEDED;font-size:14px;flex:1 1 auto;}
+.momentum-card .btn{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+  white-space:nowrap;
+}
+
+/* Friday snapshot line */
+.snapshot-box{
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  font-size:16px;
+  font-weight:700;
+}
+.snapshot-box .sub{font-size:12px;color:var(--lupe-mid);font-weight:400;margin-top:8px;}
+.up{color:var(--lupe-green);}
+.down{color:var(--lupe-red);}
+
+/* News cards */
+.news-card{
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  margin-bottom:12px;
+}
+.news-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+.news-title{font-size:16px;font-weight:700;color:var(--lupe-dark);flex:1 1 auto;}
+.impact{
+  font-size:11px;
+  font-weight:800;
+  padding:3px 9px;
+  border-radius:4px;
+  white-space:nowrap;
+}
+.impact-high{background:var(--lupe-red);color:#fff;}
+.impact-medium{background:var(--lupe-warn);color:#fff;}
+.impact-low{background:#B9B9B9;color:#fff;}
+.news-desc{font-size:14px;color:var(--lupe-mid);margin-top:8px;}
+
+/* Catalyst table */
+table{width:100%;border-collapse:collapse;font-size:14px;}
+thead th{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:12px;
+  text-align:left;
+  padding:10px 10px;
+}
+tbody td{padding:10px;border-bottom:1px solid var(--lupe-border);}
+tbody tr.today{background:#FFF3F0;border-left:4px solid var(--lupe-red);}
+.imp-badge{
+  font-size:11px;font-weight:800;padding:2px 7px;border-radius:4px;color:#fff;white-space:nowrap;
+}
+.imp-high{background:var(--lupe-red);}
+.imp-med{background:var(--lupe-warn);}
+.imp-low{background:#B9B9B9;}
+.h24{
+  display:inline-block;
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  padding:2px 6px;
+  border-radius:3px;
+  margin-left:6px;
+}
+.tz-box{
+  margin-top:14px;
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:6px;
+  padding:12px 14px;
+  font-size:12px;
+  color:var(--lupe-mid);
+}
+
+/* Strategic takeaway */
+.verdict-box{
+  background:var(--lupe-dark);
+  color:#fff;
+  border-radius:8px;
+  padding:22px 24px;
+}
+.verdict-title{font-size:30px;font-weight:800;margin:0 0 10px 0;}
+.verdict-title .accent{color:#FF6B6B;}
+.verdict-body{font-size:15px;line-height:1.8;color:#E4E4E4;}
+.chips{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+.chip{
+  padding:8px 16px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:700;
+  border:2px solid #555;
+  color:#999;
+}
+.chip.active{
+  border-color:var(--lupe-red);
+  background:var(--lupe-red);
+  color:#fff;
+}
+.disclaimer{font-size:11px;color:var(--lupe-mid);margin-top:16px;}
+
+/* Ticker links */
+.ticker-link{color:var(--lupe-red);text-decoration:none;font-weight:700;border-bottom:1px dotted var(--lupe-red);}
+.ticker-link:hover{border-bottom-style:solid;}
+
+/* Sources */
+.sources{font-size:12px;color:var(--lupe-mid);line-height:1.9;}
+.sources .summary-line{margin-bottom:4px;}
+.sources ul{margin:10px 0 0 0;padding-left:18px;}
+.check{color:var(--lupe-green);font-weight:700;}
+.warn{color:var(--lupe-warn);font-weight:700;}
+
+/* Footer */
+.footer{
+  background:var(--lupe-dark);
+  color:#999;
+  padding:20px 32px;
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+/* Mobile */
+@media (max-width:640px){
+  .header{padding:18px 16px;}
+  .header h1{font-size:18px;}
+  .section{padding:20px 16px;}
+  .bluf{padding:16px 16px;font-size:14px;}
+  .snapshot-box{font-size:14px;}
+  .momentum-card{flex-direction:column;align-items:stretch;text-align:left;}
+  .momentum-card .btn{text-align:center;}
+  .news-head{flex-wrap:wrap;}
+  table thead{display:none;}
+  table, tbody, tr, td{display:block;width:100%;}
+  tbody tr{
+    border:1px solid var(--lupe-border);
+    border-radius:8px;
+    margin-bottom:10px;
+    padding:8px 12px;
+  }
+  tbody tr.today{border-left:4px solid var(--lupe-red);}
+  tbody td{border-bottom:none;padding:6px 0;}
+  tbody td::before{
+    content:attr(data-label);
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    color:var(--lupe-red);
+    margin-bottom:2px;
+  }
+  .verdict-title{font-size:22px;}
+  .footer{padding:16px;flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <a class="back-link" href="index.html">← 목록</a>
+      <h1>위켄드 마켓 브리핑</h1>
+      <div class="meta">
+        발행일: 2026-08-16(일) · <strong>최근 정규장 마감: 2026-08-14(금) — 상세 내용은 2026-08-15(토)자 브리핑 참고</strong><br>
+        미국 정규장 상태: 폐장(Alpha Vantage MARKET_STATUS 확인, 암호화폐 시장만 24시간 거래 중) · WEEKEND 모드 · v1
+      </div>
+    </div>
+    <div class="logo-block">
+      <div class="lupe">LUPE</div>
+      <div class="helios">HELIOS MOMENTUM</div>
+    </div>
+  </div>
+
+  <!-- BLUF -->
+  <div class="bluf">
+    <span class="tag">BLUF</span>호르무즈 해협을 둘러싼 미-이란 대치가 봉쇄 5개월째에도 풀리지 않은 채 트럼프의 "영토화" 발언까지 나왔고 비트코인은 $63K 지지선을 시험 중이라, 월요일 개장은 위험선호 심리가 완전히 회복되지 않은 상태에서 리테일 3사 실적과 FOMC 의사록이라는 굵직한 이벤트를 맞는다 — 신규 포지션 확대는 이번 주 확인 지표 이후로 미루는 편이 합리적이다.
+  </div>
+
+  <!-- Section W0: Momentum Discovery -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W0</span>Momentum Discovery</div>
+    <div class="momentum-card">
+      <div class="desc">Helios 개인 모멘텀 워치리스트 대시보드<br><span style="color:#B9B9B9;font-size:12px;">종목별 실시간 트래킹은 아래 대시보드에서 직접 확인하세요.</span></div>
+      <a class="btn" href="https://momentum-discovery.pages.dev/" target="_blank" rel="noopener">대시보드 열기 →</a>
+    </div>
+  </div>
+
+  <!-- Section W1: Friday Close Snapshot -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W1</span>Friday Close Snapshot</div>
+    <div class="snapshot-box">
+      S&amp;P500 <span class="down">7,785.76(-0.17%)</span> · Nasdaq <span class="down">26,729.16(-0.28%)</span> · Dow <span class="down">53,732.41(-0.20%)</span> · SOXX <span class="down">550.42(-0.06%)</span>
+      <div class="sub">기준: 2026-08-14(금) 정규장 마감 종가. 소매판매 서프라이즈·Broadcom(<a href="https://www.tradingview.com/symbols/AVGO/" target="_blank" rel="noopener" class="ticker-link">AVGO</a>) AI 부채조달 스크루티니 등 상세 등락 사유와 매크로 카드(10Y/DXY/F&amp;G/Brent)·반도체 대표주 스냅샷은 <strong>2026-08-15(토)자 STANDARD 브리핑</strong>을 참고하세요.</div>
+    </div>
+  </div>
+
+  <!-- Section W2: Weekend Major News -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W2</span>Weekend Major News</div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">호르무즈 해협 봉쇄 5개월째 — 트럼프 "종전 후 미국 영토로 선언", 이란 즉각 반박·선박 피격 추가 보고</div>
+        <span class="impact impact-high">HIGH</span>
+      </div>
+      <div class="news-desc">트럼프 대통령은 금요일(8/14) "이란을 완전히 무너뜨린 뒤 곧 호르무즈 해협을 미국 영토로 선언하겠다"고 발언했다. 이란 외교부 부장관 카젬 가리바바디는 토요일(8/15) "트윗 한 줄로도, 항공모함으로도, 명령 한 번으로도, 선거 유세 발언으로도 그 해협은 점령할 수 없다"며 즉각 반박했고, 같은 날 선박 추가 피격 보고까지 겹치며 긴장이 고조됐다. 페르시아 해협청은 "이란의 조건이 수용될 때까지 해협은 봉쇄 상태를 유지한다"는 입장을 재확인했으며, 2월 말 개전 이후 5개월 넘게 이어진 봉쇄로 국제에너지기구(IEA)는 세계 원유 비축분 소진 속도가 빨라지고 있다고 경고했다. 예멘의 한 전략 항구는 후티 반군의 공격으로 운영을 중단한 상태다.</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">비트코인, $63K 지지선 공방 지속 — 연초 대비 -32%, 위험자산 심리 바로미터로 여전히 취약</div>
+        <span class="impact impact-medium">MEDIUM</span>
+      </div>
+      <div class="news-desc">비트코인은 주말 동안 $62,500~65,000 박스권에서 $250 안팎의 좁은 변동성에 갇힌 채 $63,000 지지선을 반복 테스트하고 있다. 연초 약 $93,000에서 고점을 찍은 이후 꾸준히 밀려 현재까지 약 -32% 하락한 상태이며, 주요 이동평균선을 하회한 채 거래되고 있다. 24시간 거래되는 암호화폐 시장 특성상 주말 동안에도 가격이 계속 형성되는데, 이번 주말의 압축된 박스권은 월요일 개장을 앞둔 위험자산 심리가 아직 뚜렷한 방향성을 잡지 못했음을 시사한다.</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">금(Gold), 온스당 $4,380 사상 최고권 마감 — 주간 +0.9%, 달러 약세·안전자산 수요 반영</div>
+        <span class="impact impact-low">LOW</span>
+      </div>
+      <div class="news-desc">금 현물은 금요일 정규 거래에서 온스당 약 $4,380 부근에서 마감하며 주간 기준 +0.9% 상승했다(주말은 비거래일). 최근 한 달간 저점 대비로는 약 10% 반등한 수준으로, 중앙은행들의 지속적인 금 매입과 달러 약세, 호르무즈발 지정학 리스크에 대한 안전자산 수요가 복합적으로 작용한 결과로 풀이된다. 위 호르무즈 리스크·비트코인 약세와 함께 놓고 보면, 이번 주말 시장은 "위험자산 회피 + 안전자산 선호"라는 일관된 흐름을 보이고 있다.</div>
+    </div>
+  </div>
+
+  <!-- Section W3: This Week's Catalyst -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W3</span>This Week's Catalyst</div>
+    <table>
+      <thead>
+        <tr>
+          <th>날짜(ET)</th><th>시간(ET)</th><th>한국시간(KST)</th><th>이벤트</th><th>중요도</th><th>예상 영향</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="날짜(ET)">08/17(월)</td>
+          <td data-label="시간(ET)">08:30 AM / 10:00 AM ET</td>
+          <td data-label="한국시간(KST)">08/17(월) 21:30 / 23:00</td>
+          <td data-label="이벤트">Empire State 제조업지수 · NAHB 주택시장지수(8월)</td>
+          <td data-label="중요도"><span class="imp-badge imp-low">LOW</span></td>
+          <td data-label="예상 영향">주간 첫 지표. 금요일 소비지표 미스 이후 경기 체력에 대한 추가 단서</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/18(화)</td>
+          <td data-label="시간(ET)">개장 전(BMO)</td>
+          <td data-label="한국시간(KST)">08/18(화) 저녁 KST</td>
+          <td data-label="이벤트">Reddit(<a href="https://www.tradingview.com/symbols/RDDT/" target="_blank" rel="noopener" class="ticker-link">RDDT</a>) S&amp;P 500 정식 편입 · Home Depot(<a href="https://www.tradingview.com/symbols/HD/" target="_blank" rel="noopener" class="ticker-link">HD</a>) 2분기 실적</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">RDDT는 패시브 인덱스 매수 수요 유입 지속 예상. HD는 소매판매 서프라이즈 이후 첫 대형 리테일 실적으로 소비 체력의 시금석</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/19(수)</td>
+          <td data-label="시간(ET)">개장 전(BMO)</td>
+          <td data-label="한국시간(KST)">08/19(수) 저녁 KST</td>
+          <td data-label="이벤트">Target(<a href="https://www.tradingview.com/symbols/TGT/" target="_blank" rel="noopener" class="ticker-link">TGT</a>) 2분기 실적</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">중저가 소비재 수요 둔화 여부를 가늠할 지표</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/19(수)</td>
+          <td data-label="시간(ET)">02:00 PM ET</td>
+          <td data-label="한국시간(KST)">08/20(목) 03:00</td>
+          <td data-label="이벤트">FOMC 의사록 (7/28-29 회의)</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">9월 금리결정을 앞두고 소매판매·소비자심리 서프라이즈에 대한 위원들의 톤 변화를 확인할 핵심 이벤트</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/20(목)</td>
+          <td data-label="시간(ET)">개장 전(BMO) / 08:30 AM ET</td>
+          <td data-label="한국시간(KST)">08/20(목) 저녁 / 21:30</td>
+          <td data-label="이벤트">Walmart(<a href="https://www.tradingview.com/symbols/WMT/" target="_blank" rel="noopener" class="ticker-link">WMT</a>) 2분기 실적 · 주간 신규실업수당청구</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">리테일 3사 실적의 마무리 — 이번 주 소비지표 미스가 일시적인지 구조적인지 판가름할 최종 데이터</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/21(금)</td>
+          <td data-label="시간(ET)">08:30 / 09:45 / 10:00 AM ET</td>
+          <td data-label="한국시간(KST)">08/21(금) 21:30 / 22:45 / 23:00</td>
+          <td data-label="이벤트">필라델피아 연은 제조업지수 · S&amp;P Global 제조업·서비스업 PMI 예비치 · 기존주택판매</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">주간 마무리 지표 세트. 8월 경기모멘텀 종합 점검</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tz-box">
+      <strong>시간대 안내:</strong> 현재 미국은 서머타임(EDT) 적용 기간으로 KST = ET + 13시간이다(서머타임: 3월 둘째 일요일 ~ 11월 첫째 일요일, 그 외 EST 기간은 KST = ET + 14시간). 리테일 실적(HD·TGT·WMT)은 장전(BMO) 발표 관행상 정확한 발표 분(分) 단위 시각이 매체마다 공개되지 않아 "저녁 KST"로만 표기한다. FOMC 의사록(8/19 수 14:00 ET)은 자정을 넘어가 8/20(목) 03:00 KST에 해당한다. 지금(8/16 일 14:59 KST) 기준 24시간 이내(⏱24H)에 해당하는 이벤트는 없다(가장 이른 이벤트인 8/17(월) Empire State 지수도 24시간 창을 벗어남). 잭슨홀 심포지엄(8/27~29, 워시 신임 Fed 의장 첫 연설)은 이번 3~5일 창 밖의 이벤트로 별도 표기하지 않는다. 출처: Federal Reserve Board 공식 캘린더, 각사 IR 발표 일정 직접 확인(2026-08-14~16 기준).
+    </div>
+  </div>
+
+  <!-- Section W4: Weekly Strategy Pulse -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W4</span>Weekly Strategy Pulse</div>
+    <div class="verdict-box">
+      <div class="verdict-title">이번 주 환경: <span class="accent">Neutral</span> — 확인 지표 대기, 헤지 비중 점검 우선</div>
+      <div class="verdict-body">
+        지수는 사상 최고치권을 유지하고 있지만 위험자산 심리의 저변(비트코인 지지선 공방, 안전자산인 금의 동반 강세)은 아직 완전히 회복되지 않은 채 한 주를 시작한다. 조건부 시나리오로 접근하는 편이 합리적이다: ① 화~목 리테일 3사(HD·TGT·WMT) 실적이 견조한 가이던스를 유지하면 금요일 소매판매 미스는 일시적 노이즈로 재평가되며 지수·반도체 되돌림 매수 기회가 될 수 있다. ② 리테일 3사 중 다수가 소비 둔화를 확인하면 방어적 섹터(필수소비재·유틸리티) 비중 확대를 검토해야 한다. ③ 호르무즈 봉쇄가 이번 주 안에 추가 악화(선박 피격 확대, 이란의 실제 무력 대응 등)되면 Brent가 재차 급등하며 에너지 섹터 상대강도가 강화되고 위험자산 전반에는 단기 조정 압력이 실릴 수 있어, 지정학 헤지(에너지 비중 또는 금) 유지를 우선한다. ④ FOMC 의사록(8/19)에서 매파 소수의견이 확인되면 9월 금리 동결 기대가 후퇴하며 성장주 밸류에이션 부담이 재부각될 수 있다. 전반적으로 이번 주는 신규 확대보다 위 네 갈래 확인 후 대응이 우선이다.
+      </div>
+      <div class="chips">
+        <div class="chip">Bear</div>
+        <div class="chip active">Neutral</div>
+        <div class="chip">Bull</div>
+      </div>
+      <div class="disclaimer">본 브리핑은 정보 제공 목적이며 투자 자문이 아닙니다.</div>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">SRC</span>Sources</div>
+    <div class="sources">
+      <div class="summary-line">지수 종가 출처: 2026-08-15(토)자 STANDARD 브리핑에서 이미 교차확인 완료된 값 재사용(Motley Fool·Yahoo Finance/Zacks 2소스 일치) — 본 위켄드판은 별도 재조사 없이 인용</div>
+      <div class="summary-line">주말 뉴스 출처: CNBC·NBC News·Al Jazeera·Euronews(호르무즈/트럼프 발언), CoinGecko·CoinMarketCap·Coinbase(비트코인), TradingEconomics·ts2.tech(금)</div>
+      <div class="summary-line">경제 캘린더 출처: CNBC "Stock market next week" 프리뷰(8/14), Federal Reserve Board 공식 캘린더, 각사 IR 일정</div>
+      <ul>
+        <li><span class="check">✅</span> S&amp;P500 7,785.76(-0.17%)·Nasdaq 26,729.16(-0.28%)·Dow 53,732.41(-0.20%)·SOXX 550.42(-0.06%) — 2026-08-15(토)자 브리핑에서 2소스 교차확인 완료, 본판은 재인용</li>
+        <li><span class="check">✅</span> 호르무즈 해협 "미국 영토" 발언 및 이란 반박 — CNBC(8/15) 원문 확인, Al Jazeera·Euronews·NBC News 다수 매체 교차확인. 선박 추가 피격 보고는 CNBC 헤드라인에 명시(세부 사고 경위는 원문 미확인)</li>
+        <li><span class="warn">⚠️ 단일소스</span> IEA 원유 비축분 소진 경고 및 예멘 항구 후티 공격 — WebSearch 요약 기반, CNN 원문 직접 fetch 실패(JS 렌더링)로 검색 스니펫 교차확인에 의존</li>
+        <li><span class="check">✅</span> 비트코인 $62,973~63,028(주말 기준) — CoinGecko·CoinMarketCap 2소스 근사 일치, 연초 대비 하락폭(-32%)은 phemex 분석 기사 참고(⚠️ 단일소스, 방향성만 채택)</li>
+        <li><span class="warn">⚠️ 단일소스</span> 금 현물 $4,380(주간 +0.9%) — ts2.tech 집계 기사 기반, 1차 소스(World Gold Council 등) 직접 대조는 미실시</li>
+        <li><span class="check">✅</span> 경제 캘린더(Empire State·NAHB 8/17, RDDT 편입·HD 8/18, TGT·FOMC의사록 8/19, WMT 8/20, PMI·기존주택판매 8/21) — CNBC 주간 프리뷰(8/14) 및 Federal Reserve Board 공식 캘린더 교차확인</li>
+        <li><span class="warn">⚠️ 데이터 오염 방지 점검</span> 초기 검색에서 "2026년 8월 15일 알래스카 정상회담" 관련 결과가 나왔으나, 재검증 결과 실제 트럼프-푸틴 알래스카 정상회담은 2025년 8월에 열렸고 해당 기사들은 2026-08-15자 "1주년 회고" 기사였음을 확인, 이번 주말 신규 뉴스에서 제외함(0-8 데이터 오염 방지 규칙 적용)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>© 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy</div>
+    <div>생성일시: 2026-08-16 15:20 KST · 최근 정규장 마감: 2026-08-14 · WEEKEND v1</div>
+  </div>
+
+</div>
+</body>
+</html>
