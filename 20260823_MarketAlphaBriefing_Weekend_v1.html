@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>위켄드 마켓 브리핑 | LUPE — 2026.08.23</title>
+<style>
+:root{
+  --lupe-red:#C1001B;
+  --lupe-dark:#1A1A1A;
+  --lupe-mid:#4A4A4A;
+  --lupe-warn:#E87722;
+  --lupe-green:#1A7A3C;
+  --lupe-bg:#FFFFFF;
+  --lupe-card-bg:#F7F7F7;
+  --lupe-border:#E4E4E4;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  padding:0;
+  background:var(--lupe-bg);
+  font-family:'Noto Sans KR','Malgun Gothic',sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  color:var(--lupe-dark);
+}
+.wrap{max-width:840px;margin:0 auto;}
+
+/* Header */
+.header{
+  background:var(--lupe-dark);
+  color:#fff;
+  padding:28px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.back-link{display:inline-block;font-size:12px;color:#CFCFCF;text-decoration:none;margin-bottom:8px;}
+.header h1{font-size:24px;margin:0 0 6px 0;font-weight:700;}
+.header .meta{font-size:13px;color:#CFCFCF;line-height:1.6;}
+.header .meta strong{color:#fff;}
+.logo-block{
+  text-align:right;
+  font-size:12px;
+  color:#CFCFCF;
+  line-height:1.5;
+  white-space:nowrap;
+}
+.logo-block .lupe{color:var(--lupe-red);font-weight:800;font-size:15px;letter-spacing:1px;}
+.logo-block .helios{font-weight:600;color:#fff;}
+
+/* BLUF banner */
+.bluf{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:18px 32px;
+  font-size:15px;
+  font-weight:600;
+  line-height:1.7;
+}
+.bluf .tag{
+  display:inline-block;
+  background:rgba(255,255,255,0.2);
+  padding:2px 8px;
+  border-radius:4px;
+  font-size:11px;
+  font-weight:700;
+  margin-right:8px;
+  letter-spacing:1px;
+}
+
+.section{padding:28px 32px;border-bottom:1px solid var(--lupe-border);}
+.section-title{
+  font-size:14px;
+  font-weight:700;
+  color:var(--lupe-dark);
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  border-bottom:3px solid var(--lupe-red);
+  padding-bottom:8px;
+  margin:0 0 18px 0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.badge-num{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:3px;
+  font-weight:700;
+}
+
+/* Momentum link card */
+.momentum-card{
+  background:var(--lupe-dark);
+  border-left:4px solid var(--lupe-red);
+  border-radius:6px;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.momentum-card .desc{color:#EDEDED;font-size:14px;flex:1 1 auto;}
+.momentum-card .btn{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+  white-space:nowrap;
+}
+
+/* Friday snapshot line */
+.snapshot-box{
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  font-size:16px;
+  font-weight:700;
+}
+.snapshot-box .sub{font-size:12px;color:var(--lupe-mid);font-weight:400;margin-top:8px;}
+.up{color:var(--lupe-green);}
+.down{color:var(--lupe-red);}
+
+/* News cards */
+.news-card{
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  margin-bottom:12px;
+}
+.news-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+.news-title{font-size:16px;font-weight:700;color:var(--lupe-dark);flex:1 1 auto;}
+.impact{
+  font-size:11px;
+  font-weight:800;
+  padding:3px 9px;
+  border-radius:4px;
+  white-space:nowrap;
+}
+.impact-high{background:var(--lupe-red);color:#fff;}
+.impact-medium{background:var(--lupe-warn);color:#fff;}
+.impact-low{background:#B9B9B9;color:#fff;}
+.news-desc{font-size:14px;color:var(--lupe-mid);margin-top:8px;}
+
+/* Catalyst table */
+table{width:100%;border-collapse:collapse;font-size:14px;}
+thead th{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:12px;
+  text-align:left;
+  padding:10px 10px;
+}
+tbody td{padding:10px;border-bottom:1px solid var(--lupe-border);}
+tbody tr.today{background:#FFF3F0;border-left:4px solid var(--lupe-red);}
+.imp-badge{
+  font-size:11px;font-weight:800;padding:2px 7px;border-radius:4px;color:#fff;white-space:nowrap;
+}
+.imp-high{background:var(--lupe-red);}
+.imp-med{background:var(--lupe-warn);}
+.imp-low{background:#B9B9B9;}
+.h24{
+  display:inline-block;
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  padding:2px 6px;
+  border-radius:3px;
+  margin-left:6px;
+}
+.tz-box{
+  margin-top:14px;
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:6px;
+  padding:12px 14px;
+  font-size:12px;
+  color:var(--lupe-mid);
+}
+
+/* Strategic takeaway */
+.verdict-box{
+  background:var(--lupe-dark);
+  color:#fff;
+  border-radius:8px;
+  padding:22px 24px;
+}
+.verdict-title{font-size:30px;font-weight:800;margin:0 0 10px 0;}
+.verdict-title .accent{color:#FF6B6B;}
+.verdict-body{font-size:15px;line-height:1.8;color:#E4E4E4;}
+.chips{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+.chip{
+  padding:8px 16px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:700;
+  border:2px solid #555;
+  color:#999;
+}
+.chip.active{
+  border-color:var(--lupe-red);
+  background:var(--lupe-red);
+  color:#fff;
+}
+.disclaimer{font-size:11px;color:var(--lupe-mid);margin-top:16px;}
+
+/* Ticker links */
+.ticker-link{color:var(--lupe-red);text-decoration:none;font-weight:700;border-bottom:1px dotted var(--lupe-red);}
+.ticker-link:hover{border-bottom-style:solid;}
+
+/* Sources */
+.sources{font-size:12px;color:var(--lupe-mid);line-height:1.9;}
+.sources .summary-line{margin-bottom:4px;}
+.sources ul{margin:10px 0 0 0;padding-left:18px;}
+.check{color:var(--lupe-green);font-weight:700;}
+.warn{color:var(--lupe-warn);font-weight:700;}
+
+/* Footer */
+.footer{
+  background:var(--lupe-dark);
+  color:#999;
+  padding:20px 32px;
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+/* Mobile */
+@media (max-width:640px){
+  .header{padding:18px 16px;}
+  .header h1{font-size:18px;}
+  .section{padding:20px 16px;}
+  .bluf{padding:16px 16px;font-size:14px;}
+  .snapshot-box{font-size:14px;}
+  .momentum-card{flex-direction:column;align-items:stretch;text-align:left;}
+  .momentum-card .btn{text-align:center;}
+  .news-head{flex-wrap:wrap;}
+  table thead{display:none;}
+  table, tbody, tr, td{display:block;width:100%;}
+  tbody tr{
+    border:1px solid var(--lupe-border);
+    border-radius:8px;
+    margin-bottom:10px;
+    padding:8px 12px;
+  }
+  tbody tr.today{border-left:4px solid var(--lupe-red);}
+  tbody td{border-bottom:none;padding:6px 0;}
+  tbody td::before{
+    content:attr(data-label);
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    color:var(--lupe-red);
+    margin-bottom:2px;
+  }
+  .verdict-title{font-size:22px;}
+  .footer{padding:16px;flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <a class="back-link" href="index.html">← 목록</a>
+      <h1>위켄드 마켓 브리핑</h1>
+      <div class="meta">
+        발행일: 2026-08-23(일) · <strong>최근 정규장 마감: 2026-08-21(금) — 상세 내용은 2026-08-22(토)자 브리핑 참고</strong><br>
+        미국 정규장 상태: 폐장(Alpha Vantage MARKET_STATUS 확인, 암호화폐 시장만 24시간 거래 중) · WEEKEND 모드 · v1
+      </div>
+    </div>
+    <div class="logo-block">
+      <div class="lupe">LUPE</div>
+      <div class="helios">HELIOS MOMENTUM</div>
+    </div>
+  </div>
+
+  <!-- BLUF -->
+  <div class="bluf">
+    <span class="tag">BLUF</span>주말 사이 리스크자산 변동성이 지수보다 크립토·지정학 축에서 먼저 터진 만큼, 월요일 베센트 장관의 대이란 제재 세부안 발표와 수요일 PCE·엔비디아(<a href="https://www.tradingview.com/symbols/NVDA/" target="_blank" rel="noopener" class="ticker-link">NVDA</a>) 실적이라는 두 확인 지표를 통과하기 전까지는 신규 익스포저 확대보다 변동성 흡수 여력 확보가 우선이다.
+  </div>
+
+  <!-- Section W0: Momentum Discovery -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W0</span>Momentum Discovery</div>
+    <div class="momentum-card">
+      <div class="desc">Helios 개인 모멘텀 워치리스트 대시보드<br><span style="color:#B9B9B9;font-size:12px;">종목별 실시간 트래킹은 아래 대시보드에서 직접 확인하세요.</span></div>
+      <a class="btn" href="https://momentum-discovery.pages.dev/" target="_blank" rel="noopener">대시보드 열기 →</a>
+    </div>
+  </div>
+
+  <!-- Section W1: Friday Close Snapshot -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W1</span>Friday Close Snapshot</div>
+    <div class="snapshot-box">
+      S&amp;P500 <span class="up">7,674.31(+0.43%)</span> · Nasdaq <span class="up">26,180.46(+0.43%)</span> · Dow <span class="up">53,276.81(+0.98%)</span> · SOXX <span class="down">520.05(-0.44%)</span>
+      <div class="sub">기준: 2026-08-21(금) 정규장 마감 종가(주간 기준으로는 3대 지수 모두 하락 마감). 재무부 장기채 바이백 안도감·비트코인 급등에 따른 위험선호 회복 등 상세 등락 사유와 매크로 카드(10Y/DXY/F&amp;G/Brent)·반도체 대표주 스냅샷은 <strong>2026-08-22(토)자 STANDARD 브리핑</strong>을 참고하세요. 본판(8/23)에서는 토요일판 이후 새로 발생한 사실만 다룹니다.</div>
+    </div>
+  </div>
+
+  <!-- Section W2: Weekend Major News -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W2</span>Weekend Major News</div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">비트코인, 토요일 $79,500 근접 후 6분 만에 급락 — 크립토 시가총액 6분 만에 1,080억달러 증발, 24시간 청산액 17억달러</div>
+        <span class="impact impact-high">HIGH</span>
+      </div>
+      <div class="news-desc">비트코인은 8/22(토) 장중 $79,500에 근접하는 신고점을 찍었으나, 직후 플래시크래시가 발생하며 단 6분 만에 $76,500대까지 급락했다. 이 과정에서 크립토 전체 시가총액은 2.68조달러에서 2.55조달러로 6분 만에 약 1,080억달러가 증발했으며, 2025년 10월 이후 최대 규모의 플래시크래시로 기록됐다. 24시간 기준 약 28만명의 트레이더가 청산되며 총 17.1억달러의 손실이 발생했고, 이 중 롱포지션 청산만 약 2.58억달러에 달했다. 8/22 오전(EDT) 기준 비트코인은 $76,900~77,000선에서 재차 안정을 찾았다. $63,600에서 $79,500까지 이어진 급등 구간에서 숏포지션 약 27억달러가 청산됐던 만큼, 이번 되돌림은 그 반대급부로 롱포지션이 청산된 성격이 강하다 — 방향성 자체보다 레버리지 청산발 변동성이 주 원인이라는 해석이 우세하다.</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">이란, 이라크 유조선의 호르무즈 해협 통항 허용 — 월요일 베센트 장관 "경제적 D-Day" 발표를 하루 앞두고 국지적 완화 신호</div>
+        <span class="impact impact-medium">MEDIUM</span>
+      </div>
+      <div class="news-desc">이란은 8/22(토) 바그다드의 반복된 요청에 따라 다수의 이라크 유조선에 대해 호르무즈 해협 통항을 허용했다. 이라크는 해협의 사실상 봉쇄(정상 시 일평균 약 73척 통항 대비 8/16 기준 1척 수준까지 급감)로 가장 큰 타격을 입은 국가 중 하나였으며, 자국 원유 수출 재개를 위해 이란 측과 지속 협의해왔다. 다만 이는 이라크에 한정된 예외적 조치로 해협 전반의 통항 정상화를 의미하지는 않으며, 선박에 대한 공격 리스크도 여전히 남아있다. 이 소식은 8/24(월) 베센트 재무장관이 예고한 대이란 "역대 최강" 제재 세부안 발표를 하루 앞두고 나온 것이어서, 제재 강도에 따라 이번 완화 신호가 얼마나 지속될지가 이번 주 최대 변수로 남는다.</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">Anthropic, 이르면 이번 주 IPO 신고서 공개 검토 — 목표 밸류에이션 2조달러, 사상 최대 IPO 후보</div>
+        <span class="impact impact-low">LOW</span>
+      </div>
+      <div class="news-desc">Claude 개발사 Anthropic이 지난 6월 SEC에 비공개로 초안 S-1을 제출한 데 이어, 이르면 8월 말 신고서를 공개하고 10월 상장을 목표로 하고 있는 것으로 알려졌다. 투자자들은 목표 밸류에이션을 최대 2조달러로 보고 있어 현실화될 경우 사상 최대 규모의 IPO가 된다. 연환산 매출은 이미 650억달러를 넘어섰고 2028년까지 1,900억~2,000억달러로 확대될 것이라는 전망이 밸류에이션의 근거로 제시된다. 다만 SEC 심사 완료 시점과 국채금리 수준에 따른 고성장 기술주 투자심리가 최종 상장 시기·규모를 좌우할 변수로 남아있다. 지수 등락과 직결된 이벤트는 아니지만, AI 산업의 자본시장 편입이 본격화되는 신호로 참고할 만하다.</div>
+    </div>
+  </div>
+
+  <!-- Section W3: This Week's Catalyst -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W3</span>This Week's Catalyst</div>
+    <table>
+      <thead>
+        <tr>
+          <th>날짜(ET)</th><th>시간(ET)</th><th>한국시간(KST)</th><th>이벤트</th><th>중요도</th><th>예상 영향</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="날짜(ET)">08/24(월)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30</td>
+          <td data-label="이벤트">시카고 연은 전미활동지수(7월) · 베센트 장관 이란 제재 세부안 공식 발표</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">경제지표 자체는 부수적이나, 같은 날 예정된 베센트 장관의 이란 제재 세부안 발표(섹션 W2)가 이번 주 최대 변수 — 제재 강도에 따라 주말의 국지적 완화 신호(이라크 유조선 통항 허용)가 무력화될 수 있음</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/25(화)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00</td>
+          <td data-label="이벤트">Conference Board 소비자신뢰지수(8월) · 신규 주택판매(7월)</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">지난주 월마트발 소비 둔화 경고가 거시 지표로 재확인되는지가 관건</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/26(수)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30</td>
+          <td data-label="이벤트">PCE 물가지수(7월, Core 포함) · GDP 2분기 2차 추정치</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">Fed가 가장 중시하는 인플레 지표 — 국채금리 재상승 압력의 지속 여부를 가를 핵심 변수</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/26(수)</td>
+          <td data-label="시간(ET)">05:00 PM ET(발표 후 콜)</td>
+          <td data-label="한국시간(KST)">08/27(목) 06:00</td>
+          <td data-label="이벤트">NVIDIA(<a href="https://www.tradingview.com/symbols/NVDA/" target="_blank" rel="noopener" class="ticker-link">NVDA</a>) 2분기(FY27) 실적</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">반도체 섹터 전체의 밸류에이션 재평가 분기점 — 지난주 SOXX의 나스닥 대비 열위가 실적 이후 되돌려질지 가를 최대 변수</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">08/28(금)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00</td>
+          <td data-label="이벤트">Jackson Hole 심포지엄 — Fed 신임 의장 케빈 워시 첫 기조연설</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">잭슨홀 심포지엄은 8/27(목)~29(토) 진행되며, 9/16 FOMC를 19일 앞두고 나오는 워시 신임 의장의 첫 공개 통화정책 메시지 — 펀드매니저 69%는 중립적 톤을 예상하나 국채금리·인플레이션 언급 수위에 따라 변동성 확대 가능</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tz-box">
+      <strong>시간대 안내:</strong> 현재 미국은 서머타임(EDT) 적용 기간으로 KST = ET + 13시간이다(서머타임: 3월 둘째 일요일 ~ 11월 첫째 일요일, 그 외 EST 기간은 KST = ET + 14시간). 지금(8/23 일 16:57 KST = 8/23 일 03:57 ET) 기준 가장 가까운 이벤트인 월요일 시카고 연은 지수·베센트 장관 발표(21:30 KST)까지는 약 28시간 남아 24시간 이내(⏱24H) 구간에는 해당하지 않는다. NVIDIA 실적(8/26 수 17:00 ET)은 자정을 넘어 8/27(목) 06:00 KST에 해당한다. 잭슨홀 워시 의장 연설은 캔자스시티 연은 공식 일정 기준 8/28(금) 10:00 AM ET(23:00 KST)로 확정됐다(2026-08-20 MNI 확인). 출처: Conference Board·Census Bureau·BEA(PCE·GDP) 공식 발표 일정, NVIDIA IR 공식 일정, 캔자스시티 연은 Jackson Hole 공식 일정(2026-08-22~23 기준 재확인).
+    </div>
+  </div>
+
+  <!-- Section W4: Weekly Strategy Pulse -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W4</span>Weekly Strategy Pulse</div>
+    <div class="verdict-box">
+      <div class="verdict-title">이번 주 환경: <span class="accent">Neutral</span> — 변동성 흡수 여력 확보가 우선</div>
+      <div class="verdict-body">
+        주말 사이 지수보다 크립토·지정학 축에서 먼저 변동성이 터졌다는 점(비트코인 플래시크래시, 호르무즈 국지적 완화 신호)은 이번 한 주의 리스크가 레버리지 청산과 정책 발표 타이밍에 쏠려 있음을 시사한다 — 네 갈래 조건부로 접근한다. ① 8/24(월) 베센트 장관의 이란 제재가 시장 예상보다 완화적이면(예: 이라크·중국 등 주요 매수국에 대한 유예 조항 포함) 브렌트유가 안정을 찾으며 인플레 우려도 함께 진정될 수 있다. 반대로 2차 제재(세컨더리 보이콧)까지 포함된 초강경안이 나오면 유가 재급등과 함께 리스크오프가 재현될 수 있다. ② 8/26(수) PCE가 예상을 하회하면 국채금리 재상승 압력이 해소되며 지수·반도체 동반 반등 여지가 커지고, 상회하면 밸류에이션 부담이 재부각된다. ③ 같은 날 예정된 엔비디아 실적은 지난주 SOXX의 나스닥 대비 열위가 일시적 조정이었는지 구조적 둔화 신호였는지를 가를 최대 분수령이다. ④ 크립토 시장은 이번 플래시크래시로 레버리지가 상당 부분 청산된 만큼 단기 변동성은 낮아질 수 있으나, 크립토 연계주(코인베이스 등) 비중이 있다면 8/28(금) 잭슨홀 연설 전까지 포지션 크기를 보수적으로 유지하는 편이 합리적이다.
+      </div>
+      <div class="chips">
+        <div class="chip">Bear</div>
+        <div class="chip active">Neutral</div>
+        <div class="chip">Bull</div>
+      </div>
+      <div class="disclaimer">본 브리핑은 정보 제공 목적이며 투자 자문이 아닙니다.</div>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">SRC</span>Sources</div>
+    <div class="sources">
+      <div class="summary-line">지수 종가 출처: 2026-08-22(토)자 STANDARD 브리핑에서 이미 교차확인 완료된 값 재사용 — 본 위켄드판은 별도 재조사 없이 인용, AP통신(kvue.com 게재)·Yahoo Finance로 재차 확인</div>
+      <div class="summary-line">주말 뉴스 출처: CryptoRank·CoinPedia·KuCoin·Pluang(비트코인 플래시크래시), The National·Al Jazeera·BOE Report·Business Standard(이란-이라크 유조선 통항 허용), MarketScreener·Qz·Coinpedia(Anthropic IPO)</div>
+      <div class="summary-line">경제 캘린더 출처: Conference Board·Census Bureau·BEA 공식 발표 일정, NVIDIA IR 공식 일정, 캔자스시티 연은 Jackson Hole 공식 일정, MNI Markets(워시 의장 연설 시각)</div>
+      <ul>
+        <li><span class="check">✅</span> S&amp;P500 7,674.31(+0.43%)·Nasdaq 26,180.46(+0.43%)·Dow 53,276.81(+0.98%)·SOXX 520.05(-0.44%) — 2026-08-22(토)자 브리핑에서 2소스 교차확인 완료, 본판은 재인용</li>
+        <li><span class="check">✅</span> 비트코인 $79,500 근접 후 플래시크래시, 6분 만에 시가총액 1,080억달러 증발, 24시간 청산 17.1억달러 — CryptoRank·CoinPedia·KuCoin 3개 매체 수치 상호 부합 확인</li>
+        <li><span class="warn">⚠️ 단일소스</span> 비트코인 8/22 오전 재안정 가격 $76,900~77,000선 — CoinDesk 위젯 기반 단일 관측, 추가 독립 소스 교차확인 미실시</li>
+        <li><span class="check">✅</span> 이란, 이라크 유조선 호르무즈 통항 허용(8/22) — The National·Al Jazeera·BOE Report·Business Standard 4개 매체 교차확인</li>
+        <li><span class="warn">⚠️ 단일소스</span> Anthropic IPO 이르면 8월 말 신고서 공개·목표 밸류에이션 2조달러 — MarketScreener(FT 인용) 및 Qz 보도 기반, Anthropic 공식 발표 원문 직접 대조는 미실시(비공개 초안 S-1 단계로 확정 정보 아님에 유의)</li>
+        <li><span class="check">✅</span> 이번 주 경제·실적 캘린더(시카고 연은 지수·베센트 발표 8/24, 소비자신뢰지수·신규주택판매 8/25, PCE·GDP·NVDA실적 8/26, Jackson Hole 8/27~29) — 2026-08-22(토)자 브리핑 대비 워시 의장 연설 시각(8/28 10:00 AM ET, MNI 확인)을 추가 반영해 재확인</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>© 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy</div>
+    <div>생성일시: 2026-08-23 16:57 KST · 최근 정규장 마감: 2026-08-21 · WEEKEND v1</div>
+  </div>
+
+</div>
+</body>
+</html>
