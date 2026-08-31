@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>위켄드 마켓 브리핑 | LUPE — 2026.08.31</title>
+<style>
+:root{
+  --lupe-red:#C1001B;
+  --lupe-dark:#1A1A1A;
+  --lupe-mid:#4A4A4A;
+  --lupe-warn:#E87722;
+  --lupe-green:#1A7A3C;
+  --lupe-bg:#FFFFFF;
+  --lupe-card-bg:#F7F7F7;
+  --lupe-border:#E4E4E4;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  padding:0;
+  background:var(--lupe-bg);
+  font-family:'Noto Sans KR','Malgun Gothic',sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  color:var(--lupe-dark);
+}
+.wrap{max-width:840px;margin:0 auto;}
+
+/* Header */
+.header{
+  background:var(--lupe-dark);
+  color:#fff;
+  padding:28px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.back-link{display:inline-block;font-size:12px;color:#CFCFCF;text-decoration:none;margin-bottom:8px;}
+.header h1{font-size:24px;margin:0 0 6px 0;font-weight:700;}
+.header .meta{font-size:13px;color:#CFCFCF;line-height:1.6;}
+.header .meta strong{color:#fff;}
+.logo-block{
+  text-align:right;
+  font-size:12px;
+  color:#CFCFCF;
+  line-height:1.5;
+  white-space:nowrap;
+}
+.logo-block .lupe{color:var(--lupe-red);font-weight:800;font-size:15px;letter-spacing:1px;}
+.logo-block .helios{font-weight:600;color:#fff;}
+
+/* BLUF banner */
+.bluf{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:18px 32px;
+  font-size:15px;
+  font-weight:600;
+  line-height:1.7;
+}
+.bluf .tag{
+  display:inline-block;
+  background:rgba(255,255,255,0.2);
+  padding:2px 8px;
+  border-radius:4px;
+  font-size:11px;
+  font-weight:700;
+  margin-right:8px;
+  letter-spacing:1px;
+}
+
+.section{padding:28px 32px;border-bottom:1px solid var(--lupe-border);}
+.section-title{
+  font-size:14px;
+  font-weight:700;
+  color:var(--lupe-dark);
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  border-bottom:3px solid var(--lupe-red);
+  padding-bottom:8px;
+  margin:0 0 18px 0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.badge-num{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:3px;
+  font-weight:700;
+}
+
+/* Momentum link card */
+.momentum-card{
+  background:var(--lupe-dark);
+  border-left:4px solid var(--lupe-red);
+  border-radius:6px;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.momentum-card .desc{color:#EDEDED;font-size:14px;flex:1 1 auto;}
+.momentum-card .btn{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+  white-space:nowrap;
+}
+
+/* Friday snapshot line */
+.snapshot-box{
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  font-size:16px;
+  font-weight:700;
+}
+.snapshot-box .sub{font-size:12px;color:var(--lupe-mid);font-weight:400;margin-top:8px;}
+.up{color:var(--lupe-green);}
+.down{color:var(--lupe-red);}
+
+/* News cards */
+.news-card{
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  margin-bottom:12px;
+}
+.news-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+.news-title{font-size:16px;font-weight:700;color:var(--lupe-dark);flex:1 1 auto;}
+.impact{
+  font-size:11px;
+  font-weight:800;
+  padding:3px 9px;
+  border-radius:4px;
+  white-space:nowrap;
+}
+.impact-high{background:var(--lupe-red);color:#fff;}
+.impact-medium{background:var(--lupe-warn);color:#fff;}
+.impact-low{background:#B9B9B9;color:#fff;}
+.news-desc{font-size:14px;color:var(--lupe-mid);margin-top:8px;}
+
+/* Catalyst table */
+table{width:100%;border-collapse:collapse;font-size:14px;}
+thead th{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:12px;
+  text-align:left;
+  padding:10px 10px;
+}
+tbody td{padding:10px;border-bottom:1px solid var(--lupe-border);}
+tbody tr.today{background:#FFF3F0;border-left:4px solid var(--lupe-red);}
+.imp-badge{
+  font-size:11px;font-weight:800;padding:2px 7px;border-radius:4px;color:#fff;white-space:nowrap;
+}
+.imp-high{background:var(--lupe-red);}
+.imp-med{background:var(--lupe-warn);}
+.imp-low{background:#B9B9B9;}
+.h24{
+  display:inline-block;
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  padding:2px 6px;
+  border-radius:3px;
+  margin-left:6px;
+}
+.tz-box{
+  margin-top:14px;
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:6px;
+  padding:12px 14px;
+  font-size:12px;
+  color:var(--lupe-mid);
+}
+
+/* Strategic takeaway */
+.verdict-box{
+  background:var(--lupe-dark);
+  color:#fff;
+  border-radius:8px;
+  padding:22px 24px;
+}
+.verdict-title{font-size:30px;font-weight:800;margin:0 0 10px 0;}
+.verdict-title .accent{color:#FF6B6B;}
+.verdict-body{font-size:15px;line-height:1.8;color:#E4E4E4;}
+.chips{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+.chip{
+  padding:8px 16px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:700;
+  border:2px solid #555;
+  color:#999;
+}
+.chip.active{
+  border-color:var(--lupe-red);
+  background:var(--lupe-red);
+  color:#fff;
+}
+.disclaimer{font-size:11px;color:var(--lupe-mid);margin-top:16px;}
+
+/* Ticker links */
+.ticker-link{color:var(--lupe-red);text-decoration:none;font-weight:700;border-bottom:1px dotted var(--lupe-red);}
+.ticker-link:hover{border-bottom-style:solid;}
+
+/* Sources */
+.sources{font-size:12px;color:var(--lupe-mid);line-height:1.9;}
+.sources .summary-line{margin-bottom:4px;}
+.sources ul{margin:10px 0 0 0;padding-left:18px;}
+.check{color:var(--lupe-green);font-weight:700;}
+.warn{color:var(--lupe-warn);font-weight:700;}
+
+/* Footer */
+.footer{
+  background:var(--lupe-dark);
+  color:#999;
+  padding:20px 32px;
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+/* Mobile */
+@media (max-width:640px){
+  .header{padding:18px 16px;}
+  .header h1{font-size:18px;}
+  .section{padding:20px 16px;}
+  .bluf{padding:16px 16px;font-size:14px;}
+  .snapshot-box{font-size:14px;}
+  .momentum-card{flex-direction:column;align-items:stretch;text-align:left;}
+  .momentum-card .btn{text-align:center;}
+  .news-head{flex-wrap:wrap;}
+  table thead{display:none;}
+  table, tbody, tr, td{display:block;width:100%;}
+  tbody tr{
+    border:1px solid var(--lupe-border);
+    border-radius:8px;
+    margin-bottom:10px;
+    padding:8px 12px;
+  }
+  tbody tr.today{border-left:4px solid var(--lupe-red);}
+  tbody td{border-bottom:none;padding:6px 0;}
+  tbody td::before{
+    content:attr(data-label);
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    color:var(--lupe-red);
+    margin-bottom:2px;
+  }
+  .verdict-title{font-size:22px;}
+  .footer{padding:16px;flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <a class="back-link" href="index.html">← 목록</a>
+      <h1>위켄드 마켓 브리핑</h1>
+      <div class="meta">
+        발행일: 2026-08-31(월) · <strong>최근 정규장 마감: 2026-08-28(금) — 상세 내용은 2026-08-29(토)자 브리핑 참고</strong><br>
+        미국 정규장 상태: 폐장(Alpha Vantage MARKET_STATUS 확인, 암호화폐·외환 시장만 24시간 거래 중) · 아시아 증시(도쿄·상하이·홍콩·인도) 발행 시점 기준 개장 중 · WEEKEND 모드 · v1
+      </div>
+    </div>
+    <div class="logo-block">
+      <div class="lupe">LUPE</div>
+      <div class="helios">HELIOS MOMENTUM</div>
+    </div>
+  </div>
+
+  <!-- BLUF -->
+  <div class="bluf">
+    <span class="tag">BLUF</span>워시 의장의 매파 전환과 호르무즈 해협 무력 충돌이 동시에 국채금리·유가를 밀어올리는 구간이므로, 금요일 8월 고용지표가 매파 베팅을 검증하기 전까지는 포지션 크기를 방어적으로 유지하는 편이 합리적이다. 금요일 이미 나스닥 대비 확연히 열위를 보인 반도체 섹터(<a href="https://www.tradingview.com/symbols/SOXX/" target="_blank" rel="noopener" class="ticker-link">SOXX</a>)는 관세 리스크가 구체화되기 전까지 저가매수보다 관망이 유효하다.
+  </div>
+
+  <!-- Section W0: Momentum Discovery -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W0</span>Momentum Discovery</div>
+    <div class="momentum-card">
+      <div class="desc">Helios 개인 모멘텀 워치리스트 대시보드<br><span style="color:#B9B9B9;font-size:12px;">종목별 실시간 트래킹은 아래 대시보드에서 직접 확인하세요.</span></div>
+      <a class="btn" href="https://momentum-discovery.pages.dev/" target="_blank" rel="noopener">대시보드 열기 →</a>
+    </div>
+  </div>
+
+  <!-- Section W1: Friday Close Snapshot -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W1</span>Friday Close Snapshot</div>
+    <div class="snapshot-box">
+      S&amp;P500 <span class="down">7,711.76(-0.25%)</span> · Nasdaq <span class="down">26,402.42(-0.52%)</span> · Dow <span class="down">53,559.99(-0.02%)</span> · SOXX <span class="down">508.62(-3.20%)</span>
+      <div class="sub">기준: 2026-08-28(금) 정규장 마감 종가. 워시 Fed 의장의 잭슨홀 매파 발언 여파로 3대 지수 모두 소폭 하락, 반도체(SOXX)는 관세 우려까지 겹쳐 낙폭이 확대됐다. 상세 등락 사유와 매크로 카드(10Y/DXY/F&amp;G/Brent)·반도체 대표주 스냅샷은 <strong>2026-08-29(토)자 STANDARD 브리핑</strong>을 참고하세요. 본판(8/31)은 그 이후 주말 사이 새로 확인된 사실만 다룹니다.</div>
+    </div>
+  </div>
+
+  <!-- Section W2: Weekend Major News -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W2</span>Weekend Major News</div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">미군, 호르무즈 해협서 이란 로켓발사대 타격 — 이란 즉각 보복 예고, 브렌트유 아시아장서 상승</div>
+        <span class="impact impact-high">HIGH</span>
+      </div>
+      <div class="news-desc">미 중부사령부(CENTCOM)는 일요일(8/30) 이란 혁명수비대가 호르무즈 해협에 기뢰를 실은 로켓을 발사할 준비를 하던 라라크 섬의 발사대 2기를 타격했다고 밝혔다. 6개월 넘게 이어진 저강도 충돌 국면에서 약 한 달 만의 첫 군사 조치로, 미군이 지난주 해협 국제항로의 기뢰 제거 작업을 마무리한 직후 발생했다. 이란은 이를 "치명적 공격"으로 규정하며 즉각 보복을 예고했고, 여파로 브렌트유는 월요일 아시아 장 초반 약 2% 상승 출발했다. 다만 최근 페르시아만 원유 수출량이 하루 1,500만~1,600만배럴로 3월 저점(500만~600만배럴) 대비 크게 회복된 상태라, 시장은 현재로선 이를 물리적 공급 차질보다 지정학 리스크 프리미엄으로 소화하는 분위기다.</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">워시 의장 잭슨홀 매파 발언 후폭풍 지속 — 9월 인상 확률 60%대 진입, 국채금리·아시아 증시 압박</div>
+        <span class="impact impact-high">HIGH</span>
+      </div>
+      <div class="news-desc">금요일 잭슨홀 심포지엄에서 케빈 워시 신임 Fed 의장은 인플레이션 우려를 강하게 표명하며 "추가로 할 일이 있을 수 있다"고 언급, 시장이 예상보다 매파적으로 받아들였다. 이 여파로 10Y 국채금리는 금요일 4.73%로 마감했고, CME FedWatch 기준 9월 인상 확률은 금요일 약 56%에서 월요일 오전 60.4%로 올라섰다. 연내(12월까지) 인상 확률은 70%를 웃도는 수준을 유지 중이다. 이 흐름은 주말 내내 이어져 월요일 아시아 증시(도쿄·상하이·홍콩)와 금 가격에 하락 압력으로 작용했다.</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">비트코인, 3개월래 고점서 급반락 — 매파 발언에 위험자산 회피 재확인</div>
+        <span class="impact impact-medium">MEDIUM</span>
+      </div>
+      <div class="news-desc">비트코인은 금요일 장중 약 81,455달러까지 오르며 3개월래 최고치를 기록했으나, 워시 의장의 매파적 발언 직후 반락해 일요일에는 78,000달러 초반(78,231달러 부근)까지 밀렸다. 국채금리 상승이 위험자산 전반의 매력을 낮춘 결과로, 주말 내내 78,000~80,000달러 박스권에서 등락했다.</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">美, 반도체 추가 관세 검토설 지속 — 서버·노트북·게임기까지 확대 가능성</div>
+        <span class="impact impact-medium">MEDIUM</span>
+      </div>
+      <div class="news-desc">트럼프 행정부가 서버·노트북·게이밍 하드웨어까지 포괄하는 새로운 반도체 관세를 검토 중이라는 보도(로이터·CNBC, 8/27)가 주말 동안에도 반도체 섹터 심리에 부담으로 작용했다. 뱅크오브아메리카(BofA)는 최근 리포트에서 반도체 주가가 추가로 10% 더 하락할 수 있다고 경고했으며, 금요일 <a href="https://www.tradingview.com/symbols/SOXX/" target="_blank" rel="noopener" class="ticker-link">SOXX</a>의 -3.20% 급락과 맞물려 이번 주 반도체 관련 헤드라인에 대한 민감도가 한층 높아진 상태다.</div>
+    </div>
+  </div>
+
+  <!-- Section W3: This Week's Catalyst -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W3</span>This Week's Catalyst</div>
+    <table>
+      <thead>
+        <tr>
+          <th>날짜(ET)</th><th>시간(ET)</th><th>한국시간(KST)</th><th>이벤트</th><th>중요도</th><th>예상 영향</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="날짜(ET)">09/01(화)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00</td>
+          <td data-label="이벤트">ISM 제조업 PMI(8월) · JOLTS 구인건수(7월)</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">노동수요 냉각 여부의 첫 확인 지표 — 예상보다 강하면 9월 인상 베팅(현재 60.4%) 추가 상승 압력</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/02(수)</td>
+          <td data-label="시간(ET)">08:15 AM ET</td>
+          <td data-label="한국시간(KST)">21:15</td>
+          <td data-label="이벤트">ADP 민간고용 보고서(8월)</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">금요일 비농업고용의 선행 참고지표, 시장 변동성은 제한적일 가능성</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/03(목)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30</td>
+          <td data-label="이벤트">신규 실업수당 청구건수</td>
+          <td data-label="중요도"><span class="imp-badge imp-low">LOW</span></td>
+          <td data-label="예상 영향">보조 지표, 다만 노동시장 냉각 서사가 이어지는지 참고할 필요</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/03(목)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00</td>
+          <td data-label="이벤트">ISM 서비스업 PMI(8월)</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">서비스업 물가 하위지수가 인플레 우려를 재점화할 수 있어 금요일 고용지표 직전 마지막 확인 지표</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/04(금)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30</td>
+          <td data-label="이벤트">8월 비농업고용(Nonfarm Payrolls)·실업률</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">이번 주 최대 변수 — 컨센서스 하회 시 워시 의장의 매파 발언과 배치되는 신호로 국채금리 되돌림·반도체 등 성장주 반등 여지, 상회 시 9월 인상 베팅 추가 확대</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tz-box">
+      <strong>시간대 안내:</strong> 현재 미국은 서머타임(EDT) 적용 기간으로 KST = ET + 13시간이다(서머타임: 3월 둘째 일요일 ~ 11월 첫째 일요일, 그 외 EST 기간은 KST = ET + 14시간). 지금(8/31 월 13:27 KST = 8/31 월 00:27 ET) 기준 가장 가까운 이벤트인 ISM 제조업·JOLTS(9/1 화 23:00 KST)까지 약 33.5시간 남아 24시간 이내(⏱24H) 구간에는 해당하지 않는다. 출처: FedRateCalc.com(BLS·BEA 공식 일정 기반, JOLTS·비농업고용 확인), Newsquawk 주간 경제캘린더(ISM·ADP·실업수당청구 확인).
+    </div>
+  </div>
+
+  <!-- Section W4: Weekly Strategy Pulse -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W4</span>Weekly Strategy Pulse</div>
+    <div class="verdict-box">
+      <div class="verdict-title">이번 주 환경: <span class="accent">Neutral</span> — 금요일 고용지표 확인 전까지 리스크 축소 우선</div>
+      <div class="verdict-body">
+        이번 주는 워시 의장의 매파 전환, 호르무즈 무력 충돌, 그리고 금요일 8월 고용보고서까지 세 개의 리스크 축이 동시에 걸려 있어 방향성 베팅보다 이벤트 통과 후 대응이 합리적이다. ① 화요일 ISM 제조업·JOLTS가 예상보다 강하게 나오면 9월 인상 확률(현재 60.4%)이 70%대로 더 올라서며 금리·달러 추가 강세, 반대로 부진하면 인상 베팅이 되감기며 위험자산 반등 여지가 열린다. ② 이란의 보복 조치가 실제 해협 통항을 위협하는 수준으로 확대되는지가 유가의 다음 방향을 가른다 — 현재는 지정학 프리미엄 수준으로 소화되고 있으나 확전 시 브렌트유 급등 리스크를 배제할 수 없다. ③ 금요일 비농업고용은 이번 주 ISM·ADP·JOLTS의 최종 확인 지표로, 컨센서스를 하회하면 워시 의장의 매파 발언과 배치되는 신호가 되어 국채금리 되돌림과 반도체 등 성장주 반등을 기대할 수 있다. <a href="https://www.tradingview.com/symbols/SOXX/" target="_blank" rel="noopener" class="ticker-link">SOXX</a>는 금요일 이미 나스닥 대비 확연히 열위를 보인 만큼, 관세 리스크 헤드라인이 추가로 확인되기 전까지는 저가매수보다 관망을, 포트폴리오 헤지 관점에서는 유가·달러 노출 비중을 소폭 늘리는 편이 방어적이다.
+      </div>
+      <div class="chips">
+        <div class="chip">Bear</div>
+        <div class="chip active">Neutral</div>
+        <div class="chip">Bull</div>
+      </div>
+      <div class="disclaimer">본 브리핑은 정보 제공 목적이며 투자 자문이 아닙니다.</div>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">SRC</span>Sources</div>
+    <div class="sources">
+      <div class="summary-line">지수 종가 출처: AP통신(Associated Press) 공식 와이어 · Yahoo Finance 실시간 위젯 — 2개 소스 완전 일치, 교차확인 완료</div>
+      <div class="summary-line">SOXX 출처: Alpha Vantage GLOBAL_QUOTE(공식 API) · StockAnalysis.com 실시간 위젯 — 2개 소스 완전 일치</div>
+      <div class="summary-line">뉴스 출처: NBC News·CNBC·Bloomberg·OPB(호르무즈 타격), CNBC 잭슨홀 애널리스트 라운드업 8/31(워시 발언 후폭풍), Yahoo Finance(비트코인), CNBC·Reuters(반도체 관세 검토설)</div>
+      <div class="summary-line">경제 캘린더 출처: FedRateCalc.com(BLS·BEA 공식 일정 기반), Newsquawk 주간 경제캘린더</div>
+      <ul>
+        <li><span class="check">✅</span> S&amp;P500 7,711.76(-0.25%)·Nasdaq 26,402.42(-0.52%)·Dow 53,559.99(-0.02%) — AP통신 와이어 + Yahoo Finance 실시간 위젯 완전 일치, 교차확인 완료</li>
+        <li><span class="check">✅</span> SOXX 508.62(-3.20%), 2026-08-28 기준 — Alpha Vantage GLOBAL_QUOTE(공식 API) + StockAnalysis.com 완전 일치</li>
+        <li><span class="warn">⚠️ 단일소스</span> 10Y 국채금리 금요일 종가 4.73% — Advisor Perspectives 단일 소스(Alpha Vantage TREASURY_YIELD는 발행 지연으로 8/27 4.67%까지만 확인, 1영업일 갭은 뉴스 사후 확정 수치로 보완)</li>
+        <li><span class="check">✅</span> 호르무즈 해협 이란 로켓발사대 타격(8/30 일) — NBC News·CNBC·Bloomberg·OPB 등 다수 매체 교차확인</li>
+        <li><span class="check">✅</span> 9월 인상 확률 60.4%(8/31 오전 기준, 전일 56%) — CNBC 잭슨홀 애널리스트 라운드업(8/31) 인용</li>
+        <li><span class="warn">⚠️ 단일소스</span> 비트코인 주말 저점 78,231달러 — 검색 스니펫 단일 인용, 원문 재확인 미실시</li>
+        <li><span class="check">✅</span> 이번 주 경제 캘린더(ISM 제조업·JOLTS 9/1, ADP 9/2, 실업수당청구·ISM 서비스 9/3, 비농업고용 9/4) — JOLTS·비농업고용은 FedRateCalc(BLS 공식 일정 기반) 확인, ISM·ADP·실업수당청구는 Newsquawk 주간캘린더로 교차확인</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>© 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy</div>
+    <div>생성일시: 2026-08-31 13:27 KST · 최근 정규장 마감: 2026-08-28 · WEEKEND v1</div>
+  </div>
+
+</div>
+</body>
+</html>
