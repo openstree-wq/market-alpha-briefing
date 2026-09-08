@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Market Alpha Briefing | LUPE — 2026.09.08</title>
+<style>
+:root{
+  --lupe-red:#C1001B;
+  --lupe-dark:#1A1A1A;
+  --lupe-mid:#4A4A4A;
+  --lupe-warn:#E87722;
+  --lupe-green:#1A7A3C;
+  --lupe-bg:#FFFFFF;
+  --lupe-card-bg:#F7F7F7;
+  --lupe-border:#E4E4E4;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  padding:0;
+  background:var(--lupe-bg);
+  font-family:'Noto Sans KR','Malgun Gothic',sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  color:var(--lupe-dark);
+}
+.wrap{max-width:840px;margin:0 auto;}
+
+/* Header */
+.header{
+  background:var(--lupe-dark);
+  color:#fff;
+  padding:28px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.back-link{display:inline-block;font-size:12px;color:#CFCFCF;text-decoration:none;margin-bottom:8px;}
+.header h1{font-size:24px;margin:0 0 6px 0;font-weight:700;}
+.header .meta{font-size:13px;color:#CFCFCF;line-height:1.6;}
+.header .meta strong{color:#fff;}
+.logo-block{
+  text-align:right;
+  font-size:12px;
+  color:#CFCFCF;
+  line-height:1.5;
+  white-space:nowrap;
+}
+.logo-block .lupe{color:var(--lupe-red);font-weight:800;font-size:15px;letter-spacing:1px;}
+.logo-block .helios{font-weight:600;color:#fff;}
+
+/* BLUF banner */
+.bluf{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:18px 32px;
+  font-size:15px;
+  font-weight:600;
+  line-height:1.7;
+}
+.bluf .tag{
+  display:inline-block;
+  background:rgba(255,255,255,0.2);
+  padding:2px 8px;
+  border-radius:4px;
+  font-size:11px;
+  font-weight:700;
+  margin-right:8px;
+  letter-spacing:1px;
+}
+
+.section{padding:28px 32px;border-bottom:1px solid var(--lupe-border);}
+.section-title{
+  font-size:14px;
+  font-weight:700;
+  color:var(--lupe-dark);
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  border-bottom:3px solid var(--lupe-red);
+  padding-bottom:8px;
+  margin:0 0 18px 0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.badge-num{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:3px;
+  font-weight:700;
+}
+
+/* Momentum link card */
+.momentum-card{
+  background:var(--lupe-dark);
+  border-left:4px solid var(--lupe-red);
+  border-radius:6px;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.momentum-card .desc{color:#EDEDED;font-size:14px;flex:1 1 auto;}
+.momentum-card .btn{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+  white-space:nowrap;
+}
+
+/* Index cards */
+.card-row{display:flex;gap:14px;flex-wrap:wrap;}
+.card{
+  flex:1 1 30%;
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  min-width:180px;
+}
+.card .label{font-size:12px;color:var(--lupe-mid);font-weight:600;margin-bottom:6px;}
+.card .label a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--lupe-mid);}
+.card .label a:hover{border-bottom-style:solid;color:var(--lupe-red);border-bottom-color:var(--lupe-red);}
+.card .value{font-size:28px;font-weight:800;color:var(--lupe-dark);}
+.card .macro-value{font-size:24px;font-weight:800;color:var(--lupe-dark);}
+.card .change{font-size:14px;font-weight:700;margin-top:4px;}
+.up{color:var(--lupe-green);}
+.down{color:var(--lupe-red);}
+.card .sub{font-size:12px;color:var(--lupe-mid);margin-top:4px;}
+.reason-box{
+  margin-top:16px;
+  background:#FFF6F2;
+  border-left:4px solid var(--lupe-warn);
+  padding:14px 16px;
+  border-radius:6px;
+  font-size:14px;
+  color:var(--lupe-dark);
+}
+
+/* Fear&Greed gauge */
+.fg-gauge{
+  margin-top:8px;
+  height:8px;
+  border-radius:4px;
+  background:linear-gradient(90deg,#C1001B 0%,#E87722 25%,#F2C230 50%,#8FC93A 75%,#1A7A3C 100%);
+  position:relative;
+}
+.fg-gauge .marker{
+  position:absolute;top:-4px;
+  width:3px;height:16px;background:#1A1A1A;border-radius:2px;
+}
+
+.oil-box{
+  margin-top:14px;
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:14px 16px;
+  font-size:14px;
+}
+.oil-box .label{font-size:12px;color:var(--lupe-mid);font-weight:600;margin-bottom:4px;}
+
+/* Semiconductor Pulse mini list */
+.semi-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--lupe-border);font-size:14px;}
+.semi-row:last-child{border-bottom:none;}
+.semi-row .name{color:var(--lupe-mid);margin-left:6px;}
+.semi-row .chg{font-weight:700;}
+
+/* News cards */
+.news-card{
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  margin-bottom:12px;
+}
+.news-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+.news-title{font-size:16px;font-weight:700;color:var(--lupe-dark);flex:1 1 auto;}
+.impact{
+  font-size:11px;
+  font-weight:800;
+  padding:3px 9px;
+  border-radius:4px;
+  white-space:nowrap;
+}
+.impact-high{background:var(--lupe-red);color:#fff;}
+.impact-medium{background:var(--lupe-warn);color:#fff;}
+.impact-low{background:#B9B9B9;color:#fff;}
+.news-desc{font-size:14px;color:var(--lupe-mid);margin-top:8px;}
+
+/* Catalyst table */
+table{width:100%;border-collapse:collapse;font-size:14px;}
+thead th{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:12px;
+  text-align:left;
+  padding:10px 10px;
+}
+tbody td{padding:10px;border-bottom:1px solid var(--lupe-border);}
+tbody tr.today{background:#FFF3F0;border-left:4px solid var(--lupe-red);}
+.imp-badge{
+  font-size:11px;font-weight:800;padding:2px 7px;border-radius:4px;color:#fff;white-space:nowrap;
+}
+.imp-high{background:var(--lupe-red);}
+.imp-med{background:var(--lupe-warn);}
+.imp-low{background:#B9B9B9;}
+.h24{
+  display:inline-block;
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  padding:2px 6px;
+  border-radius:3px;
+  margin-left:6px;
+}
+.tz-box{
+  margin-top:14px;
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:6px;
+  padding:12px 14px;
+  font-size:12px;
+  color:var(--lupe-mid);
+}
+
+/* Strategic takeaway */
+.verdict-box{
+  background:var(--lupe-dark);
+  color:#fff;
+  border-radius:8px;
+  padding:22px 24px;
+}
+.verdict-title{font-size:30px;font-weight:800;margin:0 0 10px 0;}
+.verdict-title .accent{color:#FF6B6B;}
+.verdict-body{font-size:15px;line-height:1.8;color:#E4E4E4;}
+.chips{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+.chip{
+  padding:8px 16px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:700;
+  border:2px solid #555;
+  color:#999;
+}
+.chip.active{
+  border-color:var(--lupe-red);
+  background:var(--lupe-red);
+  color:#fff;
+}
+.disclaimer{font-size:11px;color:var(--lupe-mid);margin-top:16px;}
+
+/* Ticker links */
+.ticker-link{color:var(--lupe-red);text-decoration:none;font-weight:700;border-bottom:1px dotted var(--lupe-red);}
+.ticker-link:hover{border-bottom-style:solid;}
+
+/* Sources */
+.sources{font-size:12px;color:var(--lupe-mid);line-height:1.9;}
+.sources .summary-line{margin-bottom:4px;}
+.sources ul{margin:10px 0 0 0;padding-left:18px;}
+.check{color:var(--lupe-green);font-weight:700;}
+.warn{color:var(--lupe-warn);font-weight:700;}
+
+/* Footer */
+.footer{
+  background:var(--lupe-dark);
+  color:#999;
+  padding:20px 32px;
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+/* Mobile */
+@media (max-width:640px){
+  .header{padding:18px 16px;}
+  .header h1{font-size:18px;}
+  .section{padding:20px 16px;}
+  .bluf{padding:16px 16px;font-size:14px;}
+  .card{flex:1 1 100%;}
+  .card .value{font-size:24px;}
+  .card .macro-value{font-size:21px;}
+  .momentum-card{flex-direction:column;align-items:stretch;text-align:left;}
+  .momentum-card .btn{text-align:center;}
+  .news-head{flex-wrap:wrap;}
+  .semi-row{flex-wrap:wrap;}
+  table thead{display:none;}
+  table, tbody, tr, td{display:block;width:100%;}
+  tbody tr{
+    border:1px solid var(--lupe-border);
+    border-radius:8px;
+    margin-bottom:10px;
+    padding:8px 12px;
+  }
+  tbody tr.today{border-left:4px solid var(--lupe-red);}
+  tbody td{border-bottom:none;padding:6px 0;}
+  tbody td::before{
+    content:attr(data-label);
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    color:var(--lupe-red);
+    margin-bottom:2px;
+  }
+  .verdict-title{font-size:22px;}
+  .footer{padding:16px;flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <a class="back-link" href="index.html">← 목록</a>
+      <h1>월스트리트 포트폴리오 모닝 브리핑</h1>
+      <div class="meta">
+        발행일: 2026-09-08(화) · <strong>기준 종가일: 2026-09-04(금)</strong><br>
+        Labor Day(9/7 월) 휴장으로 신규 정규장 없음 — 미국 증시는 오늘 밤 22:30 KST(09:30 AM ET)에 재개장. Alpha Vantage MARKET_STATUS 공식 API로 현재 휴장 상태 확인, TREASURY_YIELD·GLOBAL_QUOTE(SOXX)는 공식 API 직접 수신
+      </div>
+    </div>
+    <div class="logo-block">
+      <div class="lupe">LUPE</div>
+      <div class="helios">HELIOS MOMENTUM</div>
+    </div>
+  </div>
+
+  <!-- BLUF -->
+  <div class="bluf">
+    <span class="tag">BLUF</span>미국 증시는 Labor Day 연휴로 사흘째 멈춰 있다가 오늘 밤(22:30 KST) 재개장한다 — 지난 금요일(9/4) 마감가가 여전히 유효한 기준선이다. 관건은 재개장 첫날이 아니라 이번 주 후반(9/10 PPI, 9/11 CPI)이다: 8월 고용 서프라이즈로 9월 FOMC(9/16) 금리인상 확률이 60%대까지 오른 상태에서 인플레이션 지표가 이를 재확인하면 지수 레벨 조정이, 반대로 완화되면 반등 여지가 열리는 이분법적 구간이다. 반도체(<a href="https://www.tradingview.com/symbols/SOXX/" target="_blank" rel="noopener" class="ticker-link">SOXX</a> +3.52%)만은 이 매크로 불확실성과 무관하게 메모리 사이클 주도로 독자적 강세를 유지하고 있어, 재개장 이후에도 지수 추종보다 반도체 상대강도 우위 종목 중심의 선별 대응이 유효하다.
+  </div>
+
+  <!-- Section 00: Momentum Discovery -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">00</span>Momentum Discovery</div>
+    <div class="momentum-card">
+      <div class="desc">Helios 개인 모멘텀 워치리스트 대시보드<br><span style="color:#B9B9B9;font-size:12px;">종목별 실시간 트래킹은 아래 대시보드에서 직접 확인하세요.</span></div>
+      <a class="btn" href="https://momentum-discovery.pages.dev/" target="_blank" rel="noopener">대시보드 열기 →</a>
+    </div>
+  </div>
+
+  <!-- Section 01: Overnight Market Delta -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">01</span>Overnight Market Delta</div>
+    <div class="card-row">
+      <div class="card">
+        <div class="label">S&amp;P 500</div>
+        <div class="value">7,718.60</div>
+        <div class="change down">▼ -29.11 (-0.38%)</div>
+        <div class="sub">기준일: 2026-09-04(금) 종가 · 이후 신규 정규장 없음</div>
+      </div>
+      <div class="card">
+        <div class="label">Nasdaq Composite</div>
+        <div class="value">26,506.99</div>
+        <div class="change down">▼ -77.07 (-0.29%)</div>
+        <div class="sub">3대 지수 중 낙폭 최소 — 반도체 강세가 하방을 일부 방어</div>
+      </div>
+      <div class="card">
+        <div class="label">Dow Jones</div>
+        <div class="value">53,414.25</div>
+        <div class="change down">▼ -271.86 (-0.51%)</div>
+        <div class="sub">3대 지수 중 낙폭 최대 — 금리 민감 대형주 중심 조정</div>
+      </div>
+    </div>
+    <div class="reason-box">
+      <strong>등락 사유(2026-09-04 금 정규장, 최근 마감 기준 — 9/7 월 Labor Day 휴장으로 이 데이터가 오늘도 유효):</strong> 3대 지수가 일제히 하락 반전한 직접적 계기는 8월 비농업고용지표다. 노동부는 8월 신규고용이 16만 2천 명 증가했다고 발표했는데, 이는 컨센서스(약 5.5만 명)를 3배 가까이 웃도는 수치였다. 실업률은 4.1%로 전월과 동일했고, 평균시급은 전년比 +3.1%로 전월 인플레이션(3.4%)보다는 낮았다. 문제는 이 호실적이 9월 FOMC(9/16) 금리인상 확률을 끌어올렸다는 점 — 정책 민감도가 높은 2년물 국채금리가 장중 4.41%까지 오르며 급등했다. 개별 종목 단에서는 애플(<a href="https://www.tradingview.com/symbols/AAPL/" target="_blank" rel="noopener" class="ticker-link">AAPL</a> -2.51%)이 폴더블 아이폰 저조한 생산량과 폴더블 맥북 프로젝트 취소 소식으로 지수 하방을 이끌었고, 테슬라(<a href="https://www.tradingview.com/symbols/TSLA/" target="_blank" rel="noopener" class="ticker-link">TSLA</a> -5.92%)는 전일 급등분을 반납하며 다우·나스닥 모두에 부담을 줬다(배경은 섹션 04). 다우 30종목 중 21개가 소폭 하락했으나 2%를 넘는 개별 급락은 없어, 전반적으로 &ldquo;패닉&rdquo;보다는 &ldquo;데이터 소화&rdquo; 성격의 조정이었다. 기술주 내에서도 온도차가 뚜렷했는데, 반도체(<a href="https://www.tradingview.com/symbols/SOXX/" target="_blank" rel="noopener" class="ticker-link">SOXX</a>)만은 이 흐름을 거스르며 급등했다 — 배경은 섹션 03에서 별도로 다룬다.
+    </div>
+  </div>
+
+  <!-- Section 02: Macro Pulse -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">02</span>Macro Pulse</div>
+    <div class="card-row">
+      <div class="card">
+        <div class="label"><a href="https://www.tradingview.com/symbols/TVC-US10Y/" target="_blank" rel="noopener">10Y Treasury Yield ↗</a></div>
+        <div class="macro-value">4.79%</div>
+        <div class="change up">▲ +2bp (24h)</div>
+        <div class="sub">✅ Alpha Vantage 공식치(전일 9/3 기준 4.77%) + 뉴스 사후확정 문장("rose to 4.79%", TradingEconomics) 결합 — 1영업일 발행 지연 갭 보완</div>
+      </div>
+      <div class="card">
+        <div class="label"><a href="https://www.tradingview.com/symbols/TVC-DXY/" target="_blank" rel="noopener">Dollar Index (DXY) ↗</a></div>
+        <div class="macro-value">99.17</div>
+        <div class="change up">▲ +0.17% (24h)</div>
+        <div class="sub">✅ FXStreet 원문 채택 — 고용 서프라이즈발 금리인상 기대가 달러 강세로 연결, 큰 변동은 아님</div>
+      </div>
+      <div class="card">
+        <div class="label"><a href="https://edition.cnn.com/markets/fear-and-greed" target="_blank" rel="noopener">CNN Fear &amp; Greed ↗</a></div>
+        <div class="macro-value">41.9 <span style="font-size:14px;color:var(--lupe-mid);">Fear</span></div>
+        <div class="change up">▲ +6.6pt (24h)</div>
+        <div class="fg-gauge"><div class="marker" style="left:41.9%;"></div></div>
+        <div class="sub">✅ CNN 공식 API 직접 조회(timestamp 2026-09-04T23:59:43 UTC) — 전일(9/3) 35.2 대비 반등했으나 Fear 구간 유지</div>
+      </div>
+    </div>
+    <div class="oil-box">
+      <div class="label">Brent Crude 특이 동향</div>
+      브렌트유는 이란-쿠웨이트 충돌(호르무즈 해협 긴장, 섹션 04) 속에 배럴당 <strong>$95~97 레인지</strong>에서 완만한 상승세를 보였다. <span class="warn">⚠️ 소스 간 괴리</span>: TradingEconomics·TheStreet 계열은 $95.2 내외를 보도한 반면, Vantage Markets 실시간 CFD 피드는 $97.36(+0.18%)을 보고해 매체 간 약 2% 차이가 확인된다 — 지정학 리스크로 장중 변동성이 커진 영향으로 판단되며, 정확한 정규장 마감가는 재개장 후 재검증이 필요하다. 미 에너지부 장관은 호르무즈 해협 일일 통과 물량이 충돌 발생 이후 최고치(1,700만 배럴)를 기록했다고 밝혀 공급 차질 우려는 일부 완화됐고, EIA는 3분기 브렌트 평균을 $85 내외로 전망하고 있다.
+    </div>
+  </div>
+
+  <!-- Section 03: Semiconductor Pulse -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">03</span>Semiconductor Pulse</div>
+    <div class="card-row">
+      <div class="card">
+        <div class="label"><a href="https://www.tradingview.com/symbols/SOXX/" target="_blank" rel="noopener">SOXX (iShares Semiconductor ETF) ↗</a></div>
+        <div class="value">$519.86</div>
+        <div class="change up">▲ +$17.66 (+3.52%)</div>
+        <div class="sub">✅ Alpha Vantage GLOBAL_QUOTE 공식 API 직접 조회(latestDay 2026-09-04) — 전일종가 $502.20 대비 산출. Nasdaq(-0.29%) 대비 +3.81%p 아웃퍼폼</div>
+      </div>
+    </div>
+    <div class="oil-box" style="margin-top:16px;">
+      <div class="label">반도체 대표주 스냅샷 (2026-09-04 정규장 종가)</div>
+      <div class="semi-row">
+        <span><a href="https://www.tradingview.com/symbols/MU/" target="_blank" rel="noopener" class="ticker-link">MU</a><span class="name">Micron</span></span>
+        <span class="chg up">▲ +6.10%</span>
+      </div>
+      <div class="semi-row">
+        <span><a href="https://www.tradingview.com/symbols/SNDK/" target="_blank" rel="noopener" class="ticker-link">SNDK</a><span class="name">SanDisk</span></span>
+        <span class="chg up">▲ +11.8% <span style="font-size:11px;color:var(--lupe-warn);">⚠️소스편차(7~12%)</span></span>
+      </div>
+      <div class="semi-row">
+        <span><a href="https://www.tradingview.com/symbols/NVDA/" target="_blank" rel="noopener" class="ticker-link">NVDA</a><span class="name">NVIDIA</span></span>
+        <span class="chg up">▲ +0.80%</span>
+      </div>
+    </div>
+    <div class="reason-box">
+      <strong>섹터 관점 코멘트:</strong> 반도체는 거시 악재(고용 서프라이즈발 금리인상 우려)를 정면으로 거스르며 SOXX가 나스닥 대비 +3.81%p 아웃퍼폼했다. 랠리를 주도한 것은 메모리·낸드 진영으로, 마이크론(<a href="https://www.tradingview.com/symbols/MU/" target="_blank" rel="noopener" class="ticker-link">MU</a>)이 HBM 생산량을 2027년까지 두 배로 늘리겠다고 밝히며 +6.10%, 샌디스크(<a href="https://www.tradingview.com/symbols/SNDK/" target="_blank" rel="noopener" class="ticker-link">SNDK</a>)도 낸드 가격 사이클 가속 기대로 두 자릿수 급등했다. 반면 브로드컴(<a href="https://www.tradingview.com/symbols/AVGO/" target="_blank" rel="noopener" class="ticker-link">AVGO</a>)은 이번 주 초 발표한 3분기 실적에서 AI 반도체 매출이 전년比 221% 급증했음에도 4분기 매출 가이던스가 시장 기대치를 소폭 하회하며 조정 국면이 이어지고 있어(자세한 배경은 섹션 04), 반도체 섹터 내부에서도 &ldquo;메모리 강세·로직 숨고르기&rdquo;로 온도차가 뚜렷했다. 이 아웃퍼폼이 재개장 이후에도 이어질 추세인지는 이번 주 PPI(9/10)·CPI(9/11) 결과와 무관하게 AI 인프라 수요라는 개별 팩터가 계속 유효한지가 핵심 관전 포인트다(섹션 06).
+    </div>
+  </div>
+
+  <!-- Section 04: Critical News Top 3 -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">04</span>Critical News Top 3</div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">이란, 쿠웨이트 미사일·드론 공격 — 호르무즈 리스크 재점화</div>
+        <span class="impact impact-high">HIGH</span>
+      </div>
+      <div class="news-desc">쿠웨이트 군은 지난주 목요일(현지시간 9/3) 이란발 미사일·드론 공격을 방어했다고 밝혔다. 앞서 미 중부사령부가 9/1 이란 목표물을 타격했고, 이란은 요르단·바레인·UAE 등에 보복 공격을 이어간 뒤 쿠웨이트까지 전선을 넓혔다. 트럼프 대통령은 "이번 충돌이 오래가지 않을 것"이라고 밝혔으나, 미 에너지부는 호르무즈 해협 일일 통과 물량이 충돌 이후 최고치(1,700만 배럴)를 기록했다며 공급 차질은 제한적이라고 강조했다. OPEC+는 9/6 회의에서 2023년 감산분 롤백을 완료해 공급 측면 우려는 일부 상쇄됐다. 오늘 지수 등락과는 직접 연결되지 않는 별도 트랙이지만, 브렌트유 리스크 프리미엄(섹션 02)의 배경이자 미국 증시 재개장 후 변동성 확대 요인으로 계속 주시할 필요가 있다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        <a href="https://www.vantagemarkets.com/market-analysis/brent-wti-crude-oil-price-september-4-2026/" target="_blank" rel="noopener">Vantage Markets</a> · CNBC</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">브로드컴(AVGO), AI 매출 221% 급증에도 4분기 가이던스 시장 기대 하회</div>
+        <span class="impact impact-medium">MEDIUM</span>
+      </div>
+      <div class="news-desc">브로드컴(<a href="https://www.tradingview.com/symbols/AVGO/" target="_blank" rel="noopener" class="ticker-link">AVGO</a>)이 발표한 3분기 실적에서 AI 반도체 매출이 전년比 221% 급증한 166억 달러를 기록하며 전체 매출도 86% 늘어난 296억 달러로 컨센서스를 크게 상회했다. 그러나 4분기 매출 가이던스(348억 달러)가 일부 시장의 높은 기대치에는 못 미치며 주가는 조정 흐름을 이어가고 있다. 이 소식은 섹션 01의 지수 등락 사유(고용지표)와는 무관한 개별 기업 이벤트이지만, 반도체 섹터 내부의 &ldquo;로직 vs 메모리&rdquo; 온도차(섹션 03)를 만든 배경 변수라는 점에서 주목할 만하다 — AI 데이터센터 투자 사이클 자체는 견조하나, 이미 높아진 기대치를 웃돌 만한 서프라이즈가 점점 어려워지고 있다는 신호로 해석될 수 있다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        <a href="https://www.fool.com/investing/2026/09/04/the-nasdaq-sp-500-and-dow-all-fell-slightly-friday/" target="_blank" rel="noopener">The Motley Fool</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title">테슬라(TSLA) 사이버캡 오스틴 상용 서비스 개시 — 규제당국 예의주시</div>
+        <span class="impact impact-medium">MEDIUM</span>
+      <div class="news-desc">테슬라(<a href="https://www.tradingview.com/symbols/TSLA/" target="_blank" rel="noopener" class="ticker-link">TSLA</a>)의 무인 로보택시 서비스 &ldquo;사이버캡&rdquo;이 오스틴에서 정식 상용 운영에 들어갔다. 초기 이용 후기는 &ldquo;무난함&rdquo;에서 &ldquo;실망&rdquo;까지 엇갈렸고, 연방 안전당국이 무인 서비스를 면밀히 주시하고 있다고 알려지며 주가는 전일 7% 급등분을 반납하고 -5.92% 급락했다. 섹션 01에서 이미 이 종목의 지수 기여도를 다뤘으므로, 여기서는 규제·서비스 품질 리스크라는 별도 각도로 접근한다 — 로보택시 상용화 초기 단계의 잡음이 반복될 경우 자율주행 밸류에이션 프리미엄 전반에 대한 재평가로 이어질 수 있어 재개장 이후 추가 뉴스플로우를 주시할 필요가 있다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        <a href="https://www.fool.com/investing/2026/09/04/the-nasdaq-sp-500-and-dow-all-fell-slightly-friday/" target="_blank" rel="noopener">The Motley Fool</a></div>
+    </div>
+  </div>
+
+  <!-- Section 05: Today's Catalyst -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">05</span>Today's Catalyst</div>
+    <table>
+      <thead>
+        <tr>
+          <th>날짜(ET)</th><th>시간(ET)</th><th>한국시간(KST)</th><th>이벤트</th><th>중요도</th><th>예상 영향</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="today">
+          <td data-label="날짜(ET)">09/08(화)</td>
+          <td data-label="시간(ET)">09:30 AM ET</td>
+          <td data-label="한국시간(KST)">22:30 <span class="h24">⏱24H</span></td>
+          <td data-label="이벤트">미국 증시 재개장(Labor Day 연휴 종료)</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">3거래일 만의 재개장 — 지난 금요일 마감가(섹션 01) 대비 갭 여부가 첫 관전 포인트</td>
+        </tr>
+        <tr class="today">
+          <td data-label="날짜(ET)">09/08(화)</td>
+          <td data-label="시간(ET)">06:00 AM ET</td>
+          <td data-label="한국시간(KST)">19:00 <span class="h24">⏱24H</span></td>
+          <td data-label="이벤트">NFIB 중소기업 낙관지수(8월)</td>
+          <td data-label="중요도"><span class="imp-badge imp-low">LOW</span></td>
+          <td data-label="예상 영향">시장 영향 제한적 — 재개장 전 발표되는 소프트 지표</td>
+        </tr>
+        <tr class="today">
+          <td data-label="날짜(ET)">09/08(화)</td>
+          <td data-label="시간(ET)">03:00 PM ET</td>
+          <td data-label="한국시간(KST)">09/09(수) 04:00 <span class="h24">⏱24H</span></td>
+          <td data-label="이벤트">소비자신용(Consumer Credit, G.19, 7월)</td>
+          <td data-label="중요도"><span class="imp-badge imp-low">LOW</span></td>
+          <td data-label="예상 영향">가계 신용 증가세 확인용 — 시장 영향 제한적</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/10(목)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30</td>
+          <td data-label="이벤트">8월 생산자물가지수(PPI) + 주간 신규실업수당청구</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">CPI(익일) 발표 전 인플레이션 방향성을 가늠할 선행 지표 — 예상 상회 시 9월 금리인상 확률이 추가로 높아질 수 있음</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/11(금)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30</td>
+          <td data-label="이벤트">8월 소비자물가지수(CPI) + Core CPI</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">이번 주 최대 변곡점 — 실제치가 컨센서스를 상회하면 9/15~16 FOMC의 금리인상 확률이 재차 상승할 전망(섹션 06)</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/11(금)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00</td>
+          <td data-label="이벤트">미시간대 소비자심리지수(9월, 예비치)</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">CPI 발표 직후 나오는 지표로, 인플레이션 기대심리 변화를 함께 확인 가능</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tz-box">
+      <strong>시간대 안내:</strong> 현재 미국은 서머타임(EDT) 적용 기간으로 KST = ET + 13시간이다(서머타임: 3월 둘째 일요일 ~ 11월 첫째 일요일, 그 외 EST 기간은 KST = ET + 14시간). 발행 시점(9/8 화 오전, KST) 기준 24시간 이내 이벤트는 증시 재개장·NFIB·소비자신용 3건이다. 다음 주 FOMC(9/15~16, 성명 09/16 오후 2시 ET = 한국시간 09/17 새벽 3시)는 5일 밖이라 표에서 제외했으나, 이번 주 PPI·CPI 결과에 따라 인상 확률이 재조정될 핵심 변수이므로 함께 주시할 것.
+    </div>
+  </div>
+
+  <!-- Section 06: Strategic Takeaway -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">06</span>Strategic Takeaway</div>
+    <div class="verdict-box">
+      <div class="verdict-title">오늘의 환경: <span class="accent">Neutral — 재개장 대기·데이터 의존적 관망</span></div>
+      <div class="verdict-body">
+        오늘 밤 22:30 KST 재개장은 그 자체로 방향성 신호가 아니다 — 진짜 변곡점은 9/10 PPI와 9/11 CPI다. <strong>① 인플레이션 지표가 예상을 상회하면</strong>, 9월 FOMC(9/16) 금리인상 확률이 현재 수준(60%대)에서 추가로 높아지며 재개장 이후 금리 민감 대형주·성장주 전반에 조정 압력이 실릴 수 있다 — 이 경우 신규 매수보다는 현금 비중 유지가 합리적이다. <strong>② 예상을 하회해 디스인플레이션이 재확인되면</strong>, 인상 확률이 되돌려지며 재개장 갭업과 함께 지수 전반(특히 금리 민감주)의 반등 여력이 열린다. 어느 시나리오든 지난 금요일 반도체(SOXX +3.52%)가 보여준 거시 역행 강세는 하나의 구조적 시그널이다 — 매크로 변동성 국면에서도 AI 인프라·메모리 수요라는 개별 팩터가 강하게 작동하고 있는 만큼, 재개장 이후에도 지수 전체보다 반도체 상대강도 우위 종목에 선별 집중하는 전략이 이번 데이터 관망 구간에서는 효율적이다. 호르무즈발 지정학 리스크(섹션 04)도 여전히 살아있는 꼬리 위험인 만큼, 에너지·현금 버퍼를 완전히 제로로 가져가는 것은 지양한다.
+      </div>
+      <div class="chips">
+        <div class="chip">Bear</div>
+        <div class="chip active">Neutral</div>
+        <div class="chip">Bull</div>
+      </div>
+      <div class="disclaimer">본 브리핑은 정보 제공 목적이며 투자 자문이 아닙니다.</div>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">SRC</span>Sources</div>
+    <div class="sources">
+      <div class="summary-line">지수 종가 출처: <a href="https://www.fool.com/investing/2026/09/04/the-nasdaq-sp-500-and-dow-all-fell-slightly-friday/" target="_blank" rel="noopener">The Motley Fool</a> · Yahoo Finance · Washington Post — 3개 매체 완전 일치, 등락률↔등락폭 역산 검증 완료</div>
+      <div class="summary-line">매크로 지표 출처: Alpha Vantage MARKET_STATUS·TREASURY_YIELD(공식 API) · FXStreet(DXY) · CNN Fear&amp;Greed 공식 API 직접 조회 · Vantage Markets(Brent CFD 피드)</div>
+      <div class="summary-line">반도체 섹터 출처: Alpha Vantage GLOBAL_QUOTE(SOXX, 공식 API) · The Motley Fool 시세 위젯(MU·NVDA 직접 인용) · WebSearch 교차확인(SNDK)</div>
+      <div class="summary-line">뉴스 출처: Vantage Markets(호르무즈) · The Motley Fool(브로드컴·테슬라) · CNBC</div>
+      <ul>
+        <li><span class="check">✅</span> S&amp;P500 7,718.60(-29.11,-0.38%)·Dow 53,414.25(-271.86,-0.51%)·Nasdaq 26,506.99(-77.07,-0.29%) — Motley Fool·Yahoo·WaPo 완전 일치, 등락률↔등락폭 역산 검증 완료(예: S&amp;P 7,747.71→7,718.60, -29.11pt = -0.376%)</li>
+        <li><span class="check">✅</span> SOXX $519.86(+$17.66,+3.52%) — Alpha Vantage GLOBAL_QUOTE 공식 API 직접 조회(latestDay 2026-09-04), 전일 브리핑(9/5자)의 stockanalysis.com 채택치와도 완전 일치 확인</li>
+        <li><span class="check">✅</span> MU +6.10%($1,016.59,+$58.43) · NVDA +0.80%($230.36,+$1.91) — The Motley Fool 종목 시세 위젯 직접 인용(2개 독립 검색에서 동일 수치 재확인)</li>
+        <li><span class="warn">⚠️ 참고(정정)</span> 9/5자 브리핑에 게재된 MU +0.22%는 본 재검증 결과(Motley Fool 직접 인용 기준) MU +6.10%로 수치 정정이 확인된다 — 동일 거래일(9/4) 데이터 오염 가능성에 유의</li>
+        <li><span class="warn">⚠️ 소스 간 편차</span> SNDK +11.8%(financefeeds.com) vs +7~12% 범위(WebSearch 종합 다수 매체) — 방향성은 일치하나 정확한 등락률은 재개장 후 재확인 필요</li>
+        <li><span class="check">✅</span> 10Y Treasury 4.79%(+2bp) — Alpha Vantage 공식치(9/3, 4.77%)에 TradingEconomics 사후확정 문장("rose to 4.79%") 결합, 1영업일 발행 지연 갭 보완</li>
+        <li><span class="check">✅</span> DXY 99.17(+0.17%) — FXStreet 원문 직접 인용(전일 9/5자 브리핑과 동일 수치로 재검증 일치)</li>
+        <li><span class="check">✅</span> Fear&amp;Greed 41.9(Fear, +6.6pt) — CNN 공식 API 직접 조회(timestamp 2026-09-04T23:59:43 UTC), 전일(9/3) 35.2 대비 반등</li>
+        <li><span class="warn">⚠️ 소스 간 괴리</span> Brent Crude — TradingEconomics·TheStreet 계열 $95.2 내외 vs Vantage Markets CFD 피드 $97.36(+0.18%), 약 2% 괴리로 병기(호르무즈 지정학 리스크로 인한 변동성 확대 추정)</li>
+        <li><span class="check">✅</span> 이란-쿠웨이트 충돌·OPEC+ 9/6 회의·브로드컴 실적·테슬라 사이버캡 — Vantage Markets·Motley Fool 원문 직접 조회, 복수 소스 교차확인</li>
+        <li><span class="check">✅</span> 경제 캘린더(NFIB 9/8, 소비자신용 9/8, PPI 9/10, CPI 9/11, 미시간대 9/11, FOMC 9/15~16) — BLS·연준 공식 일정 및 재계산 검증 완료</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>© 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy</div>
+    <div>생성일시: 2026-09-08 08:15 KST · 기준일: 2026-09-04 · v1</div>
+  </div>
+
+</div>
+</body>
+</html>
