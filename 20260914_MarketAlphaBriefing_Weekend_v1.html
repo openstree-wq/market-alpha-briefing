@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>위켄드 마켓 브리핑 | LUPE — 2026.09.14</title>
+<style>
+:root{
+  --lupe-red:#C1001B;
+  --lupe-dark:#1A1A1A;
+  --lupe-mid:#4A4A4A;
+  --lupe-warn:#E87722;
+  --lupe-green:#1A7A3C;
+  --lupe-bg:#FFFFFF;
+  --lupe-card-bg:#F7F7F7;
+  --lupe-border:#E4E4E4;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  padding:0;
+  background:var(--lupe-bg);
+  font-family:'Noto Sans KR','Malgun Gothic',sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  color:var(--lupe-dark);
+}
+.wrap{max-width:840px;margin:0 auto;}
+
+/* Header */
+.header{
+  background:var(--lupe-dark);
+  color:#fff;
+  padding:28px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.back-link{display:inline-block;font-size:12px;color:#CFCFCF;text-decoration:none;margin-bottom:8px;}
+.header h1{font-size:24px;margin:0 0 6px 0;font-weight:700;}
+.header .meta{font-size:13px;color:#CFCFCF;line-height:1.6;}
+.header .meta strong{color:#fff;}
+.logo-block{
+  text-align:right;
+  font-size:12px;
+  color:#CFCFCF;
+  line-height:1.5;
+  white-space:nowrap;
+}
+.logo-block .lupe{color:var(--lupe-red);font-weight:800;font-size:15px;letter-spacing:1px;}
+.logo-block .helios{font-weight:600;color:#fff;}
+
+/* BLUF banner */
+.bluf{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:18px 32px;
+  font-size:15px;
+  font-weight:600;
+  line-height:1.7;
+}
+.bluf .tag{
+  display:inline-block;
+  background:rgba(255,255,255,0.2);
+  padding:2px 8px;
+  border-radius:4px;
+  font-size:11px;
+  font-weight:700;
+  margin-right:8px;
+  letter-spacing:1px;
+}
+
+.section{padding:28px 32px;border-bottom:1px solid var(--lupe-border);}
+.section-title{
+  font-size:14px;
+  font-weight:700;
+  color:var(--lupe-dark);
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  border-bottom:3px solid var(--lupe-red);
+  padding-bottom:8px;
+  margin:0 0 18px 0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.badge-num{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:3px;
+  font-weight:700;
+}
+
+/* Momentum link card */
+.momentum-card{
+  background:var(--lupe-dark);
+  border-left:4px solid var(--lupe-red);
+  border-radius:6px;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.momentum-card .desc{color:#EDEDED;font-size:14px;flex:1 1 auto;}
+.momentum-card .btn{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+  white-space:nowrap;
+}
+
+/* Friday snapshot line */
+.snapshot-box{
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  font-size:16px;
+  font-weight:700;
+}
+.snapshot-box .sub{font-size:12px;color:var(--lupe-mid);font-weight:400;margin-top:8px;}
+.up{color:var(--lupe-green);}
+.down{color:var(--lupe-red);}
+
+/* News cards */
+.news-card{
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  margin-bottom:12px;
+}
+.news-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+.news-title{font-size:16px;font-weight:700;color:var(--lupe-dark);flex:1 1 auto;}
+.impact{
+  font-size:11px;
+  font-weight:800;
+  padding:3px 9px;
+  border-radius:4px;
+  white-space:nowrap;
+}
+.impact-high{background:var(--lupe-red);color:#fff;}
+.impact-medium{background:var(--lupe-warn);color:#fff;}
+.impact-low{background:#B9B9B9;color:#fff;}
+.news-desc{font-size:14px;color:var(--lupe-mid);margin-top:8px;}
+
+/* Catalyst table */
+table{width:100%;border-collapse:collapse;font-size:14px;}
+thead th{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:12px;
+  text-align:left;
+  padding:10px 10px;
+}
+tbody td{padding:10px;border-bottom:1px solid var(--lupe-border);}
+tbody tr.today{background:#FFF3F0;border-left:4px solid var(--lupe-red);}
+.imp-badge{
+  font-size:11px;font-weight:800;padding:2px 7px;border-radius:4px;color:#fff;white-space:nowrap;
+}
+.imp-high{background:var(--lupe-red);}
+.imp-med{background:var(--lupe-warn);}
+.imp-low{background:#B9B9B9;}
+.h24{
+  display:inline-block;
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  padding:2px 6px;
+  border-radius:3px;
+  margin-left:6px;
+}
+.tz-box{
+  margin-top:14px;
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:6px;
+  padding:12px 14px;
+  font-size:12px;
+  color:var(--lupe-mid);
+}
+
+/* Strategic takeaway */
+.verdict-box{
+  background:var(--lupe-dark);
+  color:#fff;
+  border-radius:8px;
+  padding:22px 24px;
+}
+.verdict-title{font-size:30px;font-weight:800;margin:0 0 10px 0;}
+.verdict-title .accent{color:#FF6B6B;}
+.verdict-body{font-size:15px;line-height:1.8;color:#E4E4E4;}
+.chips{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+.chip{
+  padding:8px 16px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:700;
+  border:2px solid #555;
+  color:#999;
+}
+.chip.active{
+  border-color:var(--lupe-red);
+  background:var(--lupe-red);
+  color:#fff;
+}
+.disclaimer{font-size:11px;color:var(--lupe-mid);margin-top:16px;}
+
+/* Ticker links */
+.ticker-link{color:var(--lupe-red);text-decoration:none;font-weight:700;border-bottom:1px dotted var(--lupe-red);}
+.ticker-link:hover{border-bottom-style:solid;}
+
+/* Sources */
+.sources{font-size:12px;color:var(--lupe-mid);line-height:1.9;}
+.sources .summary-line{margin-bottom:4px;}
+.sources ul{margin:10px 0 0 0;padding-left:18px;}
+.check{color:var(--lupe-green);font-weight:700;}
+.warn{color:var(--lupe-warn);font-weight:700;}
+
+/* Footer */
+.footer{
+  background:var(--lupe-dark);
+  color:#999;
+  padding:20px 32px;
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+/* Mobile */
+@media (max-width:640px){
+  .header{padding:18px 16px;}
+  .header h1{font-size:18px;}
+  .section{padding:20px 16px;}
+  .bluf{padding:16px 16px;font-size:14px;}
+  .snapshot-box{font-size:14px;}
+  .momentum-card{flex-direction:column;align-items:stretch;text-align:left;}
+  .momentum-card .btn{text-align:center;}
+  .news-head{flex-wrap:wrap;}
+  table thead{display:none;}
+  table, tbody, tr, td{display:block;width:100%;}
+  tbody tr{
+    border:1px solid var(--lupe-border);
+    border-radius:8px;
+    margin-bottom:10px;
+    padding:8px 12px;
+  }
+  tbody tr.today{border-left:4px solid var(--lupe-red);}
+  tbody td{border-bottom:none;padding:6px 0;}
+  tbody td::before{
+    content:attr(data-label);
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    color:var(--lupe-red);
+    margin-bottom:2px;
+  }
+  .verdict-title{font-size:22px;}
+  .footer{padding:16px;flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <a class="back-link" href="index.html">← 목록</a>
+      <h1>위켄드 마켓 브리핑</h1>
+      <div class="meta">
+        발행일: 2026-09-14(월) · <strong>최근 정규장 마감: 2026-09-11(금) — 상세 내용은 2026-09-12(토)자 브리핑 참고</strong><br>
+        Alpha Vantage MARKET_STATUS 공식 API 확인: 미국·유럽·중국·홍콩·인도 휴장(주말) · 일본 도쿄증시는 정규장 진행 중(개장) · 암호화폐만 24시간 거래 · 미국 정규장은 오늘 밤 22:30 KST 재개장 · WEEKEND 모드 · v1
+      </div>
+    </div>
+    <div class="logo-block">
+      <div class="lupe">LUPE</div>
+      <div class="helios">HELIOS MOMENTUM</div>
+    </div>
+  </div>
+
+  <!-- BLUF -->
+  <div class="bluf">
+    <span class="tag">BLUF</span>오늘 뉴욕 개장 전 선물이 3대 지수 전부 하락(나스닥100 -1.2%로 낙폭 최대)한 것은 유가·AI 밸류에이션·금리라는 세 개의 리스크 축이 동시에 가격에 반영되기 시작했다는 신호다 — 수요일 새벽(KST) FOMC 결과를 확인하기 전까지는 신규 매수를 서두르기보다 현금 비중을 유지하고, 반도체 익스포저는 목요일 실물지표 반응을 보고 재조정하는 편이 합리적이다.
+  </div>
+
+  <!-- Section W0: Momentum Discovery -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W0</span>Momentum Discovery</div>
+    <div class="momentum-card">
+      <div class="desc">Helios 개인 모멘텀 워치리스트 대시보드<br><span style="color:#B9B9B9;font-size:12px;">종목별 실시간 트래킹은 아래 대시보드에서 직접 확인하세요.</span></div>
+      <a class="btn" href="https://momentum-discovery.pages.dev/" target="_blank" rel="noopener">대시보드 열기 →</a>
+    </div>
+  </div>
+
+  <!-- Section W1: Friday Close Snapshot -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W1</span>Friday Close Snapshot</div>
+    <div class="snapshot-box">
+      S&amp;P500 <span class="up">7,656.98(+0.9%)</span> · Nasdaq <span class="up">26,333.04(+1.0%)</span> · Dow <span class="up">52,573.29(+1.0%)</span> · SOXX <span class="up">527.07(+1.86%)</span>
+      <div class="sub">기준: 2026-09-11(금) 정규장 마감 종가(Alpha Vantage GLOBAL_QUOTE 재확인, 09-12·09-13자 브리핑과 값 일치). 상세 등락 사유·매크로 카드(10Y/DXY/F&amp;G/Brent)·반도체 대표주 스냅샷은 <strong>2026-09-12(토)자 STANDARD 브리핑</strong>을 참고하세요. 도쿄증시는 현재 정규장 진행 중(Alpha Vantage MARKET_STATUS 확인)이며, 오사카 닛케이 선물은 64,510 부근에서 약세 시사 — 유가 급등에 따른 아시아 개장 초기 반응으로 해석된다. 뉴욕 정규장은 오늘 밤 22:30 KST 재개장 예정.</div>
+    </div>
+  </div>
+
+  <!-- Section W2: Weekend Major News -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W2</span>Weekend Major News</div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">사우디 송유관 셧다운 여파 지속 — 브렌트유 주간 +9%, 오늘 예정됐던 이란·걸프 국가 호르무즈 회담은 전격 연기</div>
+        <span class="impact impact-high">HIGH</span>
+      </div>
+      <div class="news-desc">9/10~11 이라크발 드론 공격으로 사우디아라비아 동서 송유관(호르무즈 해협 우회로, 일 400만~500만 배럴 처리)이 가동을 멈추면서 브렌트유는 한때 배럴당 $108.92까지 치솟았고 금요일(9/11) $104.26으로 마감해 주간 기준 약 9% 상승했다. 이런 가운데 이란과 걸프협력회의(GCC) 국가·이라크 외교장관들이 오만에서 호르무즈 해협 통항 정상화를 논의하기로 했던 오늘(9/14) 회담이 &ldquo;컨센서스를 위해&rdquo; 전격 연기됐다고 오만 외교장관이 밝혔다(Bloomberg, 9/13) — 바레인은 이란과 외교관계가 정상화되기 전까지 불참 의사를 밝힌 상태다. 단기 공급 차질 우려가 해소되지 않으면서 오늘 뉴욕 선물 시장에서 유가는 추가 상승 압력을, 지수 선물은 하락 압력을 받고 있다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        CNBC(9/11, 송유관 셧다운) · Bloomberg(9/11 유가, 9/13 회담 연기) · Al Jazeera(9/12, 공격 배경)</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">AI 안전성 경고음 확산 — 올트먼 &ldquo;연내 IPO 없다&rdquo; 선언에 앤트로픽 前연구원의 &ldquo;인류 멸종 리스크&rdquo; 경고 겹치며 나스닥 선물 낙폭 최대</div>
+        <span class="impact impact-high">HIGH</span>
+      </div>
+      <div class="news-desc">샘 올트먼 OpenAI CEO는 토요일(9/12) Fortune 인터뷰에서 &ldquo;지금 상장은 시기상 부적절한 선택&rdquo;이라며 연내(2026년) 기업공개(IPO) 계획이 없다고 확인했다 — 업계 최대 기대주의 상장이 최소 2027년으로 밀린 셈이다. 이는 지난 9/9 앤트로픽(Anthropic) 사전학습 연구원 제이콥 콕슨(Jacob Coxon)이 &ldquo;AI 기업들이 우리 생명을 걸고 도박하고 있다&rdquo;며 사직 성명을 낸 이후 확산된 AI 안전성 논쟁의 연장선이다 — 앤트로픽의 정렬과학 리드 에반 허빈저(Evan Hubinger)는 향후 10년 내 AI가 인류를 위협할 확률을 10% 이상으로 본다고 공개 동의했다. 월요일 뉴욕 개장 전 나스닥100 선물은 -1.2%로 다우(-0.4%)·S&amp;P(-0.6%) 대비 낙폭이 가장 커, AI 밸류에이션 재평가 압력이 기술주에 더 집중되고 있음을 시사한다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        Fortune(9/12, 올트먼 인터뷰) · CNBC·Washington Post(9/9, 콕슨 사직) · Bloomberg(9/13, 선물 반응)</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">CME FedWatch, 9/16 FOMC 25bp 인상 확률 이틀 만에 62%→85.5%로 급등</div>
+        <span class="impact impact-medium">MEDIUM</span>
+      </div>
+      <div class="news-desc">CME FedWatch Tool 기준 9/16(수) FOMC의 25bp 인상 확률이 9/10(목) 62.4%에서 9/12(토) 85.5%로 이틀 새 약 23%p 급등했다. 8월 CPI 근원물가가 예상을 상회한 데 이어 견조한 고용지표까지 겹치며, 시장은 연준이 기준금리를 350~375bp에서 375~400bp로 올릴 가능성을 사실상 기정사실로 반영하고 있다. 이번 회의는 경제전망요약(SEP)이 함께 발표되는 자리라, 실제 인상 여부 자체보다 향후 인상 경로에 대한 점도표·파월 발언이 자산가격에 더 크게 작용할 전망이다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        Yahoo Finance(9/12) · Forbes(8/31, 배경) · CME Group FedWatch(공식 툴)</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">비트코인 $76,800선 횡보 — 위험회피 속 주말 내내 좁은 박스권</div>
+        <span class="impact impact-low">LOW</span>
+      </div>
+      <div class="news-desc">Alpha Vantage 공식 API 기준 비트코인은 2026-09-13 23:52 UTC(09-14 08:52 KST) 현재 $76,784.31에 거래되며, 금요일 $76,500~77,200 구간에서 크게 벗어나지 않은 채 주말을 마쳤다. 유가 급등과 AI 밸류에이션 우려가 겹치며 위험자산 전반의 관망 심리가 강해진 영향으로, 주중 FOMC 결과 확인 전까지는 비슷한 박스권이 이어질 가능성이 높다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        Alpha Vantage CURRENCY_EXCHANGE_RATE(공식 API)</div>
+    </div>
+  </div>
+
+  <!-- Section W3: This Week's Catalyst -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W3</span>This Week's Catalyst</div>
+    <table>
+      <thead>
+        <tr>
+          <th>날짜(ET)</th><th>시간(ET)</th><th>한국시간(KST)</th><th>이벤트</th><th>중요도</th><th>예상 영향</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="today">
+          <td data-label="날짜(ET)">09/14(월)</td>
+          <td data-label="시간(ET)">정규장 09:30 개장</td>
+          <td data-label="한국시간(KST)">22:30 <span class="h24">⏱24H</span></td>
+          <td data-label="이벤트">미국 정규장 재개장 — 주요 지표 발표 없음</td>
+          <td data-label="중요도"><span class="imp-badge imp-low">LOW</span></td>
+          <td data-label="예상 영향">FOMC 블랙아웃 기간 중이라 연준發 코멘트는 없음. 유가 급등(호르무즈 회담 연기)과 AI 안전성 우려(올트먼 IPO 연기)가 겹치며 선물 전 구간 하락 출발 — 정규장 개장 후 낙폭 확대 여부가 관건</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/15(화)</td>
+          <td data-label="시간(ET)">종일(FOMC 1일차)</td>
+          <td data-label="한국시간(KST)">-</td>
+          <td data-label="이벤트">FOMC 회의 첫째 날 시작(비공개 토의, 별도 발표 없음)</td>
+          <td data-label="중요도"><span class="imp-badge imp-low">LOW</span></td>
+          <td data-label="예상 영향">시장을 직접 움직이는 발표는 없으나, 익일 결정을 앞둔 포지셔닝 변동성 확대 가능</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/16(수)</td>
+          <td data-label="시간(ET)">08:30 AM ET / 09:15 AM ET / 10:00 AM ET</td>
+          <td data-label="한국시간(KST)">21:30 / 22:15 / 23:00</td>
+          <td data-label="이벤트">8월 소매판매(Retail Sales) · 8월 산업생산(Industrial Production) · 9월 NAHB 주택시장지수</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">FOMC 결정 직전 마지막 실물지표 — 소비·생산이 견조하게 나오면 매파적 결정 명분이 강화될 소지</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/16(수)</td>
+          <td data-label="시간(ET)">02:00 PM ET(성명) / 02:30 PM ET(기자회견)</td>
+          <td data-label="한국시간(KST)">09/17(목) 03:00 / 03:30</td>
+          <td data-label="이벤트">FOMC 정책 성명 + 경제전망요약(SEP) + 파월 기자회견</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">이번 주 최대 변곡점. 시장은 25bp 인상을 85.5% 확률로 이미 선반영 — 실제 인상 여부보다 &ldquo;추가 인상 가능성&rdquo;에 대한 파월의 언급 톤이 반도체·성장주 밸류에이션에 더 크게 작용할 전망</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/17(목)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30</td>
+          <td data-label="이벤트">8월 신규 주택착공·허가 · 주간 신규실업수당청구 · 9월 필라델피아 연은 제조업지수</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">FOMC 직후 첫 실물지표 — 결정에 대한 시장의 해석이 유지되는지 재확인하는 2차 변수</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/18(금)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00</td>
+          <td data-label="이벤트">8월 컨퍼런스보드 경기선행지수(LEI)</td>
+          <td data-label="중요도"><span class="imp-badge imp-low">LOW</span></td>
+          <td data-label="예상 영향">주 후반 마무리 지표, 단독으로는 시장 영향 제한적</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tz-box">
+      <strong>시간대 안내:</strong> 현재 미국은 서머타임(EDT) 적용 기간으로 KST = ET + 13시간이다(서머타임: 3월 둘째 일요일 ~ 11월 첫째 일요일, 그 외 EST 기간은 KST = ET +14시간). 9/16(수) FOMC 성명(오후 2시 ET)은 자정을 넘어가 한국시간 기준 9/17(목) 새벽 3시에 발표됨에 유의할 것. 발행 시점(9/14 월요일 오전) 기준 &ldquo;미국 정규장 재개장&rdquo; 항목만 24시간 이내(약 15시간 후)로 ⏱24H 배지를 부여했다. 출처: Federal Reserve 공식 FOMC 회의 일정(federalreserve.gov/monetarypolicy/fomccalendars.htm) · CNBC 주간 전망(9/11, &ldquo;Stock market next week: Outlook for Sept. 14-18&rdquo;) · Census Bureau 소매판매 발표 일정.
+    </div>
+  </div>
+
+  <!-- Section W4: Weekly Strategy Pulse -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W4</span>Weekly Strategy Pulse</div>
+    <div class="verdict-box">
+      <div class="verdict-title">이번 주 환경: <span class="accent">Neutral</span> — 3중 리스크 확인 전 신규 매수 보류</div>
+      <div class="verdict-body">
+        <strong>① 수요일 FOMC에서 예상대로 25bp 인상이 단행되고 파월이 추가 인상에 선을 그으며, 동시에 오만 회담이 조기 재개돼 호르무즈 공급 우려가 완화되는 시나리오</strong>라면 — 두 리스크가 동시에 해소되며 금요일까지 이어진 반등 모멘텀이 재개될 가능성이 높다. 이 경우 수요일 심야(KST) 성명 직후 SOXX·반도체 대표주의 시간외 반응을 첫 확인 지표로 삼아 비중 회복을 검토할 만하다. <strong>② 반대로 파월이 추가 긴축 여지를 열어두거나 호르무즈 회담이 재차 무산되며 브렌트유가 $110을 재돌파하는 시나리오</strong>라면 — 금리·유가 이중 압박이 기업 마진과 성장주 밸류에이션에 동시에 작용해 나스닥·반도체 중심의 조정이 깊어질 수 있다. 이 경우 현금 비중을 유지하고 목요일 실물지표(주택착공·신규실업수당) 반응으로 되돌림 여부를 재확인하는 편이 낫다. AI 안전성 논쟁은 두 시나리오와 별개로 진행되는 구조적 변수라, 추가 IPO 연기·규제 관련 발언이 나올 때마다 대형 AI·반도체 종목 비중을 별도로 점검할 필요가 있다.
+      </div>
+      <div class="chips">
+        <div class="chip">Bear</div>
+        <div class="chip active">Neutral</div>
+        <div class="chip">Bull</div>
+      </div>
+      <div class="disclaimer">본 브리핑은 정보 제공 목적이며 투자 자문이 아닙니다.</div>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">SRC</span>Sources</div>
+    <div class="sources">
+      <div class="summary-line">금요일 종가·SOXX 출처: Alpha Vantage GLOBAL_QUOTE(공식 API) — 2026-09-12(토)/09-13(일)자 브리핑 확정치와 재확인 일치</div>
+      <div class="summary-line">매크로/시황 출처: Alpha Vantage MARKET_STATUS(공식 API) · CME FedWatch(공식 툴, Yahoo Finance·Forbes 재인용) · Alpha Vantage CURRENCY_EXCHANGE_RATE(BTC, 공식 API)</div>
+      <div class="summary-line">뉴스 출처: CNBC·Bloomberg·Al Jazeera(사우디 송유관·유가·호르무즈 회담 연기) · Fortune(올트먼 인터뷰) · CNBC·Washington Post(앤트로픽 콕슨 사직)</div>
+      <div class="summary-line">경제 캘린더 출처: Federal Reserve 공식 FOMC 일정(federalreserve.gov) · CNBC 주간 전망(9/11) · Census Bureau 소매판매 발표 일정</div>
+      <ul>
+        <li><span class="check">✅</span> S&amp;P500 7,656.98(+0.9%)·Nasdaq 26,333.04(+1.0%)·Dow 52,573.29(+1.0%) — 09-12·09-13자 브리핑 확정치와 값 일치, 재검증 완료</li>
+        <li><span class="check">✅</span> SOXX 527.07(+9.64, +1.86%), 최신 거래일 2026-09-11 — Alpha Vantage GLOBAL_QUOTE 공식 API 재조회, 기존 확정치와 일치</li>
+        <li><span class="check">✅</span> BTC $76,784.31(2026-09-13 23:52 UTC) — Alpha Vantage CURRENCY_EXCHANGE_RATE 공식 API 직접 조회(공식 소스, 별도 교차확인 불요)</li>
+        <li><span class="check">✅</span> CME FedWatch 9/16 FOMC 25bp 인상 확률 85.5%(9/12 기준, 9/10 62.4%에서 급등) — Yahoo Finance·Forbes 2개 소스 교차확인</li>
+        <li><span class="check">✅</span> 사우디 동서 송유관 셧다운(9/10~11 드론 공격) 및 브렌트유 주간 +9%(9/11 $104.26 마감) — CNBC·Bloomberg·Al Jazeera 3개 소스 교차확인</li>
+        <li><span class="check">✅</span> 오만 호르무즈 회담(9/14 예정) 전격 연기 — Bloomberg(9/13) 확인, Fortune(9/13) 배경기사로 교차확인</li>
+        <li><span class="warn">⚠️ 단일소스</span> 월요일 뉴욕 선물 낙폭(다우 -0.4%/S&amp;P -0.6%/나스닥100 -1.2%) — Bloomberg(9/13) 기사 인용치, Alpha Vantage 무료 티어는 지수선물을 지원하지 않아 별도 실시간 재검증 불가</li>
+        <li><span class="check">✅</span> 올트먼 OpenAI 연내 IPO 계획 없음 발언 — Fortune(9/12 인터뷰 원문) 및 Axios·Yahoo Finance 재인용 교차확인</li>
+        <li><span class="check">✅</span> 앤트로픽 前연구원 제이콥 콕슨 사직 및 경고, 허빈저 등 현직 연구원 동조 — CNBC·Washington Post·Fortune 3개 소스 교차확인</li>
+        <li><span class="warn">⚠️ 참고: 일부 소규모 매체(thetrading.tools 등)가 브렌트유를 &ldquo;$96.02&rdquo;로 보도했으나, CNBC·Bloomberg·Al Jazeera 등 신뢰도 높은 3개 소스가 &ldquo;$104~105대, 주간 +9%&rdquo;로 일치해 해당 수치는 미채택(0-4 규칙 적용)</span></li>
+        <li><span class="check">✅</span> 도쿄증시 정규장 진행 중 — Alpha Vantage MARKET_STATUS 공식 API 확인(2026-09-14 발행 시점 기준). 닛케이 실제 등락률은 발행 시점 미확정으로 선물치(오사카 64,510 부근, 약세 시사)만 참고 표기</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>© 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy</div>
+    <div>생성일시: 2026-09-14(월) KST(데이터 조회 시점 기준, BTC 스냅샷 09-13 23:52 UTC) · 최근 정규장 마감: 2026-09-11 · WEEKEND v1</div>
+  </div>
+
+</div>
+</body>
+</html>

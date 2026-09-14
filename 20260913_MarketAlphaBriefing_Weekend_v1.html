@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>위켄드 마켓 브리핑 | LUPE — 2026.09.13</title>
+<style>
+:root{
+  --lupe-red:#C1001B;
+  --lupe-dark:#1A1A1A;
+  --lupe-mid:#4A4A4A;
+  --lupe-warn:#E87722;
+  --lupe-green:#1A7A3C;
+  --lupe-bg:#FFFFFF;
+  --lupe-card-bg:#F7F7F7;
+  --lupe-border:#E4E4E4;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  padding:0;
+  background:var(--lupe-bg);
+  font-family:'Noto Sans KR','Malgun Gothic',sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  color:var(--lupe-dark);
+}
+.wrap{max-width:840px;margin:0 auto;}
+
+/* Header */
+.header{
+  background:var(--lupe-dark);
+  color:#fff;
+  padding:28px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.back-link{display:inline-block;font-size:12px;color:#CFCFCF;text-decoration:none;margin-bottom:8px;}
+.header h1{font-size:24px;margin:0 0 6px 0;font-weight:700;}
+.header .meta{font-size:13px;color:#CFCFCF;line-height:1.6;}
+.header .meta strong{color:#fff;}
+.logo-block{
+  text-align:right;
+  font-size:12px;
+  color:#CFCFCF;
+  line-height:1.5;
+  white-space:nowrap;
+}
+.logo-block .lupe{color:var(--lupe-red);font-weight:800;font-size:15px;letter-spacing:1px;}
+.logo-block .helios{font-weight:600;color:#fff;}
+
+/* BLUF banner */
+.bluf{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:18px 32px;
+  font-size:15px;
+  font-weight:600;
+  line-height:1.7;
+}
+.bluf .tag{
+  display:inline-block;
+  background:rgba(255,255,255,0.2);
+  padding:2px 8px;
+  border-radius:4px;
+  font-size:11px;
+  font-weight:700;
+  margin-right:8px;
+  letter-spacing:1px;
+}
+
+.section{padding:28px 32px;border-bottom:1px solid var(--lupe-border);}
+.section-title{
+  font-size:14px;
+  font-weight:700;
+  color:var(--lupe-dark);
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  border-bottom:3px solid var(--lupe-red);
+  padding-bottom:8px;
+  margin:0 0 18px 0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.badge-num{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:3px;
+  font-weight:700;
+}
+
+/* Momentum link card */
+.momentum-card{
+  background:var(--lupe-dark);
+  border-left:4px solid var(--lupe-red);
+  border-radius:6px;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.momentum-card .desc{color:#EDEDED;font-size:14px;flex:1 1 auto;}
+.momentum-card .btn{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+  white-space:nowrap;
+}
+
+/* Friday snapshot line */
+.snapshot-box{
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  font-size:16px;
+  font-weight:700;
+}
+.snapshot-box .sub{font-size:12px;color:var(--lupe-mid);font-weight:400;margin-top:8px;}
+.up{color:var(--lupe-green);}
+.down{color:var(--lupe-red);}
+
+/* News cards */
+.news-card{
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  margin-bottom:12px;
+}
+.news-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+.news-title{font-size:16px;font-weight:700;color:var(--lupe-dark);flex:1 1 auto;}
+.impact{
+  font-size:11px;
+  font-weight:800;
+  padding:3px 9px;
+  border-radius:4px;
+  white-space:nowrap;
+}
+.impact-high{background:var(--lupe-red);color:#fff;}
+.impact-medium{background:var(--lupe-warn);color:#fff;}
+.impact-low{background:#B9B9B9;color:#fff;}
+.news-desc{font-size:14px;color:var(--lupe-mid);margin-top:8px;}
+
+/* Catalyst table */
+table{width:100%;border-collapse:collapse;font-size:14px;}
+thead th{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:12px;
+  text-align:left;
+  padding:10px 10px;
+}
+tbody td{padding:10px;border-bottom:1px solid var(--lupe-border);}
+tbody tr.today{background:#FFF3F0;border-left:4px solid var(--lupe-red);}
+.imp-badge{
+  font-size:11px;font-weight:800;padding:2px 7px;border-radius:4px;color:#fff;white-space:nowrap;
+}
+.imp-high{background:var(--lupe-red);}
+.imp-med{background:var(--lupe-warn);}
+.imp-low{background:#B9B9B9;}
+.h24{
+  display:inline-block;
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  padding:2px 6px;
+  border-radius:3px;
+  margin-left:6px;
+}
+.tz-box{
+  margin-top:14px;
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:6px;
+  padding:12px 14px;
+  font-size:12px;
+  color:var(--lupe-mid);
+}
+
+/* Strategic takeaway */
+.verdict-box{
+  background:var(--lupe-dark);
+  color:#fff;
+  border-radius:8px;
+  padding:22px 24px;
+}
+.verdict-title{font-size:30px;font-weight:800;margin:0 0 10px 0;}
+.verdict-title .accent{color:#FF6B6B;}
+.verdict-body{font-size:15px;line-height:1.8;color:#E4E4E4;}
+.chips{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+.chip{
+  padding:8px 16px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:700;
+  border:2px solid #555;
+  color:#999;
+}
+.chip.active{
+  border-color:var(--lupe-red);
+  background:var(--lupe-red);
+  color:#fff;
+}
+.disclaimer{font-size:11px;color:var(--lupe-mid);margin-top:16px;}
+
+/* Ticker links */
+.ticker-link{color:var(--lupe-red);text-decoration:none;font-weight:700;border-bottom:1px dotted var(--lupe-red);}
+.ticker-link:hover{border-bottom-style:solid;}
+
+/* Sources */
+.sources{font-size:12px;color:var(--lupe-mid);line-height:1.9;}
+.sources .summary-line{margin-bottom:4px;}
+.sources ul{margin:10px 0 0 0;padding-left:18px;}
+.check{color:var(--lupe-green);font-weight:700;}
+.warn{color:var(--lupe-warn);font-weight:700;}
+
+/* Footer */
+.footer{
+  background:var(--lupe-dark);
+  color:#999;
+  padding:20px 32px;
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+/* Mobile */
+@media (max-width:640px){
+  .header{padding:18px 16px;}
+  .header h1{font-size:18px;}
+  .section{padding:20px 16px;}
+  .bluf{padding:16px 16px;font-size:14px;}
+  .snapshot-box{font-size:14px;}
+  .momentum-card{flex-direction:column;align-items:stretch;text-align:left;}
+  .momentum-card .btn{text-align:center;}
+  .news-head{flex-wrap:wrap;}
+  table thead{display:none;}
+  table, tbody, tr, td{display:block;width:100%;}
+  tbody tr{
+    border:1px solid var(--lupe-border);
+    border-radius:8px;
+    margin-bottom:10px;
+    padding:8px 12px;
+  }
+  tbody tr.today{border-left:4px solid var(--lupe-red);}
+  tbody td{border-bottom:none;padding:6px 0;}
+  tbody td::before{
+    content:attr(data-label);
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    color:var(--lupe-red);
+    margin-bottom:2px;
+  }
+  .verdict-title{font-size:22px;}
+  .footer{padding:16px;flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <a class="back-link" href="index.html">← 목록</a>
+      <h1>위켄드 마켓 브리핑</h1>
+      <div class="meta">
+        발행일: 2026-09-13(일) · <strong>최근 정규장 마감: 2026-09-11(금) — 상세 내용은 2026-09-12(토)자 브리핑 참고</strong><br>
+        Alpha Vantage MARKET_STATUS 공식 API 확인: 미국·유럽·아시아 주요 증시 전부 휴장(주말) · 암호화폐만 24시간 거래 중 · 미국 정규장은 월요일(9/14) 재개장 · WEEKEND 모드 · v1
+      </div>
+    </div>
+    <div class="logo-block">
+      <div class="lupe">LUPE</div>
+      <div class="helios">HELIOS MOMENTUM</div>
+    </div>
+  </div>
+
+  <!-- BLUF -->
+  <div class="bluf">
+    <span class="tag">BLUF</span>8월 CPI 서프라이즈로 9/16(수) FOMC의 25bp 추가 인상 확률이 87%까지 치솟으면서, 이번 주는 &ldquo;인상 여부&rdquo;가 아니라 &ldquo;파월이 그 다음을 어떻게 시그널링하는가&rdquo;가 실질 변수로 바뀌었다 — 월요일 재개장 시 신규 매수를 서두르기보다, 수요일 새벽(KST) 성명·기자회견 톤을 확인한 뒤 반도체 비중을 조정하는 편이 합리적이다.
+  </div>
+
+  <!-- Section W0: Momentum Discovery -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W0</span>Momentum Discovery</div>
+    <div class="momentum-card">
+      <div class="desc">Helios 개인 모멘텀 워치리스트 대시보드<br><span style="color:#B9B9B9;font-size:12px;">종목별 실시간 트래킹은 아래 대시보드에서 직접 확인하세요.</span></div>
+      <a class="btn" href="https://momentum-discovery.pages.dev/" target="_blank" rel="noopener">대시보드 열기 →</a>
+    </div>
+  </div>
+
+  <!-- Section W1: Friday Close Snapshot -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W1</span>Friday Close Snapshot</div>
+    <div class="snapshot-box">
+      S&amp;P500 <span class="up">7,656.98(+0.9%)</span> · Nasdaq <span class="up">26,333.04(+1.0%)</span> · Dow <span class="up">52,573.29(+1.0%)</span> · SOXX <span class="up">527.07(+1.86%)</span>
+      <div class="sub">기준: 2026-09-11(금) 정규장 마감 종가. S&amp;P500은 4거래일 연속 하락을 끊고 반등, SOXX(<a href="https://www.tradingview.com/symbols/SOXX/" target="_blank" rel="noopener" class="ticker-link">SOXX</a>)는 나스닥 대비 약 +0.9%p 아웃퍼폼. 상세 등락 사유·매크로 카드(10Y/DXY/F&amp;G/Brent)·반도체 대표주 스냅샷은 <strong>2026-09-12(토)자 STANDARD 브리핑</strong>을 참고하세요. 본판(9/13)은 그 이후 주말 사이 새로 확인된 사실만 다룹니다.</div>
+    </div>
+  </div>
+
+  <!-- Section W2: Weekend Major News -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W2</span>Weekend Major News</div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">8월 CPI 서프라이즈 여파 지속 — 9/16 FOMC 25bp 추가 인상 확률 70%대 → 87%로 급등</div>
+        <span class="impact impact-high">HIGH</span>
+      </div>
+      <div class="news-desc">지난주 발표된 8월 CPI에서 근원 인플레이션이 예상치를 상회하면서, 시장이 반영하는 9/16(수) FOMC의 25bp 추가 인상 확률이 CPI 발표 전 약 70%에서 87%까지 상승했다. CoinShares 등 시장참여자들은 이번 CPI 결과에 대해 "비둘기파적 반전 재료가 없다"고 평가하며 근원물가 상회가 9월 인상 가능성을 오히려 높였다고 해석했다. 2026년 들어 Fed가 완화가 아닌 긴축 사이클을 이어가고 있다는 점에서, 이번 주는 인상 여부 자체보다 파월 기자회견의 향후 경로 시그널이 자산가격에 더 크게 반영될 전망이다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        usethebitcoin.com(CPI·금리인상 확률 보도) · coingabbar.com(CoinShares 코멘트 인용) · Federal Reserve 공식 회의 일정(federalreserve.gov)</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">뉴델리 BRICS 정상회의 이틀째 — 시진핑 "중동 전쟁, 세계 이익에 부합 안 해" · 이란·이스라엘 충돌은 산발적 교전 지속</div>
+        <span class="impact impact-medium">MEDIUM</span>
+      </div>
+      <div class="news-desc">인도가 의장국을 맡은 제18차 BRICS 정상회의가 9/12~13 뉴델리에서 열렸다. 시진핑 중국 국가주석은 정상회의에서 미-이스라엘의 이란 전쟁이 "심각한 손실을 초래했으며 세계의 이익에 부합하지 않는다"고 발언했고, 이란 페제시키안 대통령 등 중동 정상들도 참석했다. 2월 28일 발발한 미-이스라엘 대(對)이란 전쟁은 6월 휴전 양해각서(MOU) 이후 대규모 교전은 진정됐으나 양측의 산발적 보복 공습은 계속되고 있으며, 이라크 국경 인근에서는 사우디 송유관 공격 배후로 지목된 드론 발사대가 추가로 발견됐다. BRICS는 이번 정상회의에서 SWIFT의 대안으로 추진해온 &ldquo;BRICS Pay&rdquo;의 정식 가동을 목표로 내걸어, 중장기 달러 결제망 의존도 축소 움직임도 함께 주시할 필요가 있다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        <a href="https://www.aljazeera.com/news/2026/9/12/brics-meets-in-india-whats-on-the-agenda-why-it-matters" target="_blank" rel="noopener">Al Jazeera</a> · Wikipedia(18th BRICS summit) · Times of Israel 라이브블로그(9/12)</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">SpaceX(SPCX), 9월 정기 리밸런싱으로 나스닥100 비중 1.28%→2.82%로 확대 — 패시브 자금 유입 재료</div>
+        <span class="impact impact-medium">MEDIUM</span>
+      </div>
+      <div class="news-desc">지난 7/7 나스닥100에 신속 편입(상장 후 15거래일 만, 역대 최단)됐던 SpaceX(<a href="https://www.tradingview.com/symbols/NASDAQ-SPCX/" target="_blank" rel="noopener" class="ticker-link">SPCX</a>)의 지수 비중이 9월 정기 리밸런싱을 통해 기존 약 1.28%에서 약 2.82%로 두 배 이상 확대될 전망이다. 금요일(9/11) 늦게 나스닥 Global Index Watch를 통해 순회한 프로포마 데이터 기준이며, 추가 보호예수(락업) 물량 해제가 예정돼 있어 비중이 한 차례 더 오를 가능성도 있다. QQQ 등 나스닥100 추종 ETF들은 리밸런싱 시행일에 맞춰 대규모 SPCX 매수가 불가피해, 기존 대형 기술주(특히 반도체·AI 관련주)의 상대적 비중 희석 요인으로 함께 볼 필요가 있다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        Bloomberg(9/12, "SpaceX To Get Weighting Boost In Nasdaq 100 After Rebalance") · CNBC(7/7 편입 배경)</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">비트코인 $77,200선 방어 속 ETF 자금은 엇갈림 — BTC 4거래일 연속 순유출, ETH는 이달 최대 유입</div>
+        <span class="impact impact-medium">MEDIUM</span>
+      </div>
+      <div class="news-desc">24시간 거래되는 비트코인은 발행 시점(9/13 01:22 EDT) 기준 $77,242.79에서 거래되며 $77,000선 위를 지키고 있다 — 금요일 한때 $79,890까지 올랐으나 FOMC 매파적 베팅이 강해지며 되밀린 흐름이다. 미국 현물 비트코인 ETF는 금요일 약 $13.2M 순유출을 기록해 4거래일 연속 자금 이탈이 이어진 반면, 스팟 이더리움 ETF는 같은 날 $216.41M이 유입되며 이달 들어 최대 하루 유입을 기록해 자금 로테이션 양상이 뚜렷하다. 한편 크로스체인 브릿지 Symbiosis의 비트코인 브릿지가 9/11 새벽(UTC) 취약점 공격을 받아 약 15 BTC가 유출됐으며, 팀은 공격자에게 탈취액의 20%를 화이트해트 바운티로 제안하고 일부(약 15 BTC 상당)를 회수했다고 밝혔다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        usethebitcoin.com(BTC 가격·ETF 흐름) · coingabbar.com(ETH ETF 유입·Symbiosis 익스플로잇)</div>
+    </div>
+  </div>
+
+  <!-- Section W3: This Week's Catalyst -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W3</span>This Week's Catalyst</div>
+    <table>
+      <thead>
+        <tr>
+          <th>날짜(ET)</th><th>시간(ET)</th><th>한국시간(KST)</th><th>이벤트</th><th>중요도</th><th>예상 영향</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="날짜(ET)">09/14(월)</td>
+          <td data-label="시간(ET)">정규장 09:30 개장</td>
+          <td data-label="한국시간(KST)">22:30</td>
+          <td data-label="이벤트">미국 정규장 재개장 — 주요 지표 발표 없음</td>
+          <td data-label="중요도"><span class="imp-badge imp-low">LOW</span></td>
+          <td data-label="예상 영향">FOMC 블랙아웃 기간 중이라 연준發 코멘트는 없음. 금요일 CPI 서프라이즈·SpaceX 리밸런싱 재료가 개장 첫 반응에 얼마나 선반영되는지가 관건</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/15(화)</td>
+          <td data-label="시간(ET)">종일(FOMC 1일차)</td>
+          <td data-label="한국시간(KST)">-</td>
+          <td data-label="이벤트">FOMC 회의 첫째 날 시작(비공개 토의, 별도 발표 없음)</td>
+          <td data-label="중요도"><span class="imp-badge imp-low">LOW</span></td>
+          <td data-label="예상 영향">시장을 직접 움직이는 발표는 없으나, 익일 결정을 앞둔 포지셔닝 변동성 확대 가능</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/16(수)</td>
+          <td data-label="시간(ET)">08:30 AM ET / 09:15 AM ET / 10:00 AM ET</td>
+          <td data-label="한국시간(KST)">21:30 / 22:15 / 23:00</td>
+          <td data-label="이벤트">8월 소매판매(Retail Sales) · 8월 산업생산(Industrial Production) · 9월 NAHB 주택시장지수</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">FOMC 결정 직전 마지막 실물지표 — 소비·생산이 견조하게 나오면 매파적 결정 명분이 강화될 소지</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/16(수)</td>
+          <td data-label="시간(ET)">02:00 PM ET(성명) / 02:30 PM ET(기자회견)</td>
+          <td data-label="한국시간(KST)">09/17(목) 03:00 / 03:30</td>
+          <td data-label="이벤트">FOMC 정책 성명 + 경제전망요약(SEP) + 파월 기자회견</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">이번 주 최대 변곡점. 시장은 25bp 인상을 87% 확률로 이미 선반영 — 실제 인상 여부보다 &ldquo;추가 인상 가능성&rdquo;에 대한 파월의 언급 톤이 반도체·성장주 밸류에이션에 더 크게 작용할 전망</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/17(목)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30</td>
+          <td data-label="이벤트">8월 신규 주택착공·허가 · 주간 신규실업수당청구 · 9월 필라델피아 연은 제조업지수</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">FOMC 직후 첫 실물지표 — 결정에 대한 시장의 해석이 유지되는지 재확인하는 2차 변수</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/18(금)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00</td>
+          <td data-label="이벤트">8월 컨퍼런스보드 경기선행지수(LEI)</td>
+          <td data-label="중요도"><span class="imp-badge imp-low">LOW</span></td>
+          <td data-label="예상 영향">주 후반 마무리 지표, 단독으로는 시장 영향 제한적</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tz-box">
+      <strong>시간대 안내:</strong> 현재 미국은 서머타임(EDT) 적용 기간으로 KST = ET + 13시간이다(서머타임: 3월 둘째 일요일 ~ 11월 첫째 일요일, 그 외 EST 기간은 KST = ET +14시간). 9/16(수) FOMC 성명(오후 2시 ET)은 자정을 넘어가 한국시간 기준 9/17(목) 새벽 3시에 발표됨에 유의할 것. 발행 시점(9/13 일요일) 기준 표 내 모든 이벤트는 24시간 이상 남아 있어 이번 판에는 ⏱24H 배지가 붙은 항목이 없다. 출처: Federal Reserve 공식 FOMC 회의 일정(federalreserve.gov/monetarypolicy/fomccalendars.htm, 9/15~16 회의 직접 확인) · Census Bureau 소매판매 발표 일정 · Kiplinger·TradingEconomics 경제 캘린더(보조 확인, 요일 표기 오류 정정 후 사용 — 아래 Sources 참고).
+    </div>
+  </div>
+
+  <!-- Section W4: Weekly Strategy Pulse -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W4</span>Weekly Strategy Pulse</div>
+    <div class="verdict-box">
+      <div class="verdict-title">이번 주 환경: <span class="accent">Neutral</span> — FOMC 전 변동성 관리 우선</div>
+      <div class="verdict-body">
+        금요일 지수는 4일 연속 하락을 끊고 반등했지만, 그 반등의 재료(유가 진정)와 이번 주의 핵심 변수(금리인상 확률 87%)는 서로 다른 방향을 가리키고 있어 이번 주는 추세 추종보다 FOMC 결과 확인 후 대응이 합리적이다. <strong>① 9/16(수) FOMC에서 예상대로 25bp를 인상하되 파월이 "추가 인상에 대해서는 데이터에 달려있다"는 식으로 톤을 낮추면</strong>, 불확실성 해소 효과로 금요일 반등 흐름이 이어지며 SOXX가 이끄는 재상승 시나리오가 유효하다 — 이 경우 수요일 새벽(KST) 성명 직후 반도체 대표주의 시간외 반응이 첫 확인 지표다. <strong>② 반대로 파월이 추가 긴축 가능성을 열어두는 매파적 언급을 이어가면</strong>, 밸류에이션 부담이 큰 성장주·반도체부터 조정 압력을 받을 가능성이 높다 — 이 시나리오에서는 신규 비중 확대보다 현금 비중을 유지하며 목요일 실물지표(주택착공·신규실업수당) 반응을 다음 판단 기준으로 삼는 편이 낫다. SpaceX 리밸런싱발 패시브 매수는 두 시나리오 모두에서 개별 종목 단위의 상대적 자금 이탈 요인으로 병행 관찰이 필요하다.
+      </div>
+      <div class="chips">
+        <div class="chip">Bear</div>
+        <div class="chip active">Neutral</div>
+        <div class="chip">Bull</div>
+      </div>
+      <div class="disclaimer">본 브리핑은 정보 제공 목적이며 투자 자문이 아닙니다.</div>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">SRC</span>Sources</div>
+    <div class="sources">
+      <div class="summary-line">금요일 종가 출처: TheStreet(1차 보도) · WebSearch 재계산 교차확인(등락률 재검산 완료) — 2026-09-12(토)자 STANDARD 브리핑과 연속성 확인</div>
+      <div class="summary-line">SOXX 종가 출처: Alpha Vantage GLOBAL_QUOTE(공식 API, 2026-09-11 최신 거래일 확인)</div>
+      <div class="summary-line">매크로/거시 지표 출처: Alpha Vantage MARKET_STATUS(공식 API) · TREASURY_YIELD는 이번 호출에서 레이트리밋 발생, WEEKEND 모드는 매크로 카드 자체를 다루지 않아 영향 없음</div>
+      <div class="summary-line">뉴스 출처: <a href="https://www.aljazeera.com/news/2026/9/12/brics-meets-in-india-whats-on-the-agenda-why-it-matters" target="_blank" rel="noopener">Al Jazeera</a>(BRICS·중동) · Bloomberg(SpaceX 리밸런싱) · usethebitcoin.com·coingabbar.com(CPI·비트코인·ETF 자금흐름)</div>
+      <div class="summary-line">경제 캘린더 출처: Federal Reserve 공식 FOMC 일정(federalreserve.gov) · Census Bureau 소매판매 발표 일정 · TradingEconomics·Kiplinger(보조, 요일 오류 정정 후 반영)</div>
+      <ul>
+        <li><span class="check">✅</span> S&amp;P500 7,656.98(+0.9%)·Dow 52,573.29(+1.0%)·Nasdaq 26,333.04(+1.0%) — TheStreet 원 보도치와 별도 재계산(등락폭/이전종가) 결과가 소수점 둘째 자리 이내로 일치, 2개 이상 독립 소스 교차확인 완료</li>
+        <li><span class="check">✅</span> SOXX 527.07(+9.64, +1.86%), 최신 거래일 2026-09-11 — Alpha Vantage 공식 API 직접 조회(교차확인 불요, 공식 소스)</li>
+        <li><span class="warn">⚠️ 데이터 검증 불완전</span> 10Y Treasury Yield — Alpha Vantage TREASURY_YIELD 호출이 레이트리밋으로 실패, WEEKEND 모드 규정상(0-2) 매크로 카드를 다루지 않으므로 이번 판에는 영향 없음(STANDARD 모드 재개 시 재시도)</li>
+        <li><span class="check">✅</span> 9월 FOMC 회의 날짜(9/15~16, 경제전망요약 동반) — federalreserve.gov 공식 캘린더 원문에서 직접 확인. 일부 보조 검색 결과가 "9/16(화)·9/17(수)"로 요일을 잘못 표기한 오류를 발견해, 공식 소스 기준으로 하루씩 앞당겨 정정 반영(0-8 규칙 적용)</li>
+        <li><span class="check">✅</span> 8월 CPI발 9/16 FOMC 25bp 인상 확률 87% — usethebitcoin.com·coingabbar.com 2개 소스에서 동일 수치·방향성 확인</li>
+        <li><span class="warn">⚠️ 단일소스</span> 비트코인 ETF 금요일 순유출 $13.2M(4거래일 연속) — coingabbar.com 단일 인용, 원문 온체인 데이터 직접 대조 미실시</li>
+        <li><span class="check">✅</span> SpaceX(SPCX) 나스닥100 비중 1.28%→2.82% 확대 — Bloomberg(9/12) 및 Yahoo Finance 재인용 기사 교차확인</li>
+        <li><span class="check">✅</span> BRICS 정상회의 장소·일정(뉴델리, 9/12~13, 제18차) — Al Jazeera 및 Wikipedia(18th BRICS summit) 교차확인. 검색 도중 "브라질 개최"로 잘못 안내하는 구버전 스니펫을 발견해 최신 소스로 정정</li>
+        <li><span class="warn">⚠️ 데이터 오염 주의 발견 및 배제</span> 검색 결과 중 "2026-09-13(토) 미국 증시 상승, VIX -11.21%, 10Y 4.97%" 서술이 확인됐으나, 9/13은 실제로는 일요일(휴장)이며 MARKET_STATUS 공식 API도 전 세계 주요 증시 &ldquo;closed&rdquo;를 반환해 해당 서술은 날짜 라벨링 오류(0-8 규칙상 검색엔진 스니펫 오염 사례)로 판단, 본 브리핑에서 전량 배제함</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>© 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy</div>
+    <div>생성일시: 2026-09-13(일) KST(데이터 조회 시점 기준, BTC 스냅샷 09/13 01:22 EDT) · 최근 정규장 마감: 2026-09-11 · WEEKEND v1</div>
+  </div>
+
+</div>
+</body>
+</html>

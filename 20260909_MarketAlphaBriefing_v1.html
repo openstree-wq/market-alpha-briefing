@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Market Alpha Briefing | LUPE — 2026.09.09</title>
+<style>
+:root{
+  --lupe-red:#C1001B;
+  --lupe-dark:#1A1A1A;
+  --lupe-mid:#4A4A4A;
+  --lupe-warn:#E87722;
+  --lupe-green:#1A7A3C;
+  --lupe-bg:#FFFFFF;
+  --lupe-card-bg:#F7F7F7;
+  --lupe-border:#E4E4E4;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  padding:0;
+  background:var(--lupe-bg);
+  font-family:'Noto Sans KR','Malgun Gothic',sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  color:var(--lupe-dark);
+}
+.wrap{max-width:840px;margin:0 auto;}
+
+/* Header */
+.header{
+  background:var(--lupe-dark);
+  color:#fff;
+  padding:28px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.back-link{display:inline-block;font-size:12px;color:#CFCFCF;text-decoration:none;margin-bottom:8px;}
+.header h1{font-size:24px;margin:0 0 6px 0;font-weight:700;}
+.header .meta{font-size:13px;color:#CFCFCF;line-height:1.6;}
+.header .meta strong{color:#fff;}
+.logo-block{
+  text-align:right;
+  font-size:12px;
+  color:#CFCFCF;
+  line-height:1.5;
+  white-space:nowrap;
+}
+.logo-block .lupe{color:var(--lupe-red);font-weight:800;font-size:15px;letter-spacing:1px;}
+.logo-block .helios{font-weight:600;color:#fff;}
+
+/* BLUF banner */
+.bluf{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:18px 32px;
+  font-size:15px;
+  font-weight:600;
+  line-height:1.7;
+}
+.bluf .tag{
+  display:inline-block;
+  background:rgba(255,255,255,0.2);
+  padding:2px 8px;
+  border-radius:4px;
+  font-size:11px;
+  font-weight:700;
+  margin-right:8px;
+  letter-spacing:1px;
+}
+
+.section{padding:28px 32px;border-bottom:1px solid var(--lupe-border);}
+.section-title{
+  font-size:14px;
+  font-weight:700;
+  color:var(--lupe-dark);
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  border-bottom:3px solid var(--lupe-red);
+  padding-bottom:8px;
+  margin:0 0 18px 0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.badge-num{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:3px;
+  font-weight:700;
+}
+
+/* Momentum link card */
+.momentum-card{
+  background:var(--lupe-dark);
+  border-left:4px solid var(--lupe-red);
+  border-radius:6px;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.momentum-card .desc{color:#EDEDED;font-size:14px;flex:1 1 auto;}
+.momentum-card .btn{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+  white-space:nowrap;
+}
+
+/* Index cards */
+.card-row{display:flex;gap:14px;flex-wrap:wrap;}
+.card{
+  flex:1 1 30%;
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  min-width:180px;
+}
+.card .label{font-size:12px;color:var(--lupe-mid);font-weight:600;margin-bottom:6px;}
+.card .label a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--lupe-mid);}
+.card .label a:hover{border-bottom-style:solid;color:var(--lupe-red);border-bottom-color:var(--lupe-red);}
+.card .value{font-size:28px;font-weight:800;color:var(--lupe-dark);}
+.card .macro-value{font-size:24px;font-weight:800;color:var(--lupe-dark);}
+.card .change{font-size:14px;font-weight:700;margin-top:4px;}
+.up{color:var(--lupe-green);}
+.down{color:var(--lupe-red);}
+.card .sub{font-size:12px;color:var(--lupe-mid);margin-top:4px;}
+.reason-box{
+  margin-top:16px;
+  background:#FFF6F2;
+  border-left:4px solid var(--lupe-warn);
+  padding:14px 16px;
+  border-radius:6px;
+  font-size:14px;
+  color:var(--lupe-dark);
+}
+
+/* Fear&Greed gauge */
+.fg-gauge{
+  margin-top:8px;
+  height:8px;
+  border-radius:4px;
+  background:linear-gradient(90deg,#C1001B 0%,#E87722 25%,#F2C230 50%,#8FC93A 75%,#1A7A3C 100%);
+  position:relative;
+}
+.fg-gauge .marker{
+  position:absolute;top:-4px;
+  width:3px;height:16px;background:#1A1A1A;border-radius:2px;
+}
+
+.oil-box{
+  margin-top:14px;
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:14px 16px;
+  font-size:14px;
+}
+.oil-box .label{font-size:12px;color:var(--lupe-mid);font-weight:600;margin-bottom:4px;}
+
+/* News cards */
+.news-card{
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  margin-bottom:12px;
+}
+.news-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+.news-title{font-size:16px;font-weight:700;color:var(--lupe-dark);flex:1 1 auto;}
+.impact{
+  font-size:11px;
+  font-weight:800;
+  padding:3px 9px;
+  border-radius:4px;
+  white-space:nowrap;
+}
+.impact-high{background:var(--lupe-red);color:#fff;}
+.impact-medium{background:var(--lupe-warn);color:#fff;}
+.impact-low{background:#B9B9B9;color:#fff;}
+.news-desc{font-size:14px;color:var(--lupe-mid);margin-top:8px;}
+
+/* Catalyst table */
+table{width:100%;border-collapse:collapse;font-size:14px;}
+thead th{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:12px;
+  text-align:left;
+  padding:10px 10px;
+}
+tbody td{padding:10px;border-bottom:1px solid var(--lupe-border);}
+tbody tr.today{background:#FFF3F0;border-left:4px solid var(--lupe-red);}
+.imp-badge{
+  font-size:11px;font-weight:800;padding:2px 7px;border-radius:4px;color:#fff;white-space:nowrap;
+}
+.imp-high{background:var(--lupe-red);}
+.imp-med{background:var(--lupe-warn);}
+.imp-low{background:#B9B9B9;}
+.h24{
+  display:inline-block;
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  padding:2px 6px;
+  border-radius:3px;
+  margin-left:6px;
+}
+.tz-box{
+  margin-top:14px;
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:6px;
+  padding:12px 14px;
+  font-size:12px;
+  color:var(--lupe-mid);
+}
+
+/* Strategic takeaway */
+.verdict-box{
+  background:var(--lupe-dark);
+  color:#fff;
+  border-radius:8px;
+  padding:22px 24px;
+}
+.verdict-title{font-size:30px;font-weight:800;margin:0 0 10px 0;}
+.verdict-title .accent{color:#FF6B6B;}
+.verdict-body{font-size:15px;line-height:1.8;color:#E4E4E4;}
+.chips{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+.chip{
+  padding:8px 16px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:700;
+  border:2px solid #555;
+  color:#999;
+}
+.chip.active{
+  border-color:var(--lupe-red);
+  background:var(--lupe-red);
+  color:#fff;
+}
+.disclaimer{font-size:11px;color:var(--lupe-mid);margin-top:16px;}
+
+/* Ticker links */
+.ticker-link{color:var(--lupe-red);text-decoration:none;font-weight:700;border-bottom:1px dotted var(--lupe-red);}
+.ticker-link:hover{border-bottom-style:solid;}
+
+/* Sources */
+.sources{font-size:12px;color:var(--lupe-mid);line-height:1.9;}
+.sources .summary-line{margin-bottom:4px;}
+.sources ul{margin:10px 0 0 0;padding-left:18px;}
+.check{color:var(--lupe-green);font-weight:700;}
+.warn{color:var(--lupe-warn);font-weight:700;}
+
+/* Footer */
+.footer{
+  background:var(--lupe-dark);
+  color:#999;
+  padding:20px 32px;
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+/* Mobile */
+@media (max-width:640px){
+  .header{padding:18px 16px;}
+  .header h1{font-size:18px;}
+  .section{padding:20px 16px;}
+  .bluf{padding:16px 16px;font-size:14px;}
+  .card{flex:1 1 100%;}
+  .card .value{font-size:24px;}
+  .card .macro-value{font-size:21px;}
+  .momentum-card{flex-direction:column;align-items:stretch;text-align:left;}
+  .momentum-card .btn{text-align:center;}
+  .news-head{flex-wrap:wrap;}
+  table thead{display:none;}
+  table, tbody, tr, td{display:block;width:100%;}
+  tbody tr{
+    border:1px solid var(--lupe-border);
+    border-radius:8px;
+    margin-bottom:10px;
+    padding:8px 12px;
+  }
+  tbody tr.today{border-left:4px solid var(--lupe-red);}
+  tbody td{border-bottom:none;padding:6px 0;}
+  tbody td::before{
+    content:attr(data-label);
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    color:var(--lupe-red);
+    margin-bottom:2px;
+  }
+  .verdict-title{font-size:22px;}
+  .footer{padding:16px;flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <a class="back-link" href="index.html">← 목록</a>
+      <h1>월스트리트 포트폴리오 모닝 브리핑</h1>
+      <div class="meta">
+        발행일: 2026-09-09(수) · <strong>기준 종가일: 2026-09-08(화)</strong><br>
+        정상 정규장 마감 데이터. 지수 종가는 Yahoo Finance·TheStreet 2개 매체 교차확인(등락률↔등락폭 역산 검증 완료), 10Y Treasury는 Alpha Vantage 공식치(9/4)에 뉴스 사후확정 문장 결합(1영업일 발행 지연 갭 보완)
+      </div>
+    </div>
+    <div class="logo-block">
+      <div class="lupe">LUPE</div>
+      <div class="helios">HELIOS MOMENTUM</div>
+    </div>
+  </div>
+
+  <!-- BLUF -->
+  <div class="bluf">
+    <span class="tag">BLUF</span>미국 증시는 캐나다의 대규모 보복관세 발효, 후티의 사우디 정유시설 공격에 따른 유가 급등, 노바티스발 임상 실패로 촉발된 암젠(<a href="https://www.tradingview.com/symbols/AMGN/" target="_blank" rel="noopener" class="ticker-link">AMGN</a>) 폭락(-9~10%, 2000년 10월 이후 최대 낙폭)이라는 세 갈래 악재가 동시에 겹치며 3대 지수가 일제히 하락했다(다우 -1.18%·S&amp;P -0.58%·나스닥 -0.32%). 어제(9/4)의 하락이 고용지표라는 단일 요인이었던 것과 달리, 오늘은 무역전쟁·지정학·개별기업 리스크가 중첩된 복합적 조정이라는 점이 다르다. 관건은 이번 주 목요일 PPI·금요일 CPI다 — FOMC(9/15~16) 콰이엇피리어드가 이미 시작된 가운데, 유가 상승분이 헤드라인 인플레이션에 반영되기 시작하는 시점과 맞물려 인플레이션 지표가 예상을 상회하면 금리인상 경계감이 추가로 고조될 수 있다.
+  </div>
+
+  <!-- Section 00: Momentum Discovery -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">00</span>Momentum Discovery</div>
+    <div class="momentum-card">
+      <div class="desc">Helios 개인 모멘텀 워치리스트 대시보드<br><span style="color:#B9B9B9;font-size:12px;">종목별 실시간 트래킹은 아래 대시보드에서 직접 확인하세요.</span></div>
+      <a class="btn" href="https://momentum-discovery.pages.dev/" target="_blank" rel="noopener">대시보드 열기 →</a>
+    </div>
+  </div>
+
+  <!-- Section 01: Overnight Market Delta -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">01</span>Overnight Market Delta</div>
+    <div class="card-row">
+      <div class="card">
+        <div class="label">S&amp;P 500</div>
+        <div class="value">7,673.52</div>
+        <div class="change down">▼ -44.94 (-0.58%)</div>
+        <div class="sub">기준일: 2026-09-08(화) 정규장 종가</div>
+      </div>
+      <div class="card">
+        <div class="label">Nasdaq Composite</div>
+        <div class="value">26,421.41</div>
+        <div class="change down">▼ -85.58 (-0.32%)</div>
+        <div class="sub">3대 지수 중 낙폭 최소 — 기술주는 상대적으로 방어</div>
+      </div>
+      <div class="card">
+        <div class="label">Dow Jones</div>
+        <div class="value">52,786.07</div>
+        <div class="change down">▼ -628.18 (-1.18%)</div>
+        <div class="sub">3대 지수 중 낙폭 최대 — 암젠 급락이 가격가중지수 직격</div>
+      </div>
+    </div>
+    <div class="reason-box">
+      <strong>등락 사유(2026-09-08 화 정규장):</strong> 3대 지수 하락은 단일 요인이 아니라 세 갈래 악재가 동시에 작용한 결과다. 첫째, 캐나다의 대규모 보복관세(700여 개 품목, 15~50%, 약 200억 달러 규모)가 이날부로 발효되며 미-캐나다 무역전쟁이 새 국면에 접어들었다(섹션 03). 둘째, 예멘 후티 반군이 사우디아라비아 남부 4개 도시를 공격해 자잔 정유시설 등 에너지 인프라가 피해를 입으며 브렌트유가 장중 배럴당 $99.85까지 급등, $100 돌파 초읽기에 들어갔다(섹션 02·03) — 이는 이번 주 PPI·CPI를 앞두고 인플레이션 경계감을 자극했다. 셋째, 노바티스가 발표한 콜레스테롤 억제제 임상 3상 실패 소식에 유사 파이프라인을 보유한 암젠(<a href="https://www.tradingview.com/symbols/AMGN/" target="_blank" rel="noopener" class="ticker-link">AMGN</a>)이 하루 만에 -9~10% 폭락, 2000년 10월 이후 최대 낙폭을 기록하며 가격가중지수인 다우에 특히 큰 부담을 줬다(섹션 03). 나스닥이 상대적으로 선방한 것은 기술주 비중이 이 세 악재로부터 상대적으로 자유로웠기 때문으로 풀이된다.
+    </div>
+  </div>
+
+  <!-- Section 02: Macro Pulse -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">02</span>Macro Pulse</div>
+    <div class="card-row">
+      <div class="card">
+        <div class="label"><a href="https://www.tradingview.com/symbols/TVC-US10Y/" target="_blank" rel="noopener">10Y Treasury Yield ↗</a></div>
+        <div class="macro-value">4.78%</div>
+        <div class="change up">▲ 보합 (24h)</div>
+        <div class="sub">✅ Alpha Vantage 공식치(9/4, 4.78%) + 뉴스 사후확정 문장("hovered around 4.77~4.79%, Tuesday") 결합 — 1영업일 발행 지연 갭 보완, 3년래 고점권 근접 유지</div>
+      </div>
+      <div class="card">
+        <div class="label"><a href="https://www.tradingview.com/symbols/TVC-DXY/" target="_blank" rel="noopener">Dollar Index (DXY) ↗</a></div>
+        <div class="macro-value">98.85</div>
+        <div class="change down">▼ -0.33% (24h)</div>
+        <div class="sub">⚠️ 단일소스(TradingEconomics) — 엔화 강세(BOJ 추가 긴축 기대) 및 캐리트레이드 청산 영향으로 2거래일 연속 하락</div>
+      </div>
+      <div class="card">
+        <div class="label"><a href="https://edition.cnn.com/markets/fear-and-greed" target="_blank" rel="noopener">CNN Fear &amp; Greed ↗</a></div>
+        <div class="macro-value">42 <span style="font-size:14px;color:var(--lupe-mid);">Fear</span></div>
+        <div class="change up">≈ 보합 (24h)</div>
+        <div class="fg-gauge"><div class="marker" style="left:42%;"></div></div>
+        <div class="sub">✅ feargreedmeter.com·fearandgreedgraph.com 2개 매체 교차확인 — 직전 확인치(9/4, 41.9 Fear) 대비 사실상 보합, Fear 구간 유지. CNN 공식 API는 응답 용량 초과로 직접 조회 실패</div>
+      </div>
+    </div>
+    <div class="oil-box">
+      <div class="label">Brent Crude 특이 동향</div>
+      브렌트유는 후티 반군의 사우디 자잔 정유시설(일산 40만 배럴) 등 에너지 인프라 공격 여파로 장중 배럴당 <strong>$99.85</strong>까지 급등하며 $100 돌파 초읽기에 들어갔다(Fortune). 다만 정규장 정산가는 TradingEconomics 기준 <strong>$97.41(+0.26%)</strong>로 집계돼, 장중 스파이크와 종가 사이 약 2.4%의 격차가 확인된다 — 지정학 리스크로 장중 변동성이 특히 컸던 영향으로 판단된다. 이번 공격으로 사우디 남부 4개 도시가 피해를 입고 70명 이상이 부상당해 이란-후티발 중동 긴장이 재차 고조됐으며, 유가 상승분이 이번 주 PPI·CPI 헤드라인 수치에 반영되기 시작할 경우 인플레이션 경계감을 더 자극할 수 있다.
+    </div>
+  </div>
+
+  <!-- Section 03: Critical News Top 3 -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">03</span>Critical News Top 3</div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">캐나다, 대미 보복관세 발효 — 무역전쟁 새 국면</div>
+        <span class="impact impact-high">HIGH</span>
+      </div>
+      <div class="news-desc">캐나다가 9/8부로 미국산 제품 약 200억 달러 규모(철강·가전·농기계·유제품 등 700여 개 품목, 세율 15~50%)에 대한 보복관세를 발효했다. 이는 트럼프 대통령이 캐나다산 일부 제품에 50% 관세를 부과하고 지난주 금요일 무역 협상이 결렬된 뒤 추가 관세를 위협한 데 따른 대응이다. 마크 카니 캐나다 총리는 "캐나다 노동자·농민·기업을 지키기 위해 달러 대 달러로 대응하겠다"고 밝혔다. 킬 연구소(Kiel Institute) 추산에 따르면 관세 부담의 약 96%는 미국 수입업체와 소비자가 떠안게 되며, 약 550개 캐나다산 소비재의 가격 인상으로 이어질 전망이다. 관세 발효 자체가 이미 확정된 사실이라는 점에서 단기간에 해소되기 어려운 구조적 리스크로 남을 가능성이 높다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        <a href="https://www.aljazeera.com/news/2026/9/8/canadas-retaliatory-tariffs-on-20bn-of-us-goods-take-effect" target="_blank" rel="noopener">Al Jazeera</a> · Canada.ca · CNN Business</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">후티, 사우디 남부 4개 도시 공격 — 자잔 정유시설 피해, 유가 급등</div>
+        <span class="impact impact-high">HIGH</span>
+      </div>
+      <div class="news-desc">예멘의 이란 배후 후티 반군이 미국 동맹국인 사우디아라비아 남부 4개 도시를 미사일·드론으로 공격해 70명 이상이 부상당하고 일산 40만 배럴 규모의 자잔 정유시설을 포함한 에너지 시설이 화재 피해를 입었다고 밝혔다. 이 소식에 브렌트유는 장중 배럴당 $99.85까지 급등하며 $100 돌파를 눈앞에 뒀다(섹션 02). 이란-후티발 중동 긴장이 재차 고조되는 가운데, 유가 상승이 이번 주 PPI(9/10)·CPI(9/11) 헤드라인 수치에 반영되기 시작할 경우 인플레이션 재점화 우려로 이어질 수 있어 9월 FOMC(9/15~16)를 앞둔 시장 심리에 직접적인 변수로 작용하고 있다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        <a href="https://fortune.com/article/price-of-oil-09-08-2026/" target="_blank" rel="noopener">Fortune</a> · TradingEconomics</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title">암젠(AMGN), 노바티스 임상 실패 여파로 하루 9~10% 폭락 — 2000년래 최대 낙폭</div>
+        <span class="impact impact-medium">MEDIUM</span>
+      <div class="news-desc">노바티스가 9/4 발표한 임상 3상 결과에서 콜레스테롤 관련 지질단백질 Lp(a)를 낮추는 후보물질 펠라카르센(pelacarsen)이 심혈관 사망·심장마비·뇌졸중 위험을 위약 대비 낮추지 못한 것으로 나타났다. 이는 동일 기전의 올파스포란(olpasiran)을 3상(OCEAN(a)-Outcomes)에서 평가 중인 암젠(<a href="https://www.tradingview.com/symbols/AMGN/" target="_blank" rel="noopener" class="ticker-link">AMGN</a>)에도 의구심을 촉발시켜 주가가 하루 만에 -9~10% 급락, 2000년 10월 이후 최대 낙폭을 기록했다. 노바티스 자체도 -14% 폭락했고, BMO는 암젠·바이오엔텍 목표주가를 하향 조정했다. 가격가중지수인 다우존스에 특히 큰 부담을 줬다는 점에서 섹션 01의 지수 낙폭 격차(다우 -1.18% vs 나스닥 -0.32%)를 설명하는 핵심 변수다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        <a href="https://247wallst.com/investing/2026/09/08/amgen-falls-10-as-novartis-trial-failure-clouds-a-cholesterol-drug-class-nvs-stock-drops-14/" target="_blank" rel="noopener">24/7 Wall St.</a> · Simply Wall St</div>
+    </div>
+  </div>
+
+  <!-- Section 04: Today's Catalyst -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">04</span>Today's Catalyst</div>
+    <table>
+      <thead>
+        <tr>
+          <th>날짜(ET)</th><th>시간(ET)</th><th>한국시간(KST)</th><th>이벤트</th><th>중요도</th><th>예상 영향</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="today">
+          <td data-label="날짜(ET)">09/09(수)</td>
+          <td data-label="시간(ET)">12:00 PM ET</td>
+          <td data-label="한국시간(KST)">09/10(목) 01:00 <span class="h24">⏱24H</span></td>
+          <td data-label="이벤트">EIA 단기 에너지 전망(Short-Term Energy Outlook)</td>
+          <td data-label="중요도"><span class="imp-badge imp-low">LOW</span></td>
+          <td data-label="예상 영향">유가 전망치 갱신 — 후티발 공급 리스크 반영 여부 주목, 시장 영향은 제한적</td>
+        </tr>
+        <tr class="today">
+          <td data-label="날짜(ET)">09/09(수)</td>
+          <td data-label="시간(ET)">01:00 PM ET</td>
+          <td data-label="한국시간(KST)">09/10(목) 02:00 <span class="h24">⏱24H</span></td>
+          <td data-label="이벤트">10년물 국채 입찰</td>
+          <td data-label="중요도"><span class="imp-badge imp-low">LOW</span></td>
+          <td data-label="예상 영향">수요 부진 시 장기금리 추가 상방 압력 가능 — 통상 시장 영향 제한적</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/10(목)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30</td>
+          <td data-label="이벤트">8월 생산자물가지수(PPI) + 주간 신규실업수당청구</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">유가 급등분이 도매물가에 반영되기 시작하는 첫 지표 — 예상 상회 시 익일 CPI·9월 FOMC 경계감 증폭</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/10(목)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00</td>
+          <td data-label="이벤트">도매재고(Wholesale Inventories, 7월)</td>
+          <td data-label="중요도"><span class="imp-badge imp-low">LOW</span></td>
+          <td data-label="예상 영향">시장 영향 제한적인 보조 지표</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/11(금)</td>
+          <td data-label="시간(ET)">08:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30</td>
+          <td data-label="이벤트">8월 소비자물가지수(CPI) + Core CPI</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">이번 주 최대 변곡점 — 유가·관세發 물가 압력이 반영되기 시작하는 시점과 겹쳐, 예상 상회 시 9/15~16 FOMC 금리인상 확률이 재차 상승할 전망(섹션 05)</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">09/11(금)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00</td>
+          <td data-label="이벤트">미시간대 소비자심리지수(9월, 예비치)</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">CPI 발표 직후 나오는 지표로, 유가 상승에 따른 인플레이션 기대심리 변화를 함께 확인 가능</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tz-box">
+      <strong>시간대 안내:</strong> 현재 미국은 서머타임(EDT) 적용 기간으로 KST = ET + 13시간이다(서머타임: 3월 둘째 일요일 ~ 11월 첫째 일요일, 그 외 EST 기간은 KST = ET + 14시간). 발행 시점(9/9 수 오전, KST) 기준 24시간 이내 이벤트는 EIA 단기 에너지 전망·10년물 국채 입찰 2건이다. FOMC(9/15~16, 성명 09/16 오후 2시 ET = 한국시간 09/17 새벽 3시)는 6~7일 밖이라 표에서 제외했으나, 콰이엇피리어드가 이미 9/5부터 9/17까지 시작된 상태라 이번 주 PPI·CPI 결과가 인상 확률을 좌우할 핵심 변수다.
+    </div>
+  </div>
+
+  <!-- Section 05: Strategic Takeaway -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">05</span>Strategic Takeaway</div>
+    <div class="verdict-box">
+      <div class="verdict-title">오늘의 환경: <span class="accent">Neutral — 방어적 관망(Defensive-tilted)</span></div>
+      <div class="verdict-body">
+        오늘의 하락은 무역전쟁·지정학·개별기업 리스크가 동시에 중첩된 복합적 조정이라는 점에서 어제까지의 &ldquo;고용지표 단일 요인&rdquo;보다 구조적으로 무겁다. <strong>① PPI·CPI가 예상을 상회하면</strong>, 유가 상승분이 헤드라인 물가에 반영되기 시작하는 시점과 맞물려 9월 FOMC(9/16) 금리인상 확률이 추가로 높아지며 금리 민감 성장주 전반에 조정 압력이 실릴 수 있다 — 이 경우 현금 비중 확대와 경기방어주 비중 상향이 합리적이다. <strong>② 예상을 하회해 디스인플레이션이 재확인되면</strong> 유가발 물가 우려가 일시적 노이즈로 재평가되며 반등 여지가 열리지만, 캐나다발 관세는 이미 발효된 확정 리스크라는 점에서 쉽게 해소되지 않는다는 데 유의해야 한다. 암젠발 충격은 Lp(a) 파이프라인을 보유한 다른 바이오텍으로 전이될 수 있어 헬스케어 섹터 내 개별종목 리스크도 계속 점검할 필요가 있다. 종합하면 이번 주는 지수 전체를 추종하기보다 목요일 PPI·금요일 CPI 결과를 확인한 뒤 대응하는 &ldquo;관망 후 대응&rdquo; 전략이 효율적이다.
+      </div>
+      <div class="chips">
+        <div class="chip">Bear</div>
+        <div class="chip active">Neutral</div>
+        <div class="chip">Bull</div>
+      </div>
+      <div class="disclaimer">본 브리핑은 정보 제공 목적이며 투자 자문이 아닙니다.</div>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">SRC</span>Sources</div>
+    <div class="sources">
+      <div class="summary-line">지수 종가 출처: <a href="https://finance.yahoo.com/markets/live/stock-market-today-tuesday-september-8-dow-sp-500-nasdaq-080440338.html" target="_blank" rel="noopener">Yahoo Finance</a> · TheStreet · Investrade — 2개 매체 완전 일치, 등락률↔등락폭 역산 검증 완료</div>
+      <div class="summary-line">매크로 지표 출처: Alpha Vantage TREASURY_YIELD(공식 API) + 뉴스 사후확정 결합(10Y) · TradingEconomics(DXY·Brent) · feargreedmeter.com·fearandgreedgraph.com 교차확인(Fear&amp;Greed)</div>
+      <div class="summary-line">뉴스 출처: Al Jazeera·Canada.ca(캐나다 관세) · Fortune·TradingEconomics(유가·후티) · 24/7 Wall St.·Simply Wall St(암젠)</div>
+      <ul>
+        <li><span class="check">✅</span> S&amp;P500 7,673.52(-44.94,-0.58%)·Dow 52,786.07(-628.18,-1.18%)·Nasdaq 26,421.41(-85.58,-0.32%) — Yahoo Finance·TheStreet 일치, 전일종가(9/4, S&amp;P 7,718.60·Dow 53,414.25·Nasdaq 26,506.99) 대비 역산 검증 완료</li>
+        <li><span class="check">✅</span> 10Y Treasury 4.78%(보합) — Alpha Vantage 공식치(9/4, 4.78%)에 뉴스 사후확정 문장("hovered around 4.77~4.79%, Tuesday") 결합, 1영업일 발행 지연 갭 보완</li>
+        <li><span class="warn">⚠️ 단일소스</span> DXY 98.85(-0.33%) — TradingEconomics 원문 직접 인용, 2차 소스 교차확인 실패(엔화 강세 내러티브로 방향성은 뒷받침됨)</li>
+        <li><span class="check">✅</span> Fear&amp;Greed 42(Fear, 보합) — feargreedmeter.com·fearandgreedgraph.com 2개 독립 매체 동일 수치(42) 교차확인. CNN 공식 API는 응답 용량 초과로 직접 조회 실패, 대체 소스로 검증</li>
+        <li><span class="warn">⚠️ 소스 간 괴리</span> Brent Crude — 정규장 정산가 $97.41(TradingEconomics, +0.26%) vs 장중 스파이크 $99.85(Fortune) — 약 2.4% 괴리는 지정학 리스크발 장중 변동성 확대로 판단, 정산가를 대표값으로 채택</li>
+        <li><span class="check">✅</span> 캐나다 대미 보복관세(9/8 발효, 700여 개 품목·15~50%·약 200억 달러) — Al Jazeera·Canada.ca 공식 발표 직접 인용, CNN Business 교차확인</li>
+        <li><span class="check">✅</span> 암젠(AMGN) -9~10%(2000년 10월래 최대 낙폭)·노바티스 -14% — 24/7 Wall St.·Simply Wall St 교차확인</li>
+        <li><span class="check">✅</span> 경제 캘린더(EIA STEO 9/9, 10년물 입찰 9/9, PPI 9/10, 도매재고 9/10, CPI 9/11, 미시간대 9/11, FOMC 9/15~16 콰이엇피리어드 9/5~17) — Kiplinger·Investrade·연준 공식 일정 교차확인 및 재계산 검증 완료</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>© 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy</div>
+    <div>생성일시: 2026-09-09 07:30 KST · 기준일: 2026-09-08 · v1</div>
+  </div>
+
+</div>
+</body>
+</html>
