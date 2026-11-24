@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>위켄드 마켓 브리핑 | LUPE — 2026.10.26</title>
+<style>
+:root{
+  --lupe-red:#C1001B;
+  --lupe-dark:#1A1A1A;
+  --lupe-mid:#4A4A4A;
+  --lupe-warn:#E87722;
+  --lupe-green:#1A7A3C;
+  --lupe-bg:#FFFFFF;
+  --lupe-card-bg:#F7F7F7;
+  --lupe-border:#E4E4E4;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  padding:0;
+  background:var(--lupe-bg);
+  font-family:'Noto Sans KR','Malgun Gothic',sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  color:var(--lupe-dark);
+}
+.wrap{max-width:840px;margin:0 auto;}
+
+/* Header */
+.header{
+  background:var(--lupe-dark);
+  color:#fff;
+  padding:28px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.back-link{display:inline-block;font-size:12px;color:#CFCFCF;text-decoration:none;margin-bottom:8px;}
+.header h1{font-size:24px;margin:0 0 6px 0;font-weight:700;}
+.header .meta{font-size:13px;color:#CFCFCF;line-height:1.6;}
+.header .meta strong{color:#fff;}
+.logo-block{
+  text-align:right;
+  font-size:12px;
+  color:#CFCFCF;
+  line-height:1.5;
+  white-space:nowrap;
+}
+.logo-block .lupe{color:var(--lupe-red);font-weight:800;font-size:15px;letter-spacing:1px;}
+.logo-block .helios{font-weight:600;color:#fff;}
+
+/* BLUF banner */
+.bluf{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:18px 32px;
+  font-size:15px;
+  font-weight:600;
+  line-height:1.7;
+}
+.bluf .tag{
+  display:inline-block;
+  background:rgba(255,255,255,0.2);
+  padding:2px 8px;
+  border-radius:4px;
+  font-size:11px;
+  font-weight:700;
+  margin-right:8px;
+  letter-spacing:1px;
+}
+
+.section{padding:28px 32px;border-bottom:1px solid var(--lupe-border);}
+.section-title{
+  font-size:14px;
+  font-weight:700;
+  color:var(--lupe-dark);
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  border-bottom:3px solid var(--lupe-red);
+  padding-bottom:8px;
+  margin:0 0 18px 0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.badge-num{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:3px;
+  font-weight:700;
+}
+
+/* Momentum link card */
+.momentum-card{
+  background:var(--lupe-dark);
+  border-left:4px solid var(--lupe-red);
+  border-radius:6px;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.momentum-card .desc{color:#EDEDED;font-size:14px;flex:1 1 auto;}
+.momentum-card .btn{
+  background:var(--lupe-red);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+  white-space:nowrap;
+}
+
+/* Friday snapshot line */
+.snapshot-box{
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  font-size:16px;
+  font-weight:700;
+}
+.snapshot-box .sub{font-size:12px;color:var(--lupe-mid);font-weight:400;margin-top:8px;}
+.up{color:var(--lupe-green);}
+.down{color:var(--lupe-red);}
+
+/* News cards */
+.news-card{
+  border:1px solid var(--lupe-border);
+  border-radius:8px;
+  padding:16px 18px;
+  margin-bottom:12px;
+}
+.news-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+.news-title{font-size:16px;font-weight:700;color:var(--lupe-dark);flex:1 1 auto;}
+.impact{
+  font-size:11px;
+  font-weight:800;
+  padding:3px 9px;
+  border-radius:4px;
+  white-space:nowrap;
+}
+.impact-high{background:var(--lupe-red);color:#fff;}
+.impact-medium{background:var(--lupe-warn);color:#fff;}
+.impact-low{background:#B9B9B9;color:#fff;}
+.news-desc{font-size:14px;color:var(--lupe-mid);margin-top:8px;}
+
+/* Catalyst table */
+table{width:100%;border-collapse:collapse;font-size:14px;}
+thead th{
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:12px;
+  text-align:left;
+  padding:10px 10px;
+}
+tbody td{padding:10px;border-bottom:1px solid var(--lupe-border);}
+tbody tr.today{background:#FFF3F0;border-left:4px solid var(--lupe-red);}
+.imp-badge{
+  font-size:11px;font-weight:800;padding:2px 7px;border-radius:4px;color:#fff;white-space:nowrap;
+}
+.imp-high{background:var(--lupe-red);}
+.imp-med{background:var(--lupe-warn);}
+.imp-low{background:#B9B9B9;}
+.h24{
+  display:inline-block;
+  background:var(--lupe-dark);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  padding:2px 6px;
+  border-radius:3px;
+  margin-left:6px;
+}
+.tz-box{
+  margin-top:14px;
+  background:var(--lupe-card-bg);
+  border:1px solid var(--lupe-border);
+  border-radius:6px;
+  padding:12px 14px;
+  font-size:12px;
+  color:var(--lupe-mid);
+}
+
+/* Strategic takeaway */
+.verdict-box{
+  background:var(--lupe-dark);
+  color:#fff;
+  border-radius:8px;
+  padding:22px 24px;
+}
+.verdict-title{font-size:30px;font-weight:800;margin:0 0 10px 0;}
+.verdict-title .accent{color:#FF6B6B;}
+.verdict-body{font-size:15px;line-height:1.8;color:#E4E4E4;}
+.chips{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+.chip{
+  padding:8px 16px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:700;
+  border:2px solid #555;
+  color:#999;
+}
+.chip.active{
+  border-color:var(--lupe-red);
+  background:var(--lupe-red);
+  color:#fff;
+}
+.disclaimer{font-size:11px;color:var(--lupe-mid);margin-top:16px;}
+
+/* Ticker links */
+.ticker-link{color:var(--lupe-red);text-decoration:none;font-weight:700;border-bottom:1px dotted var(--lupe-red);}
+.ticker-link:hover{border-bottom-style:solid;}
+
+/* Sources */
+.sources{font-size:12px;color:var(--lupe-mid);line-height:1.9;}
+.sources .summary-line{margin-bottom:4px;}
+.sources ul{margin:10px 0 0 0;padding-left:18px;}
+.check{color:var(--lupe-green);font-weight:700;}
+.warn{color:var(--lupe-warn);font-weight:700;}
+
+/* Footer */
+.footer{
+  background:var(--lupe-dark);
+  color:#999;
+  padding:20px 32px;
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+/* Mobile */
+@media (max-width:640px){
+  .header{padding:18px 16px;}
+  .header h1{font-size:18px;}
+  .section{padding:20px 16px;}
+  .bluf{padding:16px 16px;font-size:14px;}
+  .snapshot-box{font-size:14px;}
+  .momentum-card{flex-direction:column;align-items:stretch;text-align:left;}
+  .momentum-card .btn{text-align:center;}
+  .news-head{flex-wrap:wrap;}
+  table thead{display:none;}
+  table, tbody, tr, td{display:block;width:100%;}
+  tbody tr{
+    border:1px solid var(--lupe-border);
+    border-radius:8px;
+    margin-bottom:10px;
+    padding:8px 12px;
+  }
+  tbody tr.today{border-left:4px solid var(--lupe-red);}
+  tbody td{border-bottom:none;padding:6px 0;}
+  tbody td::before{
+    content:attr(data-label);
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    color:var(--lupe-red);
+    margin-bottom:2px;
+  }
+  .verdict-title{font-size:22px;}
+  .footer{padding:16px;flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <a class="back-link" href="index.html">← 목록</a>
+      <h1>위켄드 마켓 브리핑</h1>
+      <div class="meta">
+        발행일: 2026-10-26(월) · <strong>최근 정규장 마감: 2026-10-23(금)</strong> — ⚠️ 10/24(토)·10/25(일)자 브리핑이 발행되지 않아 금요일 마감 상세 사유는 아래 W1에서 직접 요약함<br>
+        데이터 확인(10/26 08:32 KST): Alpha Vantage GLOBAL_QUOTE(SOXX) 공식 API 조회 완료 · Alpha Vantage MARKET_STATUS·TREASURY_YIELD는 레이트리밋으로 WebSearch 교차확인으로 대체 · WEEKEND 모드 · v1
+      </div>
+    </div>
+    <div class="logo-block">
+      <div class="lupe">LUPE</div>
+      <div class="helios">HELIOS MOMENTUM</div>
+    </div>
+  </div>
+
+  <!-- BLUF -->
+  <div class="bluf">
+    <span class="tag">BLUF</span>이번 주는 수요일(10/28) FOMC 금리 결정과 알파벳 실적, 목요일(10/29) 아마존 실적·Q3 GDP·PCE가 몰린 '트리플 변곡점' 주간인데, 9월 CPI가 3.7%로 예상을 웃돈 상황에서 중동발 유가 급등(Brent 6개월 최고)이 인플레이션을 추가로 자극하고 있어 Fed의 정책 유연성이 가장 제약된 시점이기도 하다 — FOMC 톤과 알파벳·아마존의 AI capex 대비 현금흐름 데이터를 확인하기 전까지는 신규 공격적 베팅보다 기존 비중을 유지하는 편이 합리적이다.
+  </div>
+
+  <!-- Section W0: Momentum Discovery -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W0</span>Momentum Discovery</div>
+    <div class="momentum-card">
+      <div class="desc">Helios 개인 모멘텀 워치리스트 대시보드<br><span style="color:#B9B9B9;font-size:12px;">종목별 실시간 트래킹은 아래 대시보드에서 직접 확인하세요.</span></div>
+      <a class="btn" href="https://momentum-discovery.pages.dev/" target="_blank" rel="noopener">대시보드 열기 →</a>
+    </div>
+  </div>
+
+  <!-- Section W1: Friday Close Snapshot -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W1</span>Friday Close Snapshot</div>
+    <div class="snapshot-box">
+      S&amp;P500 <span class="down">7,623.68(-0.5%)</span> · Nasdaq <span class="down">25,955.34(-0.2%)</span> · Dow <span class="down">52,215.16(-1.2%)</span> · SOXX <span class="up">478.20(+0.53%)</span>
+      <div class="sub">기준: 2026-10-23(금) 정규장 마감 종가(지수: AP통신 와이어, Yahoo Finance·96.5 KRMG 재게재본 교차확인 완전 일치 / SOXX: Alpha Vantage GLOBAL_QUOTE 공식 API, latest trading day 2026-10-23 확인). 금요일은 중동(이란) 관련 미국의 추가 군사작전 가능성이 부각되며 Brent 원유가 하루 3.14% 급등해 $116.72(6개월 최고치)를 기록, 10년물 국채금리도 4.99%까지 올라 금리·인플레 민감 종목 전반을 압박했다 — 다우가 652.82포인트(1.2%) 빠지며 3대 지수 중 가장 큰 타격을 받았다. 반면 SOXX는 Nasdaq 대비 +0.73%p 아웃퍼폼하며 반도체 섹터는 유가발 매도세에서 상대적으로 선방했다. ⚠️ 10/24(토)자 정식 브리핑이 발행되지 않아 위 등락 사유는 본 WEEKEND판에서 직접 요약한 것이며, 섹터별 상세·매크로 카드(10Y/DXY/F&amp;G)는 별도로 발행되지 않았다.</div>
+    </div>
+  </div>
+
+  <!-- Section W2: Weekend Major News -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W2</span>Weekend Major News</div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">중동 긴장 재점화 — Brent 원유 $116.72까지 급등, 트럼프 "이란에 추가 군사작전 가능할 수도"</div>
+        <span class="impact impact-high">HIGH</span>
+      </div>
+      <div class="news-desc">트럼프 대통령이 금요일 "이란에 대해 또 다른 작전을 할 수도 있다"고 언급하며 미국의 대이란 추가 공습 우려가 커졌다. Brent 원유는 하루 3.14%(+$3.55) 급등해 $116.72로 지난 4월 29일 이후 6개월 최고치를 기록했고, 주간 기준으로는 6% 상승했다. WTI도 3.8% 오른 $103.27에 마감했다. 유가 급등은 이미 뜨거운 9월 CPI(+3.7%)에 추가 상승압력을 가해, 이번 주 FOMC의 정책 셈법을 복잡하게 만들고 있다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        CNBC(10/23) · WION(10/23) · Sharjah24/WAM(10/24) 교차확인</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">비트코인, 주말 레버리지 청산 랠리 후 $80,800대 회복 — 한 달 최저 $79,146 터치, 스팟 ETF는 6월래 최대 순유출</div>
+        <span class="impact impact-medium">MEDIUM</span>
+      </div>
+      <div class="news-desc">비트코인은 주 중반 고점 $85,000 부근에서 약 5% 미끄러져 토요일 $79,146까지 밀렸다 — 한 달 내 최저치다. 주말 얇은 유동성 속에 레버리지 롱 포지션이 강제 청산되며 24시간 기준 약 8.1억 달러(전체 청산의 95.1%가 롱)가 쓸려나갔고, 일요일 들어 $80,800대로 되돌림했다. 목요일에는 스팟 비트코인 ETF에서 6.356억 달러 순유출이 발생해 6월 이후 최대 규모를 기록했다. 50일 이동평균선($81,784 부근)을 8월 이후 처음으로 하회해 기술적으로도 약세 신호가 켜졌다 — 월요일 미국 증시 개장 전 위험자산 선호 심리를 가늠하는 선행지표로 볼 수 있다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        Time.news(10/25) · CoinCodex(10/25) 교차확인</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">알파벳(<a href="https://www.tradingview.com/symbols/GOOGL/" target="_blank" rel="noopener" class="ticker-link">GOOGL</a>) 수요일 실적 예고 — 2026년 capex 가이던스 $1,750억~$1,850억, Cloud 성장(+82%) 대비 현금흐름 전환이 핵심 쟁점</div>
+        <span class="impact impact-medium">MEDIUM</span>
+      </div>
+      <div class="news-desc">알파벳은 10/28(수) 장마감 후 Q3 실적을 발표한다. 컨센서스는 매출 $1,274억~$1,318억, EPS $3.04~$3.10 수준으로, 상회 여지가 크지 않다는 평가다. 2분기 Google Cloud 매출은 전년比 82% 급증했지만 캐펙스는 약 449억 달러로 전년 대비 거의 두 배 늘었고, 영업현금흐름은 41% 증가한 반면 자유현금흐름은 -59억 달러로 적자였다. 2026년 전체 capex 가이던스는 $1,750억~$1,850억 수준 — AI 인프라 투자가 Cloud 마진·현금전환으로 얼마나 이어지는지가 이번 콜의 최대 관전 포인트다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        InsiderFinance(10/19, Q2 실적 자료 기반 프리뷰)</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">아마존(<a href="https://www.tradingview.com/symbols/AMZN/" target="_blank" rel="noopener" class="ticker-link">AMZN</a>) 목요일 실적 예고 — AWS·AI 수요가 알파벳 Cloud 호실적 다음 차례 시험대</div>
+        <span class="impact impact-medium">MEDIUM</span>
+      </div>
+      <div class="news-desc">아마존은 10/29(목) 장마감 후 Q3 2026 실적을 발표하며, 콘퍼런스콜은 오후 5:00 PM ET(태평양 2:00 PM)에 예정돼 있다고 회사가 공식 발표했다. 알파벳이 전날 Cloud·AI capex 관련 메시지를 먼저 내놓는 만큼, AWS의 AI 수요·마진 추이가 메가캡 전반의 AI 투자 내러티브를 다시 검증하는 계기가 될 전망이다.</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        Amazon 공식 IR 발표(aboutamazon.com)</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-head">
+        <div class="news-title">9월 CPI 전년比 +3.7% — 예상(3.6%) 상회, 유가 재급등과 맞물려 FOMC 셈법 복잡화</div>
+        <span class="impact impact-high">HIGH</span>
+      </div>
+      <div class="news-desc">10/14 발표된 9월 CPI는 전년 대비 3.7% 상승해 시장 예상(3.6%)을 소폭 웃돌았다. 이미 뜨거운 인플레이션 데이터 위에 중동발 유가 급등(Brent 6개월 최고)이 겹치면서, 10/28 FOMC에서 연준이 완화적 톤을 유지하기 어려울 수 있다는 우려가 커지고 있다 — 10년물 국채금리는 금요일 기준 4.99%까지 올랐다(일부 소스는 5.08%를 제시해 ⚠️ 소스 간 다소 괴리가 있으나, 유가·인플레 동반 상승이라는 방향성은 일치).</div>
+      <div class="news-desc" style="margin-top:6px;font-size:12px;">
+        InvestingLive·CPI Inflation Calculator(10/14) · AP통신(10/23, 국채금리) · Time.news(10/25, 참고치)</div>
+    </div>
+  </div>
+
+  <!-- Section W3: This Week's Catalyst -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W3</span>This Week's Catalyst</div>
+    <table>
+      <thead>
+        <tr>
+          <th>날짜(ET)</th><th>시간(ET)</th><th>한국시간(KST)</th><th>이벤트</th><th>중요도</th><th>예상 영향</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="날짜(ET)">10/27(화)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00</td>
+          <td data-label="이벤트">Conference Board 소비자신뢰지수(10월)</td>
+          <td data-label="중요도"><span class="imp-badge imp-med">MEDIUM</span></td>
+          <td data-label="예상 영향">유가발 인플레 우려가 소비자 체감에 반영됐는지 확인, FOMC 전날 분위기 점검</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">10/28(수)</td>
+          <td data-label="시간(ET)">2:00 PM ET</td>
+          <td data-label="한국시간(KST)">익일(목) 03:00</td>
+          <td data-label="이벤트">FOMC 금리 결정 발표</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">이번 주 최대 변곡점 — 유가발 인플레 재점화 속 Fed 톤(동결/인하, 매파·비둘기 수사) 확인</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">10/28(수)</td>
+          <td data-label="시간(ET)">2:30 PM ET</td>
+          <td data-label="한국시간(KST)">익일(목) 03:30</td>
+          <td data-label="이벤트">파월 기자회견</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">기자회견 발언이 금리 결정 자체보다 시장 반응을 더 크게 좌우할 가능성</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">10/28(수) 장마감 후</td>
+          <td data-label="시간(ET)">콜 약 4:30 PM ET</td>
+          <td data-label="한국시간(KST)">익일(목) 05:30</td>
+          <td data-label="이벤트">알파벳(<a href="https://www.tradingview.com/symbols/GOOGL/" target="_blank" rel="noopener" class="ticker-link">GOOGL</a>) Q3 실적</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">FOMC 당일 발표 — Cloud 성장 대비 AI capex·현금흐름 전환 확인이 메가캡 전반 재평가 트리거</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">10/29(목)</td>
+          <td data-label="시간(ET)">8:30 AM ET</td>
+          <td data-label="한국시간(KST)">21:30</td>
+          <td data-label="이벤트">Q3 GDP 속보치 · 9월 PCE(개인소비지출) · 주간 신규실업수당청구</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">FOMC 다음날 성장·물가 데이터 동시 발표 — 연준 결정의 사후 정당성 확인</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">10/29(목) 장마감 후</td>
+          <td data-label="시간(ET)">콜 5:00 PM ET</td>
+          <td data-label="한국시간(KST)">익일(금) 06:00</td>
+          <td data-label="이벤트">아마존(<a href="https://www.tradingview.com/symbols/AMZN/" target="_blank" rel="noopener" class="ticker-link">AMZN</a>) Q3 실적</td>
+          <td data-label="중요도"><span class="imp-badge imp-high">HIGH</span></td>
+          <td data-label="예상 영향">AWS·AI 수요가 알파벳 Cloud 호실적을 뒤따를지 검증</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">10/30(금)</td>
+          <td data-label="시간(ET)">9:45 AM ET</td>
+          <td data-label="한국시간(KST)">22:45</td>
+          <td data-label="이벤트">Chicago PMI(10월)</td>
+          <td data-label="중요도"><span class="imp-badge imp-low">LOW</span></td>
+          <td data-label="예상 영향">제조업 지역지표, 시장 영향 제한적</td>
+        </tr>
+        <tr>
+          <td data-label="날짜(ET)">10/30(금)</td>
+          <td data-label="시간(ET)">10:00 AM ET</td>
+          <td data-label="한국시간(KST)">23:00</td>
+          <td data-label="이벤트">University of Michigan 소비자심리지수(10월 확정치)</td>
+          <td data-label="중요도"><span class="imp-badge imp-low">LOW</span></td>
+          <td data-label="예상 영향">소비 심리 확정치, 한 주를 마무리하는 보조 지표</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tz-box">
+      <strong>시간대 안내:</strong> 현재 미국은 서머타임(EDT, UTC-4) 적용 기간으로 한국시간(KST)은 ET+13시간이다. 서머타임은 2026년 11월 1일(일) 종료되며, 이후에는 EST(UTC-5) 적용으로 KST=ET+14시간으로 전환된다. 상기 캘린더는 모두 ET 기준 날짜·시간 오름차순 정렬이다. 현 시점(10/26 월 08:32 KST) 기준 24시간 이내 예정된 이벤트는 없다 — 가장 가까운 이벤트인 화요일 소비자신뢰지수까지 약 38시간 남아 있다. 월요일(10/26) 자체는 확인된 주요 지표가 없어 표에서 제외했다.
+    </div>
+  </div>
+
+  <!-- Section W4: Weekly Strategy Pulse -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">W4</span>Weekly Strategy Pulse</div>
+    <div class="verdict-box">
+      <div class="verdict-title">Fed-Gated <span class="accent">Neutral</span></div>
+      <div class="verdict-body">
+        이번 주는 수요일(10/28) FOMC 금리 결정·기자회견과 알파벳 실적, 목요일(10/29) 아마존 실적·GDP·PCE가 몰린 구간으로, 단일 트리거가 아니라 48시간 안에 정책·성장·빅테크 실적이 동시에 쏟아지는 '압축 변곡점' 주간이다.<br><br>
+        <strong>① Bull 시나리오</strong> — Fed가 유가발 인플레를 일시적 요인으로 규정하며 비둘기파 톤을 유지하고, 알파벳·아마존이 AI capex 대비 현금흐름 개선을 입증하면 → 반도체·메가캡 기술주(특히 SOXX가 금요일 보여준 상대강도 연장) 비중 확대를 검토할 수 있다.<br>
+        <strong>② Bear 시나리오</strong> — Fed가 유가·CPI발 인플레 재점화를 경계하며 매파적 수사를 강화하거나, 이란 관련 지정학 리스크가 추가로 격화돼 유가가 더 오르면 → Quality 대형주·현금 비중을 지키고 레버리지를 축소하는 편이 유리하다.<br>
+        <strong>③ Neutral(베이스) 시나리오</strong> — FOMC 결과와 실적이 컨센서스에서 크게 벗어나지 않으면 → 금요일 Chicago PMI·미시간 소비자심리 확정치로 재확인하며 기존 포지션을 유지한다.<br><br>
+        주말 비트코인의 레버리지 청산(청산액 중 95%가 롱)과 스팟 ETF 순유출은 위험선호 심리가 이미 한 차례 식었음을 보여주는 선행 신호로, 월요일 개장 전 보수적인 포지셔닝 출발점을 시사한다. 수요일 FOMC 전까지는 신규 베팅보다 현재 비중을 지키며 유가·금리·실적 세 축을 동시에 관찰하는 것이 가장 효율적인 대응이다.
+      </div>
+      <div class="chips">
+        <div class="chip">Bear</div>
+        <div class="chip active">Neutral</div>
+        <div class="chip">Bull</div>
+      </div>
+      <div class="disclaimer">본 브리핑은 정보 제공 목적이며 투자 자문이 아닙니다.</div>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="section">
+    <div class="section-title"><span class="badge-num">SRC</span>Sources</div>
+    <div class="sources">
+      <div class="summary-line">지수 종가 출처: AP통신(Associated Press) 와이어 — Yahoo Finance·96.5 KRMG 재게재본 완전 일치 교차확인</div>
+      <div class="summary-line">SOXX 출처: Alpha Vantage GLOBAL_QUOTE(공식 API, latest trading day 2026-10-23 확인)</div>
+      <div class="summary-line">뉴스 출처: CNBC·WION·Sharjah24(WAM)(유가) · Time.news·CoinCodex(비트코인) · InsiderFinance(알파벳) · Amazon 공식 IR(아마존) · InvestingLive(CPI)</div>
+      <ul>
+        <li><span class="check">✅</span> S&amp;P500·Nasdaq·Dow 10/23(금) 종가·등락률·등락폭: AP통신 원문을 Yahoo Finance와 96.5 KRMG 두 재게재 경로에서 완전히 동일한 수치로 교차확인(S&amp;P 7,623.68 -0.5%, Dow 52,215.16 -1.2%, Nasdaq 25,955.34 -0.2%). 등락폭/등락률 정합성 검산 완료.</li>
+        <li><span class="check">✅</span> SOXX 10/23(금) 종가 478.20(+2.51, +0.53%): Alpha Vantage GLOBAL_QUOTE 공식 API, latest trading day가 2026-10-23으로 정규장 마감 종가임을 확인</li>
+        <li><span class="warn">⚠️</span> Alpha Vantage MARKET_STATUS·TREASURY_YIELD: 당일 하루 호출 한도(25회) 초과로 레이트리밋 발생, 0-3e 규칙에 따라 WebSearch로 대체</li>
+        <li><span class="check">✅</span> Brent 원유 $116.72(금요일 +3.14%, 6개월 최고): CNBC·WION·Sharjah24(WAM 인용) 3개 독립 매체 교차확인</li>
+        <li><span class="warn">⚠️</span> 10년물 국채금리: AP통신(4.99%, 금요일 마감 기준)과 Time.news(5.08%, 참고 인용) 간 소스 괴리 — 대표값은 금요일 마감 시점 기준인 AP통신 4.99%를 채택</li>
+        <li><span class="warn">⚠️</span> 비트코인 주말 가격대($85,000 중반 고점 → $79,146 토요일 저점 → $80,800대 일요일 회복) 및 청산액 8.1억 달러: Time.news 1개 기사 내 Coinglass 인용 수치, 구간별 총액 표기가 다소 혼재되어 있어 단일소스로 표기</li>
+        <li><span class="check">✅</span> 알파벳 10/28(수) 장마감 후 실적, 콜 4:30 PM ET: InsiderFinance(10/19) 프리뷰 기사</li>
+        <li><span class="check">✅</span> 아마존 10/29(목) 실적, 콜 5:00 PM ET(태평양 2:00 PM): Amazon 공식 IR 발표(aboutamazon.com) 1차 소스</li>
+        <li><span class="check">✅</span> FOMC 10/27~28 회의, 금리 결정 10/28 2:00 PM ET, 기자회견 2:30 PM ET: fedratecalc.com(연준 공식 캘린더 인용)</li>
+        <li><span class="check">✅</span> 9월 CPI 전년比 +3.7%(예상 3.6% 상회, 10/14 발표): InvestingLive · CPI Inflation Calculator 교차확인</li>
+        <li><span class="warn">⚠️</span> 이번 주 캘린더 중 Q3 GDP 속보치·9월 PCE 동시 발표(10/29 8:30 AM ET) 및 Conference Board 소비자신뢰지수(10/27)·Chicago PMI·미시간 소비자심리 확정치(10/30) 일정: thriveinmarkets.com·financecalendar.com 등 캘린더 집계 사이트 기반으로, 공식 BEA·Conference Board 1차 소스까지는 직접 대조하지 못해 참고용으로 표기</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>© 2026 LUPE · Market Alpha Briefing · Helios Momentum Strategy</div>
+    <div>생성일시: 2026-10-26 08:32 KST · 기준일: 2026-10-23(금) 정규장 · WEEKEND 모드 v1</div>
+  </div>
+
+</div>
+</body>
+</html>
